@@ -1,10 +1,62 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, CalendarDays, Mail, Send } from "lucide-react";
+import {
+  ArrowRight,
+  CalendarDays,
+  Facebook,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  Music2,
+  Phone,
+  Send,
+  Youtube,
+} from "lucide-react";
 
+import institutoMark from "@/assets/instituto-lavoro-mark.png";
 import newsHero from "@/assets/news-hero.jpg";
 import news1 from "@/assets/news-1.jpg";
 import news2 from "@/assets/news-2.jpg";
 import news3 from "@/assets/news-3.jpg";
+
+const offices = [
+  {
+    city: "Brasília",
+    address: "Edifício Ion – SGAN 601 Lote H, Salas 79 a 86, Piso Alta 1 – Térreo – Asa Norte, CEP: 70830-010",
+    phone: "(61) 3396-8100",
+  },
+  {
+    city: "São Paulo",
+    address:
+      "Edifício Philadelphia – Avenida Angélica, 1996, Cj 201 – Higienópolis, CEP: 01228-200",
+    phone: "(11) 3583-8030",
+  },
+  {
+    city: "Campinas",
+    address:
+      "Espaço Toulouse – Rua Doutor Emílio Ribas, 188, 3º andar – Cambuí, CEP: 13025-140",
+    phone: "(19) 3395-7700",
+  },
+];
+
+const footerMenu = [
+  "Início",
+  "Equipe",
+  "A LBS",
+  "Trabalhe Conosco",
+  "Áreas de Atuação",
+  "Política de Privacidade",
+  "Artigos e Notícias",
+  "Contato",
+];
+
+const socials = [
+  { label: "LinkedIn", Icon: Linkedin },
+  { label: "YouTube", Icon: Youtube },
+  { label: "Instagram", Icon: Instagram },
+  { label: "Facebook", Icon: Facebook },
+  { label: "TikTok", Icon: Music2 },
+];
 
 const articles = [
   {
