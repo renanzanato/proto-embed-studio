@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { CalendarDays, Facebook, Instagram, Linkedin, MapPin, Music2, Phone, Youtube } from "lucide-react";
 
 const offices = [
@@ -22,14 +23,14 @@ const offices = [
 ];
 
 const footerMenu = [
-  "Início",
-  "Equipe",
-  "A LBS",
-  "Trabalhe Conosco",
-  "Áreas de Atuação",
-  "Política de Privacidade",
-  "Artigos e Notícias",
-  "Contato",
+  { label: "Início", to: "/" },
+  { label: "Equipe", to: "/" },
+  { label: "A LBS", to: "/" },
+  { label: "Trabalhe Conosco", to: "/" },
+  { label: "Áreas de Atuação", to: "/atuacao" },
+  { label: "Política de Privacidade", to: "/" },
+  { label: "Artigos e Notícias", to: "/" },
+  { label: "Contato", to: "/" },
 ];
 
 const socials = [
@@ -89,13 +90,13 @@ export function SiteFooter() {
             <h3 className="text-[11px] uppercase tracking-[0.16em] text-lbs-magenta">Menu</h3>
             <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3">
               {footerMenu.map((item) => (
-                <a
-                  key={item}
-                  href="/"
+                <Link
+                  key={item.label}
+                  to={item.to}
                   className="text-[10px] text-white/65 transition-colors hover:text-white"
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </Link>
               ))}
             </div>
 
