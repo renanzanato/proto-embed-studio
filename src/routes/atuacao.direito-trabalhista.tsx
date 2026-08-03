@@ -274,6 +274,100 @@ function DireitoTrabalhistaPage() {
         </div>
       </section>
 
+      {/* ADVOGADOS ESPECIALIZADOS */}
+      <section className="w-full bg-lbs-ink py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          <h2 className="text-[28px] font-light leading-[1.15] tracking-tight text-white sm:text-[36px]">
+            Advogados Especializados
+          </h2>
+          <p className="mt-3 text-[13px] leading-[1.7] text-white/55">
+            Conheça os profissionais que atuam nesta área
+          </p>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {lawyers.map(({ name, role, oab, tags, image }) => (
+              <article key={name} className="flex flex-col overflow-hidden rounded-[6px] bg-[#111]">
+                <div className="relative aspect-[4/3] overflow-hidden">
+                  <img
+                    src={image}
+                    alt={`Foto de ${name}`}
+                    width={800}
+                    height={600}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute bottom-3 left-3 flex flex-wrap gap-1.5">
+                    {tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-[3px] border border-white/30 bg-black/60 px-2 py-1 text-[9px] text-white backdrop-blur-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="text-[16px] font-normal text-white">{name}</h3>
+                  <p className="mt-1 text-[12px] text-lbs-magenta">{role}</p>
+                  <p className="mt-3 text-[10px] leading-[1.6] text-white/50">{oab}</p>
+                  <button className="mt-5 w-full rounded-[4px] bg-lbs-magenta py-2.5 text-[11px] text-white transition-opacity hover:opacity-90">
+                    Ver perfil completo
+                  </button>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PUBLICAÇÕES RELACIONADAS */}
+      <section className="w-full bg-white py-16 sm:py-20">
+        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          <h2 className="text-[28px] font-light leading-[1.15] tracking-tight text-lbs-ink sm:text-[36px]">
+            Publicações Relacionadas
+          </h2>
+          <p className="mt-3 text-[13px] leading-[1.7] text-black/55">
+            Artigos e insights do nosso blog sobre Direito Trabalhista
+          </p>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {publications.map(({ title, excerpt, tag, date, image }) => (
+              <article key={title} className="flex flex-col overflow-hidden rounded-[6px] border border-black/8 bg-white">
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img
+                    src={image}
+                    alt={title}
+                    width={800}
+                    height={512}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <div className="flex items-center gap-3">
+                    <span className="rounded-[3px] bg-lbs-magenta/12 px-2 py-1 text-[9px] text-lbs-magenta">{tag}</span>
+                    <span className="flex items-center gap-1 text-[9px] text-black/45">
+                      <CalendarDays className="h-3 w-3" />
+                      {date}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 text-[15px] font-normal leading-[1.35] text-lbs-ink">{title}</h3>
+                  <p className="mt-3 text-[11px] leading-[1.65] text-black/55">{excerpt}</p>
+                  <Link
+                    to="/"
+                    className="mt-4 inline-flex items-center gap-1 text-[11px] text-lbs-magenta transition-opacity hover:opacity-70"
+                  >
+                    Leia mais
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <SiteFooter />
       <WhatsAppButton />
     </div>
