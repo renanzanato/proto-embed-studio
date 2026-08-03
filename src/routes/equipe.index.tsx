@@ -111,15 +111,16 @@ function EquipePage() {
                 <h3 className="mt-3 text-[14px] font-normal leading-snug text-lbs-ink">
                   {member.name}
                 </h3>
-                <p className="mt-1 text-[10px] text-lbs-magenta">Sócio</p>
+                <p className="mt-1 text-[10px] text-lbs-magenta">{member.role}</p>
                 <p className="mt-1 text-[9px] leading-[1.6] text-lbs-ink/50">{member.oab}</p>
 
-                <a
-                  href="/equipe"
+                <Link
+                  to="/equipe/$slug"
+                  params={{ slug: member.slug }}
                   className="mt-4 flex items-center justify-center bg-lbs-magenta px-4 py-2.5 text-[10px] text-white transition-opacity hover:opacity-85"
                 >
                   Ver perfil completo
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
