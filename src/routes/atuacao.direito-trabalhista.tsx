@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowLeft,
   ArrowRight,
+  CalendarDays,
   Check,
   FileText,
   Landmark,
@@ -12,6 +13,12 @@ import {
 } from "lucide-react";
 
 import areaTrabalhista from "@/assets/area-trabalhista.jpg";
+import blogEsg from "@/assets/blog-esg.jpg";
+import blogHomeOffice from "@/assets/blog-homeoffice.jpg";
+import blogReforma from "@/assets/blog-reforma.jpg";
+import lawyerGabriela from "@/assets/lawyer-gabriela.jpg";
+import lawyerGuilherme from "@/assets/lawyer-guillherme.jpg";
+import lawyerLoguercio from "@/assets/lawyer-loguercio.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
