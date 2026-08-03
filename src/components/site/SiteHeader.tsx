@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 
 const navItems = [
   { label: "Início", to: "/" },
-  { label: "A LBS", to: "/" },
+  { label: "A LBS", to: "/a-lbs" },
   { label: "Atuação", to: "/atuacao" },
   { label: "Artigos e Notícias", to: "/" },
   { label: "Equipe", to: "/equipe" },

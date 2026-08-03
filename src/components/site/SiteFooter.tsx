@@ -24,8 +24,8 @@ const offices = [
 
 const footerMenu = [
   { label: "Início", to: "/" },
-  { label: "Equipe", to: "/" },
-  { label: "A LBS", to: "/" },
+  { label: "Equipe", to: "/equipe" },
+  { label: "A LBS", to: "/a-lbs" },
   { label: "Trabalhe Conosco", to: "/" },
   { label: "Áreas de Atuação", to: "/atuacao" },
   { label: "Política de Privacidade", to: "/" },
