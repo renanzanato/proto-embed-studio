@@ -84,14 +84,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const navItems = [
-  { label: "Início", active: true },
-  { label: "A LBS", active: false },
-  { label: "Atuação", active: false },
-  { label: "Artigos e Notícias", active: false },
-  { label: "Equipe", active: false },
-  { label: "Contato", active: false },
-];
 
 function Index() {
   return (
