@@ -39,7 +39,7 @@ const navItems = [
 
 function Index() {
   return (
-    <div className="w-full overflow-x-hidden bg-lbs-ink">
+    <div className="min-h-screen w-full overflow-x-hidden bg-lbs-ink">
       {/* HERO */}
       <section className="relative isolate w-full overflow-hidden">
         {/* background photo + magenta wash */}
@@ -55,7 +55,7 @@ function Index() {
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(80% 90% at 18% 45%, color-mix(in oklab, var(--lbs-magenta) 55%, transparent) 0%, transparent 70%), linear-gradient(180deg, rgba(10,0,6,0.55) 0%, rgba(6,0,4,0.85) 65%, var(--lbs-ink) 100%)",
+                "radial-gradient(70% 75% at 12% 30%, color-mix(in oklab, var(--lbs-magenta) 42%, transparent) 0%, transparent 72%), radial-gradient(60% 60% at 92% 78%, color-mix(in oklab, var(--lbs-magenta) 26%, transparent) 0%, transparent 70%), linear-gradient(180deg, rgba(10,0,6,0.5) 0%, rgba(6,0,4,0.8) 60%, var(--lbs-ink) 100%)",
             }}
           />
         </div>
@@ -136,18 +136,36 @@ function Index() {
       </section>
 
       {/* SPLIT BAND */}
-      <section className="relative grid w-full grid-cols-1 sm:grid-cols-2">
-        <SplitCard
-          image={solucoesMetal}
-          alt="Painéis curvos de metal escovado em preto e branco"
-          title="Soluções"
-          clip="polygon(0 0, 100% 0, 74% 100%, 0 100%)"
-        />
-        <SplitCard
-          image={atuacaoOffice}
+      <section className="relative h-[300px] w-full overflow-hidden sm:h-[420px]">
+        <img
+          src={atuacaoOffice}
           alt="Escritório corporativo em preto e branco"
-          title="Áreas de Atuação"
+          loading="lazy"
+          width={1024}
+          height={1024}
+          className="absolute inset-0 h-full w-full object-cover grayscale"
         />
+        <div className="absolute inset-0 bg-lbs-ink/45" />
+        <div
+          className="absolute inset-y-0 left-0 w-[62%]"
+          style={{ clipPath: "polygon(0 0, 100% 0, 62% 100%, 0 100%)" }}
+        >
+          <img
+            src={solucoesMetal}
+            alt="Painéis curvos de metal escovado em preto e branco"
+            loading="lazy"
+            width={1024}
+            height={1024}
+            className="absolute inset-0 h-full w-full object-cover grayscale"
+          />
+          <div className="absolute inset-0 bg-lbs-ink/35" />
+        </div>
+        <div className="relative grid h-full w-full grid-cols-2 items-end pb-14">
+          <h2 className="text-center text-[20px] font-light text-white sm:text-[22px]">Soluções</h2>
+          <h2 className="text-center text-[20px] font-light text-white sm:text-[22px]">
+            Áreas de Atuação
+          </h2>
+        </div>
       </section>
 
       {/* WHATSAPP FLOATING BUTTON */}
@@ -162,36 +180,6 @@ function Index() {
           <path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.95 1.16-.17.2-.35.22-.65.07-.3-.15-1.12-.41-2.14-1.32-.79-.71-1.33-1.58-1.48-1.88-.15-.3-.02-.47.13-.62.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.19-.24-.57-.49-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.46s1.06 2.86 1.21 3.06c.15.2 2.06 3.28 5.06 4.47 2.5.99 2.86.83 3.38.78.52-.05 1.68-.68 1.92-1.35.24-.67.24-1.24.17-1.36-.07-.12-.27-.19-.57-.34ZM12.04 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.38 9.38 0 0 1-1.44-5 9.42 9.42 0 0 1 16.09-6.66 9.35 9.35 0 0 1 2.76 6.67c0 5.18-4.23 9.4-9.44 9.4Zm8.03-17.44A11.32 11.32 0 0 0 12.04.75C5.8.75.73 5.82.73 12.05c0 1.99.52 3.94 1.51 5.65L.6 23.25l5.7-1.49a11.3 11.3 0 0 0 5.74 1.55h.01c6.23 0 11.31-5.07 11.31-11.3 0-3.02-1.18-5.86-3.29-7.95Z" />
         </svg>
       </a>
-    </div>
-  );
-}
-
-function SplitCard({
-  image,
-  alt,
-  title,
-  clip,
-}: {
-  image: string;
-  alt: string;
-  title: string;
-  clip?: string;
-}) {
-  return (
-    <div className="relative h-[300px] w-full overflow-hidden sm:h-[420px]">
-      <img
-        src={image}
-        alt={alt}
-        loading="lazy"
-        width={1024}
-        height={1024}
-        className="absolute inset-0 h-full w-full object-cover grayscale"
-        style={clip ? { clipPath: clip } : undefined}
-      />
-      <div className="absolute inset-0 bg-lbs-ink/45" style={clip ? { clipPath: clip } : undefined} />
-      <div className="relative flex h-full w-full items-end justify-center pb-14">
-        <h2 className="text-[20px] font-light text-white sm:text-[22px]">{title}</h2>
-      </div>
     </div>
   );
 }
