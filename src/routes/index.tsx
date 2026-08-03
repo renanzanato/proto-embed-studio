@@ -1,22 +1,18 @@
 import { createFileRoute } from "@tanstack/react-router";
-import {
-  ArrowRight,
-  CalendarDays,
-  Facebook,
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  Music2,
-  Phone,
-  Send,
-  Youtube,
-} from "lucide-react";
+import { ArrowRight, CalendarDays, Mail, Send } from "lucide-react";
 
+import heroOffice from "@/assets/hero-office.jpg";
+import solucoesMetal from "@/assets/solucoes-metal.jpg";
+import atuacaoOffice from "@/assets/atuacao-office.jpg";
+import team1 from "@/assets/team-1.jpg";
+import team2 from "@/assets/team-2.jpg";
+import team3 from "@/assets/team-3.jpg";
 import newsHero from "@/assets/news-hero.jpg";
 import news1 from "@/assets/news-1.jpg";
 import news2 from "@/assets/news-2.jpg";
 import news3 from "@/assets/news-3.jpg";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
 const offices = [
   {
