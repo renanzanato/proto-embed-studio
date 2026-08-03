@@ -1,8 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ChevronsRight } from "lucide-react";
 
 import heroImage from "@/assets/a-lbs-hero.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+
+const values = [
+  {
+    title: "Pessoas",
+    description: "Desafiamos as pessoas a irem além, investindo no crescimento de cada profissional.",
+  },
+  {
+    title: "Cliente",
+    description: "Fazemos o melhor para o cliente, com foco total na entrega de resultados e valor.",
+  },
+  {
+    title: "Ética",
+    description: "Fazemos o que é certo. A integridade é o fundamento de cada relação e decisão.",
+  },
+  {
+    title: "Inovação",
+    description: "Inovamos para fazer a diferença, aproximando o direito das novas realidades.",
+  },
+  {
+    title: "Orgulho",
+    description: "Cuidamos da LBS diariamente, preservando nossa cultura e reputação.",
+  },
+];
 
 export const Route = createFileRoute("/a-lbs")({
   head: () => ({
@@ -66,6 +90,51 @@ function ALbsPage() {
               com excelência técnica, proximidade e coragem para defender causas que transformam
               pessoas e organizações.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* PROPÓSITO */}
+      <section className="w-full bg-lbs-ink">
+        <div className="mx-auto flex w-full max-w-[1200px] items-center gap-5 px-4 py-10 sm:px-6 sm:py-12 lg:gap-7 lg:px-8 lg:py-14">
+          <ChevronsRight className="h-8 w-8 shrink-0 text-lbs-magenta sm:h-9 sm:w-9 lg:h-10 lg:w-10" />
+          <p className="text-[13px] font-medium uppercase leading-[1.5] tracking-[0.04em] text-white sm:text-[15px] lg:text-[16px]">
+            Nosso{" "}
+            <span className="text-lbs-magenta">propósito</span>{" "}
+            é desenvolver inteligência jurídica para viabilizar negócios que transformam realidades.
+          </p>
+        </div>
+      </section>
+
+      <div className="h-[6px] w-full bg-lbs-magenta" />
+
+      {/* VALORES */}
+      <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[280px_1fr] lg:gap-14">
+            <h2 className="text-[24px] font-medium uppercase leading-[1.2] tracking-[0.02em] text-lbs-ink sm:text-[28px] lg:text-[30px]">
+              Conheça e vivencie
+              <br />
+              nossos valores
+            </h2>
+
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {values.map((value, index) => (
+                <div
+                  key={value.title}
+                  className={`border-t border-lbs-ink/10 pt-5 ${
+                    index === 0 ? "sm:col-span-2 lg:col-span-1" : ""
+                  }`}
+                >
+                  <h3 className="text-[12px] font-semibold uppercase tracking-[0.08em] text-lbs-ink">
+                    {value.title}
+                  </h3>
+                  <p className="mt-3 text-[12px] leading-[1.7] text-lbs-ink/60">
+                    {value.description}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
