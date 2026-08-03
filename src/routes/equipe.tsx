@@ -1,0 +1,83 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { Search } from "lucide-react";
+
+import equipeHero from "@/assets/equipe-hero.jpg";
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+
+export const Route = createFileRoute("/equipe")({
+  head: () => ({
+    meta: [
+      { title: "Nosso Time | LBS Advogadas e Advogados" },
+      {
+        name: "description",
+        content:
+          "Conheça as advogadas e advogados da LBS: profissionais altamente qualificados, com sólida formação acadêmica e experiência prática.",
+      },
+      { property: "og:title", content: "Nosso Time | LBS Advogadas e Advogados" },
+      {
+        property: "og:description",
+        content:
+          "Advogadas e advogados comprometidos com a excelência em diversas áreas de atuação.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/equipe" }],
+  }),
+  component: EquipePage,
+});
+
+function EquipePage() {
+  return (
+    <div className="min-h-screen w-full overflow-x-hidden bg-white">
+      {/* HERO */}
+      <section className="relative isolate w-full overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <img
+            src={equipeHero}
+            alt="Advogado apresentando um caso para clientes em escritório"
+            width={1600}
+            height={760}
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-white/78" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/55 to-white" />
+        </div>
+
+        <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 pt-5 sm:px-6 sm:pb-20 lg:px-8">
+          <div className="rounded-[14px] bg-black/40">
+            <SiteHeader active="Equipe" />
+          </div>
+
+          <div className="relative z-10 mt-16 max-w-[760px] sm:mt-20">
+            <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
+              Nosso time
+            </p>
+            <h1 className="mt-5 text-[32px] font-light leading-[1.18] tracking-tight text-lbs-ink sm:text-[42px] lg:text-[46px]">
+              Advogadas e advogados
+              <br className="hidden sm:block" /> comprometidos com a excelência
+            </h1>
+            <p className="mt-7 max-w-[460px] text-[13px] leading-[1.85] text-lbs-ink/65">
+              Nosso time é formado por profissionais altamente qualificados, com sólida formação
+              acadêmica e experiência prática em suas áreas de atuação.
+            </p>
+
+            <label className="mt-10 flex w-full max-w-[340px] items-center gap-3 rounded-[4px] border border-black/12 bg-white/90 px-4 py-3">
+              <Search className="h-4 w-4 shrink-0 text-lbs-ink/40" aria-hidden="true" />
+              <input
+                type="search"
+                placeholder="Buscar por nome ou especialidade..."
+                aria-label="Buscar por nome ou especialidade"
+                className="w-full bg-transparent text-[12.5px] text-lbs-ink placeholder:text-lbs-ink/40 focus:outline-none"
+              />
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <SiteFooter />
+      <WhatsAppButton />
+    </div>
+  );
+}
