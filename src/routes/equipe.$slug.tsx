@@ -109,7 +109,7 @@ function AdvogadoPage() {
               <div className="mt-7 border border-black/10 bg-[#f7f7f7] p-5">
                 <h2 className="text-[14px] font-normal text-lbs-ink">Especialidade</h2>
                 <div className="mt-4 flex flex-wrap gap-2">
-                  {member.tags.map((tag) => (
+                  {member.tags.map((tag: string) => (
                     <span
                       key={tag}
                       className="border border-black/15 bg-white px-2.5 py-[4px] text-[9px] text-lbs-ink/70"

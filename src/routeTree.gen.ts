@@ -15,6 +15,7 @@ import { Route as SolucoesRouteImport } from './routes/solucoes'
 import { Route as AtuacaoIndexRouteImport } from './routes/atuacao.index'
 import { Route as AtuacaoDireitoTrabalhistaRouteImport } from './routes/atuacao.direito-trabalhista'
 import { Route as EquipeIndexRouteImport } from './routes/equipe.index'
+import { Route as EquipeSlugRouteImport } from './routes/equipe.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -47,12 +48,18 @@ const EquipeIndexRoute = EquipeIndexRouteImport.update({
   path: '/equipe/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EquipeSlugRoute = EquipeSlugRouteImport.update({
+  id: '/equipe/$slug',
+  path: '/equipe/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
+  '/equipe/$slug': typeof EquipeSlugRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
 }
@@ -61,6 +68,7 @@ export interface FileRoutesByTo {
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
+  '/equipe/$slug': typeof EquipeSlugRoute
   '/atuacao': typeof AtuacaoIndexRoute
   '/equipe': typeof EquipeIndexRoute
 }
@@ -70,6 +78,7 @@ export interface FileRoutesById {
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
+  '/equipe/$slug': typeof EquipeSlugRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
 }
@@ -80,6 +89,7 @@ export interface FileRouteTypes {
     | '/prototipo-lbs'
     | '/solucoes'
     | '/atuacao/direito-trabalhista'
+    | '/equipe/$slug'
     | '/atuacao/'
     | '/equipe/'
   fileRoutesByTo: FileRoutesByTo
@@ -88,6 +98,7 @@ export interface FileRouteTypes {
     | '/prototipo-lbs'
     | '/solucoes'
     | '/atuacao/direito-trabalhista'
+    | '/equipe/$slug'
     | '/atuacao'
     | '/equipe'
   id:
@@ -96,6 +107,7 @@ export interface FileRouteTypes {
     | '/prototipo-lbs'
     | '/solucoes'
     | '/atuacao/direito-trabalhista'
+    | '/equipe/$slug'
     | '/atuacao/'
     | '/equipe/'
   fileRoutesById: FileRoutesById
@@ -105,6 +117,7 @@ export interface RootRouteChildren {
   PrototipoLbsRoute: typeof PrototipoLbsRoute
   SolucoesRoute: typeof SolucoesRoute
   AtuacaoDireitoTrabalhistaRoute: typeof AtuacaoDireitoTrabalhistaRoute
+  EquipeSlugRoute: typeof EquipeSlugRoute
   AtuacaoIndexRoute: typeof AtuacaoIndexRoute
   EquipeIndexRoute: typeof EquipeIndexRoute
 }
@@ -153,6 +166,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EquipeIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/equipe/$slug': {
+      id: '/equipe/$slug'
+      path: '/equipe/$slug'
+      fullPath: '/equipe/$slug'
+      preLoaderRoute: typeof EquipeSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -161,6 +181,7 @@ const rootRouteChildren: RootRouteChildren = {
   PrototipoLbsRoute: PrototipoLbsRoute,
   SolucoesRoute: SolucoesRoute,
   AtuacaoDireitoTrabalhistaRoute: AtuacaoDireitoTrabalhistaRoute,
+  EquipeSlugRoute: EquipeSlugRoute,
   AtuacaoIndexRoute: AtuacaoIndexRoute,
   EquipeIndexRoute: EquipeIndexRoute,
 }
