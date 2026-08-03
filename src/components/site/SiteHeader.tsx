@@ -6,7 +6,7 @@ const navItems = [
   { label: "A LBS", to: "/" },
   { label: "Atuação", to: "/atuacao" },
   { label: "Artigos e Notícias", to: "/" },
-  { label: "Equipe", to: "/" },
+  { label: "Equipe", to: "/equipe" },
   { label: "Contato", to: "/" },
 ];
 

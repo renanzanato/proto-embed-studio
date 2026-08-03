@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EquipeRouteImport } from './routes/equipe'
 import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
 import { Route as SolucoesRouteImport } from './routes/solucoes'
 import { Route as AtuacaoIndexRouteImport } from './routes/atuacao.index'
@@ -18,6 +19,11 @@ import { Route as AtuacaoDireitoTrabalhistaRouteImport } from './routes/atuacao.
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EquipeRoute = EquipeRouteImport.update({
+  id: '/equipe',
+  path: '/equipe',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrototipoLbsRoute = PrototipoLbsRouteImport.update({
@@ -44,6 +50,7 @@ const AtuacaoDireitoTrabalhistaRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/equipe': typeof EquipeRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
@@ -51,6 +58,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/equipe': typeof EquipeRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
@@ -59,6 +67,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/equipe': typeof EquipeRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
@@ -68,6 +77,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/equipe'
     | '/prototipo-lbs'
     | '/solucoes'
     | '/atuacao/direito-trabalhista'
@@ -75,6 +85,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/equipe'
     | '/prototipo-lbs'
     | '/solucoes'
     | '/atuacao/direito-trabalhista'
@@ -82,6 +93,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/equipe'
     | '/prototipo-lbs'
     | '/solucoes'
     | '/atuacao/direito-trabalhista'
@@ -90,6 +102,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EquipeRoute: typeof EquipeRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
   SolucoesRoute: typeof SolucoesRoute
   AtuacaoDireitoTrabalhistaRoute: typeof AtuacaoDireitoTrabalhistaRoute
@@ -103,6 +116,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/equipe': {
+      id: '/equipe'
+      path: '/equipe'
+      fullPath: '/equipe'
+      preLoaderRoute: typeof EquipeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/prototipo-lbs': {
@@ -138,6 +158,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EquipeRoute: EquipeRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
   SolucoesRoute: SolucoesRoute,
   AtuacaoDireitoTrabalhistaRoute: AtuacaoDireitoTrabalhistaRoute,
