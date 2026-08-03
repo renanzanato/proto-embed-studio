@@ -10,20 +10,15 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as EquipeRouteImport } from './routes/equipe'
 import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
 import { Route as SolucoesRouteImport } from './routes/solucoes'
 import { Route as AtuacaoIndexRouteImport } from './routes/atuacao.index'
 import { Route as AtuacaoDireitoTrabalhistaRouteImport } from './routes/atuacao.direito-trabalhista'
+import { Route as EquipeIndexRouteImport } from './routes/equipe.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const EquipeRoute = EquipeRouteImport.update({
-  id: '/equipe',
-  path: '/equipe',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrototipoLbsRoute = PrototipoLbsRouteImport.update({
@@ -47,66 +42,71 @@ const AtuacaoDireitoTrabalhistaRoute =
     path: '/atuacao/direito-trabalhista',
     getParentRoute: () => rootRouteImport,
   } as any)
+const EquipeIndexRoute = EquipeIndexRouteImport.update({
+  id: '/equipe/',
+  path: '/equipe/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/equipe': typeof EquipeRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/atuacao/': typeof AtuacaoIndexRoute
+  '/equipe/': typeof EquipeIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/equipe': typeof EquipeRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/atuacao': typeof AtuacaoIndexRoute
+  '/equipe': typeof EquipeIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/equipe': typeof EquipeRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/atuacao/': typeof AtuacaoIndexRoute
+  '/equipe/': typeof EquipeIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/equipe'
     | '/prototipo-lbs'
     | '/solucoes'
     | '/atuacao/direito-trabalhista'
     | '/atuacao/'
+    | '/equipe/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/equipe'
     | '/prototipo-lbs'
     | '/solucoes'
     | '/atuacao/direito-trabalhista'
     | '/atuacao'
+    | '/equipe'
   id:
     | '__root__'
     | '/'
-    | '/equipe'
     | '/prototipo-lbs'
     | '/solucoes'
     | '/atuacao/direito-trabalhista'
     | '/atuacao/'
+    | '/equipe/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  EquipeRoute: typeof EquipeRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
   SolucoesRoute: typeof SolucoesRoute
   AtuacaoDireitoTrabalhistaRoute: typeof AtuacaoDireitoTrabalhistaRoute
   AtuacaoIndexRoute: typeof AtuacaoIndexRoute
+  EquipeIndexRoute: typeof EquipeIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -116,13 +116,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/equipe': {
-      id: '/equipe'
-      path: '/equipe'
-      fullPath: '/equipe'
-      preLoaderRoute: typeof EquipeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/prototipo-lbs': {
@@ -153,17 +146,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AtuacaoDireitoTrabalhistaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/equipe/': {
+      id: '/equipe/'
+      path: '/equipe'
+      fullPath: '/equipe/'
+      preLoaderRoute: typeof EquipeIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  EquipeRoute: EquipeRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
   SolucoesRoute: SolucoesRoute,
   AtuacaoDireitoTrabalhistaRoute: AtuacaoDireitoTrabalhistaRoute,
   AtuacaoIndexRoute: AtuacaoIndexRoute,
+  EquipeIndexRoute: EquipeIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

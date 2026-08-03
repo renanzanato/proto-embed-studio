@@ -65,7 +65,7 @@ const members = [
 ];
 
 
-export const Route = createFileRoute("/equipe")({
+export const Route = createFileRoute("/equipe/")({
   head: () => ({
     meta: [
       { title: "Nosso Time | LBS Advogadas e Advogados" },
