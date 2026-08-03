@@ -1,8 +1,32 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { ChevronsRight } from "lucide-react";
 
 import heroImage from "@/assets/a-lbs-hero.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+
+const values = [
+  {
+    title: "Pessoas",
+    description: "Desafiamos as pessoas a irem além, investindo no crescimento de cada profissional.",
+  },
+  {
+    title: "Cliente",
+    description: "Fazemos o melhor para o cliente, com foco total na entrega de resultados e valor.",
+  },
+  {
+    title: "Ética",
+    description: "Fazemos o que é certo. A integridade é o fundamento de cada relação e decisão.",
+  },
+  {
+    title: "Inovação",
+    description: "Inovamos para fazer a diferença, aproximando o direito das novas realidades.",
+  },
+  {
+    title: "Orgulho",
+    description: "Cuidamos da LBS diariamente, preservando nossa cultura e reputação.",
+  },
+];
 
 export const Route = createFileRoute("/a-lbs")({
   head: () => ({
