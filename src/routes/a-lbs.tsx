@@ -50,12 +50,12 @@ function ALbsPage() {
           style={{ background: "radial-gradient(circle, var(--lbs-magenta) 0%, transparent 70%)" }}
         />
 
-        <div className="mx-auto w-full max-w-[1200px] px-4 pb-20 pt-5 sm:px-6 sm:pb-28 lg:px-8">
+        <div className="mx-auto w-full max-w-[1200px] px-4 pb-28 pt-5 sm:px-6 sm:pb-36 lg:px-8">
           <div className="rounded-[14px] bg-black/40">
             <SiteHeader active="A LBS" />
           </div>
 
-          <div className="relative z-10 mt-16 max-w-[780px] sm:mt-24">
+          <div className="relative z-10 mt-20 max-w-[780px] sm:mt-28 lg:mt-32">
             <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">A LBS</p>
             <h1 className="mt-5 text-[34px] font-light leading-[1.15] tracking-tight text-white sm:text-[46px] lg:text-[54px]">
               Excelência jurídica
