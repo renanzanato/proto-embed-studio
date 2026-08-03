@@ -55,7 +55,7 @@ function Index() {
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(70% 75% at 12% 30%, color-mix(in oklab, var(--lbs-magenta) 42%, transparent) 0%, transparent 72%), radial-gradient(60% 60% at 92% 78%, color-mix(in oklab, var(--lbs-magenta) 26%, transparent) 0%, transparent 70%), linear-gradient(180deg, rgba(10,0,6,0.5) 0%, rgba(6,0,4,0.8) 60%, var(--lbs-ink) 100%)",
+                "radial-gradient(70% 75% at 12% 30%, color-mix(in oklab, var(--lbs-magenta) 34%, transparent) 0%, transparent 72%), radial-gradient(60% 60% at 92% 78%, color-mix(in oklab, var(--lbs-magenta) 20%, transparent) 0%, transparent 70%), linear-gradient(180deg, rgba(10,0,6,0.5) 0%, rgba(6,0,4,0.8) 60%, var(--lbs-ink) 100%)",
             }}
           />
         </div>
@@ -63,9 +63,9 @@ function Index() {
         {/* organic black blob behind the headline */}
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-[6%] -z-[5] h-[62%] w-[78%] -translate-x-1/2 bg-lbs-ink/95 blur-[2px]"
+          className="pointer-events-none absolute left-[26%] top-[3%] -z-[5] h-[52%] w-[52%] bg-lbs-ink blur-[3px]"
           style={{
-            borderRadius: "48% 52% 44% 56% / 56% 44% 58% 42%",
+            borderRadius: "44% 40% 46% 52% / 48% 44% 50% 46%",
           }}
         />
 
