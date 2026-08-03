@@ -82,6 +82,57 @@ const otherAreas = [
   { label: "Direito Tributário", to: "/atuacao", Icon: FileText },
 ];
 
+const lawyers = [
+  {
+    name: "José Eymard Loguercio",
+    role: "Sócio",
+    oab: "OAB/SP nº 182.358 e OAB/DF nº 144.142-A",
+    tags: ["Trabalhista", "Tribunais Superiores"],
+    image: lawyerLoguercio,
+  },
+  {
+    name: "Gabriela Marina Soares da Mata",
+    role: "Advogada Associada",
+    oab: "OAB/DF nº 69.159",
+    tags: ["Trabalhista"],
+    image: lawyerGabriela,
+  },
+  {
+    name: "Guilherme Gomes Dalle Luche",
+    role: "Advogado Associado",
+    oab: "OAB/SP nº 492.737",
+    tags: ["Trabalhista"],
+    image: lawyerGuilherme,
+  },
+];
+
+const publications = [
+  {
+    title: "Reforma Trabalhista: 5 Anos de Mudanças e Impactos",
+    excerpt:
+      "Análise das principais alterações da Reforma Trabalhista de 2017 e seus efeitos práticos nas relações de trabalho no Brasil.",
+    tag: "Trabalhista",
+    date: "16 de nov. de 2025",
+    image: blogReforma,
+  },
+  {
+    title: "Home Office e Trabalho Híbrido: Aspectos Jurídicos",
+    excerpt:
+      "Como estruturar políticas de trabalho remoto em conformidade com a legislação trabalhista e evitar passivos futuros.",
+    tag: "Guia Prático",
+    date: "07 de out. de 2025",
+    image: blogHomeOffice,
+  },
+  {
+    title: "Compliance Trabalhista na Era ESG",
+    excerpt:
+      "A importância da conformidade trabalhista nos critérios ambientais, sociais e de governança corporativa.",
+    tag: "Tendências",
+    date: "21 de set. de 2025",
+    image: blogEsg,
+  },
+];
+
 export const Route = createFileRoute("/atuacao/direito-trabalhista")({
   head: () => ({
     meta: [
