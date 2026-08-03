@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
 import { Route as AtuacaoIndexRouteImport } from './routes/atuacao.index'
+import { Route as AtuacaoDireitoTrabalhistaRouteImport } from './routes/atuacao.direito-trabalhista'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -28,34 +29,50 @@ const AtuacaoIndexRoute = AtuacaoIndexRouteImport.update({
   path: '/atuacao/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AtuacaoDireitoTrabalhistaRoute =
+  AtuacaoDireitoTrabalhistaRouteImport.update({
+    id: '/atuacao/direito-trabalhista',
+    path: '/atuacao/direito-trabalhista',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
+  '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/atuacao/': typeof AtuacaoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
+  '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/atuacao': typeof AtuacaoIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
+  '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/atuacao/': typeof AtuacaoIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/prototipo-lbs' | '/atuacao/'
+  fullPaths:
+    '/' | '/prototipo-lbs' | '/atuacao/direito-trabalhista' | '/atuacao/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/prototipo-lbs' | '/atuacao'
-  id: '__root__' | '/' | '/prototipo-lbs' | '/atuacao/'
+  to: '/' | '/prototipo-lbs' | '/atuacao/direito-trabalhista' | '/atuacao'
+  id:
+    | '__root__'
+    | '/'
+    | '/prototipo-lbs'
+    | '/atuacao/direito-trabalhista'
+    | '/atuacao/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
+  AtuacaoDireitoTrabalhistaRoute: typeof AtuacaoDireitoTrabalhistaRoute
   AtuacaoIndexRoute: typeof AtuacaoIndexRoute
 }
 
@@ -82,24 +99,22 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AtuacaoIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/atuacao/direito-trabalhista': {
+      id: '/atuacao/direito-trabalhista'
+      path: '/atuacao/direito-trabalhista'
+      fullPath: '/atuacao/direito-trabalhista'
+      preLoaderRoute: typeof AtuacaoDireitoTrabalhistaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
+  AtuacaoDireitoTrabalhistaRoute: AtuacaoDireitoTrabalhistaRoute,
   AtuacaoIndexRoute: AtuacaoIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}

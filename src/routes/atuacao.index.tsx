@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
   Briefcase,
@@ -14,7 +14,12 @@ import heroOffice from "@/assets/hero-office.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
-const areas = [
+const areas: {
+  Icon: typeof Landmark;
+  title: string;
+  text: string;
+  to?: "/atuacao/direito-trabalhista";
+}[] = [
   {
     Icon: Landmark,
     title: "Direito Empresarial",
@@ -24,6 +29,7 @@ const areas = [
     Icon: Users,
     title: "Direito Trabalhista",
     text: "Atuação preventiva e contenciosa em questões trabalhistas e previdenciárias.",
+    to: "/atuacao/direito-trabalhista",
   },
   {
     Icon: Scale,
@@ -125,7 +131,7 @@ function AtuacaoPage() {
       {/* GRID DE ÁREAS */}
       <section className="w-full bg-white py-16 sm:py-20">
         <div className="mx-auto grid w-full max-w-[1200px] gap-6 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          {areas.map(({ Icon, title, text }) => (
+          {areas.map(({ Icon, title, text, to }) => (
             <article
               key={title}
               className="rounded-[6px] border border-black/8 bg-[#fafafa] p-7 transition-shadow hover:shadow-[0_10px_30px_-18px_rgba(0,0,0,0.4)]"
@@ -139,13 +145,13 @@ function AtuacaoPage() {
               <p className="mt-5 max-w-[400px] text-[12.5px] leading-[1.9] text-black/55">
                 {text}
               </p>
-              <a
-                href="/"
+              <Link
+                to={to ?? "/atuacao"}
                 className="mt-5 inline-flex items-center gap-1.5 text-[11px] text-lbs-magenta transition-opacity hover:opacity-70"
               >
                 Saiba mais
                 <ArrowRight className="h-3 w-3" />
-              </a>
+              </Link>
             </article>
           ))}
         </div>
