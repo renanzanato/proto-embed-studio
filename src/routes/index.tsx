@@ -4,6 +4,30 @@ import { CalendarDays, Mail, Send } from "lucide-react";
 import heroOffice from "@/assets/hero-office.jpg";
 import solucoesMetal from "@/assets/solucoes-metal.jpg";
 import atuacaoOffice from "@/assets/atuacao-office.jpg";
+import team1 from "@/assets/team-1.jpg";
+import team2 from "@/assets/team-2.jpg";
+import team3 from "@/assets/team-3.jpg";
+
+const team = [
+  {
+    name: "José Eymard Loguercio",
+    role: "Sócio",
+    oab: "OAB/SP nº 113250 e OAB/DF nº 1441-A",
+    photo: team1,
+  },
+  {
+    name: "Nilo Beiro",
+    role: "Sócio",
+    oab: "OAB/SP nº 108720 e OAB/DF nº 23405",
+    photo: team2,
+  },
+  {
+    name: "Eduardo Surian Matias",
+    role: "Sócio",
+    oab: "OAB/SP nº 93422 e OAB/DF nº 23.400",
+    photo: team3,
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -165,6 +189,65 @@ function Index() {
           <h2 className="text-center text-[20px] font-light text-white sm:text-[22px]">
             Áreas de Atuação
           </h2>
+        </div>
+      </section>
+
+      {/* QUEM SOMOS */}
+      <section className="w-full bg-white">
+        <div className="mx-auto w-full max-w-[900px] px-6 py-16 text-center sm:py-20">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">Quem somos</p>
+          <h2 className="mx-auto mt-5 max-w-[760px] text-[22px] font-normal leading-[1.35] text-lbs-ink sm:text-[27px]">
+            Da atuação individual ao litígio coletivo estratégico, conduzimos conflitos complexos
+            com impacto social
+          </h2>
+          <p className="mx-auto mt-5 max-w-[620px] text-[12px] leading-[1.7] text-lbs-ink/70 sm:text-[13px]">
+            Com experiência consolidada e compromisso com a excelência, dialogamos com o presente e
+            o futuro do direito.
+          </p>
+        </div>
+      </section>
+
+      {/* EQUIPE */}
+      <section className="w-full bg-lbs-ink">
+        <div className="mx-auto w-full max-w-[1100px] px-6 py-16 sm:py-20">
+          <h2 className="text-center text-[24px] font-light leading-[1.35] text-white sm:text-[30px]">
+            Nossa equipe está apta a prestar excelente
+            <br />
+            <span className="text-lbs-magenta-soft">atendimento aos clientes</span>
+          </h2>
+
+          <ul className="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+            {team.map((member) => (
+              <li key={member.name} className="flex flex-col">
+                <img
+                  src={member.photo}
+                  alt={`Retrato de ${member.name}`}
+                  loading="lazy"
+                  width={640}
+                  height={760}
+                  className="h-[230px] w-full object-cover object-top"
+                  style={{
+                    clipPath:
+                      "polygon(0 26px, 26px 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%)",
+                  }}
+                />
+                <div className="border border-white/12 bg-white/[0.04] px-5 py-4">
+                  <p className="text-[13px] text-white">{member.name}</p>
+                  <p className="mt-1 text-[11px] text-lbs-magenta-soft">{member.role}</p>
+                  <p className="mt-2.5 text-[10px] text-white/60">{member.oab}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-11 flex justify-center">
+            <a
+              href="/"
+              className="rounded-[7px] border border-lbs-magenta px-5 py-2.5 text-[11px] text-lbs-magenta-soft transition-colors hover:bg-lbs-magenta hover:text-white"
+            >
+              Conheça toda a equipe
+            </a>
+          </div>
         </div>
       </section>
 
