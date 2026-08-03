@@ -420,14 +420,38 @@ function Index() {
       >
         <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-4">
-            <img
-              src={institutoMark}
-              alt="Marca do Instituto Lavoro"
-              loading="lazy"
-              width={512}
-              height={512}
-              className="h-20 w-20 shrink-0 object-contain"
-            />
+            <svg viewBox="0 0 100 100" className="h-20 w-20 shrink-0 text-white" aria-hidden="true">
+              <circle
+                cx="50"
+                cy="50"
+                r="38"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="7"
+                strokeLinecap="round"
+                strokeDasharray="215 24"
+                transform="rotate(-25 50 50)"
+              />
+              <g stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
+                {[0, 60, 120].map((a) => (
+                  <line
+                    key={a}
+                    x1="50"
+                    y1="30"
+                    x2="50"
+                    y2="70"
+                    transform={`rotate(${a} 50 50)`}
+                  />
+                ))}
+                {[0, 60, 120, 180, 240, 300].map((a) => (
+                  <g key={`b-${a}`} transform={`rotate(${a} 50 50)`}>
+                    <line x1="50" y1="34" x2="55" y2="39" />
+                    <line x1="50" y1="34" x2="45" y2="39" />
+                  </g>
+                ))}
+              </g>
+              <circle cx="50" cy="50" r="3.4" fill="currentColor" />
+            </svg>
             <span className="text-[26px] font-light leading-[1.05] tracking-[0.02em] text-white">
               INSTITUTO
               <br />
