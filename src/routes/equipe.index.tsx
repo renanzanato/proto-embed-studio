@@ -1,68 +1,12 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Search } from "lucide-react";
 
 import equipeHero from "@/assets/equipe-hero.jpg";
-import teamNilo from "@/assets/team-nilo.jpg";
-import teamLoguercio from "@/assets/lawyer-loguercio.jpg";
-import teamEduardo from "@/assets/team-eduardo.jpg";
-import teamFernanda from "@/assets/team-fernanda.jpg";
-import teamAline from "@/assets/team-aline.jpg";
-import teamCarlos from "@/assets/team-carlos.jpg";
-import teamDaniela from "@/assets/team-daniela.jpg";
-import teamCamilla from "@/assets/team-camilla.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+import { teamMembers as members } from "@/data/equipe";
 
-const members = [
-  {
-    name: "Nilo Beiro",
-    image: teamNilo,
-    tags: ["Sindical", "Financeiro"],
-    oab: "OAB/SP nº 108120 e OAB/DF nº 23405",
-  },
-  {
-    name: "José Eymard Loguercio",
-    image: teamLoguercio,
-    tags: ["Trabalhista", "Tribunais Superiores"],
-    oab: "OAB/DF nº 10230 e OAB/SP nº 14914",
-  },
-  {
-    name: "Eduardo Surian Matias",
-    image: teamEduardo,
-    tags: ["Sindical", "Direito do Trabalho"],
-    oab: "OAB/SP nº 92402 e OAB/DF nº 23400",
-  },
-  {
-    name: "Fernanda Caldas Giorgi",
-    image: teamFernanda,
-    tags: ["Tributário"],
-    oab: "OAB/SP nº 189318 e OAB/RS nº 47041",
-  },
-  {
-    name: "Aline Carla Lopes Bellotti",
-    image: teamAline,
-    tags: ["Consumidor"],
-    oab: "OAB/SP nº 325405 e OAB/DF nº 41830",
-  },
-  {
-    name: "Carlos Fernandes Coninck Júnior",
-    image: teamCarlos,
-    tags: ["Civil", "Sindical"],
-    oab: "OAB/DF nº 51019",
-  },
-  {
-    name: "Daniela Costa Gerelli",
-    image: teamDaniela,
-    tags: ["Civil", "Família"],
-    oab: "OAB/SP nº 388192 e OAB/DF nº 61769",
-  },
-  {
-    name: "Camilla Louise Galdino Cândido",
-    image: teamCamilla,
-    tags: ["Civil", "Família"],
-    oab: "OAB/DF nº 38404",
-  },
-];
+
 
 
 export const Route = createFileRoute("/equipe/")({
