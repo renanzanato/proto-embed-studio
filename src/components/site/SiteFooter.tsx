@@ -90,13 +90,13 @@ export function SiteFooter() {
             <h3 className="text-[11px] uppercase tracking-[0.16em] text-lbs-magenta">Menu</h3>
             <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3">
               {footerMenu.map((item) => (
-                <a
-                  key={item}
-                  href="/"
+                <Link
+                  key={item.label}
+                  to={item.to}
                   className="text-[10px] text-white/65 transition-colors hover:text-white"
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </Link>
               ))}
             </div>
 
