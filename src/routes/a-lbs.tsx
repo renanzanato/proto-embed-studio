@@ -31,7 +31,7 @@ function ALbsPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       {/* HERO */}
-      <section className="relative isolate w-full overflow-hidden">
+      <section className="relative isolate flex min-h-[600px] w-full items-end overflow-hidden sm:min-h-[700px]">
         <div className="absolute inset-0 -z-10">
           <img
             src={heroImage}
