@@ -136,8 +136,55 @@ function EquipePage() {
         </div>
       </section>
 
+      {/* GRADE DA EQUIPE */}
+      <section className="w-full bg-white pb-20">
+        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          <ul className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+            {members.map((member) => (
+              <li key={member.name} className="flex flex-col">
+                <div className="aspect-[4/5] w-full overflow-hidden bg-black/5">
+                  <img
+                    src={member.image}
+                    alt={`Retrato de ${member.name}`}
+                    loading="lazy"
+                    width={640}
+                    height={640}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {member.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="border border-black/15 px-2 py-[3px] text-[8.5px] uppercase tracking-[0.08em] text-lbs-ink/70"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <h3 className="mt-3 text-[14px] font-normal leading-snug text-lbs-ink">
+                  {member.name}
+                </h3>
+                <p className="mt-1 text-[10px] text-lbs-magenta">Sócio</p>
+                <p className="mt-1 text-[9px] leading-[1.6] text-lbs-ink/50">{member.oab}</p>
+
+                <a
+                  href="/equipe"
+                  className="mt-4 flex items-center justify-center bg-lbs-magenta px-4 py-2.5 text-[10px] text-white transition-opacity hover:opacity-85"
+                >
+                  Ver perfil completo
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <SiteFooter />
       <WhatsAppButton />
     </div>
   );
 }
+
