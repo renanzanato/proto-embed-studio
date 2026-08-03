@@ -10,17 +10,13 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AtuacaoRouteImport } from './routes/atuacao'
 import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
+import { Route as AtuacaoIndexRouteImport } from './routes/atuacao.index'
+import { Route as AtuacaoDireitoTrabalhistaRouteImport } from './routes/atuacao.direito-trabalhista'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AtuacaoRoute = AtuacaoRouteImport.update({
-  id: '/atuacao',
-  path: '/atuacao',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrototipoLbsRoute = PrototipoLbsRouteImport.update({
@@ -28,35 +24,56 @@ const PrototipoLbsRoute = PrototipoLbsRouteImport.update({
   path: '/prototipo-lbs',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AtuacaoIndexRoute = AtuacaoIndexRouteImport.update({
+  id: '/atuacao/',
+  path: '/atuacao/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AtuacaoDireitoTrabalhistaRoute =
+  AtuacaoDireitoTrabalhistaRouteImport.update({
+    id: '/atuacao/direito-trabalhista',
+    path: '/atuacao/direito-trabalhista',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/atuacao': typeof AtuacaoRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
+  '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
+  '/atuacao/': typeof AtuacaoIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/atuacao': typeof AtuacaoRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
+  '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
+  '/atuacao': typeof AtuacaoIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/atuacao': typeof AtuacaoRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
+  '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
+  '/atuacao/': typeof AtuacaoIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/atuacao' | '/prototipo-lbs'
+  fullPaths:
+    '/' | '/prototipo-lbs' | '/atuacao/direito-trabalhista' | '/atuacao/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/atuacao' | '/prototipo-lbs'
-  id: '__root__' | '/' | '/atuacao' | '/prototipo-lbs'
+  to: '/' | '/prototipo-lbs' | '/atuacao/direito-trabalhista' | '/atuacao'
+  id:
+    | '__root__'
+    | '/'
+    | '/prototipo-lbs'
+    | '/atuacao/direito-trabalhista'
+    | '/atuacao/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AtuacaoRoute: typeof AtuacaoRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
+  AtuacaoDireitoTrabalhistaRoute: typeof AtuacaoDireitoTrabalhistaRoute
+  AtuacaoIndexRoute: typeof AtuacaoIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,13 +85,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/atuacao': {
-      id: '/atuacao'
-      path: '/atuacao'
-      fullPath: '/atuacao'
-      preLoaderRoute: typeof AtuacaoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/prototipo-lbs': {
       id: '/prototipo-lbs'
       path: '/prototipo-lbs'
@@ -82,13 +92,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrototipoLbsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/atuacao/': {
+      id: '/atuacao/'
+      path: '/atuacao'
+      fullPath: '/atuacao/'
+      preLoaderRoute: typeof AtuacaoIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/atuacao/direito-trabalhista': {
+      id: '/atuacao/direito-trabalhista'
+      path: '/atuacao/direito-trabalhista'
+      fullPath: '/atuacao/direito-trabalhista'
+      preLoaderRoute: typeof AtuacaoDireitoTrabalhistaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AtuacaoRoute: AtuacaoRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
+  AtuacaoDireitoTrabalhistaRoute: AtuacaoDireitoTrabalhistaRoute,
+  AtuacaoIndexRoute: AtuacaoIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
