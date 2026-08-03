@@ -358,6 +358,131 @@ function Index() {
         </div>
       </section>
 
+      {/* INSTITUTO LAVORO */}
+      <section
+        className="w-full py-14"
+        style={{
+          background:
+            "linear-gradient(90deg, oklch(0.72 0.18 55) 0%, oklch(0.62 0.24 348) 45%, oklch(0.55 0.2 300) 70%, oklch(0.6 0.16 250) 100%)",
+        }}
+      >
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-4">
+            <img
+              src={institutoMark}
+              alt="Marca do Instituto Lavoro"
+              loading="lazy"
+              width={512}
+              height={512}
+              className="h-20 w-20 shrink-0 object-contain"
+            />
+            <span className="text-[26px] font-light leading-[1.05] tracking-[0.02em] text-white">
+              INSTITUTO
+              <br />
+              <strong className="font-semibold">LAVORO</strong>
+            </span>
+          </div>
+
+          <div className="max-w-md">
+            <p className="text-[12px] leading-[1.8] text-white/85">
+              O Instituto Lavoro é uma associação destinada a desenvolver e difundir estudos
+              científicos relacionados a temas das relações de trabalho em um contexto
+              transdisciplinar.
+            </p>
+            <a
+              href="/"
+              className="mt-5 inline-block border border-white/70 px-6 py-2.5 text-[11px] text-white transition-colors hover:bg-white/15"
+            >
+              Conheça o Instituto
+            </a>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-10 h-[2px] w-16 bg-white/70" />
+      </section>
+
+      {/* FOOTER */}
+      <footer className="w-full bg-lbs-ink pt-14 pb-6">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="flex items-end gap-3">
+            <span className="text-[38px] font-semibold leading-none tracking-[-0.02em] text-white">
+              LBS
+            </span>
+            <span className="pb-1 text-[10px] leading-[1.5] text-white/70">
+              Advogadas
+              <br />e Advogados
+            </span>
+          </div>
+
+          <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
+            <div>
+              <h2 className="text-[22px] font-light leading-[1.35] text-white">
+                Dialogando com o presente
+                <br />e o futuro do trabalho
+              </h2>
+              <a
+                href="/"
+                className="mt-6 inline-flex items-center gap-2 text-[11px] text-lbs-magenta transition-opacity hover:opacity-70"
+              >
+                <CalendarDays className="h-3.5 w-3.5" />
+                Agende um horário
+              </a>
+
+              <ul className="mt-10 grid gap-8 sm:grid-cols-3">
+                {offices.map((office) => (
+                  <li key={office.city}>
+                    <h3 className="text-[12px] font-medium text-white">{office.city}</h3>
+                    <p className="mt-3 flex gap-2 text-[10px] leading-[1.7] text-white/60">
+                      <MapPin className="mt-0.5 h-3 w-3 shrink-0 text-lbs-magenta" />
+                      {office.address}
+                    </p>
+                    <p className="mt-3 flex items-center gap-2 text-[10px] text-lbs-magenta">
+                      <Phone className="h-3 w-3" />
+                      {office.phone}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-[11px] uppercase tracking-[0.16em] text-lbs-magenta">Menu</h3>
+              <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3">
+                {footerMenu.map((item) => (
+                  <a
+                    key={item}
+                    href="/"
+                    className="text-[10px] text-white/65 transition-colors hover:text-white"
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+
+              <h3 className="mt-10 text-[11px] uppercase tracking-[0.16em] text-lbs-magenta">
+                Redes Sociais
+              </h3>
+              <div className="mt-5 flex gap-3">
+                {socials.map(({ label, Icon }) => (
+                  <a
+                    key={label}
+                    href="/"
+                    aria-label={label}
+                    className="flex h-9 w-9 items-center justify-center bg-white/8 text-white/80 transition-colors hover:bg-white/20 hover:text-white"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-12 border-t border-white/10 pt-5 text-center text-[9px] text-white/40">
+            © 2026 LBS Advogadas e Advogados. Todos os direitos reservados.
+          </p>
+        </div>
+      </footer>
+
       {/* WHATSAPP FLOATING BUTTON */}
       <a
         href="https://wa.me/"
