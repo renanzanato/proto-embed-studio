@@ -126,42 +126,7 @@ function Index() {
         />
 
         <div className="mx-auto w-full max-w-[1200px] px-4 pb-24 pt-5 sm:px-6 lg:px-8">
-          {/* HEADER PILL */}
-          <header className="relative z-10 flex items-center justify-between gap-4 rounded-[14px] border border-white/25 bg-black/25 px-5 py-3.5 backdrop-blur-md sm:px-7">
-            <a href="/" className="flex items-end gap-2.5">
-              <span className="text-[28px] font-bold leading-none tracking-tight text-white sm:text-[32px]">
-                LBS
-              </span>
-              <span className="hidden text-[11px] leading-[1.25] text-white/85 sm:block">
-                Advogadas
-                <br />e Advogados
-              </span>
-            </a>
-
-            <nav className="hidden items-center gap-6 lg:flex">
-              {navItems.map((item) => (
-                <a
-                  key={item.label}
-                  href="/"
-                  className={`text-[13px] text-white/85 transition-colors hover:text-white ${
-                    item.active ? "text-white underline underline-offset-[6px]" : ""
-                  }`}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </nav>
-
-            <a
-              href="/"
-              className="flex shrink-0 items-center gap-2 text-[13px] text-lbs-magenta-soft transition-opacity hover:opacity-80"
-            >
-              <span className="flex h-[22px] w-[22px] items-center justify-center rounded-[5px] bg-lbs-magenta">
-                <CalendarDays className="h-3.5 w-3.5 text-white" />
-              </span>
-              <span className="hidden sm:inline">Agende um horário</span>
-            </a>
-          </header>
+          <SiteHeader active="Início" />
 
           {/* HEADLINE */}
           <h1 className="relative z-10 mx-auto mt-[130px] max-w-[820px] text-center text-[34px] font-light leading-[1.18] tracking-tight text-white sm:mt-[150px] sm:text-[44px] lg:text-[52px]">
