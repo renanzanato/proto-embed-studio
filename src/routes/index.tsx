@@ -1,5 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CalendarDays, Mail, Send } from "lucide-react";
+import { ArrowRight, CalendarDays, Mail, Send } from "lucide-react";
+
+import newsHero from "@/assets/news-hero.jpg";
+import news1 from "@/assets/news-1.jpg";
+import news2 from "@/assets/news-2.jpg";
+import news3 from "@/assets/news-3.jpg";
+
+const articles = [
+  {
+    tag: "Mercado financeiro",
+    date: "15 de jul. de 2025",
+    title: "(A)gente do sistema financeiro - Agosto",
+    excerpt:
+      "Trabalhadores e trabalhadoras da indústria financeira: o cenário segue em mudança acelerada…",
+    image: news1,
+  },
+  {
+    tag: "Sindical",
+    date: "08 de out. de 2025",
+    title: "Acordo entre MPT e Poupex garante R$ 2,1 milhões em indenização",
+    excerpt:
+      "O Ministério Público do Trabalho do Distrito Federal (MPT-DF) e a Poupex firmaram…",
+    image: news2,
+  },
+  {
+    tag: "Trabalhista",
+    date: "08 de nov. de 2025",
+    title: "TST define que sindicatos de trabalhadores podem ajuizar dissídio",
+    excerpt: "O Pleno do Tribunal Superior do Trabalho julgou, na tarde de ontem, o incidente…",
+    image: news3,
+  },
+];
 
 import heroOffice from "@/assets/hero-office.jpg";
 import solucoesMetal from "@/assets/solucoes-metal.jpg";
@@ -248,6 +279,82 @@ function Index() {
               Conheça toda a equipe
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* ARTIGOS E NOTÍCIAS */}
+      <section className="w-full bg-white">
+        <div className="mx-auto w-full max-w-[1100px] px-6 py-16 sm:py-20">
+          <div className="grid gap-8 lg:grid-cols-2 lg:items-stretch">
+            <div className="flex flex-col">
+              <p className="text-[10px] uppercase tracking-[0.22em] text-lbs-magenta">Conteúdo</p>
+              <h2 className="mt-4 text-[26px] font-normal text-lbs-ink sm:text-[32px]">
+                Artigos e Notícias
+              </h2>
+              <article className="mt-8 flex flex-1 flex-col justify-center bg-lbs-magenta p-7">
+                <h3 className="max-w-[320px] text-[19px] font-normal leading-[1.3] text-white sm:text-[21px]">
+                  113ª Conferência Internacional do Trabalho
+                </h3>
+                <p className="mt-3 max-w-[360px] text-[11px] leading-[1.65] text-white/85">
+                  Anualmente, realiza-se em Genebra, a Conferência Internacional do Trabalho (CIT),
+                  instância deliberativa da OIT e maior…
+                </p>
+                <a
+                  href="/"
+                  className="mt-6 inline-flex w-fit items-center gap-2 border border-white/70 px-5 py-2.5 text-[11px] text-white transition-colors hover:bg-white hover:text-lbs-magenta"
+                >
+                  Assista na íntegra <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+              </article>
+            </div>
+
+            <img
+              src={newsHero}
+              alt="Representantes da LBS na Conferência Internacional do Trabalho"
+              loading="lazy"
+              width={900}
+              height={620}
+              className="h-full min-h-[280px] w-full object-cover"
+            />
+          </div>
+
+          <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {articles.map((article) => (
+              <li key={article.title} className="flex flex-col border border-lbs-ink/10">
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  loading="lazy"
+                  width={640}
+                  height={520}
+                  className="h-[150px] w-full object-cover"
+                />
+                <div className="flex flex-1 flex-col p-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <span className="bg-lbs-magenta/12 px-2 py-1 text-[8px] uppercase tracking-[0.14em] text-lbs-magenta">
+                      {article.tag}
+                    </span>
+                    <span className="flex items-center gap-1.5 text-[9px] text-lbs-ink/50">
+                      <CalendarDays className="h-3 w-3" />
+                      {article.date}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 text-[13px] font-medium leading-[1.45] text-lbs-ink">
+                    {article.title}
+                  </h3>
+                  <p className="mt-3 text-[10px] leading-[1.6] text-lbs-ink/60">
+                    {article.excerpt}
+                  </p>
+                  <a
+                    href="/"
+                    className="mt-5 text-[10px] text-lbs-magenta transition-opacity hover:opacity-70"
+                  >
+                    Leia mais →
+                  </a>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 
