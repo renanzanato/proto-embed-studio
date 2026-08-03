@@ -1,8 +1,42 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import solucoesHero from "@/assets/solucoes-hero.jpg";
+import solDefesa from "@/assets/sol-defesa.jpg";
+import solLitigios from "@/assets/sol-litigios.jpg";
+import solTribunais from "@/assets/sol-tribunais.jpg";
+import solParcerias from "@/assets/sol-parcerias.jpg";
+import solEmergentes from "@/assets/sol-emergentes.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+
+const solucoes = [
+  {
+    img: solDefesa,
+    title: "Defesa da pessoa que trabalha",
+    text: "Atuamos de forma contínua na defesa jurídica da pessoa que trabalha, considerando as múltiplas formas contemporâneas de vínculo laboral e proteção social.",
+  },
+  {
+    img: solLitigios,
+    title: "Litígios coletivos estruturados",
+    text: "Estruturamos e conduzimos litígios coletivos de grande escala, voltados à correção de violações sistemáticas de direitos e à produção de impacto institucional.",
+  },
+  {
+    img: solTribunais,
+    title: "Atuação em Tribunais Superiores e execuções complexas",
+    text: "Atuamos em contextos de elevada complexidade jurídica, especialmente quando o caso exige leitura sistêmica, consolidação de teses e segurança institucional.",
+  },
+  {
+    img: solParcerias,
+    title: "Parcerias jurídicas estratégicas",
+    text: "Atuamos em colaboração com outros escritórios quando a complexidade do caso exige estrutura, densidade técnica e capacidade operacional superiores.",
+  },
+  {
+    img: solEmergentes,
+    title: "Litígios estratégicos em temas emergentes",
+    text: "Atuamos em litígios estratégicos relacionados a conflitos jurídicos emergentes, ainda em processo de consolidação normativa e jurisprudencial.",
+  },
+];
+
 
 export const Route = createFileRoute("/solucoes")({
   head: () => ({
