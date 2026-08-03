@@ -14,45 +14,6 @@ import news3 from "@/assets/news-3.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
-const offices = [
-  {
-    city: "Brasília",
-    address: "Edifício Ion – SGAN 601 Lote H, Salas 79 a 86, Piso Alta 1 – Térreo – Asa Norte, CEP: 70830-010",
-    phone: "(61) 3396-8100",
-  },
-  {
-    city: "São Paulo",
-    address:
-      "Edifício Philadelphia – Avenida Angélica, 1996, Cj 201 – Higienópolis, CEP: 01228-200",
-    phone: "(11) 3583-8030",
-  },
-  {
-    city: "Campinas",
-    address:
-      "Espaço Toulouse – Rua Doutor Emílio Ribas, 188, 3º andar – Cambuí, CEP: 13025-140",
-    phone: "(19) 3395-7700",
-  },
-];
-
-const footerMenu = [
-  "Início",
-  "Equipe",
-  "A LBS",
-  "Trabalhe Conosco",
-  "Áreas de Atuação",
-  "Política de Privacidade",
-  "Artigos e Notícias",
-  "Contato",
-];
-
-const socials = [
-  { label: "LinkedIn", Icon: Linkedin },
-  { label: "YouTube", Icon: Youtube },
-  { label: "Instagram", Icon: Instagram },
-  { label: "Facebook", Icon: Facebook },
-  { label: "TikTok", Icon: Music2 },
-];
-
 const articles = [
   {
     tag: "Mercado financeiro",
@@ -78,13 +39,6 @@ const articles = [
     image: news3,
   },
 ];
-
-import heroOffice from "@/assets/hero-office.jpg";
-import solucoesMetal from "@/assets/solucoes-metal.jpg";
-import atuacaoOffice from "@/assets/atuacao-office.jpg";
-import team1 from "@/assets/team-1.jpg";
-import team2 from "@/assets/team-2.jpg";
-import team3 from "@/assets/team-3.jpg";
 
 const team = [
   {
