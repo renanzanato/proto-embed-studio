@@ -13,7 +13,6 @@ import {
   Youtube,
 } from "lucide-react";
 
-import institutoMark from "@/assets/instituto-lavoro-mark.png";
 import newsHero from "@/assets/news-hero.jpg";
 import news1 from "@/assets/news-1.jpg";
 import news2 from "@/assets/news-2.jpg";
