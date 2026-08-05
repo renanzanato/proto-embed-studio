@@ -87,7 +87,29 @@ export function LbsTimeline() {
     return Array.from(map.entries()).sort((a, b) => a[0] - b[0]);
   }, [era]);
 
+  const isSingleYear = !!era && era.min === era.max;
+
+  const categoryGroups = useMemo(() => {
+    if (!era || era.min !== era.max) return [];
+    const filtered = timelineEvents.filter((event) => event.year === era.min);
+    const order = ["Publicações", "Institucional", "Eventos", "Internacional"] as const;
+    const titles: Record<string, string> = {
+      "Publicações": "Lançamentos e Publicações",
+      Institucional: "Gestão e Institucional",
+      Eventos: "Eventos e Seminários",
+      Internacional: "Atuação Internacional",
+    };
+    return order
+      .map((key) => ({
+        key,
+        title: titles[key] ?? key,
+        events: filtered.filter((event) => event.category === key),
+      }))
+      .filter((group) => group.events.length > 0);
+  }, [era]);
+
   const tabs = [OVERVIEW, ...eras.map((item) => item.label)];
+
 
   return (
     <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
