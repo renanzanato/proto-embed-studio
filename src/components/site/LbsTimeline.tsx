@@ -88,26 +88,7 @@ export function LbsTimeline() {
   }, [era]);
 
   const isSingleYear = years.length === 1;
-  const singleYear = isSingleYear ? years[0][0] : null;
 
-  const categoryGroups = useMemo(() => {
-    if (years.length !== 1) return [];
-    const filtered = years[0][1];
-    const order = ["Publicações", "Institucional", "Eventos", "Internacional"] as const;
-    const titles: Record<string, string> = {
-      "Publicações": "Lançamentos e Publicações",
-      Institucional: "Gestão e Institucional",
-      Eventos: "Eventos e Seminários",
-      Internacional: "Atuação Internacional",
-    };
-    return order
-      .map((key) => ({
-        key,
-        title: titles[key] ?? key,
-        events: filtered.filter((event) => event.category === key),
-      }))
-      .filter((group) => group.events.length > 0);
-  }, [years]);
 
 
   const tabs = [OVERVIEW, ...eras.map((item) => item.label)];
