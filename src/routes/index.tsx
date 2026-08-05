@@ -7,7 +7,7 @@ import atuacaoOffice from "@/assets/atuacao-office.jpg";
 import teamLoguercio from "@/assets/team-loguercio.jpg.asset.json";
 import teamNilo from "@/assets/team-nilo.jpg.asset.json";
 import teamEduardo from "@/assets/team-eduardo.jpg.asset.json";
-import newsHeroAsset from "@/assets/news-hero-cit.png.asset.json";
+import newsHeroAsset from "@/assets/news-hero-artigos-2.png.asset.json";
 const newsHero = newsHeroAsset.url;
 import news1 from "@/assets/news-1.jpg";
 import news2 from "@/assets/news-2.jpg";
