@@ -190,7 +190,7 @@ export function LbsTimeline() {
                 <MilestoneLoop
                   key={era.label}
                   className="mt-10 h-[560px]"
-                  speed={26}
+                  speed={38}
                   hoverSpeed={0}
                   gap={44}
                   fadeOut
@@ -199,14 +199,20 @@ export function LbsTimeline() {
                   items={years.map(([year, events]) => ({
                     key: String(year),
                     node: (
-                      <div>
-                        <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
-                          {year}
-                        </h3>
-                        <div className="mt-4 space-y-5 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
-                          {events.map((event, index) => (
-                            <p key={`${event.label}-${index}`}>{event.text}</p>
-                          ))}
+                      <div className="relative pl-10">
+                        {/* timeline dot */}
+                        <div className="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-lbs-magenta ring-4 ring-white" />
+                        {/* timeline line */}
+                        <div className="absolute left-1.5 top-3 -bottom-14 w-px bg-lbs-magenta/25" />
+                        <div>
+                          <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
+                            {year}
+                          </h3>
+                          <div className="mt-4 space-y-5 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
+                            {events.map((event, index) => (
+                              <p key={`${event.label}-${index}`}>{event.text}</p>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     ),
