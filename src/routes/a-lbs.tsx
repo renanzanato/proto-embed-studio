@@ -149,6 +149,10 @@ function ALbsPage() {
         </div>
       </section>
 
+      <LbsTimeline />
+
+
+
       <SiteFooter />
       <WhatsAppButton />
     </div>
