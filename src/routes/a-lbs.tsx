@@ -4,6 +4,16 @@ import { ChevronsRight } from "lucide-react";
 import heroImage from "@/assets/a-lbs-hero.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+import { LbsTimeline } from "@/components/site/LbsTimeline";
+
+const numbers = [
+  { value: "+40", label: "anos de atuação no Direito do Trabalho" },
+  { value: "+60", label: "advogadas e advogados" },
+  { value: "3", label: "unidades: São Paulo, Campinas e Brasília" },
+  { value: "+80", label: "escritórios parceiros em todo o país" },
+  { value: "100%", label: "presença em todas as instâncias do Judiciário" },
+];
+
 
 const values = [
   {
