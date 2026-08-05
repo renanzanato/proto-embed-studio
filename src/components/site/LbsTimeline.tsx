@@ -191,7 +191,6 @@ export function LbsTimeline() {
                   key={era.label}
                   className="mt-10 h-[560px]"
                   speed={38}
-                  hoverSpeed={0}
                   gap={44}
                   fadeOut
                   fadeOutColor="#ffffff"
@@ -199,11 +198,11 @@ export function LbsTimeline() {
                   items={years.map(([year, events]) => ({
                     key: String(year),
                     node: (
-                      <div className="relative pl-10">
+                      <article className="group relative rounded-sm py-2 pl-10 pr-4 transition-colors duration-300 hover:bg-lbs-magenta/5">
                         {/* timeline dot */}
-                        <div className="absolute left-0 top-1.5 h-3 w-3 rounded-full bg-lbs-magenta ring-4 ring-white" />
+                        <div className="absolute left-0 top-3.5 z-10 h-3 w-3 rounded-full bg-lbs-magenta ring-4 ring-white transition-transform duration-300 group-hover:scale-125" />
                         {/* timeline line */}
-                        <div className="absolute left-1.5 top-3 -bottom-14 w-px bg-lbs-magenta/25" />
+                        <div className="absolute bottom-[-52px] left-[5.5px] top-5 w-px bg-lbs-magenta/30" />
                         <div>
                           <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
                             {year}
@@ -214,7 +213,7 @@ export function LbsTimeline() {
                             ))}
                           </div>
                         </div>
-                      </div>
+                      </article>
                     ),
                   }))}
                 />
