@@ -5,7 +5,7 @@ import teamDaniela from "@/assets/team-daniela.jpg";
 import teamEduardo from "@/assets/team-eduardo.jpg";
 import teamFernanda from "@/assets/team-fernanda.jpg";
 import teamLoguercio from "@/assets/lawyer-loguercio.jpg";
-import teamNilo from "@/assets/team-nilo.jpg";
+import teamNilo from "@/assets/nilo.png.asset.json";
 
 export type TeamMember = {
   slug: string;
@@ -27,7 +27,7 @@ export const teamMembers: TeamMember[] = [
     role: "Sócio",
     city: "Brasília, Distrito Federal",
     oab: "OAB/SP nº 108120 e OAB/DF nº 23405",
-    image: teamNilo,
+    image: teamNilo.url,
     tags: ["Sindical", "Financeiro"],
     about:
       "Atua há mais de três décadas na assessoria jurídica de entidades sindicais, com destaque para o setor financeiro. Experiência em negociação coletiva, contencioso estratégico e Direito Sindical.",
