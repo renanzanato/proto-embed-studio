@@ -13,7 +13,8 @@ import news1Asset from "@/assets/imagem-homepage-artigos-noticias-2-lbs-2.png.as
 const news1 = news1Asset.url;
 import news2Asset from "@/assets/imagem-homepage-artigos-noticias-3-lbs.png.asset.json";
 const news2 = news2Asset.url;
-import news3 from "@/assets/news-3.jpg";
+import news3Asset from "@/assets/imagem-homepage-artigos-noticias-4-lbs.png.asset.json";
+const news3 = news3Asset.url;
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
