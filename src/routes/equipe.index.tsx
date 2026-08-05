@@ -84,9 +84,17 @@ function EquipePage() {
       <section className="w-full bg-white pb-20">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
           <ul className="grid grid-cols-1 gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-            {members.map((member) => (
+            {members.map((member, index) => (
               <li key={member.name} className="flex flex-col">
-                <div className="aspect-[4/5] w-full overflow-hidden bg-black/5">
+                <div
+                  className="aspect-[4/5] w-full overflow-hidden bg-black/5"
+                  style={{
+                    clipPath:
+                      index % 2 === 0
+                        ? "polygon(0 0, calc(100% - 34px) 0, 100% 34px, 100% 100%, 34px 100%, 0 calc(100% - 34px))"
+                        : "polygon(34px 0, 100% 0, 100% calc(100% - 34px), calc(100% - 34px) 100%, 0 100%, 0 34px)",
+                  }}
+                >
                   <img
                     src={member.image}
                     alt={`Retrato de ${member.name}`}
@@ -96,6 +104,7 @@ function EquipePage() {
                     className="h-full w-full object-cover"
                   />
                 </div>
+
 
                 <div className="mt-4 flex flex-wrap gap-2">
                   {member.tags.map((tag) => (

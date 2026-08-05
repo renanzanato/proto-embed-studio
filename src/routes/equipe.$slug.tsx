@@ -95,7 +95,10 @@ function AdvogadoPage() {
             <div>
               <div
                 className="aspect-[4/5] w-full overflow-hidden bg-black/5"
-                style={{ clipPath: "polygon(0 0, 100% 0, 100% 88%, 88% 100%, 0 100%)" }}
+                style={{
+                  clipPath:
+                    "polygon(0 0, calc(100% - 40px) 0, 100% 40px, 100% 100%, 40px 100%, 0 calc(100% - 40px))",
+                }}
               >
                 <img
                   src={member.image}
