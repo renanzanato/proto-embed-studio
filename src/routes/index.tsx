@@ -5,7 +5,7 @@ import heroOffice from "@/assets/hero-office.jpg";
 import solucoesMetal from "@/assets/solucoes-metal.jpg";
 import atuacaoOffice from "@/assets/atuacao-office.jpg";
 import team1 from "@/assets/team-1.jpg";
-import team2 from "@/assets/team-2.jpg";
+import teamNilo from "@/assets/nilo.png.asset.json";
 import team3 from "@/assets/team-3.jpg";
 import newsHero from "@/assets/news-hero.jpg";
 import news1 from "@/assets/news-1.jpg";
