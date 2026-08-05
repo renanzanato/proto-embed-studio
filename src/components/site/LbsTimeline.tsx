@@ -151,7 +151,7 @@ export function LbsTimeline() {
         <div className="mt-10 h-px w-full bg-lbs-ink/10 sm:mt-12" />
 
         {/* content */}
-        <div className="mt-10 max-w-[860px] sm:mt-14">
+        <div className={`mt-10 sm:mt-14 ${isSingleYear ? "" : "max-w-[860px]"}`}>
           {!era ? (
             <div>
               <p className="text-[17px] leading-[1.7] text-lbs-ink sm:text-[19px]">
