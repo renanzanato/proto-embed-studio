@@ -9,34 +9,63 @@ const OVERVIEW = "Visão geral";
 
 const eras: Era[] = [
   {
-    label: "1981 – 1999",
+    label: "Origens · 1981 – 2012",
     min: 1981,
-    max: 1999,
-    intro:
-      "Os anos de formação: da amizade nos bancos escolares à advocacia sindical no ABC e em Campinas, ao lado do novo sindicalismo brasileiro.",
-  },
-  {
-    label: "2000 – 2012",
-    min: 2000,
     max: 2012,
     intro:
-      "Consolidação nacional: estruturação do escritório, presença em Brasília e atuação estratégica nos tribunais superiores.",
+      "Os anos de formação e consolidação: da amizade nos bancos escolares à advocacia sindical em Campinas e no ABC, ao lado do novo sindicalismo brasileiro.",
   },
   {
     label: "2013 – 2019",
     min: 2013,
     max: 2019,
     intro:
-      "Expansão e produção intelectual: novas unidades, publicações, seminários e defesa dos direitos trabalhistas diante da reforma de 2017.",
+      "Expansão e produção intelectual: novas unidades, publicações, seminários e a defesa dos direitos trabalhistas diante da reforma de 2017.",
   },
   {
-    label: "2020 – Hoje",
+    label: "2020 – 2021",
     min: 2020,
+    max: 2021,
+    intro:
+      "Pandemia e reinvenção: atuação intensa na defesa do emprego e da saúde dos trabalhadores, com forte presença digital e institucional.",
+  },
+  {
+    label: "2022",
+    min: 2022,
+    max: 2022,
+    intro:
+      "Um ano de afirmação: crescimento da equipe, novas frentes de atuação e presença ampliada nos debates públicos sobre o mundo do trabalho.",
+  },
+  {
+    label: "2023",
+    min: 2023,
+    max: 2023,
+    intro:
+      "Consolidação nacional: teses estratégicas nos tribunais superiores, publicações e articulação com o movimento sindical.",
+  },
+  {
+    label: "2024",
+    min: 2024,
+    max: 2024,
+    intro:
+      "Novos horizontes: internacionalização da atuação, eventos próprios e fortalecimento das áreas de negócios e sindical.",
+  },
+  {
+    label: "2025",
+    min: 2025,
+    max: 2025,
+    intro:
+      "O ano mais intenso da nossa história: agenda internacional, Instituto Lavoro e produção jurídica em ritmo recorde.",
+  },
+  {
+    label: "2026",
+    min: 2026,
     max: 2100,
     intro:
-      "Uma advocacia contemporânea: atuação internacional, Instituto Lavoro e a defesa permanente do trabalho digno.",
+      "O presente: uma advocacia contemporânea, plural e comprometida com a defesa permanente do trabalho digno.",
   },
 ];
+
 
 export function LbsTimeline() {
   const [active, setActive] = useState<string>(OVERVIEW);
