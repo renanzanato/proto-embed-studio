@@ -155,3 +155,67 @@
     font-family: var(--font-display);
   }
 }
+
+@keyframes milestone-loop-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, -50%, 0);
+  }
+}
+
+@layer components {
+  .milestone-loop-track {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    backface-visibility: hidden;
+    animation: milestone-loop-scroll var(--milestone-loop-duration) linear infinite;
+  }
+
+  .milestone-loop-copy {
+    flex: none;
+    padding-bottom: var(--milestone-loop-gap);
+  }
+
+  .milestone-loop-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--milestone-loop-gap);
+  }
+
+  [role="region"]:hover > .milestone-loop-track,
+  [role="region"]:focus-within > .milestone-loop-track {
+    animation-play-state: paused;
+  }
+
+  .milestone-loop-fade {
+    pointer-events: none;
+    position: absolute;
+    z-index: 20;
+    right: 0;
+    left: 0;
+  }
+
+  .milestone-loop-fade-top {
+    top: 0;
+    height: 4rem;
+    background: linear-gradient(to bottom, var(--milestone-fade-color), transparent);
+  }
+
+  .milestone-loop-fade-bottom {
+    bottom: 0;
+    height: 5rem;
+    background: linear-gradient(to top, var(--milestone-fade-color), transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .milestone-loop-track {
+    animation-play-state: paused;
+  }
+}
