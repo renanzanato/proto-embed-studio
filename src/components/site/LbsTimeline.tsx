@@ -111,7 +111,7 @@ export function LbsTimeline() {
                   <button
                     type="button"
                     onClick={() => setActive(label)}
-                    className={`whitespace-nowrap font-serif text-[17px] transition-colors sm:text-[19px] ${
+                    className={`whitespace-nowrap text-[15px] font-medium tracking-[0.01em] transition-colors sm:text-[16px] ${
                       isActive
                         ? "text-lbs-magenta"
                         : "text-lbs-ink/60 hover:text-lbs-ink"
