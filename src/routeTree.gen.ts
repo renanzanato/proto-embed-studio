@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ALbsRouteImport } from './routes/a-lbs'
+import { Route as LinhaDoTempoAbRouteImport } from './routes/linha-do-tempo-ab'
 import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
 import { Route as SolucoesRouteImport } from './routes/solucoes'
 import { Route as AtuacaoIndexRouteImport } from './routes/atuacao.index'
@@ -26,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
 const ALbsRoute = ALbsRouteImport.update({
   id: '/a-lbs',
   path: '/a-lbs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LinhaDoTempoAbRoute = LinhaDoTempoAbRouteImport.update({
+  id: '/linha-do-tempo-ab',
+  path: '/linha-do-tempo-ab',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrototipoLbsRoute = PrototipoLbsRouteImport.update({
@@ -63,6 +69,7 @@ const EquipeSlugRoute = EquipeSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-lbs': typeof ALbsRoute
+  '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-lbs': typeof ALbsRoute
+  '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/a-lbs': typeof ALbsRoute
+  '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/a-lbs'
+    | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/solucoes'
     | '/atuacao/direito-trabalhista'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/a-lbs'
+    | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/solucoes'
     | '/atuacao/direito-trabalhista'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/a-lbs'
+    | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/solucoes'
     | '/atuacao/direito-trabalhista'
@@ -127,6 +139,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ALbsRoute: typeof ALbsRoute
+  LinhaDoTempoAbRoute: typeof LinhaDoTempoAbRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
   SolucoesRoute: typeof SolucoesRoute
   AtuacaoDireitoTrabalhistaRoute: typeof AtuacaoDireitoTrabalhistaRoute
@@ -149,6 +162,13 @@ declare module '@tanstack/react-router' {
       path: '/a-lbs'
       fullPath: '/a-lbs'
       preLoaderRoute: typeof ALbsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/linha-do-tempo-ab': {
+      id: '/linha-do-tempo-ab'
+      path: '/linha-do-tempo-ab'
+      fullPath: '/linha-do-tempo-ab'
+      preLoaderRoute: typeof LinhaDoTempoAbRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/prototipo-lbs': {
@@ -199,6 +219,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ALbsRoute: ALbsRoute,
+  LinhaDoTempoAbRoute: LinhaDoTempoAbRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
   SolucoesRoute: SolucoesRoute,
   AtuacaoDireitoTrabalhistaRoute: AtuacaoDireitoTrabalhistaRoute,
