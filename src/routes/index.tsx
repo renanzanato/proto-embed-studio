@@ -2,8 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, CalendarDays, Mail, Send } from "lucide-react";
 
 import heroOffice from "@/assets/hero-office.jpg";
-import solucoesMetal from "@/assets/solucoes-metal.jpg";
-import atuacaoOffice from "@/assets/atuacao-office.jpg";
+import splitLeftAsset from "@/assets/banner-homepage-secao-2-imagem-1-lbs.png.asset.json";
+import splitRightAsset from "@/assets/banner-homepage-secao-2-imagem-2-lbs.png.asset.json";
+const solucoesMetal = splitLeftAsset.url;
+const atuacaoOffice = splitRightAsset.url;
 import teamLoguercio from "@/assets/team-loguercio.jpg.asset.json";
 import teamNilo from "@/assets/team-nilo.jpg.asset.json";
 import teamEduardo from "@/assets/team-eduardo.jpg.asset.json";
