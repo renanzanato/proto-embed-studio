@@ -58,7 +58,7 @@ const eras: Era[] = [
       "O ano mais intenso da nossa história: agenda internacional, Instituto Lavoro e produção jurídica em ritmo recorde.",
   },
   {
-    label: "2026",
+    label: "2026 · Presente",
     min: 2026,
     max: 2100,
     intro:
@@ -91,7 +91,7 @@ export function LbsTimeline() {
   return (
     <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[1180px] px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-[52px] leading-[1.05] text-lbs-magenta sm:text-[68px] lg:text-[86px]">
+        <h2 className="text-[30px] font-light leading-[1.1] tracking-[-0.01em] text-lbs-magenta sm:text-[38px] lg:text-[46px]">
           Nossa História
         </h2>
 
@@ -111,7 +111,7 @@ export function LbsTimeline() {
                   <button
                     type="button"
                     onClick={() => setActive(label)}
-                    className={`whitespace-nowrap font-serif text-[17px] transition-colors sm:text-[19px] ${
+                    className={`whitespace-nowrap text-[15px] font-medium tracking-[0.01em] transition-colors sm:text-[16px] ${
                       isActive
                         ? "text-lbs-magenta"
                         : "text-lbs-ink/60 hover:text-lbs-ink"
