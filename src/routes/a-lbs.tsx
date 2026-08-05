@@ -244,6 +244,35 @@ function ALbsPage() {
 
       <LbsTimeline />
 
+      {/* UNIDADES */}
+      <section className="w-full bg-lbs-ink py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">Unidades</p>
+          <h2 className="mt-4 max-w-[560px] text-[24px] font-light leading-[1.25] text-white sm:text-[30px]">
+            Três sedes, atuação em todo o país
+          </h2>
+
+          <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {offices.map((office) => (
+              <li key={office.city} className="border-t border-white/15 pt-5">
+                <h3 className="text-[13px] font-semibold uppercase tracking-[0.08em] text-white">
+                  {office.city}
+                </h3>
+                <p className="mt-3 text-[12px] leading-[1.8] text-white/60">{office.address}</p>
+                <a
+                  href={`tel:${office.phone.replace(/\D/g, "")}`}
+                  className="mt-4 inline-block text-[12px] text-lbs-magenta transition-opacity hover:opacity-70"
+                >
+                  {office.phone}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+
+
 
 
       <SiteFooter />
