@@ -187,37 +187,44 @@ export function LbsTimeline() {
                   Nenhum marco registrado para este período.
                 </p>
               ) : (
-                <MilestoneLoop
-                  key={era.label}
-                  className="mt-10 h-[560px]"
-                  speed={38}
-                  gap={44}
-                  fadeOut
-                  fadeOutColor="#ffffff"
-                  ariaLabel={`Marcos ${era.label}`}
-                  items={years.map(([year, events]) => ({
-                    key: String(year),
-                    node: (
-                      <article className="group relative rounded-sm py-2 pl-10 pr-4 transition-colors duration-300 hover:bg-lbs-magenta/5">
-                        {/* timeline dot */}
-                        <div className="absolute left-0 top-3.5 z-10 h-3 w-3 rounded-full bg-lbs-magenta ring-4 ring-white transition-transform duration-300 group-hover:scale-125" />
-                        {/* timeline line */}
-                        <div className="absolute bottom-[-52px] left-[5.5px] top-5 w-px bg-lbs-magenta/30" />
-                        <div>
-                          <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
-                            {year}
-                          </h3>
-                          <div className="mt-4 space-y-5 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
-                            {events.map((event, index) => (
-                              <p key={`${event.label}-${index}`}>{event.text}</p>
-                            ))}
+                <div className="relative mt-10">
+                  {/* linha vertical central contínua */}
+                  <div className="pointer-events-none absolute inset-y-0 left-[7px] z-0 w-px bg-lbs-magenta/25" />
+
+                  <MilestoneLoop
+                    key={era.label}
+                    className="h-[560px]"
+                    speed={38}
+                    gap={28}
+                    fadeOut
+                    fadeOutColor="#ffffff"
+                    ariaLabel={`Marcos ${era.label}`}
+                    items={years.map(([year, events]) => ({
+                      key: String(year),
+                      node: (
+                        <article className="relative z-10 pl-12">
+                          {/* ponto sobre a linha */}
+                          <div className="absolute left-[1px] top-[26px] h-3.5 w-3.5 rounded-full border-2 border-white bg-lbs-magenta shadow-[0_0_0_3px_rgba(230,69,139,0.15)]" />
+                          {/* conector horizontal pontilhado */}
+                          <div className="absolute left-[16px] top-[32px] w-[28px] border-t border-dashed border-lbs-magenta/40" />
+
+                          <div className="rounded-lg border border-lbs-ink/10 bg-white px-5 py-4 shadow-[0_1px_3px_rgba(0,0,0,0.05),0_8px_24px_-16px_rgba(0,0,0,0.18)]">
+                            <h3 className="text-[13px] font-semibold uppercase tracking-[0.1em] text-lbs-magenta sm:text-[14px]">
+                              {year}
+                            </h3>
+                            <div className="mt-3 space-y-4 text-[14px] leading-[1.8] text-lbs-ink/85 sm:text-[15px]">
+                              {events.map((event, index) => (
+                                <p key={`${event.label}-${index}`}>{event.text}</p>
+                              ))}
+                            </div>
                           </div>
-                        </div>
-                      </article>
-                    ),
-                  }))}
-                />
+                        </article>
+                      ),
+                    }))}
+                  />
+                </div>
               )}
+
 
             </div>
           )}

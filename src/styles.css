@@ -188,10 +188,8 @@
     gap: var(--milestone-loop-gap);
   }
 
-  [role="region"]:hover > .milestone-loop-track,
-  [role="region"]:focus-within > .milestone-loop-track {
-    animation-play-state: paused;
-  }
+
+
 
   .milestone-loop-fade {
     pointer-events: none;
