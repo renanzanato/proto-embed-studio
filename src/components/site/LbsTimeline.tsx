@@ -202,13 +202,12 @@ export function LbsTimeline() {
                     items={years.map(([year, events]) => ({
                       key: String(year),
                       node: (
-                        <article className="relative z-10 pl-12">
+                        <article className="relative z-10 pl-8">
                           {/* ponto sobre a linha */}
-                          <div className="absolute left-[1px] top-[26px] h-3.5 w-3.5 rounded-full border-2 border-white bg-lbs-magenta shadow-[0_0_0_3px_rgba(230,69,139,0.15)]" />
-                          {/* conector horizontal pontilhado */}
-                          <div className="absolute left-[16px] top-[32px] w-[28px] border-t border-dashed border-lbs-magenta/40" />
+                          <div className="absolute left-[1px] top-[24px] h-3.5 w-3.5 rounded-full border-2 border-white bg-lbs-magenta" />
 
-                          <div className="rounded-lg border border-lbs-ink/10 bg-white px-5 py-4 shadow-[0_1px_3px_rgba(0,0,0,0.05),0_8px_24px_-16px_rgba(0,0,0,0.18)]">
+                          <div className="rounded-lg bg-white px-5 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_10px_28px_-20px_rgba(0,0,0,0.25)]">
+
                             <h3 className="text-[13px] font-semibold uppercase tracking-[0.1em] text-lbs-magenta sm:text-[14px]">
                               {year}
                             </h3>
