@@ -18,7 +18,7 @@ import blogHomeOffice from "@/assets/blog-homeoffice.jpg";
 import blogReforma from "@/assets/blog-reforma.jpg";
 import lawyerGabriela from "@/assets/lawyer-gabriela.jpg";
 import lawyerGuilherme from "@/assets/lawyer-guillherme.jpg";
-import lawyerLoguercio from "@/assets/lawyer-loguercio.jpg";
+import lawyerLoguercio from "@/assets/team-loguercio.jpg.asset.json";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
@@ -88,7 +88,7 @@ const lawyers = [
     role: "Sócio",
     oab: "OAB/SP nº 182.358 e OAB/DF nº 144.142-A",
     tags: ["Trabalhista", "Tribunais Superiores"],
-    image: lawyerLoguercio,
+    image: lawyerLoguercio.url,
   },
   {
     name: "Gabriela Marina Soares da Mata",
