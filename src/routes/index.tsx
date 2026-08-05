@@ -9,7 +9,7 @@ import teamNilo from "@/assets/team-nilo.jpg.asset.json";
 import teamEduardo from "@/assets/team-eduardo.jpg.asset.json";
 import newsHeroAsset from "@/assets/news-hero-cit.png.asset.json";
 const newsHero = newsHeroAsset.url;
-import news1Asset from "@/assets/imagem-homepage-artigos-noticias-2-lbs-2.png.asset.json";
+import news1Asset from "@/assets/imagem-homepage-artigos-noticias-2-lbs-3.png.asset.json";
 const news1 = news1Asset.url;
 import news2Asset from "@/assets/imagem-homepage-artigos-noticias-3-lbs.png.asset.json";
 const news2 = news2Asset.url;
