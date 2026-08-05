@@ -14,6 +14,26 @@ const numbers = [
   { value: "100%", label: "atuação em todas as instâncias do Judiciário" },
 ];
 
+const offices = [
+  {
+    city: "São Paulo",
+    address:
+      "Edifício Philadelphia – Avenida Angélica, 1996, Cj 201 – Higienópolis, CEP: 01228-200",
+    phone: "(11) 3583-8030",
+  },
+  {
+    city: "Campinas",
+    address:
+      "Espaço Toulouse – Rua Doutor Emílio Ribas, 188, 3º andar – Cambuí, CEP: 13025-140",
+    phone: "(19) 3395-7700",
+  },
+  {
+    city: "Brasília",
+    address:
+      "Edifício Ion – SGAN 601 Lote H, Salas 79 a 86, Piso Alta 1 – Térreo – Asa Norte, CEP: 70830-010",
+    phone: "(61) 3396-8100",
+  },
+];
 
 
 const values = [
@@ -110,28 +130,6 @@ function ALbsPage() {
         <div className="mx-auto w-full max-w-[1100px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
-                Nossa origem
-              </p>
-              <h2 className="mt-4 text-[24px] font-normal leading-[1.3] text-lbs-ink sm:text-[28px]">
-                Loguercio, Beiro e Surian
-              </h2>
-              <p className="mt-6 text-[13px] leading-[1.9] text-lbs-ink/70">
-                Com trajetória vinculada ao movimento sindical e ao Direito do Trabalho, a LBS
-                Advogadas e Advogados traz em sua sigla a história e o compromisso de seus sócios
-                fundadores: Loguercio, Beiro e Surian. São quatro décadas dedicadas à construção de
-                soluções jurídicas de alto impacto na defesa de quem trabalha e dos direitos
-                humanos.
-              </p>
-              <p className="mt-5 text-[13px] leading-[1.9] text-lbs-ink/70">
-                Nossa identidade se consolida na atuação diária e na presença marcante nas mais
-                diversas instâncias do Poder Judiciário. Essa bagagem prática e a experiência
-                acumulada ao longo dos anos fundamentam nossa condução técnica, integrada e
-                estratégica para cada caso sob nossa responsabilidade.
-              </p>
-            </div>
-
-            <div>
               <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">Quem somos</p>
               <h2 className="mt-4 text-[24px] font-normal leading-[1.3] text-lbs-ink sm:text-[28px]">
                 Nossa atuação é pautada pela prática e pelo rigor técnico na defesa de quem trabalha
@@ -167,9 +165,31 @@ function ALbsPage() {
                 de universidades da Espanha e participamos das discussões em organismos
                 internacionais, como a Organização Internacional do Trabalho.
               </p>
+            </div>
 
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
+                Nossa origem
+              </p>
+              <h2 className="mt-4 text-[24px] font-normal leading-[1.3] text-lbs-ink sm:text-[28px]">
+                Loguercio, Beiro e Surian
+              </h2>
+              <p className="mt-6 text-[13px] leading-[1.9] text-lbs-ink/70">
+                Com trajetória vinculada ao movimento sindical e ao Direito do Trabalho, a LBS
+                Advogadas e Advogados traz em sua sigla a história e o compromisso de seus sócios
+                fundadores: Loguercio, Beiro e Surian. São quatro décadas dedicadas à construção de
+                soluções jurídicas de alto impacto na defesa de quem trabalha e dos direitos
+                humanos.
+              </p>
+              <p className="mt-5 text-[13px] leading-[1.9] text-lbs-ink/70">
+                Nossa identidade se consolida na atuação diária e na presença marcante nas mais
+                diversas instâncias do Poder Judiciário. Essa bagagem prática e a experiência
+                acumulada ao longo dos anos fundamentam nossa condução técnica, integrada e
+                estratégica para cada caso sob nossa responsabilidade.
+              </p>
             </div>
           </div>
+
 
           <p className="mt-14 border-t border-lbs-ink/10 pt-10 text-[18px] font-normal leading-[1.4] text-lbs-ink sm:text-[22px]">
             Defendemos quem trabalha.{" "}
@@ -243,6 +263,35 @@ function ALbsPage() {
       </section>
 
       <LbsTimeline />
+
+      {/* UNIDADES */}
+      <section className="w-full bg-lbs-ink py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">Unidades</p>
+          <h2 className="mt-4 max-w-[560px] text-[24px] font-light leading-[1.25] text-white sm:text-[30px]">
+            Três sedes, atuação em todo o país
+          </h2>
+
+          <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {offices.map((office) => (
+              <li key={office.city} className="border-t border-white/15 pt-5">
+                <h3 className="text-[13px] font-semibold uppercase tracking-[0.08em] text-white">
+                  {office.city}
+                </h3>
+                <p className="mt-3 text-[12px] leading-[1.8] text-white/60">{office.address}</p>
+                <a
+                  href={`tel:${office.phone.replace(/\D/g, "")}`}
+                  className="mt-4 inline-block text-[12px] text-lbs-magenta transition-opacity hover:opacity-70"
+                >
+                  {office.phone}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+
 
 
 
