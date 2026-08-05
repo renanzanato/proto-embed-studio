@@ -14,6 +14,26 @@ const numbers = [
   { value: "100%", label: "atuação em todas as instâncias do Judiciário" },
 ];
 
+const offices = [
+  {
+    city: "São Paulo",
+    address:
+      "Edifício Philadelphia – Avenida Angélica, 1996, Cj 201 – Higienópolis, CEP: 01228-200",
+    phone: "(11) 3583-8030",
+  },
+  {
+    city: "Campinas",
+    address:
+      "Espaço Toulouse – Rua Doutor Emílio Ribas, 188, 3º andar – Cambuí, CEP: 13025-140",
+    phone: "(19) 3395-7700",
+  },
+  {
+    city: "Brasília",
+    address:
+      "Edifício Ion – SGAN 601 Lote H, Salas 79 a 86, Piso Alta 1 – Térreo – Asa Norte, CEP: 70830-010",
+    phone: "(61) 3396-8100",
+  },
+];
 
 
 const values = [
