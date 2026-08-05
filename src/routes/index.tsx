@@ -123,7 +123,7 @@ function Index() {
           }}
         />
 
-        <div className="mx-auto w-full max-w-[1200px] px-4 pb-24 pt-5 sm:px-6 lg:px-8">
+        <div className="mx-auto w-full max-w-[1200px] px-4 pb-[210px] pt-5 sm:pb-[250px] sm:px-6 lg:px-8">
           <SiteHeader active="Início" />
 
           {/* HEADLINE */}
