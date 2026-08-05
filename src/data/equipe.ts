@@ -40,7 +40,7 @@ export const teamMembers: TeamMember[] = [
     role: "Sócio",
     city: "Brasília, Distrito Federal",
     oab: "OAB/DF nº 10230 e OAB/SP nº 14914",
-    image: teamLoguercio,
+    image: teamLoguercio.url,
     tags: ["Trabalhista", "Tribunais Superiores"],
     about:
       "Dedica-se à atuação em Tribunais Superiores e à construção de teses trabalhistas de impacto coletivo, com atuação em ações de repercussão nacional e assessoria a centrais e federações sindicais.",
@@ -53,7 +53,7 @@ export const teamMembers: TeamMember[] = [
     role: "Sócio",
     city: "Campinas, São Paulo",
     oab: "OAB/SP nº 93422 e OAB/DF nº 23.400",
-    image: teamEduardo,
+    image: teamEduardo.url,
     tags: ["Sindical", "Coletivo do Trabalho"],
     about:
       "Tem ampla experiência na área jurídica de Sindicatos, tendo atuado ao lado de diversas categorias como Bancários, Condutores, Servidores Municipais e Metalúrgicos, entre outros. Possui também experiência nas áreas do Direito do Trabalho, Sindical e Previdenciário.",
@@ -66,7 +66,7 @@ export const teamMembers: TeamMember[] = [
     role: "Sócia",
     city: "São Paulo, São Paulo",
     oab: "OAB/SP nº 189318 e OAB/RS nº 47041",
-    image: teamFernanda,
+    image: teamFernanda.url,
     tags: ["Tributário"],
     about:
       "Atua em consultoria e contencioso tributário, com foco em planejamento fiscal, defesas administrativas e judiciais e em questões tributárias ligadas às relações de trabalho.",
@@ -79,7 +79,7 @@ export const teamMembers: TeamMember[] = [
     role: "Sócia",
     city: "São Paulo, São Paulo",
     oab: "OAB/SP nº 325405 e OAB/DF nº 41830",
-    image: teamAline,
+    image: teamAline.url,
     tags: ["Consumidor"],
     about:
       "Atua em Direito do Consumidor e em demandas cíveis correlatas, com experiência em ações individuais e coletivas, além de assessoria preventiva a entidades e associações.",
@@ -92,7 +92,7 @@ export const teamMembers: TeamMember[] = [
     role: "Sócio",
     city: "Brasília, Distrito Federal",
     oab: "OAB/DF nº 51019",
-    image: teamCarlos,
+    image: teamCarlos.url,
     tags: ["Civil", "Sindical"],
     about:
       "Atua em Direito Civil e Sindical, com experiência em contratos, responsabilidade civil e no acompanhamento de demandas judiciais de entidades representativas de trabalhadores.",
@@ -105,7 +105,7 @@ export const teamMembers: TeamMember[] = [
     role: "Sócia",
     city: "São Paulo, São Paulo",
     oab: "OAB/SP nº 388192 e OAB/DF nº 61769",
-    image: teamDaniela,
+    image: teamDaniela.url,
     tags: ["Civil", "Família"],
     about:
       "Atua em Direito Civil e de Família, com experiência em ações de família e sucessões, mediação de conflitos e assessoria consultiva a pessoas e famílias.",
@@ -118,7 +118,7 @@ export const teamMembers: TeamMember[] = [
     role: "Sócia",
     city: "Brasília, Distrito Federal",
     oab: "OAB/DF nº 38404",
-    image: teamCamilla,
+    image: teamCamilla.url,
     tags: ["Civil", "Família"],
     about:
       "Atua em Direito Civil e de Família, com foco em planejamento sucessório, contratos e resolução consensual de conflitos.",
