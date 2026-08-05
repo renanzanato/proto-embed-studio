@@ -181,26 +181,38 @@ export function LbsTimeline() {
                 {era.intro}
               </p>
 
-              <div className="mt-12 space-y-11">
-                {years.length === 0 && (
-                  <p className="text-[15px] text-lbs-ink/60">
-                    Nenhum marco registrado para este período.
-                  </p>
-                )}
+              {years.length === 0 ? (
+                <p className="mt-12 text-[15px] text-lbs-ink/60">
+                  Nenhum marco registrado para este período.
+                </p>
+              ) : (
+                <MilestoneLoop
+                  key={era.label}
+                  className="mt-10 h-[560px]"
+                  speed={26}
+                  hoverSpeed={0}
+                  gap={44}
+                  fadeOut
+                  fadeOutColor="#ffffff"
+                  ariaLabel={`Marcos ${era.label}`}
+                  items={years.map(([year, events]) => ({
+                    key: String(year),
+                    node: (
+                      <div>
+                        <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
+                          {year}
+                        </h3>
+                        <div className="mt-4 space-y-5 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
+                          {events.map((event, index) => (
+                            <p key={`${event.label}-${index}`}>{event.text}</p>
+                          ))}
+                        </div>
+                      </div>
+                    ),
+                  }))}
+                />
+              )}
 
-                {years.map(([year, events]) => (
-                  <div key={year}>
-                    <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
-                      {year}
-                    </h3>
-                    <div className="mt-4 space-y-5 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
-                      {events.map((event, index) => (
-                        <p key={`${event.label}-${index}`}>{event.text}</p>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           )}
         </div>
