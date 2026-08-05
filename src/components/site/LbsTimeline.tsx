@@ -58,7 +58,7 @@ const eras: Era[] = [
       "O ano mais intenso da nossa história: agenda internacional, Instituto Lavoro e produção jurídica em ritmo recorde.",
   },
   {
-    label: "2026",
+    label: "2026 · Presente",
     min: 2026,
     max: 2100,
     intro:
