@@ -297,7 +297,7 @@ export const timelineEvents: TimelineEvent[] = [
   {
     year: 2022,
     label: "12/2022",
-    text: "Aniversário de 30 anos da unidade do sócio José Eymard Loguercio em Brasília.",
+    text: "Aniversário de 30 anos do sócio José Eymard Loguercio em Brasília.",
     category: "Institucional",
   },
   {

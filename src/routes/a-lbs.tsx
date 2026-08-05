@@ -10,9 +10,10 @@ const numbers = [
   { value: "+40", label: "anos de atuação no Direito do Trabalho" },
   { value: "+60", label: "advogadas e advogados" },
   { value: "3", label: "unidades: São Paulo, Campinas e Brasília" },
-  { value: "+80", label: "escritórios parceiros em todo o país" },
-  { value: "100%", label: "presença em todas as instâncias do Judiciário" },
+  { value: "+80", label: "parcerias nacionais com escritórios em todo o país" },
+  { value: "100%", label: "atuação em todas as instâncias do Judiciário" },
 ];
+
 
 
 const values = [
@@ -133,29 +134,40 @@ function ALbsPage() {
             <div>
               <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">Quem somos</p>
               <h2 className="mt-4 text-[24px] font-normal leading-[1.3] text-lbs-ink sm:text-[28px]">
-                Prática e rigor técnico na defesa de quem trabalha
+                Nossa atuação é pautada pela prática e pelo rigor técnico na defesa de quem trabalha
+                e dos direitos humanos
               </h2>
               <p className="mt-6 text-[13px] leading-[1.9] text-lbs-ink/70">
                 Trabalhamos ao lado de bancários, servidores públicos, professores, enfermeiros,
                 comerciários, papeleiros, dentre outros trabalhadores. Entendemos que,
-                independentemente da natureza do vínculo — CLT, contratação autônoma, pejotização ou
-                trabalho por plataformas —, o direito a uma representação jurídica qualificada
-                permanece inegociável.
+                independentemente da natureza do vínculo, seja CLT, contratação autônoma,
+                pejotização ou trabalho por plataformas, o direito a uma representação jurídica
+                qualificada permanece inegociável.
               </p>
               <p className="mt-5 text-[13px] leading-[1.9] text-lbs-ink/70">
                 A defesa do trabalho decente, da dignidade humana e da democracia integra a missão
                 do escritório e orienta nossa prática. São mais de 40 anos de experiência,
-                defendendo um só lado. Participamos ativamente do debate público sobre os novos
-                modelos de contratação, da construção das teses que percorrem o Poder Judiciário e
-                da interlocução com o Legislativo e o Executivo.
+                defendendo um só lado.
+              </p>
+              <p className="mt-5 text-[13px] leading-[1.9] text-lbs-ink/70">
+                As normas, as negociações e o próprio direito estão em constante transformação; nós
+                nos mantemos firmes na defesa das pessoas que trabalham. Participamos ativamente do
+                debate público sobre os novos modelos de contratação, da construção das teses que
+                percorrem o Poder Judiciário e da interlocução com o Poder Legislativo e com o Poder
+                Executivo, na elaboração de normas protetivas e no enfrentamento das propostas de
+                redução de direitos.
               </p>
               <p className="mt-5 text-[13px] leading-[1.9] text-lbs-ink/70">
                 Com três sedes e presença permanente em todas as instâncias do Judiciário, a LBS se
-                consolida também como ambiente formador. Mantemos atuação internacional, em contato
-                com a formação doutrinária de vanguarda de universidades da Espanha, e participamos
-                das discussões em organismos internacionais, como a Organização Internacional do
-                Trabalho.
+                consolida também como ambiente formador, comprometido com o desenvolvimento de
+                carreiras de longo prazo.
               </p>
+              <p className="mt-5 text-[13px] leading-[1.9] text-lbs-ink/70">
+                Mantemos atuação internacional, em contato com a formação doutrinária de vanguarda
+                de universidades da Espanha e participamos das discussões em organismos
+                internacionais, como a Organização Internacional do Trabalho.
+              </p>
+
             </div>
           </div>
 
