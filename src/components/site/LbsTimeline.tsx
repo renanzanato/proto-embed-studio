@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 import { timelineEvents } from "@/data/lbs-timeline";
+import { MilestoneLoop } from "@/components/site/MilestoneLoop";
 
 type Era = { label: string; min: number; max: number; intro: string };
 
