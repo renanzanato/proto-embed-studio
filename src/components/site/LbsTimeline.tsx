@@ -200,7 +200,7 @@ export function LbsTimeline() {
             </div>
           ) : (
             <div>
-              <p className="text-[17px] leading-[1.7] text-lbs-ink sm:text-[19px]">
+              <p className={`text-[17px] leading-[1.7] text-lbs-ink sm:text-[19px] ${isSingleYear ? "max-w-[860px]" : ""}`}>
                 {era.intro}
               </p>
 
@@ -208,7 +208,39 @@ export function LbsTimeline() {
                 <p className="mt-12 text-[15px] text-lbs-ink/60">
                   Nenhum marco registrado para este período.
                 </p>
+              ) : isSingleYear ? (
+                <div className="mt-12">
+                  <h3 className="text-center text-[34px] font-light leading-none tracking-[-0.01em] text-lbs-magenta sm:text-[42px]">
+                    {era.min}
+                  </h3>
+                  <div className="mx-auto mt-3 h-px w-16 bg-lbs-magenta/40" />
+
+                  <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    {categoryGroups.map((group) => (
+                      <article
+                        key={group.key}
+                        className="rounded-xl border border-lbs-ink/10 bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,0.03),0_16px_36px_-28px_rgba(0,0,0,0.28)]"
+                      >
+                        <h4 className="text-[12px] font-semibold uppercase tracking-[0.1em] text-lbs-magenta">
+                          {group.title}
+                        </h4>
+                        <ul className="mt-4 space-y-3.5">
+                          {group.events.map((event, index) => (
+                            <li
+                              key={`${event.label}-${index}`}
+                              className="relative pl-4 text-[13.5px] leading-[1.75] text-lbs-ink/80"
+                            >
+                              <span className="absolute left-0 top-[9px] h-1.5 w-1.5 rounded-full bg-lbs-magenta/60" />
+                              {event.text}
+                            </li>
+                          ))}
+                        </ul>
+                      </article>
+                    ))}
+                  </div>
+                </div>
               ) : (
+
                 <div className="relative mt-10">
                   {/* linha vertical central contínua */}
                   <div className="pointer-events-none absolute inset-y-0 left-[7px] z-0 w-px bg-lbs-magenta/25" />
