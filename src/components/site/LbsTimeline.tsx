@@ -213,7 +213,7 @@ export function LbsTimeline() {
               ) : isSingleYear ? (
                 <div className="mt-12">
                   <h3 className="text-center text-[34px] font-light leading-none tracking-[-0.01em] text-lbs-magenta sm:text-[42px]">
-                    {era.min}
+                    {singleYear}
                   </h3>
                   <div className="mx-auto mt-3 h-px w-16 bg-lbs-magenta/40" />
 
