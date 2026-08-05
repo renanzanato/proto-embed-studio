@@ -10,9 +10,10 @@ const numbers = [
   { value: "+40", label: "anos de atuação no Direito do Trabalho" },
   { value: "+60", label: "advogadas e advogados" },
   { value: "3", label: "unidades: São Paulo, Campinas e Brasília" },
-  { value: "+80", label: "escritórios parceiros em todo o país" },
-  { value: "100%", label: "presença em todas as instâncias do Judiciário" },
+  { value: "+80", label: "parcerias nacionais com escritórios em todo o país" },
+  { value: "100%", label: "atuação em todas as instâncias do Judiciário" },
 ];
+
 
 
 const values = [
