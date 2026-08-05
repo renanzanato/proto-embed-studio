@@ -88,26 +88,7 @@ export function LbsTimeline() {
   }, [era]);
 
   const isSingleYear = years.length === 1;
-  const singleYear = isSingleYear ? years[0][0] : null;
 
-  const categoryGroups = useMemo(() => {
-    if (years.length !== 1) return [];
-    const filtered = years[0][1];
-    const order = ["Publicações", "Institucional", "Eventos", "Internacional"] as const;
-    const titles: Record<string, string> = {
-      "Publicações": "Lançamentos e Publicações",
-      Institucional: "Gestão e Institucional",
-      Eventos: "Eventos e Seminários",
-      Internacional: "Atuação Internacional",
-    };
-    return order
-      .map((key) => ({
-        key,
-        title: titles[key] ?? key,
-        events: filtered.filter((event) => event.category === key),
-      }))
-      .filter((group) => group.events.length > 0);
-  }, [years]);
 
 
   const tabs = [OVERVIEW, ...eras.map((item) => item.label)];
@@ -210,39 +191,7 @@ export function LbsTimeline() {
                 <p className="mt-12 text-[15px] text-lbs-ink/60">
                   Nenhum marco registrado para este período.
                 </p>
-              ) : isSingleYear ? (
-                <div className="mt-12">
-                  <h3 className="text-center text-[34px] font-light leading-none tracking-[-0.01em] text-lbs-magenta sm:text-[42px]">
-                    {singleYear}
-                  </h3>
-                  <div className="mx-auto mt-3 h-px w-16 bg-lbs-magenta/40" />
-
-                  <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {categoryGroups.map((group) => (
-                      <article
-                        key={group.key}
-                        className="rounded-xl border border-lbs-ink/10 bg-white p-6 shadow-[0_1px_2px_rgba(0,0,0,0.03),0_16px_36px_-28px_rgba(0,0,0,0.28)]"
-                      >
-                        <h4 className="text-[12px] font-semibold uppercase tracking-[0.1em] text-lbs-magenta">
-                          {group.title}
-                        </h4>
-                        <ul className="mt-4 space-y-3.5">
-                          {group.events.map((event, index) => (
-                            <li
-                              key={`${event.label}-${index}`}
-                              className="relative pl-4 text-[13.5px] leading-[1.75] text-lbs-ink/80"
-                            >
-                              <span className="absolute left-0 top-[9px] h-1.5 w-1.5 rounded-full bg-lbs-magenta/60" />
-                              {event.text}
-                            </li>
-                          ))}
-                        </ul>
-                      </article>
-                    ))}
-                  </div>
-                </div>
               ) : (
-
                 <div className="relative mt-10">
                   {/* linha vertical central contínua */}
                   <div className="pointer-events-none absolute inset-y-0 left-[7px] z-0 w-px bg-lbs-magenta/25" />
@@ -251,34 +200,53 @@ export function LbsTimeline() {
                     key={era.label}
                     className="h-[560px]"
                     speed={38}
-                    gap={28}
+                    gap={isSingleYear ? 14 : 28}
                     fadeOut
                     fadeOutColor="#ffffff"
                     ariaLabel={`Marcos ${era.label}`}
-                    items={years.map(([year, events]) => ({
-                      key: String(year),
-                      node: (
-                        <article className="relative z-10 pl-8">
-                          {/* ponto sobre a linha */}
-                          <div className="absolute left-[1px] top-[24px] h-3.5 w-3.5 rounded-full border-2 border-white bg-lbs-magenta" />
+                    items={
+                      isSingleYear
+                        ? years[0][1].map((event, index) => ({
+                            key: `${event.label}-${index}`,
+                            node: (
+                              <article className="relative z-10 pl-8">
+                                <div className="absolute left-[1px] top-[20px] h-3.5 w-3.5 rounded-full border-2 border-white bg-lbs-magenta" />
+                                <div className="rounded-lg bg-white px-5 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_10px_28px_-20px_rgba(0,0,0,0.25)]">
+                                  <h3 className="text-[12px] font-semibold uppercase tracking-[0.1em] text-lbs-magenta">
+                                    {event.label}
+                                  </h3>
+                                  <p className="mt-2 text-[14px] leading-[1.8] text-lbs-ink/85 sm:text-[15px]">
+                                    {event.text}
+                                  </p>
+                                </div>
+                              </article>
+                            ),
+                          }))
+                        : years.map(([year, events]) => ({
+                            key: String(year),
+                            node: (
+                              <article className="relative z-10 pl-8">
+                                {/* ponto sobre a linha */}
+                                <div className="absolute left-[1px] top-[24px] h-3.5 w-3.5 rounded-full border-2 border-white bg-lbs-magenta" />
 
-                          <div className="rounded-lg bg-white px-5 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_10px_28px_-20px_rgba(0,0,0,0.25)]">
-
-                            <h3 className="text-[13px] font-semibold uppercase tracking-[0.1em] text-lbs-magenta sm:text-[14px]">
-                              {year}
-                            </h3>
-                            <div className="mt-3 space-y-4 text-[14px] leading-[1.8] text-lbs-ink/85 sm:text-[15px]">
-                              {events.map((event, index) => (
-                                <p key={`${event.label}-${index}`}>{event.text}</p>
-                              ))}
-                            </div>
-                          </div>
-                        </article>
-                      ),
-                    }))}
+                                <div className="rounded-lg bg-white px-5 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_10px_28px_-20px_rgba(0,0,0,0.25)]">
+                                  <h3 className="text-[13px] font-semibold uppercase tracking-[0.1em] text-lbs-magenta sm:text-[14px]">
+                                    {year}
+                                  </h3>
+                                  <div className="mt-3 space-y-4 text-[14px] leading-[1.8] text-lbs-ink/85 sm:text-[15px]">
+                                    {events.map((event, index) => (
+                                      <p key={`${event.label}-${index}`}>{event.text}</p>
+                                    ))}
+                                  </div>
+                                </div>
+                              </article>
+                            ),
+                          }))
+                    }
                   />
                 </div>
               )}
+
 
 
             </div>
