@@ -110,11 +110,12 @@ function ALbsPage() {
             <SiteHeader active="A LBS" />
           </div>
 
-          <div className="relative z-10 mt-20 max-w-[780px] sm:mt-28 lg:mt-32">
+          <div className="relative z-10 mt-20 max-w-[860px] sm:mt-28 lg:mt-32">
             <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">A LBS</p>
-            <h1 className="mt-5 text-[34px] font-light leading-[1.15] tracking-tight text-white sm:text-[46px] lg:text-[54px]">
-              Excelência jurídica
-              <br /> com propósito
+            <h1 className="mt-5 text-[30px] font-light leading-[1.15] tracking-tight text-white sm:text-[40px] lg:text-[48px]">
+              Defendemos quem trabalha.
+              <br />
+              <span className="text-lbs-magenta">Estruturamos causas que transformam.</span>
             </h1>
             <p className="mt-7 max-w-[520px] text-[14px] leading-[1.85] text-white/65">
               Somos um escritório dedicado ao Direito do Trabalho e às relações empresariais. Atuamos
