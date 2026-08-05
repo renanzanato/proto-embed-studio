@@ -138,8 +138,8 @@ function Index() {
 
       {/* NEWSLETTER PILL — sobreposta entre o hero e a faixa dividida */}
       <div className="relative z-30 mx-auto flex w-full max-w-[1200px] justify-center px-4 sm:px-6 lg:px-8">
-        <div className="-mb-[46px] -mt-[46px] flex w-full max-w-[420px] items-center gap-4 rounded-[14px] bg-lbs-ink p-3 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.6)]">
-          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-white/10">
+        <div className="-mb-[46px] -mt-[46px] flex w-full max-w-[420px] items-center gap-4 rounded-[14px] bg-lbs-magenta p-3 shadow-[0_18px_40px_-18px_rgba(0,0,0,0.25)]">
+          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-white/15">
             <Mail className="h-5 w-5 text-white" />
           </span>
           <p className="text-[15px] font-medium leading-[1.25] text-white">
@@ -149,7 +149,7 @@ function Index() {
           </p>
           <button
             type="button"
-            className="ml-auto flex shrink-0 items-center gap-2 rounded-[9px] bg-white px-3.5 py-2.5 text-[12px] font-medium text-lbs-ink transition-opacity hover:opacity-90"
+            className="ml-auto flex shrink-0 items-center gap-2 rounded-[9px] bg-lbs-ink px-3.5 py-2.5 text-[12px] font-medium text-white transition-opacity hover:opacity-90"
           >
             Assinar newsletter
             <Send className="h-3.5 w-3.5" />
