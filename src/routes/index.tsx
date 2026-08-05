@@ -290,7 +290,7 @@ function Index() {
                   loading="lazy"
                   width={640}
                   height={520}
-                  className="h-[150px] w-full object-cover"
+                  className="aspect-[2/1] w-full object-cover object-top"
                 />
                 <div className="flex flex-1 flex-col p-5">
                   <div className="flex items-center justify-between gap-3">
