@@ -104,6 +104,87 @@ function ALbsPage() {
         </div>
       </section>
 
+      {/* NOSSA ORIGEM + QUEM SOMOS */}
+      <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
+        <div className="mx-auto w-full max-w-[1100px] px-4 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
+                Nossa origem
+              </p>
+              <h2 className="mt-4 text-[24px] font-normal leading-[1.3] text-lbs-ink sm:text-[28px]">
+                Loguercio, Beiro e Surian
+              </h2>
+              <p className="mt-6 text-[13px] leading-[1.9] text-lbs-ink/70">
+                Com trajetória vinculada ao movimento sindical e ao Direito do Trabalho, a LBS
+                Advogadas e Advogados traz em sua sigla a história e o compromisso de seus sócios
+                fundadores: Loguercio, Beiro e Surian. São quatro décadas dedicadas à construção de
+                soluções jurídicas de alto impacto na defesa de quem trabalha e dos direitos
+                humanos.
+              </p>
+              <p className="mt-5 text-[13px] leading-[1.9] text-lbs-ink/70">
+                Nossa identidade se consolida na atuação diária e na presença marcante nas mais
+                diversas instâncias do Poder Judiciário. Essa bagagem prática e a experiência
+                acumulada ao longo dos anos fundamentam nossa condução técnica, integrada e
+                estratégica para cada caso sob nossa responsabilidade.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">Quem somos</p>
+              <h2 className="mt-4 text-[24px] font-normal leading-[1.3] text-lbs-ink sm:text-[28px]">
+                Prática e rigor técnico na defesa de quem trabalha
+              </h2>
+              <p className="mt-6 text-[13px] leading-[1.9] text-lbs-ink/70">
+                Trabalhamos ao lado de bancários, servidores públicos, professores, enfermeiros,
+                comerciários, papeleiros, dentre outros trabalhadores. Entendemos que,
+                independentemente da natureza do vínculo — CLT, contratação autônoma, pejotização ou
+                trabalho por plataformas —, o direito a uma representação jurídica qualificada
+                permanece inegociável.
+              </p>
+              <p className="mt-5 text-[13px] leading-[1.9] text-lbs-ink/70">
+                A defesa do trabalho decente, da dignidade humana e da democracia integra a missão
+                do escritório e orienta nossa prática. São mais de 40 anos de experiência,
+                defendendo um só lado. Participamos ativamente do debate público sobre os novos
+                modelos de contratação, da construção das teses que percorrem o Poder Judiciário e
+                da interlocução com o Legislativo e o Executivo.
+              </p>
+              <p className="mt-5 text-[13px] leading-[1.9] text-lbs-ink/70">
+                Com três sedes e presença permanente em todas as instâncias do Judiciário, a LBS se
+                consolida também como ambiente formador. Mantemos atuação internacional, em contato
+                com a formação doutrinária de vanguarda de universidades da Espanha, e participamos
+                das discussões em organismos internacionais, como a Organização Internacional do
+                Trabalho.
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-14 border-t border-lbs-ink/10 pt-10 text-[18px] font-normal leading-[1.4] text-lbs-ink sm:text-[22px]">
+            Defendemos quem trabalha.{" "}
+            <span className="text-lbs-magenta">Estruturamos causas que transformam.</span>
+          </p>
+        </div>
+      </section>
+
+      {/* NOSSOS NÚMEROS */}
+      <section className="w-full bg-lbs-magenta py-14 sm:py-16">
+        <div className="mx-auto w-full max-w-[1100px] px-4 sm:px-6 lg:px-8">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-white/75">Nossos números</p>
+          <ul className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {numbers.map((item) => (
+              <li key={item.label} className="border-t border-white/30 pt-5">
+                <p className="text-[34px] font-light leading-none text-white sm:text-[40px]">
+                  {item.value}
+                </p>
+                <p className="mt-3 text-[12px] leading-[1.7] text-white/85">{item.label}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+
+
       {/* PROPÓSITO */}
       <section className="w-full bg-lbs-ink">
         <div className="mx-auto flex w-full max-w-[1200px] items-center gap-5 px-4 py-10 sm:px-6 sm:py-12 lg:gap-7 lg:px-8 lg:py-14">
