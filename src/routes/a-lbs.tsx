@@ -191,11 +191,6 @@ function ALbsPage() {
             </div>
           </div>
 
-
-          <p className="mt-14 border-t border-lbs-ink/10 pt-10 text-[18px] font-normal leading-[1.4] text-lbs-ink sm:text-[22px]">
-            Defendemos quem trabalha.{" "}
-            <span className="text-lbs-magenta">Estruturamos causas que transformam.</span>
-          </p>
         </div>
       </section>
 
