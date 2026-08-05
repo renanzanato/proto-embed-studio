@@ -69,9 +69,10 @@
 
 :root {
   --radius: 0.625rem;
-  --lbs-magenta: oklch(0.639 0.205 358.1);
-  --lbs-magenta-deep: oklch(0.53 0.19 358.1);
-  --lbs-magenta-soft: oklch(0.72 0.16 358.1);
+  --lbs-magenta: #e6458b;
+  --lbs-magenta-deep: #c02f6f;
+  --lbs-magenta-soft: #f06fa6;
+
   --lbs-ink: oklch(0.08 0 0);
   --lbs-whatsapp: oklch(0.72 0.19 145);
   --background: oklch(1 0 0);
