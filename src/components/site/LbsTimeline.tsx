@@ -87,11 +87,12 @@ export function LbsTimeline() {
     return Array.from(map.entries()).sort((a, b) => a[0] - b[0]);
   }, [era]);
 
-  const isSingleYear = !!era && era.min === era.max;
+  const isSingleYear = years.length === 1;
+  const singleYear = isSingleYear ? years[0][0] : null;
 
   const categoryGroups = useMemo(() => {
-    if (!era || era.min !== era.max) return [];
-    const filtered = timelineEvents.filter((event) => event.year === era.min);
+    if (years.length !== 1) return [];
+    const filtered = years[0][1];
     const order = ["Publicações", "Institucional", "Eventos", "Internacional"] as const;
     const titles: Record<string, string> = {
       "Publicações": "Lançamentos e Publicações",
@@ -106,7 +107,8 @@ export function LbsTimeline() {
         events: filtered.filter((event) => event.category === key),
       }))
       .filter((group) => group.events.length > 0);
-  }, [era]);
+  }, [years]);
+
 
   const tabs = [OVERVIEW, ...eras.map((item) => item.label)];
 
