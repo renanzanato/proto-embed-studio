@@ -4,9 +4,9 @@ import { ArrowRight, CalendarDays, Mail, Send } from "lucide-react";
 import heroOffice from "@/assets/hero-office.jpg";
 import solucoesMetal from "@/assets/solucoes-metal.jpg";
 import atuacaoOffice from "@/assets/atuacao-office.jpg";
-import team1 from "@/assets/team-1.jpg";
-import teamNilo from "@/assets/nilo.png.asset.json";
-import team3 from "@/assets/team-3.jpg";
+import teamLoguercio from "@/assets/team-loguercio.jpg.asset.json";
+import teamNilo from "@/assets/team-nilo.jpg.asset.json";
+import teamEduardo from "@/assets/team-eduardo.jpg.asset.json";
 import newsHero from "@/assets/news-hero.jpg";
 import news1 from "@/assets/news-1.jpg";
 import news2 from "@/assets/news-2.jpg";
@@ -45,7 +45,7 @@ const team = [
     name: "José Eymard Loguercio",
     role: "Sócio",
     oab: "OAB/SP nº 113250 e OAB/DF nº 1441-A",
-    photo: team1,
+    photo: teamLoguercio.url,
   },
   {
     name: "Nilo Beiro",
@@ -57,7 +57,7 @@ const team = [
     name: "Eduardo Surian Matias",
     role: "Sócio",
     oab: "OAB/SP nº 93422 e OAB/DF nº 23.400",
-    photo: team3,
+    photo: teamEduardo.url,
   },
 ];
 
