@@ -214,16 +214,16 @@ function Index() {
                   loading="lazy"
                   width={640}
                   height={760}
-                  className="h-[230px] w-full object-cover object-top"
+                  className="h-[300px] w-full object-cover object-[center_18%] sm:h-[360px]"
                   style={{
                     clipPath:
-                      "polygon(0 26px, 26px 0, 100% 0, 100% calc(100% - 26px), calc(100% - 26px) 100%, 0 100%)",
+                      "polygon(0 0, calc(100% - 88px) 0, 100% 88px, 100% 100%, 88px 100%, 0 calc(100% - 88px))",
                   }}
                 />
-                <div className="border border-white/12 bg-white/[0.04] px-5 py-4">
-                  <p className="text-[13px] text-white">{member.name}</p>
-                  <p className="mt-1 text-[11px] text-lbs-magenta-soft">{member.role}</p>
-                  <p className="mt-2.5 text-[10px] text-white/60">{member.oab}</p>
+                <div className="mt-2.5 border border-white/12 bg-white/[0.04] px-6 py-5">
+                  <p className="text-[15px] font-light text-white">{member.name}</p>
+                  <p className="mt-2 text-[12px] text-lbs-magenta">{member.role}</p>
+                  <p className="mt-3 text-[11px] text-white/60">{member.oab}</p>
                 </div>
               </li>
             ))}
@@ -231,12 +231,13 @@ function Index() {
 
           <div className="mt-11 flex justify-center">
             <a
-              href="/"
-              className="rounded-[7px] border border-lbs-magenta px-5 py-2.5 text-[11px] text-lbs-magenta-soft transition-colors hover:bg-lbs-magenta hover:text-white"
+              href="/equipe"
+              className="rounded-[6px] border border-lbs-magenta px-8 py-3.5 text-[13px] text-lbs-magenta transition-colors hover:bg-lbs-magenta hover:text-white"
             >
               Conheça toda a equipe
             </a>
           </div>
+
         </div>
       </section>
 
