@@ -5,7 +5,7 @@ import teamDaniela from "@/assets/team-daniela.jpg";
 import teamEduardo from "@/assets/team-eduardo.jpg";
 import teamFernanda from "@/assets/team-fernanda.jpg";
 import teamLoguercio from "@/assets/lawyer-loguercio.jpg";
-import teamNilo from "@/assets/team-nilo.jpg";
+import teamNilo from "@/assets/nilo.png.asset.json";
 
 export type TeamMember = {
   slug: string;
