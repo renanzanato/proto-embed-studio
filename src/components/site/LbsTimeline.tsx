@@ -91,7 +91,7 @@ export function LbsTimeline() {
   return (
     <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[1180px] px-4 sm:px-6 lg:px-8">
-        <h2 className="font-serif text-[52px] leading-[1.05] text-lbs-magenta sm:text-[68px] lg:text-[86px]">
+        <h2 className="text-[30px] font-light leading-[1.1] tracking-[-0.01em] text-lbs-magenta sm:text-[38px] lg:text-[46px]">
           Nossa História
         </h2>
 
