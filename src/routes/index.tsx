@@ -51,7 +51,7 @@ const team = [
     name: "Nilo Beiro",
     role: "Sócio",
     oab: "OAB/SP nº 108720 e OAB/DF nº 23405",
-    photo: team2,
+    photo: teamNilo.url,
   },
   {
     name: "Eduardo Surian Matias",
