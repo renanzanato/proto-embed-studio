@@ -1,141 +1,179 @@
 import { useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
-import {
-  timelineCategories,
-  timelineEvents,
-  timelinePeriods,
-  type TimelineCategory,
-} from "@/data/lbs-timeline";
+import { timelineEvents } from "@/data/lbs-timeline";
+
+type Era = { label: string; min: number; max: number; intro: string };
+
+const OVERVIEW = "Visão geral";
+
+const eras: Era[] = [
+  {
+    label: "1981 – 1999",
+    min: 1981,
+    max: 1999,
+    intro:
+      "Os anos de formação: da amizade nos bancos escolares à advocacia sindical no ABC e em Campinas, ao lado do novo sindicalismo brasileiro.",
+  },
+  {
+    label: "2000 – 2012",
+    min: 2000,
+    max: 2012,
+    intro:
+      "Consolidação nacional: estruturação do escritório, presença em Brasília e atuação estratégica nos tribunais superiores.",
+  },
+  {
+    label: "2013 – 2019",
+    min: 2013,
+    max: 2019,
+    intro:
+      "Expansão e produção intelectual: novas unidades, publicações, seminários e defesa dos direitos trabalhistas diante da reforma de 2017.",
+  },
+  {
+    label: "2020 – Hoje",
+    min: 2020,
+    max: 2100,
+    intro:
+      "Uma advocacia contemporânea: atuação internacional, Instituto Lavoro e a defesa permanente do trabalho digno.",
+  },
+];
 
 export function LbsTimeline() {
-  const [periodIndex, setPeriodIndex] = useState(timelinePeriods.length - 1);
-  const [category, setCategory] = useState<TimelineCategory | "Todos">("Todos");
-  const [openYears, setOpenYears] = useState<number[]>([]);
+  const [active, setActive] = useState<string>(OVERVIEW);
 
-  const period = timelinePeriods[periodIndex];
+  const era = eras.find((item) => item.label === active) ?? null;
 
   const years = useMemo(() => {
+    if (!era) return [];
     const filtered = timelineEvents.filter(
-      (event) =>
-        event.year >= period.min &&
-        event.year <= period.max &&
-        (category === "Todos" || event.category === category),
+      (event) => event.year >= era.min && event.year <= era.max,
     );
-
     const map = new Map<number, typeof filtered>();
     for (const event of filtered) {
       const list = map.get(event.year) ?? [];
       list.push(event);
       map.set(event.year, list);
     }
-
     return Array.from(map.entries()).sort((a, b) => a[0] - b[0]);
-  }, [period, category]);
+  }, [era]);
 
-  const toggleYear = (year: number) =>
-    setOpenYears((prev) =>
-      prev.includes(year) ? prev.filter((y) => y !== year) : [...prev, year],
-    );
+  const tabs = [OVERVIEW, ...eras.map((item) => item.label)];
 
   return (
-    <section className="w-full bg-lbs-ink py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto w-full max-w-[1000px] px-4 sm:px-6 lg:px-8">
-        <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">Nossa história</p>
-        <h2 className="mt-4 text-[26px] font-light leading-[1.2] text-white sm:text-[32px]">
-          Linha do tempo
+    <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto w-full max-w-[1180px] px-4 sm:px-6 lg:px-8">
+        <h2 className="font-serif text-[52px] leading-[1.05] text-lbs-magenta sm:text-[68px] lg:text-[86px]">
+          Nossa História
         </h2>
-        <p className="mt-4 max-w-[560px] text-[13px] leading-[1.8] text-white/60">
-          De 1981 aos dias de hoje: escolha um período e um tema para navegar pelos marcos da LBS.
-        </p>
 
-        {/* period filters */}
-        <div className="mt-9 flex flex-wrap gap-2">
-          {timelinePeriods.map((item, index) => (
-            <button
-              key={item.label}
-              type="button"
-              onClick={() => {
-                setPeriodIndex(index);
-                setOpenYears([]);
-              }}
-              className={`rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.1em] transition-colors ${
-                index === periodIndex
-                  ? "border-lbs-magenta bg-lbs-magenta text-white"
-                  : "border-white/20 text-white/65 hover:border-white/45 hover:text-white"
-              }`}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-
-        {/* category filters */}
-        <div className="mt-3 flex flex-wrap gap-2">
-          {(["Todos", ...timelineCategories] as const).map((item) => (
-            <button
-              key={item}
-              type="button"
-              onClick={() => setCategory(item)}
-              className={`rounded-full px-3.5 py-1.5 text-[10px] uppercase tracking-[0.12em] transition-colors ${
-                item === category
-                  ? "bg-white/15 text-white"
-                  : "bg-white/[0.04] text-white/50 hover:text-white/80"
-              }`}
-            >
-              {item}
-            </button>
-          ))}
-        </div>
-
-        {/* accordion by year */}
-        <div className="mt-10 border-t border-white/10">
-          {years.length === 0 && (
-            <p className="py-8 text-[13px] text-white/50">
-              Nenhum marco para esse período e tema.
-            </p>
-          )}
-
-          {years.map(([year, events]) => {
-            const open = openYears.includes(year);
-            return (
-              <div key={year} className="border-b border-white/10">
-                <button
-                  type="button"
-                  onClick={() => toggleYear(year)}
-                  aria-expanded={open}
-                  className="flex w-full items-center gap-4 py-5 text-left"
-                >
-                  <span className="text-[20px] font-light text-white sm:text-[24px]">{year}</span>
-                  <span className="h-px flex-1 bg-white/10" />
-                  <span className="text-[11px] text-lbs-magenta">
-                    {events.length} {events.length === 1 ? "marco" : "marcos"}
-                  </span>
+        {/* era navigation */}
+        <nav className="mt-10 overflow-x-auto sm:mt-14 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <ul className="flex min-w-max items-end gap-7 sm:gap-10 lg:gap-12">
+            {tabs.map((label) => {
+              const isActive = label === active;
+              return (
+                <li key={label} className="flex flex-col items-center">
                   <ChevronDown
-                    className={`h-4 w-4 shrink-0 text-white/50 transition-transform ${
-                      open ? "rotate-180" : ""
+                    className={`mb-1 h-5 w-5 transition-opacity ${
+                      isActive ? "text-lbs-magenta opacity-100" : "opacity-0"
                     }`}
+                    strokeWidth={3}
                   />
-                </button>
+                  <button
+                    type="button"
+                    onClick={() => setActive(label)}
+                    className={`whitespace-nowrap font-serif text-[17px] transition-colors sm:text-[19px] ${
+                      isActive
+                        ? "text-lbs-magenta"
+                        : "text-lbs-ink/60 hover:text-lbs-ink"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
 
-                {open && (
-                  <ul className="mb-6 space-y-5 border-l border-lbs-magenta/40 pl-5 sm:pl-7">
-                    {events.map((event, index) => (
-                      <li key={`${event.label}-${index}`} className="relative">
-                        <span className="absolute -left-[27px] top-[7px] h-2 w-2 rounded-full bg-lbs-magenta sm:-left-[35px]" />
-                        <p className="text-[10px] uppercase tracking-[0.14em] text-lbs-magenta">
-                          {event.label} · {event.category}
-                        </p>
-                        <p className="mt-2 text-[12.5px] leading-[1.8] text-white/70">
-                          {event.text}
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+        <div className="mt-10 h-px w-full bg-lbs-ink/10 sm:mt-12" />
+
+        {/* content */}
+        <div className="mt-10 max-w-[860px] sm:mt-14">
+          {!era ? (
+            <div>
+              <p className="text-[17px] leading-[1.7] text-lbs-ink sm:text-[19px]">
+                Com uma história feita de parcerias improváveis, escolhas corajosas
+                e crescimento estratégico, somos, desde o início, uma advocacia
+                fora do comum.
+              </p>
+
+              <h3 className="mt-12 text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
+                Parcerias fora do comum
+              </h3>
+              <div className="mt-4 space-y-6 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
+                <p>
+                  A história da LBS é a história de encontros improváveis, fundada
+                  em um respeito profundo pelas pessoas. Em 1981, José Eymard
+                  Loguercio e Eduardo Surian Matias se conheceram no colégio; anos
+                  depois, ainda estudantes de Direito na PUC Campinas, começaram a
+                  atuar ao lado de sindicatos de trabalhadores e nunca mais
+                  pararam.
+                </p>
+                <p>
+                  A chegada de Nilo Beiro, vindo do Rio Grande do Sul, completou o
+                  trio que daria origem ao escritório. Do TRT de Campinas recém
+                  criado às tribunas dos tribunais superiores em Brasília, a LBS
+                  cresceu junto com o movimento sindical brasileiro, sempre no
+                  mesmo lado da mesa: o de quem trabalha.
+                </p>
               </div>
-            );
-          })}
+
+              <h3 className="mt-12 text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
+                Uma advocacia que transforma
+              </h3>
+              <div className="mt-4 space-y-6 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
+                <p>
+                  Ao longo de mais de quatro décadas, a LBS estruturou teses,
+                  formou gerações de advogadas e advogados, produziu livros e
+                  seminários e levou a defesa do trabalho digno a fóruns nacionais
+                  e internacionais, incluindo a Organização Internacional do
+                  Trabalho.
+                </p>
+                <p>
+                  Navegue pelos períodos acima para conhecer os marcos que
+                  construíram essa trajetória.
+                </p>
+              </div>
+            </div>
+          ) : (
+            <div>
+              <p className="text-[17px] leading-[1.7] text-lbs-ink sm:text-[19px]">
+                {era.intro}
+              </p>
+
+              <div className="mt-12 space-y-11">
+                {years.length === 0 && (
+                  <p className="text-[15px] text-lbs-ink/60">
+                    Nenhum marco registrado para este período.
+                  </p>
+                )}
+
+                {years.map(([year, events]) => (
+                  <div key={year}>
+                    <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
+                      {year}
+                    </h3>
+                    <div className="mt-4 space-y-5 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
+                      {events.map((event, index) => (
+                        <p key={`${event.label}-${index}`}>{event.text}</p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
