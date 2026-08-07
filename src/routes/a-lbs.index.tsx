@@ -58,7 +58,7 @@ const values = [
   },
 ];
 
-export const Route = createFileRoute("/a-lbs")({
+export const Route = createFileRoute("/a-lbs/")({
   head: () => ({
     meta: [
       { title: "A LBS | LBS Advogadas e Advogados" },
