@@ -63,7 +63,7 @@ export function TypewriterHeadline({
         const segment = segments[segmentIndex];
 
         if (segment.isBreak) {
-          current[segmentIndex] = { ...segment };
+          current[segmentIndex] = { ...segment, text: "" };
           flush();
           segmentIndex++;
           charIndex = 0;
@@ -71,11 +71,12 @@ export function TypewriterHeadline({
           continue;
         }
 
-        while (charIndex < segment.text.length) {
+        const fullText = segment.text ?? "";
+        while (charIndex < fullText.length) {
           if (cancelled) return;
           current[segmentIndex] = {
             ...segment,
-            text: segment.text.slice(0, charIndex + 1),
+            text: fullText.slice(0, charIndex + 1),
           };
           flush();
           charIndex++;
