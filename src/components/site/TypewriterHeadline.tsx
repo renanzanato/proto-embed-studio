@@ -47,6 +47,7 @@ export function TypewriterHeadline({
     let segmentIndex = 0;
     let charIndex = 0;
     let current: Segment[] = segments.map((s) => ({ ...s, text: "" }));
+    setFinished(false);
 
     const flush = () => {
       if (!cancelled) setDisplayed([...current]);
@@ -59,6 +60,18 @@ export function TypewriterHeadline({
         }, ms);
         return () => clearTimeout(id);
       });
+
+    let finishTimer: ReturnType<typeof setTimeout> | null = null;
+    let cursorInterval: ReturnType<typeof setInterval> | null = null;
+
+    const finishCursor = () => {
+      if (!hideCursorOnFinish || loop) return;
+      finishTimer = setTimeout(() => {
+        if (cancelled) return;
+        if (cursorInterval) clearInterval(cursorInterval);
+        setFinished(true);
+      }, finishPause);
+    };
 
     const type = async () => {
       await wait(startDelay);
@@ -106,18 +119,21 @@ export function TypewriterHeadline({
         setDisplayed(current);
         setDone(false);
         type();
+      } else {
+        finishCursor();
       }
     };
 
     type();
 
-    const cursorInterval = setInterval(() => {
+    cursorInterval = setInterval(() => {
       setCursorVisible((v) => !v);
     }, 530);
 
     return () => {
       cancelled = true;
-      clearInterval(cursorInterval);
+      if (cursorInterval) clearInterval(cursorInterval);
+      if (finishTimer) clearTimeout(finishTimer);
     };
   }, [
     segments,
@@ -127,6 +143,8 @@ export function TypewriterHeadline({
     segmentPause,
     loop,
     loopPause,
+    hideCursorOnFinish,
+    finishPause,
   ]);
 
   return (
