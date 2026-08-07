@@ -40,6 +40,7 @@ export function TypewriterHeadline({
   );
   const [cursorVisible, setCursorVisible] = useState(true);
   const [done, setDone] = useState(false);
+  const [finished, setFinished] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
