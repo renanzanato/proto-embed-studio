@@ -14,6 +14,7 @@ import { Route as ALbsRouteImport } from './routes/a-lbs'
 import { Route as LinhaDoTempoAbRouteImport } from './routes/linha-do-tempo-ab'
 import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
 import { Route as SolucoesRouteImport } from './routes/solucoes'
+import { Route as ALbsHistoriaRouteImport } from './routes/a-lbs.historia'
 import { Route as AtuacaoIndexRouteImport } from './routes/atuacao.index'
 import { Route as AtuacaoDireitoTrabalhistaRouteImport } from './routes/atuacao.direito-trabalhista'
 import { Route as EquipeIndexRouteImport } from './routes/equipe.index'
@@ -44,6 +45,11 @@ const SolucoesRoute = SolucoesRouteImport.update({
   path: '/solucoes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ALbsHistoriaRoute = ALbsHistoriaRouteImport.update({
+  id: '/historia',
+  path: '/historia',
+  getParentRoute: () => ALbsRoute,
+} as any)
 const AtuacaoIndexRoute = AtuacaoIndexRouteImport.update({
   id: '/atuacao/',
   path: '/atuacao/',
@@ -68,10 +74,11 @@ const EquipeSlugRoute = EquipeSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/a-lbs': typeof ALbsRoute
+  '/a-lbs': typeof ALbsRouteWithChildren
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
+  '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/atuacao/': typeof AtuacaoIndexRoute
@@ -79,10 +86,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/a-lbs': typeof ALbsRoute
+  '/a-lbs': typeof ALbsRouteWithChildren
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
+  '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/atuacao': typeof AtuacaoIndexRoute
@@ -91,10 +99,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/a-lbs': typeof ALbsRoute
+  '/a-lbs': typeof ALbsRouteWithChildren
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/solucoes': typeof SolucoesRoute
+  '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/atuacao/': typeof AtuacaoIndexRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/solucoes'
+    | '/a-lbs/historia'
     | '/atuacao/direito-trabalhista'
     | '/equipe/$slug'
     | '/atuacao/'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/solucoes'
+    | '/a-lbs/historia'
     | '/atuacao/direito-trabalhista'
     | '/equipe/$slug'
     | '/atuacao'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/solucoes'
+    | '/a-lbs/historia'
     | '/atuacao/direito-trabalhista'
     | '/equipe/$slug'
     | '/atuacao/'
@@ -138,7 +150,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ALbsRoute: typeof ALbsRoute
+  ALbsRoute: typeof ALbsRouteWithChildren
   LinhaDoTempoAbRoute: typeof LinhaDoTempoAbRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
   SolucoesRoute: typeof SolucoesRoute
@@ -185,6 +197,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolucoesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/a-lbs/historia': {
+      id: '/a-lbs/historia'
+      path: '/historia'
+      fullPath: '/a-lbs/historia'
+      preLoaderRoute: typeof ALbsHistoriaRouteImport
+      parentRoute: typeof ALbsRoute
+    }
     '/atuacao/': {
       id: '/atuacao/'
       path: '/atuacao'
@@ -216,9 +235,19 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface ALbsRouteChildren {
+  ALbsHistoriaRoute: typeof ALbsHistoriaRoute
+}
+
+const ALbsRouteChildren: ALbsRouteChildren = {
+  ALbsHistoriaRoute: ALbsHistoriaRoute,
+}
+
+const ALbsRouteWithChildren = ALbsRoute._addFileChildren(ALbsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ALbsRoute: ALbsRoute,
+  ALbsRoute: ALbsRouteWithChildren,
   LinhaDoTempoAbRoute: LinhaDoTempoAbRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
   SolucoesRoute: SolucoesRoute,
@@ -230,3 +259,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
