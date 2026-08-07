@@ -138,7 +138,7 @@ function ALbsPage() {
                 />
               </span>
             </h1>
-            <p className="mt-5 max-w-[520px] text-[13px] leading-[1.8] text-white/65 sm:mt-6">
+            <p className="mt-8 max-w-[460px] text-[13px] leading-[1.8] text-white/65 sm:mt-10">
               Nossa atuação é pautada pela prática e pelo rigor técnico na defesa de quem trabalha e
               dos direitos humanos. São mais de 40 anos de experiência, defendendo um só lado.
             </p>
