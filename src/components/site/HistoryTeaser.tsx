@@ -50,7 +50,7 @@ export function HistoryTeaser() {
           Nossa história
         </p>
 
-        {/* 1981 + linha que atravessa a seção, se dissolve e sai da tela */}
+        {/* 1981 + linha viva que atravessa a seção e sai da tela */}
         <div className="mt-8 flex items-center gap-5 sm:mt-10 sm:gap-8 lg:gap-10">
           <span
             className={`text-[clamp(76px,13vw,190px)] font-light leading-[0.9] tracking-[-0.02em] text-lbs-magenta transition-all duration-700 ease-out ${
@@ -60,17 +60,23 @@ export function HistoryTeaser() {
             1981
           </span>
           <div className="relative h-px flex-1">
-            {/* linha que se dissolve além da tela */}
+            {/* linha que afina, engrossa e se dissolve além da tela */}
             <div
-              className={`h-px w-[calc(100%_+_50vw)] origin-left transition-transform duration-[1300ms] ease-out ${
+              className={`absolute left-0 top-1/2 h-6 w-[calc(100%_+_50vw)] -translate-y-1/2 origin-left transition-transform duration-[1300ms] ease-out ${
                 inView ? "scale-x-100" : "scale-x-0"
               }`}
-              style={{
-                transitionDelay: "250ms",
-                background:
-                  "linear-gradient(to right, var(--lbs-magenta) 0%, color-mix(in oklab, var(--lbs-magenta) 70%, transparent) 30%, color-mix(in oklab, var(--lbs-magenta) 32%, transparent) 55%, transparent 78%)",
-              }}
-            />
+              style={{ transitionDelay: "250ms" }}
+            >
+              <div
+                className="lbs-history-line h-full w-full"
+                style={{
+                  clipPath:
+                    "polygon(0 11.5px, 100% 10.5px, 100% 13.5px, 0 12.5px)",
+                  background:
+                    "linear-gradient(to right, var(--lbs-magenta) 0%, color-mix(in oklab, var(--lbs-magenta) 70%, transparent) 30%, color-mix(in oklab, var(--lbs-magenta) 32%, transparent) 55%, transparent 78%)",
+                }}
+              />
+            </div>
 
             {/* marcos das décadas — os anos acabam, a linha não */}
             {ticks.map((tick, index) => (
@@ -101,26 +107,6 @@ export function HistoryTeaser() {
                 )}
               </div>
             ))}
-
-            {/* pulso que percorre a linha e sai da tela, em loop */}
-            {inView && (
-              <div className="lbs-history-pulse pointer-events-none absolute -top-[2px] left-0 h-[5px] w-14">
-                <div
-                  className="h-full w-full rounded-full blur-[3px]"
-                  style={{
-                    background:
-                      "linear-gradient(to right, transparent, color-mix(in oklab, var(--lbs-magenta) 85%, transparent))",
-                  }}
-                />
-                <div
-                  className="absolute right-0 top-1/2 h-[7px] w-[7px] -translate-y-1/2 rounded-full bg-lbs-magenta"
-                  style={{
-                    boxShadow:
-                      "0 0 14px 3px color-mix(in oklab, var(--lbs-magenta) 65%, transparent)",
-                  }}
-                />
-              </div>
-            )}
           </div>
         </div>
 

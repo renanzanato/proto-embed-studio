@@ -166,23 +166,14 @@
   }
 }
 
-@keyframes lbs-history-pulse {
-  0% {
-    left: -56px;
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  82% {
-    opacity: 1;
-  }
-
+@keyframes lbs-line-breathe {
+  0%,
   100% {
-    left: calc(100% + 50vw + 56px);
-    opacity: 0;
+    clip-path: polygon(0 11.5px, 100% 10.5px, 100% 13.5px, 0 12.5px);
+  }
+
+  50% {
+    clip-path: polygon(0 11.5px, 100% 6.5px, 100% 17.5px, 0 12.5px);
   }
 }
 
@@ -231,10 +222,8 @@
     background: linear-gradient(to top, var(--milestone-fade-color), transparent);
   }
 
-  .lbs-history-pulse {
-    opacity: 0;
-    animation: lbs-history-pulse 5.4s cubic-bezier(0.55, 0.08, 0.35, 0.95) 1.6s
-      infinite backwards;
+  .lbs-history-line {
+    animation: lbs-line-breathe 4.8s ease-in-out 1.8s infinite backwards;
   }
 }
 
@@ -243,7 +232,7 @@
     animation-play-state: paused;
   }
 
-  .lbs-history-pulse {
+  .lbs-history-line {
     animation: none;
   }
 }
