@@ -120,17 +120,16 @@ function ALbsPage() {
                 Para quem trabalha, direitos; para direitos, LBS.
               </span>
               <span aria-hidden="true">
+                Para quem trabalha, direitos;
+                <br />
                 <TypewriterHeadline
                   segments={[
-                    { text: "Para quem trabalha, direitos;" },
-                    { isBreak: true },
                     { text: "para direitos, " },
                     { text: "LBS.", className: "text-lbs-magenta" },
                   ]}
                   speed={45}
-                  startDelay={500}
-                  lineBreakPause={600}
-                  segmentPause={200}
+                  startDelay={800}
+                  segmentPause={180}
                 />
               </span>
             </h1>
