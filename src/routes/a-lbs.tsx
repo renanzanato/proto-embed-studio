@@ -87,7 +87,7 @@ function ALbsPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       {/* HERO */}
-      <section className="relative isolate flex min-h-[600px] w-full flex-col overflow-hidden sm:min-h-[700px]">
+      <section className="relative isolate flex min-h-[480px] w-full flex-col overflow-hidden sm:min-h-[520px] lg:min-h-[560px]">
         <div className="absolute inset-0 -z-10">
           <img
             src={heroImage}
@@ -102,7 +102,7 @@ function ALbsPage() {
 
         {/* magenta glow */}
         <div
-          className="pointer-events-none absolute -left-40 top-1/2 -z-10 h-[500px] w-[500px] -translate-y-1/2 rounded-full opacity-30 blur-[120px]"
+          className="pointer-events-none absolute -left-40 top-1/2 -z-10 h-[360px] w-[360px] -translate-y-1/2 rounded-full opacity-25 blur-[100px] sm:h-[420px] sm:w-[420px]"
           style={{ background: "radial-gradient(circle, var(--lbs-magenta) 0%, transparent 70%)" }}
         />
 
@@ -114,11 +114,11 @@ function ALbsPage() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 mx-auto mt-auto w-full max-w-[1200px] px-4 pb-28 sm:px-6 sm:pb-36 lg:px-8">
-          <div className="max-w-[860px]">
+        <div className="relative z-10 mx-auto mt-auto w-full max-w-[1200px] px-4 pb-16 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
+          <div className="max-w-[800px]">
             <h1
               aria-label="Para quem trabalha, direitos; para direitos, LBS."
-              className="text-[30px] font-light leading-[1.15] tracking-tight text-white sm:text-[40px] lg:text-[48px]"
+              className="text-[28px] font-light leading-[1.12] tracking-tight text-white sm:text-[38px] lg:text-[44px]"
             >
               <span className="sr-only">
                 Para quem trabalha, direitos; para direitos, LBS.
@@ -131,14 +131,14 @@ function ALbsPage() {
                     { text: "para direitos, " },
                     { text: "LBS.", className: "text-lbs-magenta" },
                   ]}
-                  speed={32}
-                  startDelay={600}
-                  segmentPause={120}
+                  speed={18}
+                  startDelay={0}
+                  segmentPause={40}
                   cursor={false}
                 />
               </span>
             </h1>
-            <p className="mt-7 max-w-[520px] text-[14px] leading-[1.85] text-white/65">
+            <p className="mt-5 max-w-[520px] text-[13px] leading-[1.8] text-white/65 sm:mt-6">
               Nossa atuação é pautada pela prática e pelo rigor técnico na defesa de quem trabalha e
               dos direitos humanos. São mais de 40 anos de experiência, defendendo um só lado.
             </p>
