@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ChevronsRight } from "lucide-react";
 
 import heroImage from "@/assets/a-lbs-hero.jpg";
+import origemImage from "@/assets/atuacao-office.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { LbsTimeline } from "@/components/site/LbsTimeline";
@@ -148,23 +149,41 @@ function ALbsPage() {
 
       {/* NOSSA ORIGEM */}
       <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
-        <div className="mx-auto w-full max-w-[1100px] px-4 sm:px-6 lg:px-8">
-          <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
-            Nossa origem
-          </p>
-          <p className="mt-6 max-w-[800px] text-[13px] leading-[1.9] text-lbs-ink/70">
-            Com trajetória vinculada ao movimento sindical e ao Direito do Trabalho, a LBS
-            Advogadas e Advogados traz em sua sigla a história e o compromisso de seus sócios
-            fundadores: Loguercio, Beiro e Surian. São quatro décadas dedicadas à construção de
-            soluções jurídicas de alto impacto na defesa de quem trabalha e dos direitos
-            humanos.
-          </p>
-          <p className="mt-5 max-w-[800px] text-[13px] leading-[1.9] text-lbs-ink/70">
-            Nossa identidade se consolida na atuação diária e na presença marcante nas mais
-            diversas instâncias do Poder Judiciário. Essa bagagem prática e a experiência
-            acumulada ao longo dos anos fundamentam nossa condução técnica, integrada e
-            estratégica para cada caso sob nossa responsabilidade.
-          </p>
+        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.82fr] lg:gap-14">
+            <div className="max-w-[540px]">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
+                Nossa origem
+              </p>
+              <p className="mt-5 text-[15px] font-normal leading-[1.72] text-lbs-ink sm:text-[16px] lg:text-[17px]">
+                Com trajetória vinculada ao movimento sindical e ao Direito do Trabalho, a LBS
+                Advogadas e Advogados traz em sua sigla a história e o compromisso de seus sócios
+                fundadores: Loguercio, Beiro e Surian. São quatro décadas dedicadas à construção de
+                soluções jurídicas de alto impacto na defesa de quem trabalha e dos direitos
+                humanos.
+              </p>
+              <div className="mt-7 h-px w-20 bg-lbs-ink/10" />
+              <p className="mt-7 text-[13px] leading-[1.85] text-lbs-ink/55 sm:text-[14px]">
+                Nossa identidade se consolida na atuação diária e na presença marcante nas mais
+                diversas instâncias do Poder Judiciário. Essa bagagem prática e a experiência
+                acumulada ao longo dos anos fundamentam nossa condução técnica, integrada e
+                estratégica para cada caso sob nossa responsabilidade.
+              </p>
+            </div>
+
+            <div className="relative">
+              <div className="aspect-[4/3] overflow-hidden rounded-lg bg-lbs-ink/5">
+                <img
+                  src={origemImage}
+                  alt="Escritório LBS Advogadas e Advogados"
+                  className="h-full w-full object-cover"
+                  width={1024}
+                  height={1024}
+                />
+              </div>
+              <div className="pointer-events-none absolute -bottom-3 -right-3 -z-10 h-full w-full rounded-lg bg-lbs-magenta/10" />
+            </div>
+          </div>
         </div>
       </section>
 
