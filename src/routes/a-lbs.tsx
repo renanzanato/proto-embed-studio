@@ -38,28 +38,6 @@ const offices = [
 ];
 
 
-const values = [
-  {
-    title: "Pessoas",
-    description: "Desafiamos as pessoas a irem além, investindo no crescimento de cada profissional.",
-  },
-  {
-    title: "Cliente",
-    description: "Fazemos o melhor para o cliente, com foco total na entrega de resultados e valor.",
-  },
-  {
-    title: "Ética",
-    description: "Fazemos o que é certo. A integridade é o fundamento de cada relação e decisão.",
-  },
-  {
-    title: "Inovação",
-    description: "Inovamos para fazer a diferença, aproximando o direito das novas realidades.",
-  },
-  {
-    title: "Orgulho",
-    description: "Cuidamos da LBS diariamente, preservando nossa cultura e reputação.",
-  },
-];
 
 export const Route = createFileRoute("/a-lbs")({
   head: () => ({
@@ -224,27 +202,32 @@ function ALbsPage() {
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[280px_1fr] lg:gap-14">
             <h2 className="text-[24px] font-medium uppercase leading-[1.2] tracking-[0.02em] text-lbs-ink sm:text-[28px] lg:text-[30px]">
-              Conheça e vivencie
+              Conheça e reinvente
               <br />
               nossos valores
             </h2>
 
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {values.map((value, index) => (
-                <div
-                  key={value.title}
-                  className={`border-t border-lbs-ink/10 pt-5 ${
-                    index === 0 ? "sm:col-span-2 lg:col-span-1" : ""
-                  }`}
-                >
-                  <h3 className="text-[12px] font-semibold uppercase tracking-[0.08em] text-lbs-ink">
-                    {value.title}
-                  </h3>
-                  <p className="mt-3 text-[12px] leading-[1.7] text-lbs-ink/60">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
+            <div className="grid gap-10">
+              <div className="max-w-[720px]">
+                <p className="text-[15px] font-normal leading-[1.72] text-lbs-ink sm:text-[16px] lg:text-[17px]">
+                  Nossa atuação é pautada pela prática e pelo rigor técnico na defesa de quem trabalha e dos direitos humanos.
+                </p>
+                <p className="mt-5 text-[13px] leading-[1.85] text-lbs-ink/70 sm:text-[14px]">
+                  Trabalhamos ao lado de bancários, servidores públicos, professores, enfermeiros, comerciários, papeleiros, dentre outros trabalhadores. Entendemos que, independentemente da natureza do vínculo, seja CLT, contratação autônoma, pejotização ou trabalho por plataformas, o direito a uma representação jurídica qualificada permanece inegociável.
+                </p>
+                <p className="mt-5 text-[13px] leading-[1.85] text-lbs-ink/70 sm:text-[14px]">
+                  Defendemos quem trabalha. Estruturamos causas que transformam.
+                </p>
+              </div>
+
+              <div className="max-w-[720px]">
+                <p className="text-[15px] font-normal leading-[1.72] text-lbs-ink sm:text-[16px] lg:text-[17px]">
+                  A defesa do trabalho decente, da dignidade humana e da democracia integra a missão do escritório e orienta nossa prática. São mais de 40 anos de experiência, defendendo um só lado.
+                </p>
+                <p className="mt-5 text-[13px] leading-[1.85] text-lbs-ink/70 sm:text-[14px]">
+                  As normas, as negociações e o próprio direito estão em constante transformação; nós nos mantemos firmes na defesa das pessoas que trabalham. Participamos ativamente do debate público sobre os novos modelos de contratação, da construção das teses que percorrem o Poder Judiciário e da interlocução com o Poder Legislativo e com o Poder Executivo, na elaboração de normas protetivas e no enfrentamento das propostas de redução de direitos.
+                </p>
+              </div>
             </div>
           </div>
         </div>
