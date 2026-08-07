@@ -9,11 +9,31 @@ import { LbsTimeline } from "@/components/site/LbsTimeline";
 import { TypewriterHeadline } from "@/components/site/TypewriterHeadline";
 
 const numbers = [
-  { value: "+40", label: "anos de atuação no Direito do Trabalho" },
-  { value: "+60", label: "advogadas e advogados" },
-  { value: "3", label: "unidades: São Paulo, Campinas e Brasília" },
-  { value: "+80", label: "parcerias nacionais com escritórios em todo o país" },
-  { value: "100%", label: "atuação em todas as instâncias do Judiciário" },
+  {
+    lines: ["Mais de 40", "anos de atuação no Direito do Trabalho"],
+    size: "hero",
+    numberLine: 0,
+  },
+  {
+    lines: ["Mais de 60", "advogadas e advogados"],
+    size: "grid",
+    numberLine: 0,
+  },
+  {
+    lines: ["3", "unidades: São Paulo, Campinas e Brasília"],
+    size: "grid",
+    numberLine: 0,
+  },
+  {
+    lines: ["Parcerias nacionais com", "Mais de 80", "escritórios"],
+    size: "grid",
+    numberLine: 1,
+  },
+  {
+    lines: ["Atuação em todas", "as instâncias", "do Judiciário"],
+    size: "statement",
+    numberLine: -1,
+  },
 ];
 
 const offices = [
@@ -188,19 +208,62 @@ function ALbsPage() {
       </section>
 
       {/* NOSSOS NÚMEROS */}
-      <section className="w-full bg-lbs-magenta py-14 sm:py-16">
+      <section className="w-full bg-lbs-magenta py-16 sm:py-20 lg:py-24">
         <div className="mx-auto w-full max-w-[1100px] px-4 sm:px-6 lg:px-8">
-          <p className="text-[11px] uppercase tracking-[0.22em] text-white/75">Nossos números</p>
-          <ul className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {numbers.map((item) => (
-              <li key={item.label} className="border-t border-white/30 pt-5">
-                <p className="text-[34px] font-light leading-none text-white sm:text-[40px]">
-                  {item.value}
-                </p>
-                <p className="mt-3 text-[12px] leading-[1.7] text-white/85">{item.label}</p>
-              </li>
+          <p className="text-[11px] uppercase tracking-[0.22em] text-white/75">
+            Nossos números
+          </p>
+
+          {/* Dominant: 40 anos */}
+          <div className="mt-10 lg:mt-14">
+            <p className="text-[44px] font-light leading-[0.95] tracking-tight text-white sm:text-[60px] lg:text-[84px]">
+              {numbers[0].lines[0]}
+            </p>
+            <p className="mt-3 text-[15px] font-normal leading-[1.5] text-white/85 sm:text-[17px] lg:text-[19px]">
+              {numbers[0].lines[1]}
+            </p>
+          </div>
+
+          {/* Editorial grid */}
+          <div className="mt-14 grid gap-12 sm:grid-cols-2 lg:mt-20 lg:gap-x-20 lg:gap-y-16">
+            {numbers.slice(1).map((item) => (
+              <div
+                key={item.lines.join("-")}
+                className="flex flex-col justify-start"
+              >
+                {item.lines.map((line, i) => {
+                  if (item.numberLine === i) {
+                    return (
+                      <p
+                        key={i}
+                        className="text-[34px] font-light leading-[0.95] text-white sm:text-[42px] lg:text-[54px]"
+                      >
+                        {line}
+                      </p>
+                    );
+                  }
+                  if (item.numberLine === -1) {
+                    return (
+                      <p
+                        key={i}
+                        className="text-[17px] font-normal leading-[1.3] text-white sm:text-[20px] lg:text-[24px]"
+                      >
+                        {line}
+                      </p>
+                    );
+                  }
+                  return (
+                    <p
+                      key={i}
+                      className="mt-2 text-[13px] leading-[1.5] text-white/80 sm:text-[14px]"
+                    >
+                      {line}
+                    </p>
+                  );
+                })}
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
