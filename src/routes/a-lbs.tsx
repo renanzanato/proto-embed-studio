@@ -112,10 +112,9 @@ function ALbsPage() {
           </div>
 
           <div className="relative z-10 mt-20 max-w-[860px] sm:mt-28 lg:mt-32">
-            <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">A LBS</p>
             <h1
               aria-label="Para quem trabalha, direitos; para direitos, LBS."
-              className="mt-5 text-[30px] font-light leading-[1.15] tracking-tight text-white sm:text-[40px] lg:text-[48px]"
+              className="text-[30px] font-light leading-[1.15] tracking-tight text-white sm:text-[40px] lg:text-[48px]"
             >
               <span className="sr-only">
                 Para quem trabalha, direitos; para direitos, LBS.
