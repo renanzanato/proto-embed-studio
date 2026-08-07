@@ -17,6 +17,8 @@ type TypewriterHeadlineProps = {
   cursor?: boolean;
   cursorClassName?: string;
   className?: string;
+  hideCursorOnFinish?: boolean;
+  finishPause?: number;
 };
 
 export function TypewriterHeadline({
