@@ -5,6 +5,7 @@ import heroImage from "@/assets/a-lbs-hero.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { LbsTimeline } from "@/components/site/LbsTimeline";
+import { TypewriterHeadline } from "@/components/site/TypewriterHeadline";
 
 const numbers = [
   { value: "+40", label: "anos de atuação no Direito do Trabalho" },
@@ -112,10 +113,27 @@ function ALbsPage() {
 
           <div className="relative z-10 mt-20 max-w-[860px] sm:mt-28 lg:mt-32">
             <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">A LBS</p>
-            <h1 className="mt-5 text-[30px] font-light leading-[1.15] tracking-tight text-white sm:text-[40px] lg:text-[48px]">
-              Para quem trabalha, direitos;
-              <br />
-              <span className="text-lbs-magenta">para direitos, LBS.</span>
+            <h1
+              aria-label="Para quem trabalha, direitos; para direitos, LBS."
+              className="mt-5 text-[30px] font-light leading-[1.15] tracking-tight text-white sm:text-[40px] lg:text-[48px]"
+            >
+              <span className="sr-only">
+                Para quem trabalha, direitos; para direitos, LBS.
+              </span>
+              <span aria-hidden="true">
+                <TypewriterHeadline
+                  segments={[
+                    { text: "Para quem trabalha, direitos;" },
+                    { isBreak: true },
+                    { text: "para direitos, " },
+                    { text: "LBS.", className: "text-lbs-magenta" },
+                  ]}
+                  speed={45}
+                  startDelay={500}
+                  lineBreakPause={600}
+                  segmentPause={200}
+                />
+              </span>
             </h1>
             <p className="mt-7 max-w-[520px] text-[14px] leading-[1.85] text-white/65">
               Nossa atuação é pautada pela prática e pelo rigor técnico na defesa de quem trabalha e
