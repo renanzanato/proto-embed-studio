@@ -168,25 +168,25 @@
 
 @keyframes lbs-history-comet-travel {
   0% {
-    transform: translate3d(-105%, 0, 0) scaleY(0.2);
+    transform: translate3d(-100%, 0, 0) scaleY(0.65);
     opacity: 0;
   }
 
-  12% {
-    opacity: 1;
+  15% {
+    opacity: 0.75;
   }
 
-  42% {
-    transform: translate3d(85%, 0, 0) scaleY(1);
-    opacity: 1;
+  50% {
+    transform: translate3d(180%, 0, 0) scaleY(1);
+    opacity: 0.75;
   }
 
-  78% {
-    opacity: 1;
+  85% {
+    opacity: 0.75;
   }
 
   100% {
-    transform: translate3d(370%, 0, 0) scaleY(0.15);
+    transform: translate3d(360%, 0, 0) scaleY(0.65);
     opacity: 0;
   }
 }
