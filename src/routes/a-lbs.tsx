@@ -211,9 +211,7 @@ function ALbsPage() {
         <div className="mx-auto flex w-full max-w-[1200px] items-center gap-5 px-4 py-10 sm:px-6 sm:py-12 lg:gap-7 lg:px-8 lg:py-14">
           <ChevronsRight className="h-8 w-8 shrink-0 text-lbs-magenta sm:h-9 sm:w-9 lg:h-10 lg:w-10" />
           <p className="text-[13px] font-medium uppercase leading-[1.5] tracking-[0.04em] text-white sm:text-[15px] lg:text-[16px]">
-            Nosso{" "}
-            <span className="text-lbs-magenta">propósito</span>{" "}
-            é desenvolver inteligência jurídica para viabilizar negócios que transformam realidades.
+            São mais de 40 anos de experiência, defendendo um só lado.
           </p>
         </div>
       </section>
