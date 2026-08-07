@@ -131,9 +131,9 @@ function ALbsPage() {
                     { text: "para direitos, " },
                     { text: "LBS.", className: "text-lbs-magenta" },
                   ]}
-                  speed={18}
+                  speed={40}
                   startDelay={0}
-                  segmentPause={40}
+                  segmentPause={120}
                   cursor={false}
                 />
               </span>
