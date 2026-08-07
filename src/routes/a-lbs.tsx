@@ -87,7 +87,7 @@ function ALbsPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       {/* HERO */}
-      <section className="relative isolate flex min-h-[600px] w-full items-end overflow-hidden sm:min-h-[700px]">
+      <section className="relative isolate flex min-h-[600px] w-full flex-col overflow-hidden sm:min-h-[700px]">
         <div className="absolute inset-0 -z-10">
           <img
             src={heroImage}
@@ -106,12 +106,16 @@ function ALbsPage() {
           style={{ background: "radial-gradient(circle, var(--lbs-magenta) 0%, transparent 70%)" }}
         />
 
-        <div className="mx-auto w-full max-w-[1200px] px-4 pb-28 pt-5 sm:px-6 sm:pb-36 lg:px-8">
+        {/* Header */}
+        <div className="relative z-20 mx-auto w-full max-w-[1200px] px-4 pt-5 sm:px-6 lg:px-8">
           <div className="rounded-[14px] bg-black/40">
             <SiteHeader active="A LBS" />
           </div>
+        </div>
 
-          <div className="relative z-10 mt-20 max-w-[860px] sm:mt-28 lg:mt-32">
+        {/* Content */}
+        <div className="relative z-10 mx-auto mt-auto w-full max-w-[1200px] px-4 pb-28 sm:px-6 sm:pb-36 lg:px-8">
+          <div className="max-w-[860px]">
             <h1
               aria-label="Para quem trabalha, direitos; para direitos, LBS."
               className="text-[30px] font-light leading-[1.15] tracking-tight text-white sm:text-[40px] lg:text-[48px]"
