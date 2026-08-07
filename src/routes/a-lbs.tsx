@@ -5,7 +5,7 @@ import heroImage from "@/assets/a-lbs-hero.jpg";
 import origemImage from "@/assets/atuacao-office.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
-import { LbsTimeline } from "@/components/site/LbsTimeline";
+import { HistoryTeaser } from "@/components/site/HistoryTeaser";
 import { TypewriterHeadline } from "@/components/site/TypewriterHeadline";
 import { CountUp } from "@/components/site/CountUp";
 
@@ -263,7 +263,7 @@ function ALbsPage() {
       </section>
 
 
-      <LbsTimeline />
+      <HistoryTeaser />
 
       {/* UNIDADES */}
       <section className="w-full bg-lbs-ink py-16 sm:py-20 lg:py-24">

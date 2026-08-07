@@ -68,7 +68,7 @@ const eras: Era[] = [
 ];
 
 
-export function LbsTimeline() {
+export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
   const [active, setActive] = useState<string>(OVERVIEW);
 
   const era = eras.find((item) => item.label === active) ?? null;
@@ -97,12 +97,18 @@ export function LbsTimeline() {
   return (
     <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-[1180px] px-4 sm:px-6 lg:px-8">
-        <h2 className="text-[30px] font-light leading-[1.1] tracking-[-0.01em] text-lbs-magenta sm:text-[38px] lg:text-[46px]">
-          Nossa História
-        </h2>
+        {showHeading && (
+          <h2 className="text-[30px] font-light leading-[1.1] tracking-[-0.01em] text-lbs-magenta sm:text-[38px] lg:text-[46px]">
+            Nossa História
+          </h2>
+        )}
 
         {/* era navigation */}
-        <nav className="mt-10 overflow-x-auto sm:mt-14 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <nav
+          className={`overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
+            showHeading ? "mt-10 sm:mt-14" : ""
+          }`}
+        >
           <ul className="flex min-w-max items-end gap-7 sm:gap-10 lg:gap-12">
             {tabs.map((label) => {
               const isActive = label === active;
