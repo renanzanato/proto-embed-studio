@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { LbsTimeline } from "@/components/site/LbsTimeline";
 import { TypewriterHeadline } from "@/components/site/TypewriterHeadline";
+import { CountUp } from "@/components/site/CountUp";
 
 const numbers = [
   { value: "+40", label: "anos de atuação no Direito do Trabalho" },
@@ -170,10 +171,10 @@ function ALbsPage() {
         <div className="mx-auto w-full max-w-[1100px] px-4 sm:px-6 lg:px-8">
           <p className="text-[11px] uppercase tracking-[0.22em] text-white/75">Nossos números</p>
           <ul className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {numbers.map((item) => (
+            {numbers.map((item, index) => (
               <li key={item.label} className="border-t border-white/30 pt-5">
                 <p className="text-[34px] font-light leading-none text-white sm:text-[40px]">
-                  {item.value}
+                  <CountUp value={item.value} delay={index * 70} />
                 </p>
                 <p className="mt-3 text-[12px] leading-[1.7] text-white/85">{item.label}</p>
               </li>
@@ -208,47 +209,51 @@ function ALbsPage() {
 
           <div className="mt-12 grid gap-6 sm:mt-14 lg:mt-16 lg:grid-cols-2 lg:gap-8">
             {/* Card 1 */}
-            <div
-              className="group border border-lbs-ink/10 bg-white p-7 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-lbs-magenta/30 hover:shadow-[0_20px_40px_-12px_rgba(230,69,139,0.12)] sm:p-8 lg:p-9"
-              style={{
-                clipPath:
-                  "polygon(0 0, calc(100% - 64px) 0, 100% 64px, 100% 100%, 64px 100%, 0 calc(100% - 64px))",
-              }}
-            >
-              <h3 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-lbs-magenta transition-colors group-hover:text-lbs-magenta-deep">
-                Atuação e prática
-              </h3>
-              <div className="mt-6 space-y-5">
-                <p className="text-[15px] font-normal leading-[1.72] text-lbs-ink sm:text-[16px] lg:text-[17px]">
-                  Nossa atuação é pautada pela prática e pelo rigor técnico na defesa de quem trabalha e dos direitos humanos.
-                </p>
-                <p className="text-[13px] leading-[1.85] text-lbs-ink/70 sm:text-[14px]">
-                  Trabalhamos ao lado de bancários, servidores públicos, professores, enfermeiros, comerciários, papeleiros, dentre outros trabalhadores. Entendemos que, independentemente da natureza do vínculo, seja CLT, contratação autônoma, pejotização ou trabalho por plataformas, o direito a uma representação jurídica qualificada permanece inegociável.
-                </p>
-                <p className="text-[13px] leading-[1.85] text-lbs-ink/70 sm:text-[14px]">
-                  Defendemos quem trabalha. Estruturamos causas que transformam.
-                </p>
+            <div className="group transition-all duration-300 ease-out hover:-translate-y-1.5 hover:drop-shadow-[0_22px_34px_rgba(230,69,139,0.35)]">
+              <div
+                className="h-full border border-lbs-ink/10 bg-white p-7 transition-colors duration-300 group-hover:border-lbs-magenta group-hover:bg-lbs-magenta sm:p-8 lg:p-9"
+                style={{
+                  clipPath:
+                    "polygon(0 0, calc(100% - 64px) 0, 100% 64px, 100% 100%, 64px 100%, 0 calc(100% - 64px))",
+                }}
+              >
+                <h3 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-lbs-magenta transition-colors duration-300 group-hover:text-white">
+                  Atuação e prática
+                </h3>
+                <div className="mt-6 space-y-5">
+                  <p className="text-[15px] font-normal leading-[1.72] text-lbs-ink transition-colors duration-300 group-hover:text-white sm:text-[16px] lg:text-[17px]">
+                    Nossa atuação é pautada pela prática e pelo rigor técnico na defesa de quem trabalha e dos direitos humanos.
+                  </p>
+                  <p className="text-[13px] leading-[1.85] text-lbs-ink/70 transition-colors duration-300 group-hover:text-white/85 sm:text-[14px]">
+                    Trabalhamos ao lado de bancários, servidores públicos, professores, enfermeiros, comerciários, papeleiros, dentre outros trabalhadores. Entendemos que, independentemente da natureza do vínculo, seja CLT, contratação autônoma, pejotização ou trabalho por plataformas, o direito a uma representação jurídica qualificada permanece inegociável.
+                  </p>
+                  <p className="text-[13px] leading-[1.85] text-lbs-ink/70 transition-colors duration-300 group-hover:text-white/85 sm:text-[14px]">
+                    Defendemos quem trabalha. Estruturamos causas que transformam.
+                  </p>
+                </div>
               </div>
             </div>
 
             {/* Card 2 */}
-            <div
-              className="group border border-lbs-ink/10 bg-white p-7 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-lbs-magenta/30 hover:shadow-[0_20px_40px_-12px_rgba(230,69,139,0.12)] sm:p-8 lg:p-9"
-              style={{
-                clipPath:
-                  "polygon(0 0, calc(100% - 64px) 0, 100% 64px, 100% 100%, 64px 100%, 0 calc(100% - 64px))",
-              }}
-            >
-              <h3 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-lbs-magenta transition-colors group-hover:text-lbs-magenta-deep">
-                Missão e transformação
-              </h3>
-              <div className="mt-6 space-y-5">
-                <p className="text-[15px] font-normal leading-[1.72] text-lbs-ink sm:text-[16px] lg:text-[17px]">
-                  A defesa do trabalho decente, da dignidade humana e da democracia integra a missão do escritório e orienta nossa prática. São mais de 40 anos de experiência, defendendo um só lado.
-                </p>
-                <p className="text-[13px] leading-[1.85] text-lbs-ink/70 sm:text-[14px]">
-                  As normas, as negociações e o próprio direito estão em constante transformação; nós nos mantemos firmes na defesa das pessoas que trabalham. Participamos ativamente do debate público sobre os novos modelos de contratação, da construção das teses que percorrem o Poder Judiciário e da interlocução com o Poder Legislativo e com o Poder Executivo, na elaboração de normas protetivas e no enfrentamento das propostas de redução de direitos.
-                </p>
+            <div className="group transition-all duration-300 ease-out hover:-translate-y-1.5 hover:drop-shadow-[0_22px_34px_rgba(230,69,139,0.35)]">
+              <div
+                className="h-full border border-lbs-ink/10 bg-white p-7 transition-colors duration-300 group-hover:border-lbs-magenta group-hover:bg-lbs-magenta sm:p-8 lg:p-9"
+                style={{
+                  clipPath:
+                    "polygon(0 0, calc(100% - 64px) 0, 100% 64px, 100% 100%, 64px 100%, 0 calc(100% - 64px))",
+                }}
+              >
+                <h3 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-lbs-magenta transition-colors duration-300 group-hover:text-white">
+                  Missão e transformação
+                </h3>
+                <div className="mt-6 space-y-5">
+                  <p className="text-[15px] font-normal leading-[1.72] text-lbs-ink transition-colors duration-300 group-hover:text-white sm:text-[16px] lg:text-[17px]">
+                    A defesa do trabalho decente, da dignidade humana e da democracia integra a missão do escritório e orienta nossa prática. São mais de 40 anos de experiência, defendendo um só lado.
+                  </p>
+                  <p className="text-[13px] leading-[1.85] text-lbs-ink/70 transition-colors duration-300 group-hover:text-white/85 sm:text-[14px]">
+                    As normas, as negociações e o próprio direito estão em constante transformação; nós nos mantemos firmes na defesa das pessoas que trabalham. Participamos ativamente do debate público sobre os novos modelos de contratação, da construção das teses que percorrem o Poder Judiciário e da interlocução com o Poder Legislativo e com o Poder Executivo, na elaboração de normas protetivas e no enfrentamento das propostas de redução de direitos.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
