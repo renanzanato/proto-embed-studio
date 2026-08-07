@@ -152,9 +152,6 @@ function ALbsPage() {
           <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
             Nossa origem
           </p>
-          <h2 className="mt-4 text-[24px] font-normal leading-[1.3] text-lbs-ink sm:text-[28px]">
-            Loguercio, Beiro e Surian
-          </h2>
           <p className="mt-6 max-w-[800px] text-[13px] leading-[1.9] text-lbs-ink/70">
             Com trajetória vinculada ao movimento sindical e ao Direito do Trabalho, a LBS
             Advogadas e Advogados traz em sua sigla a história e o compromisso de seus sócios
