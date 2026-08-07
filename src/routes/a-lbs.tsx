@@ -87,7 +87,7 @@ function ALbsPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       {/* HERO */}
-      <section className="relative isolate flex min-h-[480px] w-full flex-col overflow-hidden sm:min-h-[520px] lg:min-h-[560px]">
+      <section className="relative isolate flex min-h-[420px] w-full flex-col overflow-hidden sm:min-h-[460px] lg:min-h-[500px]">
         <div className="absolute inset-0 -z-10">
           <img
             src={heroImage}
@@ -102,7 +102,7 @@ function ALbsPage() {
 
         {/* magenta glow */}
         <div
-          className="pointer-events-none absolute -left-40 top-1/2 -z-10 h-[360px] w-[360px] -translate-y-1/2 rounded-full opacity-25 blur-[100px] sm:h-[420px] sm:w-[420px]"
+          className="pointer-events-none absolute -left-40 top-1/2 -z-10 h-[320px] w-[320px] -translate-y-1/2 rounded-full opacity-25 blur-[100px] sm:h-[380px] sm:w-[380px]"
           style={{ background: "radial-gradient(circle, var(--lbs-magenta) 0%, transparent 70%)" }}
         />
 
@@ -131,9 +131,9 @@ function ALbsPage() {
                     { text: "para direitos, " },
                     { text: "LBS.", className: "text-lbs-magenta" },
                   ]}
-                  speed={18}
+                  speed={40}
                   startDelay={0}
-                  segmentPause={40}
+                  segmentPause={120}
                   cursor={false}
                 />
               </span>
