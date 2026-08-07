@@ -39,7 +39,7 @@ export function HistoryTeaser() {
             <div className="absolute left-0 top-1/2 h-6 w-[calc(100%_+_50vw)] -translate-y-1/2">
               <div className="lbs-history-line-base absolute inset-x-0 top-1/2 h-px -translate-y-1/2" />
               <div
-                className={`lbs-history-line-comet absolute inset-y-0 left-0 w-[38%] ${
+                className={`lbs-history-line-comet absolute inset-y-0 left-0 ${
                   inView ? "is-running" : ""
                 }`}
               />
