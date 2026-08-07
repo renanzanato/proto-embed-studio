@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 type Segment = {
-  text: string;
+  text?: string;
   className?: string;
   isBreak?: boolean;
 };
