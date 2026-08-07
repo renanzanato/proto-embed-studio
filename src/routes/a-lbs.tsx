@@ -200,44 +200,53 @@ function ALbsPage() {
       {/* VALORES */}
       <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-            {/* Headline */}
-            <div className="lg:col-span-4">
-              <h2 className="text-[24px] font-light uppercase leading-[1.2] tracking-[0.04em] text-lbs-ink sm:text-[28px] lg:text-[30px]">
-                Conheça e
-                <br />
-                reinvente
-                <br />
-                <span className="font-medium">nossos valores</span>
-              </h2>
-              <div className="mt-8 h-px w-16 bg-lbs-magenta/40" />
-            </div>
+          <h2 className="max-w-[520px] text-[24px] font-light uppercase leading-[1.2] tracking-[0.04em] text-lbs-ink sm:text-[28px] lg:text-[30px]">
+            Conheça e reinvente
+            <br />
+            <span className="font-medium">nossos valores</span>
+          </h2>
 
-            {/* Conteúdo */}
-            <div className="space-y-12 lg:col-span-8 lg:space-y-14">
-              {/* Bloco 1 */}
-              <div className="relative pl-6 sm:pl-8">
-                <div className="absolute left-0 top-1 h-full w-px bg-lbs-ink/10" />
-                <div className="absolute left-0 top-1 h-10 w-px bg-lbs-magenta" />
+          <div className="mt-12 grid gap-6 sm:mt-14 lg:mt-16 lg:grid-cols-2 lg:gap-8">
+            {/* Card 1 */}
+            <div
+              className="border border-lbs-ink/10 bg-white p-7 sm:p-8 lg:p-9"
+              style={{
+                clipPath:
+                  "polygon(0 0, calc(100% - 48px) 0, 100% 48px, 100% 100%, 48px 100%, 0 calc(100% - 48px))",
+              }}
+            >
+              <h3 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-lbs-magenta">
+                Atuação e prática
+              </h3>
+              <div className="mt-6 space-y-5">
                 <p className="text-[15px] font-normal leading-[1.72] text-lbs-ink sm:text-[16px] lg:text-[17px]">
                   Nossa atuação é pautada pela prática e pelo rigor técnico na defesa de quem trabalha e dos direitos humanos.
                 </p>
-                <p className="mt-5 text-[13px] leading-[1.85] text-lbs-ink/60 sm:text-[14px]">
+                <p className="text-[13px] leading-[1.85] text-lbs-ink/70 sm:text-[14px]">
                   Trabalhamos ao lado de bancários, servidores públicos, professores, enfermeiros, comerciários, papeleiros, dentre outros trabalhadores. Entendemos que, independentemente da natureza do vínculo, seja CLT, contratação autônoma, pejotização ou trabalho por plataformas, o direito a uma representação jurídica qualificada permanece inegociável.
                 </p>
-                <p className="mt-4 text-[13px] leading-[1.85] text-lbs-ink/60 sm:text-[14px]">
+                <p className="text-[13px] leading-[1.85] text-lbs-ink/70 sm:text-[14px]">
                   Defendemos quem trabalha. Estruturamos causas que transformam.
                 </p>
               </div>
+            </div>
 
-              {/* Bloco 2 */}
-              <div className="relative pl-6 sm:pl-8">
-                <div className="absolute left-0 top-1 h-full w-px bg-lbs-ink/10" />
-                <div className="absolute left-0 top-1 h-10 w-px bg-lbs-magenta" />
+            {/* Card 2 */}
+            <div
+              className="border border-lbs-ink/10 bg-white p-7 sm:p-8 lg:p-9"
+              style={{
+                clipPath:
+                  "polygon(0 0, calc(100% - 48px) 0, 100% 48px, 100% 100%, 48px 100%, 0 calc(100% - 48px))",
+              }}
+            >
+              <h3 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-lbs-magenta">
+                Missão e transformação
+              </h3>
+              <div className="mt-6 space-y-5">
                 <p className="text-[15px] font-normal leading-[1.72] text-lbs-ink sm:text-[16px] lg:text-[17px]">
                   A defesa do trabalho decente, da dignidade humana e da democracia integra a missão do escritório e orienta nossa prática. São mais de 40 anos de experiência, defendendo um só lado.
                 </p>
-                <p className="mt-5 text-[13px] leading-[1.85] text-lbs-ink/60 sm:text-[14px]">
+                <p className="text-[13px] leading-[1.85] text-lbs-ink/70 sm:text-[14px]">
                   As normas, as negociações e o próprio direito estão em constante transformação; nós nos mantemos firmes na defesa das pessoas que trabalham. Participamos ativamente do debate público sobre os novos modelos de contratação, da construção das teses que percorrem o Poder Judiciário e da interlocução com o Poder Legislativo e com o Poder Executivo, na elaboração de normas protetivas e no enfrentamento das propostas de redução de direitos.
                 </p>
               </div>
