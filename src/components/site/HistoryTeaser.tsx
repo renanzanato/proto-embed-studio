@@ -52,29 +52,19 @@ export function HistoryTeaser() {
 
         {/* 1981 + linha viva que atravessa a seção e sai da tela */}
         <div className="mt-8 flex items-center gap-5 sm:mt-10 sm:gap-8 lg:gap-10">
-          <span
-            className={`text-[clamp(76px,13vw,190px)] font-light leading-[0.9] tracking-[-0.02em] text-lbs-magenta transition-all duration-700 ease-out ${
-              inView ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-            }`}
-          >
+          <span className="text-[clamp(76px,13vw,190px)] font-light leading-[0.9] tracking-[-0.02em] text-lbs-magenta">
             1981
           </span>
           <div className="relative h-px flex-1">
-            {/* linha que afina, engrossa e se dissolve além da tela */}
+            {/* linha contínua; somente a espessura em movimento é animada */}
             <div
-              className={`absolute left-0 top-1/2 h-6 w-[calc(100%_+_50vw)] -translate-y-1/2 origin-left transition-transform duration-[1300ms] ease-out ${
-                inView ? "scale-x-100" : "scale-x-0"
-              }`}
-              style={{ transitionDelay: "250ms" }}
+              className="absolute left-0 top-1/2 h-6 w-[calc(100%_+_50vw)] -translate-y-1/2"
             >
+              <div className="lbs-history-line-base absolute inset-x-0 top-1/2 h-px -translate-y-1/2" />
               <div
-                className="lbs-history-line h-full w-full"
-                style={{
-                  clipPath:
-                    "polygon(0 11.5px, 100% 10.5px, 100% 13.5px, 0 12.5px)",
-                  background:
-                    "linear-gradient(to right, var(--lbs-magenta) 0%, color-mix(in oklab, var(--lbs-magenta) 70%, transparent) 30%, color-mix(in oklab, var(--lbs-magenta) 32%, transparent) 55%, transparent 78%)",
-                }}
+                className={`lbs-history-line-comet absolute inset-y-0 left-0 w-[38%] ${
+                  inView ? "is-running" : ""
+                }`}
               />
             </div>
 
@@ -82,11 +72,10 @@ export function HistoryTeaser() {
             {ticks.map((tick, index) => (
               <div
                 key={tick.label ?? `futuro-${index}`}
-                className="absolute top-1/2 -translate-y-1/2 transition-opacity duration-700 ease-out"
+                className="absolute top-1/2 -translate-y-1/2"
                 style={{
                   left: tick.left,
-                  opacity: inView ? tick.opacity : 0,
-                  transitionDelay: `${900 + index * 90}ms`,
+                  opacity: tick.opacity,
                 }}
               >
                 <div
@@ -110,22 +99,14 @@ export function HistoryTeaser() {
           </div>
         </div>
 
-        <p
-          className={`mt-10 max-w-[520px] text-[15px] leading-[1.8] text-lbs-ink/80 transition-all duration-700 ease-out sm:mt-12 sm:text-[16px] ${
-            inView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-          }`}
-          style={{ transitionDelay: "450ms" }}
-        >
+        <p className="mt-10 max-w-[520px] text-[15px] leading-[1.8] text-lbs-ink/80 sm:mt-12 sm:text-[16px]">
           São quatro décadas dedicadas à construção de soluções jurídicas de
           alto impacto na defesa de quem trabalha e dos direitos humanos.
         </p>
 
         <Link
           to="/a-lbs/historia"
-          className={`group mt-8 inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-lbs-magenta transition-all duration-700 ease-out hover:opacity-75 sm:text-[13px] ${
-            inView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
-          }`}
-          style={{ transitionDelay: "600ms" }}
+          className="group mt-8 inline-flex items-center gap-3 text-[12px] font-semibold uppercase tracking-[0.16em] text-lbs-magenta transition-opacity duration-300 hover:opacity-75 sm:text-[13px]"
         >
           Ver nossa história
           <ArrowRight
