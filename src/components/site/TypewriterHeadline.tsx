@@ -32,6 +32,8 @@ export function TypewriterHeadline({
   cursor = true,
   cursorClassName,
   className,
+  hideCursorOnFinish = true,
+  finishPause = 600,
 }: TypewriterHeadlineProps) {
   const [displayed, setDisplayed] = useState<Segment[]>(() =>
     segments.map((s) => ({ ...s, text: "" }))
