@@ -166,14 +166,28 @@
   }
 }
 
-@keyframes lbs-line-breathe {
-  0%,
-  100% {
-    clip-path: polygon(0 11.5px, 100% 10.5px, 100% 13.5px, 0 12.5px);
+@keyframes lbs-history-comet-travel {
+  0% {
+    transform: translate3d(-105%, 0, 0) scaleY(0.2);
+    opacity: 0;
   }
 
-  50% {
-    clip-path: polygon(0 11.5px, 100% 6.5px, 100% 17.5px, 0 12.5px);
+  12% {
+    opacity: 1;
+  }
+
+  42% {
+    transform: translate3d(85%, 0, 0) scaleY(1);
+    opacity: 1;
+  }
+
+  78% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate3d(370%, 0, 0) scaleY(0.15);
+    opacity: 0;
   }
 }
 
@@ -222,8 +236,32 @@
     background: linear-gradient(to top, var(--milestone-fade-color), transparent);
   }
 
-  .lbs-history-line {
-    animation: lbs-line-breathe 4.8s ease-in-out 1.8s infinite backwards;
+  .lbs-history-line-base {
+    background: linear-gradient(
+      to right,
+      var(--lbs-magenta) 0%,
+      color-mix(in oklab, var(--lbs-magenta) 65%, transparent) 42%,
+      color-mix(in oklab, var(--lbs-magenta) 24%, transparent) 72%,
+      transparent 100%
+    );
+  }
+
+  .lbs-history-line-comet {
+    clip-path: polygon(0 48%, 68% 29%, 100% 47%, 100% 53%, 68% 71%, 0 52%);
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      color-mix(in oklab, var(--lbs-magenta) 35%, transparent) 30%,
+      var(--lbs-magenta) 70%,
+      color-mix(in oklab, var(--lbs-magenta) 45%, transparent) 100%
+    );
+    opacity: 0;
+    transform-origin: center;
+    will-change: transform, opacity;
+  }
+
+  .lbs-history-line-comet.is-running {
+    animation: lbs-history-comet-travel 4.2s linear infinite;
   }
 }
 
@@ -232,7 +270,8 @@
     animation-play-state: paused;
   }
 
-  .lbs-history-line {
+  .lbs-history-line-comet.is-running {
     animation: none;
+    opacity: 0;
   }
 }
