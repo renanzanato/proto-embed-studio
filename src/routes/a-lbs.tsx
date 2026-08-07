@@ -209,13 +209,13 @@ function ALbsPage() {
           <div className="mt-12 grid gap-6 sm:mt-14 lg:mt-16 lg:grid-cols-2 lg:gap-8">
             {/* Card 1 */}
             <div
-              className="border border-lbs-ink/10 bg-white p-7 sm:p-8 lg:p-9"
+              className="group border border-lbs-ink/10 bg-white p-7 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-lbs-magenta/30 hover:shadow-[0_20px_40px_-12px_rgba(230,69,139,0.12)] sm:p-8 lg:p-9"
               style={{
                 clipPath:
-                  "polygon(0 0, calc(100% - 48px) 0, 100% 48px, 100% 100%, 48px 100%, 0 calc(100% - 48px))",
+                  "polygon(0 0, calc(100% - 64px) 0, 100% 64px, 100% 100%, 64px 100%, 0 calc(100% - 64px))",
               }}
             >
-              <h3 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-lbs-magenta">
+              <h3 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-lbs-magenta transition-colors group-hover:text-lbs-magenta-deep">
                 Atuação e prática
               </h3>
               <div className="mt-6 space-y-5">
@@ -233,13 +233,13 @@ function ALbsPage() {
 
             {/* Card 2 */}
             <div
-              className="border border-lbs-ink/10 bg-white p-7 sm:p-8 lg:p-9"
+              className="group border border-lbs-ink/10 bg-white p-7 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-lbs-magenta/30 hover:shadow-[0_20px_40px_-12px_rgba(230,69,139,0.12)] sm:p-8 lg:p-9"
               style={{
                 clipPath:
-                  "polygon(0 0, calc(100% - 48px) 0, 100% 48px, 100% 100%, 48px 100%, 0 calc(100% - 48px))",
+                  "polygon(0 0, calc(100% - 64px) 0, 100% 64px, 100% 100%, 64px 100%, 0 calc(100% - 64px))",
               }}
             >
-              <h3 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-lbs-magenta">
+              <h3 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-lbs-magenta transition-colors group-hover:text-lbs-magenta-deep">
                 Missão e transformação
               </h3>
               <div className="mt-6 space-y-5">
