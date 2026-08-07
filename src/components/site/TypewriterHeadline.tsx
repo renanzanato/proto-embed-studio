@@ -32,7 +32,7 @@ export function TypewriterHeadline({
   className,
 }: TypewriterHeadlineProps) {
   const [displayed, setDisplayed] = useState<Segment[]>(() =>
-    segments.map((s) => ({ ...s, text: s.isBreak ? "" : "" }))
+    segments.map((s) => ({ ...s, text: "" }))
   );
   const [cursorVisible, setCursorVisible] = useState(true);
   const [done, setDone] = useState(false);
