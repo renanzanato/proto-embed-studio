@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Segment = {
   text?: string;
@@ -19,6 +19,8 @@ type TypewriterHeadlineProps = {
   className?: string;
   hideCursorOnFinish?: boolean;
   finishPause?: number;
+  /** Retype every time the headline scrolls back into view */
+  restartOnEnter?: boolean;
 };
 
 export function TypewriterHeadline({
@@ -34,7 +36,10 @@ export function TypewriterHeadline({
   className,
   hideCursorOnFinish = true,
   finishPause = 600,
+  restartOnEnter = false,
 }: TypewriterHeadlineProps) {
+  const rootRef = useRef<HTMLSpanElement>(null);
+  const [active, setActive] = useState(!restartOnEnter);
   const [displayed, setDisplayed] = useState<Segment[]>(() =>
     segments.map((s) => ({ ...s, text: "" }))
   );
@@ -42,11 +47,31 @@ export function TypewriterHeadline({
   const [done, setDone] = useState(false);
   const [finished, setFinished] = useState(false);
 
+  // Watches visibility so the typing can restart when the section re-enters
   useEffect(() => {
+    if (!restartOnEnter) return;
+    const el = rootRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry) setActive(entry.isIntersecting);
+      },
+      { threshold: 0 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [restartOnEnter]);
+
+  useEffect(() => {
+    if (!active) return;
+
     let cancelled = false;
     let segmentIndex = 0;
     let charIndex = 0;
     let current: Segment[] = segments.map((s) => ({ ...s, text: "" }));
+    setDisplayed([...current]);
+    setDone(false);
     setFinished(false);
 
     const flush = () => {
@@ -145,10 +170,11 @@ export function TypewriterHeadline({
     loopPause,
     hideCursorOnFinish,
     finishPause,
+    active,
   ]);
 
   return (
-    <span className={className}>
+    <span ref={rootRef} className={className}>
       {displayed.map((segment, i) =>
         segment.isBreak ? (
           <br key={i} />
