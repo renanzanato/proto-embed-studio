@@ -12,7 +12,6 @@ interface CountUpProps {
 
 export function CountUp({ value, duration = 900, delay = 0, className }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null);
-  const startedRef = useRef(false);
   const [display, setDisplay] = useState(0);
 
   const match = /^(\+?)(\d+)(%?)$/.exec(value);
@@ -22,14 +21,27 @@ export function CountUp({ value, duration = 900, delay = 0, className }: CountUp
     if (!el || !match) return;
 
     const target = Number.parseInt(match[2] ?? "0", 10);
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplay(target);
+      return;
+    }
+
     let timeoutId: number | undefined;
     let rafId: number | undefined;
 
-    const run = () => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        setDisplay(target);
-        return;
+    const cancel = () => {
+      if (timeoutId !== undefined) {
+        window.clearTimeout(timeoutId);
+        timeoutId = undefined;
       }
+      if (rafId !== undefined) {
+        cancelAnimationFrame(rafId);
+        rafId = undefined;
+      }
+    };
+
+    const run = () => {
       const start = performance.now();
       const tick = (now: number) => {
         const progress = Math.min((now - start) / duration, 1);
@@ -44,10 +56,15 @@ export function CountUp({ value, duration = 900, delay = 0, className }: CountUp
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
-        if (!entry?.isIntersecting || startedRef.current) return;
-        startedRef.current = true;
-        observer.disconnect();
-        timeoutId = window.setTimeout(run, delay);
+        if (!entry) return;
+        if (entry.isIntersecting) {
+          cancel();
+          timeoutId = window.setTimeout(run, delay);
+        } else {
+          // Resets while out of view so the count replays on the way back
+          cancel();
+          setDisplay(0);
+        }
       },
       { threshold: 0.35 },
     );
@@ -56,8 +73,7 @@ export function CountUp({ value, duration = 900, delay = 0, className }: CountUp
 
     return () => {
       observer.disconnect();
-      if (timeoutId !== undefined) window.clearTimeout(timeoutId);
-      if (rafId !== undefined) cancelAnimationFrame(rafId);
+      cancel();
     };
     // match is derived from value
     // eslint-disable-next-line react-hooks/exhaustive-deps
