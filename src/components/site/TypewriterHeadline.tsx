@@ -41,7 +41,7 @@ export function TypewriterHeadline({
     let cancelled = false;
     let segmentIndex = 0;
     let charIndex = 0;
-    let current = segments.map((s) => ({ ...s, text: "" }));
+    let current: Segment[] = segments.map((s) => ({ ...s, text: "" }));
 
     const flush = () => {
       if (!cancelled) setDisplayed([...current]);
