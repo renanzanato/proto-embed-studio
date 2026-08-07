@@ -5,6 +5,7 @@ import heroImage from "@/assets/a-lbs-hero.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { LbsTimeline } from "@/components/site/LbsTimeline";
+import { TypewriterHeadline } from "@/components/site/TypewriterHeadline";
 
 const numbers = [
   { value: "+40", label: "anos de atuação no Direito do Trabalho" },
