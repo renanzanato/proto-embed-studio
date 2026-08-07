@@ -133,6 +133,7 @@ function ALbsPage() {
                   startDelay={0}
                   segmentPause={120}
                   cursor={false}
+                  restartOnEnter
                 />
               </span>
             </h1>
