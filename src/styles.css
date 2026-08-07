@@ -166,6 +166,26 @@
   }
 }
 
+@keyframes lbs-history-pulse {
+  0% {
+    left: -56px;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  82% {
+    opacity: 1;
+  }
+
+  100% {
+    left: calc(100% + 50vw + 56px);
+    opacity: 0;
+  }
+}
+
 @layer components {
   .milestone-loop-track {
     display: flex;
@@ -210,10 +230,20 @@
     height: 5rem;
     background: linear-gradient(to top, var(--milestone-fade-color), transparent);
   }
+
+  .lbs-history-pulse {
+    opacity: 0;
+    animation: lbs-history-pulse 5.4s cubic-bezier(0.55, 0.08, 0.35, 0.95) 1.6s
+      infinite backwards;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .milestone-loop-track {
     animation-play-state: paused;
+  }
+
+  .lbs-history-pulse {
+    animation: none;
   }
 }
