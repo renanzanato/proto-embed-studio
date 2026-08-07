@@ -158,7 +158,7 @@ export function TypewriterHeadline({
           </span>
         )
       )}
-      {cursor && (
+      {cursor && !finished && (
         <span
           className={
             cursorClassName ??
