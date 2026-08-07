@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ChevronsRight } from "lucide-react";
 
 import heroImage from "@/assets/a-lbs-hero.jpg";
+import origemImage from "@/assets/atuacao-office.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { LbsTimeline } from "@/components/site/LbsTimeline";
