@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 
-type Segment =
-  | { text: string; className?: string; isBreak?: false }
-  | { isBreak: true; className?: string; text?: string };
+type Segment = {
+  text?: string;
+  className?: string;
+  isBreak?: boolean;
+};
 
 type TypewriterHeadlineProps = {
   segments: Segment[];
