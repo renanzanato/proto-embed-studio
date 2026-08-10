@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, CalendarDays, Mail, Send } from "lucide-react";
 
-import heroOffice from "@/assets/hero-office.jpg";
+import heroBannerAsset from "@/assets/imagem-homepage-banner-1-lbs.png.asset.json";
+const heroBanner = heroBannerAsset.url;
 import splitLeftAsset from "@/assets/banner-homepage-secao-2-imagem-1-lbs.png.asset.json";
 import splitRightAsset from "@/assets/banner-homepage-secao-2-imagem-2-lbs.png.asset.json";
 const solucoesMetal = splitLeftAsset.url;
@@ -96,20 +97,21 @@ function Index() {
     <div className="min-h-screen w-full overflow-x-hidden bg-lbs-ink">
       {/* HERO */}
       <section className="relative isolate w-full overflow-hidden">
-        {/* background photo + magenta wash */}
+        {/* background: marca "B" original do Figma, em versão escura */}
         <div className="absolute inset-0 -z-10">
           <img
-            src={heroOffice}
-            alt="Interior de escritório corporativo em baixa luz"
-            width={1920}
-            height={1088}
-            className="h-full w-full object-cover opacity-60"
+            src={heroBanner}
+            alt=""
+            aria-hidden="true"
+            width={1643}
+            height={1868}
+            className="h-full w-full object-cover object-[center_20%]"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                "radial-gradient(70% 75% at 12% 30%, color-mix(in oklab, var(--lbs-magenta) 34%, transparent) 0%, transparent 72%), radial-gradient(60% 60% at 92% 78%, color-mix(in oklab, var(--lbs-magenta) 20%, transparent) 0%, transparent 70%), linear-gradient(180deg, rgba(10,0,6,0.5) 0%, rgba(6,0,4,0.8) 60%, var(--lbs-ink) 100%)",
+                "linear-gradient(180deg, rgba(2,2,2,0.35) 0%, rgba(2,2,2,0.08) 30%, rgba(2,2,2,0.18) 62%, var(--lbs-ink) 100%)",
             }}
           />
         </div>
