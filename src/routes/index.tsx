@@ -158,8 +158,8 @@ function Index() {
       </div>
 
       {/* SPLIT BAND */}
-
-      <section className="relative h-[300px] w-full overflow-hidden sm:h-[420px]">
+      <section className="relative h-[300px] w-full overflow-hidden sm:h-[420px] lg:h-[480px]">
+        {/* right side base image (Áreas de Atuação) */}
         <img
           src={atuacaoOffice}
           alt="Escritório corporativo em preto e branco"
@@ -168,10 +168,12 @@ function Index() {
           height={1024}
           className="absolute inset-0 h-full w-full object-cover grayscale"
         />
-        <div className="absolute inset-0 bg-lbs-ink/45" />
+        <div className="absolute inset-0 bg-lbs-ink/55" />
+
+        {/* left side image (Soluções) clipped by a sharp diagonal */}
         <div
-          className="absolute inset-y-0 left-0 w-[62%]"
-          style={{ clipPath: "polygon(0 0, 100% 0, 62% 100%, 0 100%)" }}
+          className="absolute inset-y-0 left-0 w-[64%]"
+          style={{ clipPath: "polygon(0 0, 100% 0, 55% 100%, 0 100%)" }}
         >
           <img
             src={solucoesMetal}
@@ -181,11 +183,15 @@ function Index() {
             height={1024}
             className="absolute inset-0 h-full w-full object-cover grayscale"
           />
-          <div className="absolute inset-0 bg-lbs-ink/35" />
+          <div className="absolute inset-0 bg-lbs-ink/30" />
         </div>
-        <div className="relative grid h-full w-full grid-cols-2 items-end pb-14">
-          <h2 className="text-center text-[20px] font-light text-white sm:text-[22px]">Soluções</h2>
-          <h2 className="text-center text-[20px] font-light text-white sm:text-[22px]">
+
+        {/* labels */}
+        <div className="relative grid h-full w-full grid-cols-2 items-end pb-12 sm:pb-14">
+          <h2 className="text-center text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
+            Soluções
+          </h2>
+          <h2 className="text-center text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
             Áreas de Atuação
           </h2>
         </div>
