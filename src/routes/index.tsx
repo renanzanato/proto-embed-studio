@@ -172,8 +172,8 @@ function Index() {
 
         {/* left side image (Soluções) clipped by a sharp diagonal */}
         <div
-          className="absolute inset-y-0 left-0 w-[58%]"
-          style={{ clipPath: "polygon(0 0, 100% 0, 68% 100%, 0 100%)" }}
+          className="absolute inset-y-0 left-0 w-[64%]"
+          style={{ clipPath: "polygon(0 0, 100% 0, 55% 100%, 0 100%)" }}
         >
           <img
             src={solucoesMetal}
