@@ -105,13 +105,13 @@ function Index() {
             aria-hidden="true"
             width={1643}
             height={1868}
-            className="h-full w-full object-cover object-[center_12%]"
+            className="h-full w-full object-cover object-center"
           />
           <div
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(180deg, rgba(2,2,2,0.35) 0%, rgba(2,2,2,0.08) 30%, rgba(2,2,2,0.18) 62%, var(--lbs-ink) 100%)",
+                "linear-gradient(180deg, transparent 55%, color-mix(in oklab, var(--lbs-ink) 55%, transparent) 85%, var(--lbs-ink) 100%)",
             }}
           />
         </div>
