@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, CalendarDays, Mail, Send } from "lucide-react";
+import { useState } from "react";
 
 import heroOffice from "@/assets/hero-office.jpg";
 import splitLeftAsset from "@/assets/banner-homepage-secao-2-imagem-1-lbs.png.asset.json";
@@ -158,44 +159,7 @@ function Index() {
       </div>
 
       {/* SPLIT BAND */}
-      <section className="relative h-[300px] w-full overflow-hidden sm:h-[420px] lg:h-[480px]">
-        {/* right side base image (Áreas de Atuação) */}
-        <img
-          src={atuacaoOffice}
-          alt="Escritório corporativo em preto e branco"
-          loading="lazy"
-          width={1024}
-          height={1024}
-          className="absolute inset-0 h-full w-full object-cover grayscale"
-        />
-        <div className="absolute inset-0 bg-lbs-ink/55" />
-
-        {/* left side image (Soluções) clipped by a sharp diagonal */}
-        <div
-          className="absolute inset-0"
-          style={{ clipPath: "polygon(0 0, 43% 0, 53% 100%, 0 100%)" }}
-        >
-          <img
-            src={solucoesMetal}
-            alt="Painéis curvos de metal escovado em preto e branco"
-            loading="lazy"
-            width={1024}
-            height={1024}
-            className="absolute inset-0 h-full w-full object-cover grayscale"
-          />
-          <div className="absolute inset-0 bg-lbs-ink/30" />
-        </div>
-
-        {/* labels */}
-        <div className="relative grid h-full w-full grid-cols-2 items-end pb-12 sm:pb-14">
-          <h2 className="text-center text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
-            Soluções
-          </h2>
-          <h2 className="text-center text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
-            Áreas de Atuação
-          </h2>
-        </div>
-      </section>
+      <SplitBand />
 
       {/* QUEM SOMOS */}
       <section className="w-full bg-white">
@@ -404,5 +368,126 @@ function Index() {
 
       <WhatsAppButton />
     </div>
+  );
+}
+
+function SplitBand() {
+  const [hovered, setHovered] = useState<"solucoes" | "atuacao" | null>(null);
+
+  // diagonal boundary between the two panels (top % leans left, bottom % leans right)
+  const leftClip =
+    hovered === "solucoes"
+      ? "polygon(0 0, 86% 0, 94% 100%, 0 100%)"
+      : hovered === "atuacao"
+        ? "polygon(0 0, 8% 0, 14% 100%, 0 100%)"
+        : "polygon(0 0, 43% 0, 53% 100%, 0 100%)";
+  const rightClip =
+    hovered === "solucoes"
+      ? "polygon(86% 0, 100% 0, 100% 100%, 94% 100%)"
+      : hovered === "atuacao"
+        ? "polygon(8% 0, 100% 0, 100% 100%, 14% 100%)"
+        : "polygon(43% 0, 100% 0, 100% 100%, 53% 100%)";
+
+  const clipTransition =
+    "transition-[clip-path] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[clip-path]";
+
+  return (
+    <section
+      aria-label="Soluções e Áreas de Atuação"
+      className="relative h-[300px] w-full overflow-hidden sm:h-[420px] lg:h-[480px]"
+      onMouseLeave={() => setHovered(null)}
+    >
+      {/* right side base image (Áreas de Atuação) */}
+      <img
+        src={atuacaoOffice}
+        alt="Escritório corporativo em preto e branco"
+        loading="lazy"
+        width={1024}
+        height={1024}
+        className={`absolute inset-0 h-full w-full object-cover grayscale transition-transform duration-[1400ms] ease-out ${
+          hovered === "atuacao" ? "scale-[1.06]" : "scale-100"
+        }`}
+      />
+      <div
+        className={`absolute inset-0 transition-colors duration-700 ${
+          hovered === "atuacao"
+            ? "bg-lbs-ink/30"
+            : hovered === "solucoes"
+              ? "bg-lbs-ink/70"
+              : "bg-lbs-ink/55"
+        }`}
+      />
+
+      {/* left side image (Soluções) clipped by a sharp diagonal */}
+      <div className={`absolute inset-0 ${clipTransition}`} style={{ clipPath: leftClip }}>
+        <img
+          src={solucoesMetal}
+          alt="Painéis curvos de metal escovado em preto e branco"
+          loading="lazy"
+          width={1024}
+          height={1024}
+          className={`absolute inset-0 h-full w-full object-cover grayscale transition-transform duration-[1400ms] ease-out ${
+            hovered === "solucoes" ? "scale-[1.06]" : "scale-100"
+          }`}
+        />
+        <div
+          className={`absolute inset-0 transition-colors duration-700 ${
+            hovered === "solucoes"
+              ? "bg-lbs-ink/10"
+              : hovered === "atuacao"
+                ? "bg-lbs-ink/60"
+                : "bg-lbs-ink/30"
+          }`}
+        />
+      </div>
+
+      {/* labels */}
+      <div className="pointer-events-none absolute inset-0">
+        <h2
+          className={`absolute bottom-12 left-[24%] flex -translate-x-1/2 items-center gap-3 text-[18px] font-light tracking-wide text-white transition-opacity duration-500 sm:bottom-14 sm:text-[22px] lg:text-[24px] ${
+            hovered === "atuacao" ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          Soluções
+          <ArrowRight
+            className={`h-5 w-5 text-lbs-magenta transition-all duration-500 ${
+              hovered === "solucoes" ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0"
+            }`}
+          />
+        </h2>
+        <h2
+          className={`absolute bottom-12 left-[74%] flex -translate-x-1/2 items-center gap-3 text-[18px] font-light tracking-wide text-white transition-opacity duration-500 sm:bottom-14 sm:text-[22px] lg:text-[24px] ${
+            hovered === "solucoes" ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          Áreas de Atuação
+          <ArrowRight
+            className={`h-5 w-5 text-lbs-magenta transition-all duration-500 ${
+              hovered === "atuacao" ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0"
+            }`}
+          />
+        </h2>
+      </div>
+
+      {/* hit areas — each visible panel is fully clickable */}
+      <a
+        href="/solucoes"
+        aria-label="Conheça nossas soluções"
+        className={`absolute inset-0 ${clipTransition}`}
+        style={{ clipPath: leftClip }}
+        onMouseEnter={() => setHovered("solucoes")}
+        onFocus={() => setHovered("solucoes")}
+        onBlur={() => setHovered(null)}
+      />
+      <a
+        href="/atuacao"
+        aria-label="Conheça nossas áreas de atuação"
+        className={`absolute inset-0 ${clipTransition}`}
+        style={{ clipPath: rightClip }}
+        onMouseEnter={() => setHovered("atuacao")}
+        onFocus={() => setHovered("atuacao")}
+        onBlur={() => setHovered(null)}
+      />
+    </section>
   );
 }
