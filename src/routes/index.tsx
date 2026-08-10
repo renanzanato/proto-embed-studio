@@ -105,7 +105,7 @@ function Index() {
             aria-hidden="true"
             width={1643}
             height={1868}
-            className="h-full w-full object-cover object-[center_20%]"
+            className="h-full w-full object-cover object-[center_12%]"
           />
           <div
             className="absolute inset-0"
