@@ -1,8 +1,10 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, CalendarDays, Mail, Send } from "lucide-react";
 
-import heroBannerAsset from "@/assets/imagem-homepage-banner-1-lbs.png.asset.json";
-const heroBanner = heroBannerAsset.url;
+import heroOfficeAsset from "@/assets/hero-office.jpg.asset.json";
+const heroOffice = heroOfficeAsset.url;
+import bGlowAsset from "@/assets/b-letterform-glow.png.asset.json";
+const bGlow = bGlowAsset.url;
 import splitLeftAsset from "@/assets/banner-homepage-secao-2-imagem-1-lbs.png.asset.json";
 import splitRightAsset from "@/assets/banner-homepage-secao-2-imagem-2-lbs.png.asset.json";
 const solucoesMetal = splitLeftAsset.url;
@@ -97,15 +99,26 @@ function Index() {
     <div className="min-h-screen w-full overflow-x-hidden bg-lbs-ink">
       {/* HERO */}
       <section className="relative isolate w-full overflow-hidden">
-        {/* background: marca "B" original do Figma, em versão escura */}
+        {/* background: foto do escritório + marca "B" original do Figma como camada à frente */}
         <div className="absolute inset-0 -z-10">
           <img
-            src={heroBanner}
+            src={heroOffice}
+            alt=""
+            aria-hidden="true"
+            width={1920}
+            height={1088}
+            className="h-full w-full object-cover opacity-60"
+          />
+          <div className="absolute inset-0 bg-lbs-ink/35" />
+          {/* "B" esticado horizontalmente: haste na borda esquerda, topo termina no header
+              e o vão inferior (efeito "D") abraça a headline */}
+          <img
+            src={bGlow}
             alt=""
             aria-hidden="true"
             width={1643}
             height={1868}
-            className="h-full w-full object-cover object-center"
+            className="absolute left-[-0.5%] top-[-440px] h-[960px] w-[103%] max-w-none sm:top-[-522px] sm:h-[1101px]"
           />
           <div
             className="absolute inset-0"
@@ -116,12 +129,12 @@ function Index() {
           />
         </div>
 
-        {/* organic black blob behind the headline */}
+        {/* organic black blob behind the headline — reforça o vão do "B" (efeito D) */}
         <div
           aria-hidden
-          className="pointer-events-none absolute left-[26%] top-[3%] -z-[5] h-[52%] w-[52%] bg-lbs-ink blur-[3px]"
+          className="pointer-events-none absolute left-[24%] top-[84px] -z-[5] h-[290px] w-[52%] bg-lbs-ink blur-[3px] sm:top-[86px] sm:h-[312px]"
           style={{
-            borderRadius: "44% 40% 46% 52% / 48% 44% 50% 46%",
+            borderRadius: "24px 50% 50% 24px / 24px 50% 50% 24px",
           }}
         />
 
