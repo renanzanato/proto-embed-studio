@@ -172,8 +172,8 @@ function Index() {
 
         {/* left side image (Soluções) clipped by a sharp diagonal */}
         <div
-          className="absolute inset-y-0 left-0 w-[55%]"
-          style={{ clipPath: "polygon(0 0, 100% 0, 75% 100%, 0 100%)" }}
+          className="absolute inset-y-0 left-0 w-[58%]"
+          style={{ clipPath: "polygon(0 0, 100% 0, 68% 100%, 0 100%)" }}
         >
           <img
             src={solucoesMetal}
@@ -186,18 +186,12 @@ function Index() {
           <div className="absolute inset-0 bg-lbs-ink/30" />
         </div>
 
-        {/* diagonal seam line */}
-        <div
-          className="pointer-events-none absolute inset-y-0 left-[55%] w-px bg-white/25"
-          style={{ transform: "translateX(-50%) skewX(-14deg)" }}
-        />
-
         {/* labels */}
         <div className="relative grid h-full w-full grid-cols-2 items-end pb-12 sm:pb-14">
-          <h2 className="pl-[8%] text-left text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
+          <h2 className="text-center text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
             Soluções
           </h2>
-          <h2 className="pr-[8%] text-right text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
+          <h2 className="text-center text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
             Áreas de Atuação
           </h2>
         </div>
