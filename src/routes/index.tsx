@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, CalendarDays, Mail, Send } from "lucide-react";
+import { useState } from "react";
 
 import heroOffice from "@/assets/hero-office.jpg";
 import splitLeftAsset from "@/assets/banner-homepage-secao-2-imagem-1-lbs.png.asset.json";
@@ -158,44 +159,7 @@ function Index() {
       </div>
 
       {/* SPLIT BAND */}
-      <section className="relative h-[300px] w-full overflow-hidden sm:h-[420px] lg:h-[480px]">
-        {/* right side base image (Áreas de Atuação) */}
-        <img
-          src={atuacaoOffice}
-          alt="Escritório corporativo em preto e branco"
-          loading="lazy"
-          width={1024}
-          height={1024}
-          className="absolute inset-0 h-full w-full object-cover grayscale"
-        />
-        <div className="absolute inset-0 bg-lbs-ink/55" />
-
-        {/* left side image (Soluções) clipped by a sharp diagonal */}
-        <div
-          className="absolute inset-0"
-          style={{ clipPath: "polygon(0 0, 43% 0, 53% 100%, 0 100%)" }}
-        >
-          <img
-            src={solucoesMetal}
-            alt="Painéis curvos de metal escovado em preto e branco"
-            loading="lazy"
-            width={1024}
-            height={1024}
-            className="absolute inset-0 h-full w-full object-cover grayscale"
-          />
-          <div className="absolute inset-0 bg-lbs-ink/30" />
-        </div>
-
-        {/* labels */}
-        <div className="relative grid h-full w-full grid-cols-2 items-end pb-12 sm:pb-14">
-          <h2 className="text-center text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
-            Soluções
-          </h2>
-          <h2 className="text-center text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
-            Áreas de Atuação
-          </h2>
-        </div>
-      </section>
+      <SplitBand />
 
       {/* QUEM SOMOS */}
       <section className="w-full bg-white">
