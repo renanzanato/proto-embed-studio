@@ -536,7 +536,7 @@ function CaseTile({
         alt=""
         aria-hidden="true"
         loading="lazy"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover contrast-[1.03] saturate-[0.95]"
         style={{
           opacity: on ? 1 : 0,
           transform: on ? "scale(1)" : "scale(1.03)",
@@ -549,7 +549,7 @@ function CaseTile({
         className="pointer-events-none absolute inset-0"
         style={{
           background: on
-            ? "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.80) 45%, rgba(0,0,0,0.92) 100%)"
+            ? "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.66) 45%, rgba(0,0,0,0.86) 100%)"
             : "rgba(0,0,0,0)",
           transition: "background 360ms ease",
         }}
@@ -622,7 +622,7 @@ function DestaquesGaleria() {
               loading="lazy"
               width={1440}
               height={960}
-              className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+              className="absolute inset-0 h-full w-full object-cover contrast-[1.03] saturate-[0.95]"
             />
             <span className="absolute left-0 top-0 bg-lbs-magenta px-4 py-2 text-[10px] uppercase tracking-[0.18em] text-white">
               Caso emblemático
