@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import case01 from "@/assets/case-01.jpg";
+import case02 from "@/assets/case-02.jpg";
+import case03 from "@/assets/case-03.jpg";
+import case04 from "@/assets/case-04.jpg";
+import case05 from "@/assets/case-05.jpg";
+import case06 from "@/assets/case-06.jpg";
 import publicoFoto from "@/assets/publico-atendido-foto.jpg";
 import publicoFoto02 from "@/assets/publico-atendido-02.jpg";
 import publicoFoto03 from "@/assets/publico-atendido-03.jpg";
