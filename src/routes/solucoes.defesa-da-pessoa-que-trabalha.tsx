@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import publicoImg from "@/assets/publico-atendido.jpg";
+import publicoFoto from "@/assets/publico-atendido-foto.jpg";
 import solDefesa from "@/assets/sol-defesa.jpg";
 
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -298,46 +298,10 @@ function PublicoAtendido() {
       ref={ref}
       className="relative isolate w-full overflow-hidden border-y border-lbs-ink/10 bg-[#f7f6f5] py-20 sm:py-24"
     >
-      {/* imagem editorial fantasma */}
-      <img
-        src={publicoImg}
-        alt=""
-        aria-hidden="true"
-        loading="lazy"
-        width={1600}
-        height={1000}
-        className="pointer-events-none absolute inset-y-0 right-0 -z-10 h-full w-full object-cover opacity-[0.13] grayscale contrast-125 sm:w-[68%]"
-        style={{
-          maskImage:
-            "linear-gradient(to left, rgba(0,0,0,1) 12%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 96%)",
-          WebkitMaskImage:
-            "linear-gradient(to left, rgba(0,0,0,1) 12%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 96%)",
-          transform: visible ? "scale(1.02)" : "scale(1.08)",
-          transition: "transform 2200ms cubic-bezier(0.16,1,0.3,1)",
-        }}
-      />
-      {/* profundidade: gradiente radial + véu */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10"
-        style={{
-          background:
-            "radial-gradient(120% 90% at 8% 12%, rgba(255,255,255,0.96) 0%, rgba(247,246,245,0.86) 42%, rgba(247,246,245,0.42) 78%, rgba(247,246,245,0.1) 100%)",
-        }}
-      />
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-24 top-10 -z-10 h-[280px] w-[280px] rounded-full opacity-40 blur-3xl"
-        style={{
-          background:
-            "radial-gradient(circle, color-mix(in oklab, var(--lbs-magenta) 22%, transparent) 0%, transparent 70%)",
-        }}
-      />
-
       <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+        <div className="grid items-start gap-10 lg:grid-cols-[35fr_25fr_40fr] lg:gap-14">
+          {/* texto */}
           <div
-            className="lg:sticky lg:top-16 lg:self-start"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "none" : "translateY(14px)",
@@ -345,7 +309,7 @@ function PublicoAtendido() {
             }}
           >
             <SectionLabel>Público atendido</SectionLabel>
-            <p className="mt-5 max-w-[320px] text-[24px] font-light leading-[1.2] tracking-tight text-lbs-ink sm:text-[30px]">
+            <p className="mt-5 max-w-[340px] text-[26px] font-light leading-[1.15] tracking-tight text-lbs-ink sm:text-[34px]">
               Advogamos e assessoramos pessoas que trabalham
             </p>
             <div className="mt-7 h-[2px] w-14 bg-lbs-magenta" />
@@ -355,32 +319,63 @@ function PublicoAtendido() {
             </p>
           </div>
 
-          <ul className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
+          {/* faixa fotográfica vertical com corte geométrico */}
+          <div
+            className="relative hidden lg:block"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? "none" : "translateY(22px)",
+              transition:
+                "opacity 900ms ease 120ms, transform 900ms cubic-bezier(0.16,1,0.3,1) 120ms",
+            }}
+          >
+            <div
+              className="relative h-[520px] w-full overflow-hidden bg-lbs-ink"
+              style={{ clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 72px), calc(100% - 72px) 100%, 0 100%)" }}
+            >
+              <img
+                src={publicoFoto}
+                alt="Reunião de trabalho no escritório da LBS"
+                loading="lazy"
+                width={912}
+                height={1312}
+                className="h-full w-full object-cover grayscale contrast-[1.05] transition-transform duration-[2000ms] ease-out"
+                style={{ transform: visible ? "scale(1)" : "scale(1.08)" }}
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(26,26,26,0.55) 0%, rgba(26,26,26,0.05) 45%, transparent 100%)",
+                }}
+              />
+            </div>
+            <div className="mt-4 h-[2px] w-10 bg-lbs-magenta" />
+          </div>
+
+          {/* índice editorial */}
+          <ul className="grid gap-y-0 sm:grid-cols-2 sm:gap-x-10">
             {publicoItems.map((item, i) => (
               <li
                 key={item}
-                className="group relative rounded-[10px] border border-lbs-ink/8 bg-white/55 px-5 py-6 backdrop-blur-[2px] transition-all duration-500 hover:-translate-y-[3px] hover:border-lbs-ink/12 hover:bg-white/85 hover:shadow-[0_18px_40px_-28px_rgba(0,0,0,0.45)]"
+                className="group relative border-t border-lbs-ink/15 py-6 sm:py-7"
                 style={{
                   opacity: visible ? 1 : 0,
                   transform: visible ? "none" : "translateY(18px)",
-                  transition: `opacity 700ms ease ${120 + i * 110}ms, transform 700ms cubic-bezier(0.16,1,0.3,1) ${120 + i * 110}ms`,
+                  transition: `opacity 700ms ease ${180 + i * 110}ms, transform 700ms cubic-bezier(0.16,1,0.3,1) ${180 + i * 110}ms`,
                 }}
               >
-                {/* linha superior que se desenha */}
                 <span
                   aria-hidden="true"
-                  className="absolute left-0 top-0 h-[2px] bg-lbs-magenta transition-[width] duration-700 group-hover:!w-full"
-                  style={{
-                    width: visible ? "38%" : "0%",
-                    transitionDelay: `${200 + i * 110}ms`,
-                  }}
+                  className="absolute -top-px left-0 h-[2px] w-0 bg-lbs-magenta transition-all duration-700 ease-out group-hover:w-full"
                 />
-                <div className="flex items-start gap-3">
-                  <span className="mt-[7px] h-[5px] w-[5px] flex-none rounded-full bg-lbs-magenta/70 transition-colors duration-500 group-hover:bg-lbs-magenta" />
-                  <span className="text-[13px] leading-[1.75] text-lbs-ink/70 transition-colors duration-500 group-hover:text-lbs-ink">
-                    {item}
-                  </span>
-                </div>
+                <p className="text-[11px] font-light tabular-nums tracking-[0.2em] text-lbs-magenta/70 transition-colors duration-500 group-hover:text-lbs-magenta">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <p className="mt-3 max-w-[320px] text-[14px] leading-[1.7] text-lbs-ink/70 transition-colors duration-500 group-hover:text-lbs-ink">
+                  {item}
+                </p>
               </li>
             ))}
           </ul>
@@ -389,6 +384,7 @@ function PublicoAtendido() {
     </section>
   );
 }
+
 
 
 
