@@ -365,7 +365,7 @@ function DefesaPage() {
       <section className="w-full bg-[#f5f5f5] py-20 sm:py-24">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
           <SectionLabel>Destaques</SectionLabel>
-          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {destaques.map((d) => (
               <article
                 key={d.title}
