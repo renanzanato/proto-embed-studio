@@ -37,14 +37,17 @@ export function SiteHeader({ active }: { active?: string }) {
       <nav className="hidden items-center gap-6 lg:flex">
         {navItems.map((item) =>
           item.label === "Atuação" ? (
-            <button
+            <div
               key={item.label}
-              type="button"
-              onClick={() => setAtuacaoOpen(true)}
-              className={linkClass(item.label)}
+              className="relative"
+              onMouseEnter={() => setAtuacaoOpen(true)}
+              onMouseLeave={() => setAtuacaoOpen(false)}
             >
-              {item.label}
-            </button>
+              <button type="button" className={linkClass(item.label)}>
+                {item.label}
+              </button>
+              <AtuacaoDialog open={atuacaoOpen} onOpenChange={setAtuacaoOpen} />
+            </div>
           ) : (
             <Link key={item.label} to={item.to} className={linkClass(item.label)}>
               {item.label}
@@ -52,8 +55,6 @@ export function SiteHeader({ active }: { active?: string }) {
           ),
         )}
       </nav>
-
-      <AtuacaoDialog open={atuacaoOpen} onOpenChange={setAtuacaoOpen} />
 
 
       <a
