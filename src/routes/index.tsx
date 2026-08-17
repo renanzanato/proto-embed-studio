@@ -131,7 +131,7 @@ function Index() {
           <h1 className="relative z-10 mx-auto mt-[130px] max-w-[820px] text-center text-[34px] font-light leading-[1.18] tracking-tight text-white sm:mt-[150px] sm:text-[44px] lg:text-[52px]">
             Para quem trabalha, direitos;
             <br />
-            para direitos, <span className="text-lbs-magenta">LBS.</span>
+            para direitos, LBS.
           </h1>
 
         </div>
