@@ -20,6 +20,7 @@ import news3Asset from "@/assets/imagem-homepage-artigos-noticias-4-lbs.png.asse
 const news3 = news3Asset.url;
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+import PartnerCarousel from "@/components/site/PartnerCarousel";
 
 const articles = [
   {
