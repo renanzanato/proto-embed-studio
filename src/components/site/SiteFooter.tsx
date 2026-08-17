@@ -1,6 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { CalendarDays, Facebook, Instagram, Linkedin, MapPin, Music2, Phone, Youtube } from "lucide-react";
 
+import lbsLogo from "@/assets/lbs-logo.png.asset.json";
+
+
 const offices = [
   {
     city: "Brasília",
