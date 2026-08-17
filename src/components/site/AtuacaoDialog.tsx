@@ -24,22 +24,25 @@ const areas: { title: string; to: string }[] = [
 
 export function AtuacaoDialog({
   open,
-  onOpenChange,
+  onClose,
+  onMouseEnter,
+  onMouseLeave,
 }: {
   open: boolean;
-  onOpenChange: (open: boolean) => void;
+  onClose: () => void;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
 }) {
   const [tab, setTab] = useState<Tab>("solucoes");
   const items = tab === "solucoes" ? solucoes : areas;
-  const close = () => onOpenChange(false);
 
   return (
     <div
-      className={`absolute left-1/2 top-full z-50 mt-3 w-[min(980px,95vw)] -translate-x-1/2 transition-all duration-200 ${
+      className={`absolute left-1/2 top-full z-50 w-[min(980px,95vw)] -translate-x-1/2 pt-5 transition-all duration-200 ${
         open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"
       }`}
-      onMouseEnter={() => onOpenChange(true)}
-      onMouseLeave={() => onOpenChange(false)}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <div className="gap-0 rounded-[6px] border border-lbs-ink/10 bg-white p-7 shadow-xl sm:p-10">
         <h2 className="sr-only">Soluções e Áreas de Atuação</h2>
@@ -71,13 +74,13 @@ export function AtuacaoDialog({
           {tab === "solucoes" ? "Encontre a solução ideal" : "Encontre a área de atuação"}
         </h3>
 
-        <ul className="mt-8 grid gap-x-10 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-8 grid gap-x-10 gap-y-7 sm:grid-cols-2">
           {items.map((item) => (
-            <li key={item.title}>
+            <li key={item.title} className="min-w-0">
               <Link
                 to={item.to}
-                onClick={close}
-                className="group block border-b-2 border-lbs-magenta pb-2 text-[13px] leading-[1.4] text-lbs-ink transition-colors hover:text-lbs-magenta"
+                onClick={onClose}
+                className="group relative flex min-h-10 items-end pb-3 text-[13px] leading-[1.4] text-lbs-ink transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-lbs-magenta after:content-[''] hover:text-lbs-magenta"
               >
                 {item.title}
               </Link>
@@ -90,14 +93,14 @@ export function AtuacaoDialog({
           <div className="flex flex-wrap gap-3">
             <Link
               to="/solucoes"
-              onClick={close}
+              onClick={onClose}
               className="bg-lbs-ink px-5 py-3 text-[12px] text-white transition-opacity hover:opacity-85"
             >
               Ver todas as Soluções
             </Link>
             <Link
               to="/atuacao"
-              onClick={close}
+              onClick={onClose}
               className="bg-lbs-ink px-5 py-3 text-[12px] text-white transition-opacity hover:opacity-85"
             >
               Ver todas as Áreas

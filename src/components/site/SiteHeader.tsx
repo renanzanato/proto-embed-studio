@@ -1,6 +1,6 @@
 import { CalendarDays } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import lbsLogo from "@/assets/lbs-logo.png.asset.json";
 import { AtuacaoDialog } from "@/components/site/AtuacaoDialog";
@@ -16,6 +16,20 @@ const navItems = [
 
 export function SiteHeader({ active }: { active?: string }) {
   const [atuacaoOpen, setAtuacaoOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const keepAtuacaoOpen = () => {
+    if (closeTimer.current) {
+      clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+    setAtuacaoOpen(true);
+  };
+
+  const scheduleAtuacaoClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setAtuacaoOpen(false), 240);
+  };
 
   const linkClass = (label: string) =>
     `text-[13px] transition-colors hover:text-white hover:underline hover:decoration-lbs-magenta hover:underline-offset-[6px] ${
@@ -40,13 +54,18 @@ export function SiteHeader({ active }: { active?: string }) {
             <div
               key={item.label}
               className="relative"
-              onMouseEnter={() => setAtuacaoOpen(true)}
-              onMouseLeave={() => setAtuacaoOpen(false)}
+              onMouseEnter={keepAtuacaoOpen}
+              onMouseLeave={scheduleAtuacaoClose}
             >
               <button type="button" className={linkClass(item.label)}>
                 {item.label}
               </button>
-              <AtuacaoDialog open={atuacaoOpen} onOpenChange={setAtuacaoOpen} />
+              <AtuacaoDialog
+                open={atuacaoOpen}
+                onClose={() => setAtuacaoOpen(false)}
+                onMouseEnter={keepAtuacaoOpen}
+                onMouseLeave={scheduleAtuacaoClose}
+              />
             </div>
           ) : (
             <Link key={item.label} to={item.to} className={linkClass(item.label)}>
