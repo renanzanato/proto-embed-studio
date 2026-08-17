@@ -117,9 +117,13 @@ const servicosPessoas: { title: string; items: string[] }[] = [
       "Reintegração quando o desligamento ocorreu com o trabalhador doente",
       "Rescisão indireta",
       "Homologação e análise de acordos extrajudiciais (art. 855-B da CLT) antes da assinatura",
-      "Defesa em processos administrativos",
     ],
   },
+  {
+    title: "Defesa em processos administrativos",
+    items: [],
+  },
+
   {
     title:
       "Pessoas com deficiência e neurodivergentes e aqueles que têm filhos ou dependentes nessas condições",
