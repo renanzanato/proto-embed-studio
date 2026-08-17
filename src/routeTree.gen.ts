@@ -12,13 +12,13 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LinhaDoTempoAbRouteImport } from './routes/linha-do-tempo-ab'
 import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
-import { Route as SolucoesRouteImport } from './routes/solucoes'
 import { Route as ALbsIndexRouteImport } from './routes/a-lbs.index'
 import { Route as ALbsHistoriaRouteImport } from './routes/a-lbs.historia'
 import { Route as AtuacaoIndexRouteImport } from './routes/atuacao.index'
 import { Route as AtuacaoDireitoTrabalhistaRouteImport } from './routes/atuacao.direito-trabalhista'
 import { Route as EquipeIndexRouteImport } from './routes/equipe.index'
 import { Route as EquipeSlugRouteImport } from './routes/equipe.$slug'
+import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -33,11 +33,6 @@ const LinhaDoTempoAbRoute = LinhaDoTempoAbRouteImport.update({
 const PrototipoLbsRoute = PrototipoLbsRouteImport.update({
   id: '/prototipo-lbs',
   path: '/prototipo-lbs',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SolucoesRoute = SolucoesRouteImport.update({
-  id: '/solucoes',
-  path: '/solucoes',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ALbsIndexRoute = ALbsIndexRouteImport.update({
@@ -71,43 +66,48 @@ const EquipeSlugRoute = EquipeSlugRouteImport.update({
   path: '/equipe/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolucoesIndexRoute = SolucoesIndexRouteImport.update({
+  id: '/solucoes/',
+  path: '/solucoes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
-  '/solucoes': typeof SolucoesRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/a-lbs/': typeof ALbsIndexRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
+  '/solucoes/': typeof SolucoesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
-  '/solucoes': typeof SolucoesRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/a-lbs': typeof ALbsIndexRoute
   '/atuacao': typeof AtuacaoIndexRoute
   '/equipe': typeof EquipeIndexRoute
+  '/solucoes': typeof SolucoesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
-  '/solucoes': typeof SolucoesRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/a-lbs/': typeof ALbsIndexRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
+  '/solucoes/': typeof SolucoesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -115,50 +115,50 @@ export interface FileRouteTypes {
     | '/'
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
-    | '/solucoes'
     | '/a-lbs/historia'
     | '/atuacao/direito-trabalhista'
     | '/equipe/$slug'
     | '/a-lbs/'
     | '/atuacao/'
     | '/equipe/'
+    | '/solucoes/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
-    | '/solucoes'
     | '/a-lbs/historia'
     | '/atuacao/direito-trabalhista'
     | '/equipe/$slug'
     | '/a-lbs'
     | '/atuacao'
     | '/equipe'
+    | '/solucoes'
   id:
     | '__root__'
     | '/'
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
-    | '/solucoes'
     | '/a-lbs/historia'
     | '/atuacao/direito-trabalhista'
     | '/equipe/$slug'
     | '/a-lbs/'
     | '/atuacao/'
     | '/equipe/'
+    | '/solucoes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LinhaDoTempoAbRoute: typeof LinhaDoTempoAbRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
-  SolucoesRoute: typeof SolucoesRoute
   ALbsHistoriaRoute: typeof ALbsHistoriaRoute
   AtuacaoDireitoTrabalhistaRoute: typeof AtuacaoDireitoTrabalhistaRoute
   EquipeSlugRoute: typeof EquipeSlugRoute
   ALbsIndexRoute: typeof ALbsIndexRoute
   AtuacaoIndexRoute: typeof AtuacaoIndexRoute
   EquipeIndexRoute: typeof EquipeIndexRoute
+  SolucoesIndexRoute: typeof SolucoesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -182,13 +182,6 @@ declare module '@tanstack/react-router' {
       path: '/prototipo-lbs'
       fullPath: '/prototipo-lbs'
       preLoaderRoute: typeof PrototipoLbsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/solucoes': {
-      id: '/solucoes'
-      path: '/solucoes'
-      fullPath: '/solucoes'
-      preLoaderRoute: typeof SolucoesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/a-lbs/': {
@@ -233,6 +226,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EquipeSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solucoes/': {
+      id: '/solucoes/'
+      path: '/solucoes'
+      fullPath: '/solucoes/'
+      preLoaderRoute: typeof SolucoesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -240,13 +240,13 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LinhaDoTempoAbRoute: LinhaDoTempoAbRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
-  SolucoesRoute: SolucoesRoute,
   ALbsHistoriaRoute: ALbsHistoriaRoute,
   AtuacaoDireitoTrabalhistaRoute: AtuacaoDireitoTrabalhistaRoute,
   EquipeSlugRoute: EquipeSlugRoute,
   ALbsIndexRoute: ALbsIndexRoute,
   AtuacaoIndexRoute: AtuacaoIndexRoute,
   EquipeIndexRoute: EquipeIndexRoute,
+  SolucoesIndexRoute: SolucoesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
