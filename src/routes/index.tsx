@@ -377,16 +377,17 @@ function SplitBand() {
   // diagonal boundary between the two panels (top % leans left, bottom % leans right)
   const leftClip =
     hovered === "solucoes"
-      ? "polygon(0 0, 86% 0, 94% 100%, 0 100%)"
+      ? "polygon(0 0, 62% 0, 72% 100%, 0 100%)"
       : hovered === "atuacao"
-        ? "polygon(0 0, 8% 0, 14% 100%, 0 100%)"
+        ? "polygon(0 0, 24% 0, 34% 100%, 0 100%)"
         : "polygon(0 0, 43% 0, 53% 100%, 0 100%)";
   const rightClip =
     hovered === "solucoes"
-      ? "polygon(86% 0, 100% 0, 100% 100%, 94% 100%)"
+      ? "polygon(62% 0, 100% 0, 100% 100%, 72% 100%)"
       : hovered === "atuacao"
-        ? "polygon(8% 0, 100% 0, 100% 100%, 14% 100%)"
+        ? "polygon(24% 0, 100% 0, 100% 100%, 34% 100%)"
         : "polygon(43% 0, 100% 0, 100% 100%, 53% 100%)";
+
 
   const clipTransition =
     "transition-[clip-path] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[clip-path]";
