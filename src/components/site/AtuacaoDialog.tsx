@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { createPortal } from "react-dom";
 
 type Tab = "areas" | "solucoes";
 
@@ -24,22 +25,28 @@ const areas: { title: string; to: string }[] = [
 
 export function AtuacaoDialog({
   open,
+  top,
   onClose,
   onMouseEnter,
+  onMouseLeave,
 }: {
   open: boolean;
+  top: number;
   onClose: () => void;
   onMouseEnter: () => void;
+  onMouseLeave: () => void;
 }) {
   const [tab, setTab] = useState<Tab>("solucoes");
   const items = tab === "solucoes" ? solucoes : areas;
 
-  return (
+  if (!open || typeof document === "undefined") return null;
+
+  return createPortal(
     <div
-      className={`absolute inset-x-0 top-[calc(100%-14px)] z-50 mx-auto w-[min(980px,95vw)] pt-[14px] ${
-        open ? "visible pointer-events-auto" : "invisible pointer-events-none"
-      }`}
+      className="fixed inset-x-0 z-50 mx-auto w-[min(980px,95vw)] pt-[14px]"
+      style={{ top }}
       onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <div className="relative isolate gap-0 rounded-[6px] border border-lbs-ink/10 bg-white p-7 shadow-xl sm:p-10">
         <h2 className="sr-only">Soluções e Áreas de Atuação</h2>
@@ -105,6 +112,7 @@ export function AtuacaoDialog({
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
