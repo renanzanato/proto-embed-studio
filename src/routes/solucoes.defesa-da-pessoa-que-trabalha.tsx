@@ -710,6 +710,7 @@ function DestaquesGaleria() {
 
 function DefesaPage() {
   const [contexto, setContexto] = useState<"pessoas" | "bancarios">("pessoas");
+  const [pessoasSobreOpen, setPessoasSobreOpen] = useState(false);
   const [sobreOpen, setSobreOpen] = useState(false);
 
 
