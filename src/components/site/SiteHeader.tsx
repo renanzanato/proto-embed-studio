@@ -37,54 +37,55 @@ export function SiteHeader({ active }: { active?: string }) {
     }`;
 
   return (
-    <header className="relative z-10 flex items-center justify-between gap-4 rounded-[14px] border border-white/25 bg-black/25 px-5 py-3.5 backdrop-blur-md sm:px-7">
-      <Link to="/" className="flex items-center">
-        <img
-          src={lbsLogo.url}
-          alt="LBS Advogadas e Advogados"
-          width={244}
-          height={53}
-          className="h-[30px] w-auto sm:h-[34px]"
-        />
-      </Link>
+    <div className="relative z-10">
+      <header className="flex items-center justify-between gap-4 rounded-[14px] border border-white/25 bg-black/25 px-5 py-3.5 backdrop-blur-md sm:px-7">
+        <Link to="/" className="flex items-center">
+          <img
+            src={lbsLogo.url}
+            alt="LBS Advogadas e Advogados"
+            width={244}
+            height={53}
+            className="h-[30px] w-auto sm:h-[34px]"
+          />
+        </Link>
 
-      <nav className="hidden items-center gap-6 lg:flex">
-        {navItems.map((item) =>
-          item.label === "Atuação" ? (
-            <div
-              key={item.label}
-              className="relative"
-              onMouseEnter={keepAtuacaoOpen}
-              onMouseLeave={scheduleAtuacaoClose}
-            >
-              <button type="button" className={linkClass(item.label)}>
-                {item.label}
-              </button>
-              <AtuacaoDialog
-                open={atuacaoOpen}
-                onClose={() => setAtuacaoOpen(false)}
+        <nav className="hidden items-center gap-6 lg:flex">
+          {navItems.map((item) =>
+            item.label === "Atuação" ? (
+              <div
+                key={item.label}
                 onMouseEnter={keepAtuacaoOpen}
                 onMouseLeave={scheduleAtuacaoClose}
-              />
-            </div>
-          ) : (
-            <Link key={item.label} to={item.to} className={linkClass(item.label)}>
-              {item.label}
-            </Link>
-          ),
-        )}
-      </nav>
+              >
+                <button type="button" className={linkClass(item.label)}>
+                  {item.label}
+                </button>
+              </div>
+            ) : (
+              <Link key={item.label} to={item.to} className={linkClass(item.label)}>
+                {item.label}
+              </Link>
+            ),
+          )}
+        </nav>
 
+        <a
+          href="/"
+          className="flex shrink-0 items-center gap-2 text-[13px] text-lbs-magenta-soft transition-opacity hover:opacity-80"
+        >
+          <span className="flex h-[22px] w-[22px] items-center justify-center rounded-[5px] bg-lbs-magenta">
+            <CalendarDays className="h-3.5 w-3.5 text-white" />
+          </span>
+          <span className="hidden sm:inline">Agende um horário</span>
+        </a>
+      </header>
 
-      <a
-        href="/"
-        className="flex shrink-0 items-center gap-2 text-[13px] text-lbs-magenta-soft transition-opacity hover:opacity-80"
-      >
-        <span className="flex h-[22px] w-[22px] items-center justify-center rounded-[5px] bg-lbs-magenta">
-          <CalendarDays className="h-3.5 w-3.5 text-white" />
-        </span>
-        <span className="hidden sm:inline">Agende um horário</span>
-      </a>
-    </header>
+      <AtuacaoDialog
+        open={atuacaoOpen}
+        onClose={() => setAtuacaoOpen(false)}
+        onMouseEnter={keepAtuacaoOpen}
+        onMouseLeave={scheduleAtuacaoClose}
+      />
+    </div>
   );
 }

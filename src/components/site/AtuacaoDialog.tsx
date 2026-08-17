@@ -80,7 +80,7 @@ export function AtuacaoDialog({
               <Link
                 to={item.to}
                 onClick={onClose}
-                className="group relative flex min-h-10 items-end pb-3 text-[13px] leading-[1.4] text-lbs-ink transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-lbs-magenta after:content-[''] hover:text-lbs-magenta"
+                className="group relative block min-h-[44px] w-full overflow-visible pb-3 pt-2 text-[13px] leading-5 text-lbs-ink transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-lbs-magenta after:content-[''] hover:text-lbs-magenta"
               >
                 {item.title}
               </Link>
