@@ -19,8 +19,6 @@ const diferenciais = [
   "As normas, as negociações coletivas e o próprio direito estão em constante transformação; nós nos mantemos firmes na defesa das pessoas que trabalham. Participamos ativamente do debate público sobre os novos modelos de contratação, da construção das teses que percorrem o Poder Judiciário e da interlocução com o Poder Legislativo, na elaboração de normas protetivas e no enfrentamento das propostas de redução de direitos.",
 ];
 
-const publicoAtendido =
-  "Advogamos e assessoramos pessoas que trabalham – sob vínculo celetista, contratadas como pessoa jurídica ou pessoa física, empregadas de empresas privadas ou de estatais – e para as entidades que as representam: sindicatos, federações, confederações e associações. Atendemos também advogadas e advogados que buscam parceria especializada para seus casos.";
 
 const destaques: { title: string; text: string }[] = [
   {
