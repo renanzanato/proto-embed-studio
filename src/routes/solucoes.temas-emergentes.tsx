@@ -6,7 +6,6 @@ import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import {
   DescricaoSection,
   DestaquesGaleria,
-  ListaEditorial,
   PublicoAtendido,
   ServicosSection,
   SociosResponsaveis,
@@ -81,6 +80,10 @@ const publicoItems: PublicoItem[] = [
 
 const servicos: ServiceGroup[] = [
   {
+    title: "Atuações representativas",
+    items: atuacoesRepresentativas,
+  },
+  {
     title: "Serviços",
     items: [
       "elaboração de estratégias jurídicas para casos de impacto coletivo ou estrutural",
@@ -147,12 +150,6 @@ function TemasEmergentesPage() {
       />
 
       <DestaquesGaleria title="Atuação nacional e internacional" items={destaques} />
-
-      <ListaEditorial
-        label="Atuações representativas"
-        title="Casos e frentes já conduzidos pela área"
-        items={atuacoesRepresentativas}
-      />
 
       <ServicosSection
         title="Estratégia, incidência e atuação em organismos internacionais"

@@ -5,7 +5,8 @@ import solExecucoes from "@/assets/sol-execucoes.jpg";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import {
   DescricaoSection,
-  ListaEditorial,
+  DestaquesGaleria,
+  type Destaque,
   PublicoAtendido,
   ServicosSection,
   SociosResponsaveis,
@@ -17,6 +18,33 @@ import {
 const descricao = [
   "A área de Execução Trabalhista da LBS é especializada na condução da fase de cumprimento das decisões judiciais, transformando o direito reconhecido em juízo na efetiva satisfação do crédito do trabalhador. A atuação contempla desde a liquidação da sentença até a adoção de medidas judiciais voltadas à localização de patrimônio, satisfação da obrigação e encerramento da execução, inclusive em parceria com advogados e outros escritórios.",
   "Com atuação estratégica e altamente especializada, a LBS conduz execuções individuais e coletivas de elevada complexidade, inclusive aquelas decorrentes de ações coletivas com milhares de beneficiários, desenvolvendo soluções processuais para maximizar a efetividade da prestação jurisdicional, sempre observando os limites da decisão judicial.",
+];
+
+const destaques: Destaque[] = [
+  {
+    title: "Especialização na fase de execução",
+    text: "Elevada especialização na fase de execução, com atuação dedicada em Direito do Trabalho.",
+  },
+  {
+    title: "Alta complexidade e impacto financeiro",
+    text: "Experiência na condução de execuções de alta complexidade e elevado impacto financeiro.",
+  },
+  {
+    title: "Escala processual",
+    text: "Gestão simultânea de milhares de processos executivos.",
+  },
+  {
+    title: "Liquidação, cálculos e perícias",
+    text: "Domínio técnico em liquidação de sentença, cálculos e perícias contábeis.",
+  },
+  {
+    title: "Recursos e incidentes",
+    text: "Atuação estratégica em recursos e incidentes próprios da execução.",
+  },
+  {
+    title: "Acompanhamento contínuo",
+    text: "Acompanhamento contínuo do cliente durante toda a fase executória, integrando tecnologia, gestão processual e conhecimento técnico para conferir eficiência à condução das execuções.",
+  },
 ];
 
 const diferenciais = [
@@ -116,11 +144,9 @@ function ExecucoesPage() {
         items={publicoItems}
       />
 
-      <ListaEditorial
-        label="Diferenciais"
+      <DestaquesGaleria
         title="Técnica, tecnologia e gestão processual na execução"
-        items={diferenciais}
-        tone="dark"
+        items={destaques}
       />
 
       <ServicosSection
