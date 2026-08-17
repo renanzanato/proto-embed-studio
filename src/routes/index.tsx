@@ -336,7 +336,7 @@ function SplitBand() {
       className="relative h-[300px] w-full overflow-hidden sm:h-[420px] lg:h-[480px]"
       onMouseLeave={() => setHovered(null)}
     >
-      {/* right side base image (Áreas de Atuação) */}
+      {/* right side base image */}
       <img
         src={atuacaoOffice}
         alt="Escritório corporativo em preto e branco"

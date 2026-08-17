@@ -22,7 +22,7 @@ export const Route = createFileRoute("/equipe/")({
       {
         property: "og:description",
         content:
-          "Advogadas e advogados comprometidos com a excelência em diversas áreas de atuação.",
+          "Advogadas e advogados comprometidos com a excelência em diversas frentes de atuação.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -64,7 +64,7 @@ function EquipePage() {
             </h1>
             <p className="mt-7 max-w-[460px] text-[13px] leading-[1.85] text-lbs-ink/65">
               Nosso time é formado por profissionais altamente qualificados, com sólida formação
-              acadêmica e experiência prática em suas áreas de atuação.
+              acadêmica e experiência prática em suas frentes de atuação.
             </p>
 
             <label className="mt-10 flex w-full max-w-[340px] items-center gap-3 rounded-[4px] border border-black/12 bg-white/90 px-4 py-3">
