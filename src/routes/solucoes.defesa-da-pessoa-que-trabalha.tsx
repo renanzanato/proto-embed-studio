@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import publicoFoto from "@/assets/publico-atendido-foto.jpg";
+import publicoFoto02 from "@/assets/publico-atendido-02.jpg";
+import publicoFoto03 from "@/assets/publico-atendido-03.jpg";
+import publicoFoto04 from "@/assets/publico-atendido-04.jpg";
 import solDefesa from "@/assets/sol-defesa.jpg";
 
 import { SiteHeader } from "@/components/site/SiteHeader";
@@ -266,16 +269,33 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-const publicoItems = [
-  "sob vínculo celetista",
-  "contratadas como pessoa jurídica ou pessoa física",
-  "empregadas de empresas privadas ou de estatais",
-  "e para as entidades que as representam: sindicatos, federações, confederações e associações",
+const publicoItems: { text: string; img: string; alt: string }[] = [
+  {
+    text: "sob vínculo celetista",
+    img: publicoFoto,
+    alt: "Reunião de trabalho no escritório da LBS",
+  },
+  {
+    text: "contratadas como pessoa jurídica ou pessoa física",
+    img: publicoFoto02,
+    alt: "Profissional independente trabalhando em seu escritório",
+  },
+  {
+    text: "empregadas de empresas privadas ou de estatais",
+    img: publicoFoto03,
+    alt: "Ambiente corporativo e institucional",
+  },
+  {
+    text: "e para as entidades que as representam: sindicatos, federações, confederações e associações",
+    img: publicoFoto04,
+    alt: "Assembleia sindical de trabalhadores",
+  },
 ];
 
 function PublicoAtendido() {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
+  const [active, setActive] = useState(0);
 
   useEffect(() => {
     const el = ref.current;
@@ -331,17 +351,27 @@ function PublicoAtendido() {
           >
             <div
               className="relative h-[520px] w-full overflow-hidden bg-lbs-ink"
-              style={{ clipPath: "polygon(0 0, 100% 0, 100% calc(100% - 72px), calc(100% - 72px) 100%, 0 100%)" }}
+              style={{
+                clipPath:
+                  "polygon(0 0, 100% 0, 100% calc(100% - 72px), calc(100% - 72px) 100%, 0 100%)",
+              }}
             >
-              <img
-                src={publicoFoto}
-                alt="Reunião de trabalho no escritório da LBS"
-                loading="lazy"
-                width={912}
-                height={1312}
-                className="h-full w-full object-cover grayscale contrast-[1.05] transition-transform duration-[2000ms] ease-out"
-                style={{ transform: visible ? "scale(1)" : "scale(1.08)" }}
-              />
+              {publicoItems.map((item, i) => (
+                <img
+                  key={item.img}
+                  src={item.img}
+                  alt={i === active ? item.alt : ""}
+                  aria-hidden={i === active ? undefined : "true"}
+                  loading="lazy"
+                  width={912}
+                  height={1312}
+                  className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+                  style={{
+                    opacity: i === active ? 1 : 0,
+                    transition: "opacity 380ms ease",
+                  }}
+                />
+              ))}
               <div
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0"
@@ -358,8 +388,12 @@ function PublicoAtendido() {
           <ul className="grid gap-y-0 sm:grid-cols-2 sm:gap-x-10">
             {publicoItems.map((item, i) => (
               <li
-                key={item}
-                className="group relative border-t border-lbs-ink/15 py-6 sm:py-7"
+                key={item.text}
+                onMouseEnter={() => setActive(i)}
+                onFocus={() => setActive(i)}
+                onClick={() => setActive(i)}
+                tabIndex={0}
+                className="relative cursor-default border-t border-lbs-ink/15 py-6 outline-none sm:py-7"
                 style={{
                   opacity: visible ? 1 : 0,
                   transform: visible ? "none" : "translateY(18px)",
@@ -368,17 +402,35 @@ function PublicoAtendido() {
               >
                 <span
                   aria-hidden="true"
-                  className="absolute -top-px left-0 h-[2px] w-0 bg-lbs-magenta transition-all duration-700 ease-out group-hover:w-full"
+                  className="absolute -top-px left-0 h-[2px] bg-lbs-magenta transition-all duration-500 ease-out"
+                  style={{ width: i === active ? "100%" : "0%" }}
                 />
-                <p className="text-[11px] font-light tabular-nums tracking-[0.2em] text-lbs-magenta/70 transition-colors duration-500 group-hover:text-lbs-magenta">
+                <p
+                  className="text-[11px] font-light tabular-nums tracking-[0.2em] transition-colors duration-300"
+                  style={{
+                    color:
+                      i === active
+                        ? "var(--lbs-magenta)"
+                        : "color-mix(in oklab, var(--lbs-magenta) 45%, transparent)",
+                  }}
+                >
                   {String(i + 1).padStart(2, "0")}
                 </p>
-                <p className="mt-3 max-w-[320px] text-[14px] leading-[1.7] text-lbs-ink/70 transition-colors duration-500 group-hover:text-lbs-ink">
-                  {item}
+                <p
+                  className="mt-3 max-w-[320px] text-[14px] leading-[1.7] transition-colors duration-300"
+                  style={{
+                    color:
+                      i === active
+                        ? "var(--lbs-ink)"
+                        : "color-mix(in oklab, var(--lbs-ink) 70%, transparent)",
+                  }}
+                >
+                  {item.text}
                 </p>
               </li>
             ))}
           </ul>
+
         </div>
       </div>
     </section>
