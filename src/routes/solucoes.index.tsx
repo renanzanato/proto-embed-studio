@@ -1,11 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 
 import solucoesHero from "@/assets/solucoes-hero.jpg";
 import solDefesa from "@/assets/sol-defesa.jpg";
 import solLitigios from "@/assets/sol-litigios.jpg";
 import solTribunais from "@/assets/sol-tribunais.jpg";
+import solExecucoes from "@/assets/sol-execucoes.jpg";
 import solParcerias from "@/assets/sol-parcerias.jpg";
 import solEmergentes from "@/assets/sol-emergentes.jpg";
+import solAdmPublica from "@/assets/sol-adm-publica.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
@@ -13,29 +15,47 @@ const solucoes = [
   {
     img: solDefesa,
     title: "Defesa da pessoa que trabalha",
+    to: "/solucoes/defesa-da-pessoa-que-trabalha",
     text: "Atuamos de forma contínua na defesa jurídica da pessoa que trabalha, considerando as múltiplas formas contemporâneas de vínculo laboral e proteção social.",
+  },
+  {
+    img: solAdmPublica,
+    title: "Vínculos com a Administração Pública",
+    to: "/solucoes/vinculos-com-a-administracao-publica",
+    text: "Atuação especializada para servidoras e servidores públicos, empregados de estatais, temporários, terceirizados e bolsistas em suas relações com o poder público.",
   },
   {
     img: solLitigios,
     title: "Litígios coletivos estruturados",
+    to: "/solucoes/litigios-coletivos",
     text: "Estruturamos e conduzimos litígios coletivos de grande escala, voltados à correção de violações sistemáticas de direitos e à produção de impacto institucional.",
   },
   {
     img: solTribunais,
-    title: "Atuação em Tribunais Superiores e execuções complexas",
-    text: "Atuamos em contextos de elevada complexidade jurídica, especialmente quando o caso exige leitura sistêmica, consolidação de teses e segurança institucional.",
+    title: "Tribunais Superiores",
+    to: "/solucoes/tribunais-superiores",
+    text: "Condução dos processos que tramitam no TST, STJ e STF, com sustentações orais, memoriais, diligências em gabinetes e atuação estratégica em repercussão geral.",
+  },
+  {
+    img: solExecucoes,
+    title: "Execuções complexas",
+    to: "/solucoes/execucoes-complexas",
+    text: "Atuamos em execuções de elevada complexidade jurídica, quando o caso exige leitura sistêmica, cálculos técnicos e segurança institucional.",
   },
   {
     img: solParcerias,
-    title: "Parcerias jurídicas estratégicas",
+    title: "Parceiros estratégicos",
+    to: "/solucoes/parceiros-estrategicos",
     text: "Atuamos em colaboração com outros escritórios quando a complexidade do caso exige estrutura, densidade técnica e capacidade operacional superiores.",
   },
   {
     img: solEmergentes,
-    title: "Litígios estratégicos em temas emergentes",
+    title: "Temas emergentes",
+    to: "/solucoes/temas-emergentes",
     text: "Atuamos em litígios estratégicos relacionados a conflitos jurídicos emergentes, ainda em processo de consolidação normativa e jurisprudencial.",
   },
 ];
+
 
 
 export const Route = createFileRoute("/solucoes/")({
@@ -126,9 +146,13 @@ function SolucoesPage() {
                   <p className="mt-3 max-w-[440px] text-[12.5px] leading-[1.8] text-lbs-ink/60">
                     {item.text}
                   </p>
-                  <span className="mt-5 inline-block cursor-pointer text-[11.5px] text-lbs-magenta transition-opacity hover:opacity-70">
+                  <Link
+                    to={item.to}
+                    className="mt-5 inline-block text-[11.5px] text-lbs-magenta transition-opacity hover:opacity-70"
+                  >
                     Saiba mais →
-                  </span>
+                  </Link>
+
                 </div>
               </article>
             );
