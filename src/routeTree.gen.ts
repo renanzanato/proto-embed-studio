@@ -22,6 +22,7 @@ import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
 import { Route as SolucoesDefesaDaPessoaQueTrabalhaRouteImport } from './routes/solucoes.defesa-da-pessoa-que-trabalha'
 import { Route as SolucoesExecucoesComplexasRouteImport } from './routes/solucoes.execucoes-complexas'
 import { Route as SolucoesLitigiosColetivosRouteImport } from './routes/solucoes.litigios-coletivos'
+import { Route as SolucoesParceirosEstrategicosRouteImport } from './routes/solucoes.parceiros-estrategicos'
 import { Route as SolucoesTribunaisSuperioresRouteImport } from './routes/solucoes.tribunais-superiores'
 import { Route as SolucoesVinculosComAAdministracaoPublicaRouteImport } from './routes/solucoes.vinculos-com-a-administracao-publica'
 
@@ -94,6 +95,12 @@ const SolucoesLitigiosColetivosRoute =
     path: '/solucoes/litigios-coletivos',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SolucoesParceirosEstrategicosRoute =
+  SolucoesParceirosEstrategicosRouteImport.update({
+    id: '/solucoes/parceiros-estrategicos',
+    path: '/solucoes/parceiros-estrategicos',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const SolucoesTribunaisSuperioresRoute =
   SolucoesTribunaisSuperioresRouteImport.update({
     id: '/solucoes/tribunais-superiores',
@@ -117,6 +124,7 @@ export interface FileRoutesByFullPath {
   '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
   '/solucoes/execucoes-complexas': typeof SolucoesExecucoesComplexasRoute
   '/solucoes/litigios-coletivos': typeof SolucoesLitigiosColetivosRoute
+  '/solucoes/parceiros-estrategicos': typeof SolucoesParceirosEstrategicosRoute
   '/solucoes/tribunais-superiores': typeof SolucoesTribunaisSuperioresRoute
   '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
   '/a-lbs/': typeof ALbsIndexRoute
@@ -134,6 +142,7 @@ export interface FileRoutesByTo {
   '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
   '/solucoes/execucoes-complexas': typeof SolucoesExecucoesComplexasRoute
   '/solucoes/litigios-coletivos': typeof SolucoesLitigiosColetivosRoute
+  '/solucoes/parceiros-estrategicos': typeof SolucoesParceirosEstrategicosRoute
   '/solucoes/tribunais-superiores': typeof SolucoesTribunaisSuperioresRoute
   '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
   '/a-lbs': typeof ALbsIndexRoute
@@ -152,6 +161,7 @@ export interface FileRoutesById {
   '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
   '/solucoes/execucoes-complexas': typeof SolucoesExecucoesComplexasRoute
   '/solucoes/litigios-coletivos': typeof SolucoesLitigiosColetivosRoute
+  '/solucoes/parceiros-estrategicos': typeof SolucoesParceirosEstrategicosRoute
   '/solucoes/tribunais-superiores': typeof SolucoesTribunaisSuperioresRoute
   '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
   '/a-lbs/': typeof ALbsIndexRoute
@@ -171,6 +181,7 @@ export interface FileRouteTypes {
     | '/solucoes/defesa-da-pessoa-que-trabalha'
     | '/solucoes/execucoes-complexas'
     | '/solucoes/litigios-coletivos'
+    | '/solucoes/parceiros-estrategicos'
     | '/solucoes/tribunais-superiores'
     | '/solucoes/vinculos-com-a-administracao-publica'
     | '/a-lbs/'
@@ -188,6 +199,7 @@ export interface FileRouteTypes {
     | '/solucoes/defesa-da-pessoa-que-trabalha'
     | '/solucoes/execucoes-complexas'
     | '/solucoes/litigios-coletivos'
+    | '/solucoes/parceiros-estrategicos'
     | '/solucoes/tribunais-superiores'
     | '/solucoes/vinculos-com-a-administracao-publica'
     | '/a-lbs'
@@ -205,6 +217,7 @@ export interface FileRouteTypes {
     | '/solucoes/defesa-da-pessoa-que-trabalha'
     | '/solucoes/execucoes-complexas'
     | '/solucoes/litigios-coletivos'
+    | '/solucoes/parceiros-estrategicos'
     | '/solucoes/tribunais-superiores'
     | '/solucoes/vinculos-com-a-administracao-publica'
     | '/a-lbs/'
@@ -223,6 +236,7 @@ export interface RootRouteChildren {
   SolucoesDefesaDaPessoaQueTrabalhaRoute: typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
   SolucoesExecucoesComplexasRoute: typeof SolucoesExecucoesComplexasRoute
   SolucoesLitigiosColetivosRoute: typeof SolucoesLitigiosColetivosRoute
+  SolucoesParceirosEstrategicosRoute: typeof SolucoesParceirosEstrategicosRoute
   SolucoesTribunaisSuperioresRoute: typeof SolucoesTribunaisSuperioresRoute
   SolucoesVinculosComAAdministracaoPublicaRoute: typeof SolucoesVinculosComAAdministracaoPublicaRoute
   ALbsIndexRoute: typeof ALbsIndexRoute
@@ -324,6 +338,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolucoesLitigiosColetivosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solucoes/parceiros-estrategicos': {
+      id: '/solucoes/parceiros-estrategicos'
+      path: '/solucoes/parceiros-estrategicos'
+      fullPath: '/solucoes/parceiros-estrategicos'
+      preLoaderRoute: typeof SolucoesParceirosEstrategicosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solucoes/tribunais-superiores': {
       id: '/solucoes/tribunais-superiores'
       path: '/solucoes/tribunais-superiores'
@@ -352,6 +373,7 @@ const rootRouteChildren: RootRouteChildren = {
     SolucoesDefesaDaPessoaQueTrabalhaRoute,
   SolucoesExecucoesComplexasRoute: SolucoesExecucoesComplexasRoute,
   SolucoesLitigiosColetivosRoute: SolucoesLitigiosColetivosRoute,
+  SolucoesParceirosEstrategicosRoute: SolucoesParceirosEstrategicosRoute,
   SolucoesTribunaisSuperioresRoute: SolucoesTribunaisSuperioresRoute,
   SolucoesVinculosComAAdministracaoPublicaRoute:
     SolucoesVinculosComAAdministracaoPublicaRoute,
