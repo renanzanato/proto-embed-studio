@@ -536,7 +536,7 @@ function CaseTile({
         alt=""
         aria-hidden="true"
         loading="lazy"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover contrast-[1.03] saturate-[0.95]"
         style={{
           opacity: on ? 1 : 0,
           transform: on ? "scale(1)" : "scale(1.03)",
@@ -622,7 +622,7 @@ function DestaquesGaleria() {
               loading="lazy"
               width={1440}
               height={960}
-              className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+              className="absolute inset-0 h-full w-full object-cover contrast-[1.03] saturate-[0.95]"
             />
             <span className="absolute left-0 top-0 bg-lbs-magenta px-4 py-2 text-[10px] uppercase tracking-[0.18em] text-white">
               Caso emblemático
