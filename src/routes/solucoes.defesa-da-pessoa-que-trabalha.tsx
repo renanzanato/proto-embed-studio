@@ -352,11 +352,33 @@ function DefesaPage() {
       </section>
 
       {/* PÚBLICO ATENDIDO */}
-      <section className="w-full bg-lbs-ink py-16 sm:py-20">
+      <section className="w-full bg-lbs-ink py-14 sm:py-16">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
           <SectionLabel>Público atendido</SectionLabel>
-          <p className="mt-6 max-w-[900px] text-[15px] leading-[1.9] text-white/80 sm:text-[17px]">
-            {publicoAtendido}
+          <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
+            <p className="text-[14.5px] leading-[1.8] text-white/80 sm:text-[16px]">
+              Advogamos e assessoramos pessoas que trabalham
+            </p>
+            <ul className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
+              {[
+                "sob vínculo celetista",
+                "contratadas como pessoa jurídica ou pessoa física",
+                "empregadas de empresas privadas ou de estatais",
+                "e para as entidades que as representam: sindicatos, federações, confederações e associações",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="relative border-b border-white/10 pb-2 pl-4 text-[12.5px] leading-[1.7] text-white/65"
+                >
+                  <span className="absolute left-0 top-[8px] h-[5px] w-[5px] rounded-full bg-lbs-magenta" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="mt-8 text-[12.5px] leading-[1.8] text-white/60">
+            Atendemos também advogadas e advogados que buscam parceria especializada para seus
+            casos.
           </p>
         </div>
       </section>
