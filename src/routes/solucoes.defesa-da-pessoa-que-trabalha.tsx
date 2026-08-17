@@ -494,9 +494,109 @@ function ServiceGroups({
   );
 }
 
+function CaseTile({
+  index,
+  title,
+  text,
+  img,
+  open,
+  onToggle,
+}: {
+  index: number;
+  title: string;
+  text: string;
+  img: string;
+  open: boolean;
+  onToggle: () => void;
+}) {
+  const [hover, setHover] = useState(false);
+  const on = hover || open;
+
+  return (
+    <div
+      role="button"
+      tabIndex={0}
+      aria-expanded={on}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      onFocus={() => setHover(true)}
+      onBlur={() => setHover(false)}
+      onClick={onToggle}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          onToggle();
+        }
+      }}
+      className="group relative flex h-[260px] cursor-pointer flex-col overflow-hidden border-b border-white/12 outline-none focus-visible:ring-1 focus-visible:ring-lbs-magenta sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(3n)]:border-r-0 lg:[&:nth-child(3n+1)]:border-r lg:[&:nth-child(3n+2)]:border-r"
+    >
+      {/* imagem contextual */}
+      <img
+        src={img}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+        style={{
+          opacity: on ? 1 : 0,
+          transform: on ? "scale(1)" : "scale(1.03)",
+          transition: "opacity 360ms ease, transform 400ms ease",
+        }}
+      />
+      {/* overlay de legibilidade */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: on
+            ? "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.80) 45%, rgba(0,0,0,0.92) 100%)"
+            : "rgba(0,0,0,0)",
+          transition: "background 360ms ease",
+        }}
+      />
+      {/* linha rosa */}
+      <span
+        aria-hidden="true"
+        className="absolute -top-px left-0 z-10 h-[2px] bg-lbs-magenta transition-all duration-500 ease-out"
+        style={{ width: on ? "100%" : "0%" }}
+      />
+
+      <div className="relative z-10 flex h-full flex-col px-0 py-8 sm:px-7">
+        <span
+          className="text-[11px] tabular-nums tracking-[0.16em] transition-colors duration-300"
+          style={{
+            color: on
+              ? "var(--lbs-magenta)"
+              : "color-mix(in oklab, var(--lbs-magenta) 45%, transparent)",
+          }}
+        >
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <h3
+          className="mt-4 text-[14.5px] font-normal leading-[1.45] transition-colors duration-300"
+          style={{ color: on ? "#fff" : "rgba(255,255,255,0.62)" }}
+        >
+          {title}
+        </h3>
+        <p
+          className="mt-4 overflow-hidden text-[12px] leading-[1.8] text-white/70"
+          style={{
+            opacity: on ? 1 : 0,
+            transform: on ? "translateY(0)" : "translateY(8px)",
+            transition: "opacity 340ms ease, transform 340ms ease",
+          }}
+        >
+          {text}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function DestaquesGaleria() {
-  const [active, setActive] = useState(0);
-  const atual = destaques[active];
+  const [open, setOpen] = useState<number | null>(null);
+  const principal = destaques[0];
+  const secundarios = destaques.slice(1);
 
   return (
     <section className="w-full bg-lbs-ink py-24 sm:py-32">
@@ -513,86 +613,51 @@ function DestaquesGaleria() {
           </span>
         </div>
 
-        {/* Painel principal */}
+        {/* Caso emblemático — fixo */}
         <article className="mt-12 grid gap-8 border-t border-white/15 pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="relative h-[240px] w-full overflow-hidden sm:h-[340px]">
-            {destaques.map((d, i) => (
-              <img
-                key={d.title}
-                src={destaqueImgs[i]}
-                alt={i === active ? d.title : ""}
-                aria-hidden={i === active ? undefined : "true"}
-                loading="lazy"
-                width={1440}
-                height={960}
-                className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
-                style={{ opacity: i === active ? 1 : 0, transition: "opacity 360ms ease" }}
-              />
-            ))}
+            <img
+              src={destaqueImgs[0]}
+              alt={principal.title}
+              loading="lazy"
+              width={1440}
+              height={960}
+              className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+            />
             <span className="absolute left-0 top-0 bg-lbs-magenta px-4 py-2 text-[10px] uppercase tracking-[0.18em] text-white">
               Caso emblemático
             </span>
           </div>
-          <div key={atual.title} className="flex flex-col justify-center [animation:fadeUp_420ms_ease_both]">
+          <div className="flex flex-col justify-center">
             <h3 className="text-[22px] font-light leading-[1.25] text-white sm:text-[28px]">
-              {atual.title}
+              {principal.title}
             </h3>
             <div className="mt-6 h-[2px] w-12 bg-lbs-magenta" />
             <p className="mt-6 max-w-[520px] text-[13.5px] leading-[1.95] text-white/60">
-              {atual.text}
+              {principal.text}
             </p>
           </div>
         </article>
 
-        {/* Grade editorial de cases */}
+        {/* Grade editorial de cases 02–06 */}
         <div className="mt-14 grid border-t border-white/12 sm:grid-cols-2 lg:grid-cols-3">
-          {destaques.map((d, i) => (
-            <div
+          {secundarios.map((d, i) => (
+            <CaseTile
               key={d.title}
-              role="button"
-              tabIndex={0}
-              aria-pressed={i === active}
-              onMouseEnter={() => setActive(i)}
-              onFocus={() => setActive(i)}
-              onClick={() => setActive(i)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  setActive(i);
-                }
-              }}
-              className="relative cursor-default border-b border-white/12 px-0 py-9 outline-none transition-colors duration-300 sm:px-7 sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(3n)]:border-r-0 lg:[&:nth-child(odd)]:border-r lg:[&:nth-child(even)]:border-r"
-              style={{ background: i === active ? "rgba(255,255,255,0.035)" : "transparent" }}
-            >
-              <span
-                aria-hidden="true"
-                className="absolute -top-px left-0 h-[2px] bg-lbs-magenta transition-all duration-500 ease-out"
-                style={{ width: i === active ? "100%" : "0%" }}
-              />
-              <span
-                className="text-[11px] tabular-nums tracking-[0.16em] transition-colors duration-300"
-                style={{
-                  color:
-                    i === active
-                      ? "var(--lbs-magenta)"
-                      : "color-mix(in oklab, var(--lbs-magenta) 45%, transparent)",
-                }}
-              >
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <h3
-                className="mt-4 text-[14.5px] font-normal leading-[1.45] transition-colors duration-300"
-                style={{ color: i === active ? "#fff" : "rgba(255,255,255,0.62)" }}
-              >
-                {d.title}
-              </h3>
-            </div>
+              index={i + 1}
+              title={d.title}
+              text={d.text}
+              img={destaqueImgs[i + 1]}
+              open={open === i + 1}
+              onToggle={() => setOpen((p) => (p === i + 1 ? null : i + 1))}
+            />
           ))}
         </div>
       </div>
     </section>
   );
 }
+
 
 function DefesaPage() {
   const [contexto, setContexto] = useState<"pessoas" | "bancarios">("pessoas");
