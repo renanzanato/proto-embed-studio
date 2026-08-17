@@ -20,6 +20,7 @@ import { Route as EquipeIndexRouteImport } from './routes/equipe.index'
 import { Route as EquipeSlugRouteImport } from './routes/equipe.$slug'
 import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
 import { Route as SolucoesDefesaDaPessoaQueTrabalhaRouteImport } from './routes/solucoes.defesa-da-pessoa-que-trabalha'
+import { Route as SolucoesVinculosComAAdministracaoPublicaRouteImport } from './routes/solucoes.vinculos-com-a-administracao-publica'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -78,6 +79,12 @@ const SolucoesDefesaDaPessoaQueTrabalhaRoute =
     path: '/solucoes/defesa-da-pessoa-que-trabalha',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SolucoesVinculosComAAdministracaoPublicaRoute =
+  SolucoesVinculosComAAdministracaoPublicaRouteImport.update({
+    id: '/solucoes/vinculos-com-a-administracao-publica',
+    path: '/solucoes/vinculos-com-a-administracao-publica',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -87,6 +94,7 @@ export interface FileRoutesByFullPath {
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
+  '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
   '/a-lbs/': typeof ALbsIndexRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
@@ -100,6 +108,7 @@ export interface FileRoutesByTo {
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
+  '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
   '/a-lbs': typeof ALbsIndexRoute
   '/atuacao': typeof AtuacaoIndexRoute
   '/equipe': typeof EquipeIndexRoute
@@ -114,6 +123,7 @@ export interface FileRoutesById {
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
+  '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
   '/a-lbs/': typeof ALbsIndexRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
@@ -129,6 +139,7 @@ export interface FileRouteTypes {
     | '/atuacao/direito-trabalhista'
     | '/equipe/$slug'
     | '/solucoes/defesa-da-pessoa-que-trabalha'
+    | '/solucoes/vinculos-com-a-administracao-publica'
     | '/a-lbs/'
     | '/atuacao/'
     | '/equipe/'
@@ -142,6 +153,7 @@ export interface FileRouteTypes {
     | '/atuacao/direito-trabalhista'
     | '/equipe/$slug'
     | '/solucoes/defesa-da-pessoa-que-trabalha'
+    | '/solucoes/vinculos-com-a-administracao-publica'
     | '/a-lbs'
     | '/atuacao'
     | '/equipe'
@@ -155,6 +167,7 @@ export interface FileRouteTypes {
     | '/atuacao/direito-trabalhista'
     | '/equipe/$slug'
     | '/solucoes/defesa-da-pessoa-que-trabalha'
+    | '/solucoes/vinculos-com-a-administracao-publica'
     | '/a-lbs/'
     | '/atuacao/'
     | '/equipe/'
@@ -169,6 +182,7 @@ export interface RootRouteChildren {
   AtuacaoDireitoTrabalhistaRoute: typeof AtuacaoDireitoTrabalhistaRoute
   EquipeSlugRoute: typeof EquipeSlugRoute
   SolucoesDefesaDaPessoaQueTrabalhaRoute: typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
+  SolucoesVinculosComAAdministracaoPublicaRoute: typeof SolucoesVinculosComAAdministracaoPublicaRoute
   ALbsIndexRoute: typeof ALbsIndexRoute
   AtuacaoIndexRoute: typeof AtuacaoIndexRoute
   EquipeIndexRoute: typeof EquipeIndexRoute
@@ -254,6 +268,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolucoesDefesaDaPessoaQueTrabalhaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solucoes/vinculos-com-a-administracao-publica': {
+      id: '/solucoes/vinculos-com-a-administracao-publica'
+      path: '/solucoes/vinculos-com-a-administracao-publica'
+      fullPath: '/solucoes/vinculos-com-a-administracao-publica'
+      preLoaderRoute: typeof SolucoesVinculosComAAdministracaoPublicaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -266,6 +287,8 @@ const rootRouteChildren: RootRouteChildren = {
   EquipeSlugRoute: EquipeSlugRoute,
   SolucoesDefesaDaPessoaQueTrabalhaRoute:
     SolucoesDefesaDaPessoaQueTrabalhaRoute,
+  SolucoesVinculosComAAdministracaoPublicaRoute:
+    SolucoesVinculosComAAdministracaoPublicaRoute,
   ALbsIndexRoute: ALbsIndexRoute,
   AtuacaoIndexRoute: AtuacaoIndexRoute,
   EquipeIndexRoute: EquipeIndexRoute,
