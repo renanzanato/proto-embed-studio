@@ -36,8 +36,8 @@ export function AtuacaoDialog({
 
   return (
     <div
-      className={`absolute left-1/2 top-[calc(100%-14px)] z-50 w-[min(980px,95vw)] -translate-x-1/2 pt-[14px] transition-[opacity,transform] duration-200 ${
-        open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"
+      className={`absolute inset-x-0 top-[calc(100%-14px)] z-50 mx-auto w-[min(980px,95vw)] pt-[14px] transition-opacity duration-200 ${
+        open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
       }`}
       onMouseEnter={onMouseEnter}
     >
