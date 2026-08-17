@@ -398,13 +398,20 @@ function DefesaPage() {
         </div>
       </section>
 
-      {/* 4.2 BANCÁRIAS, BANCÁRIOS E RAMO FINANCEIRO */}
-      <section className="w-full bg-[#f5f5f5] py-20 sm:py-24">
+      {/* 4.2 BANCÁRIAS, BANCÁRIOS E RAMO FINANCEIRO — NOVO CAPÍTULO */}
+      <section className="w-full bg-[#f5f5f5] pb-20 pt-24 sm:pb-24 sm:pt-32">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <SectionLabel>Bancárias, bancários e ramo financeiro</SectionLabel>
-          <h2 className="mt-5 max-w-[760px] text-[24px] font-light leading-[1.3] text-lbs-ink sm:text-[30px]">
+          <div className="border-t border-lbs-ink/15 pt-12 sm:pt-16">
+            <span className="text-[11px] uppercase tracking-[0.22em] text-lbs-ink/40">
+              Capítulo 02
+            </span>
+            <h2 className="mt-4 max-w-[860px] text-[28px] font-light leading-[1.22] text-lbs-ink sm:text-[38px]">
+              Bancárias, bancários e ramo financeiro
+            </h2>
+          </div>
+          <h3 className="mt-14 text-[20px] font-light text-lbs-ink sm:text-[24px]">
             Descrição e diferenciais
-          </h2>
+          </h3>
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {bancariosDiferenciais.map((p) => (
               <p
