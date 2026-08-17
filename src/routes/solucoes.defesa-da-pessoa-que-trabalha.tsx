@@ -549,7 +549,7 @@ function CaseTile({
         className="pointer-events-none absolute inset-0"
         style={{
           background: on
-            ? "linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.80) 45%, rgba(0,0,0,0.92) 100%)"
+            ? "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.66) 45%, rgba(0,0,0,0.86) 100%)"
             : "rgba(0,0,0,0)",
           transition: "background 360ms ease",
         }}
