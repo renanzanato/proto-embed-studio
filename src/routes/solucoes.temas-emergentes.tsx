@@ -23,15 +23,6 @@ const descricao = [
   "A partir do diagnóstico, é construída uma estratégia específica para cada caso, que pode combinar medidas judiciais e extrajudiciais, mecanismos nacionais e internacionais, incidência institucional, produção de conhecimento e articulação com entidades e organizações parceiras.",
 ];
 
-const diferenciaisTexto = [
-  "atuação especializada e multidisciplinar",
-  "integração entre Direito do Trabalho, Direitos Humanos, Direito Constitucional, Direito Internacional, Direito Ambiental e Direito Econômico e Financeiro",
-  "pesquisa aprofundada e juridicamente orientada",
-  "construção de estratégias sob medida, sem aplicação de soluções padronizadas",
-  "articulação entre atuação jurídica, organização coletiva e incidência institucional",
-  "capacidade de atuação coordenada perante órgãos judiciais, administrativos e internacionais",
-  "acompanhamento do caso desde a identificação da problemática até a implementação da estratégia e o monitoramento de seus desdobramentos",
-];
 
 const atuacoesRepresentativas = [
   "ações coletivas voltadas à proteção de créditos trabalhistas em processos de crise empresarial",
