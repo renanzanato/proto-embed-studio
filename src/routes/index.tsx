@@ -76,7 +76,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "LBS Advogadas e Advogados: defesa de quem trabalha e estruturação de causas que transformam. Conheça nossas soluções e áreas de atuação.",
+          "LBS Advogadas e Advogados: defesa de quem trabalha e estruturação de causas que transformam. Conheça nossas soluções.",
       },
       { property: "og:title", content: "LBS Advogadas e Advogados" },
       {
@@ -332,11 +332,11 @@ function SplitBand() {
 
   return (
     <section
-      aria-label="Soluções e Áreas de Atuação"
+      aria-label="Soluções"
       className="relative h-[300px] w-full overflow-hidden sm:h-[420px] lg:h-[480px]"
       onMouseLeave={() => setHovered(null)}
     >
-      {/* right side base image (Áreas de Atuação) */}
+      {/* right side base image */}
       <img
         src={atuacaoOffice}
         alt="Escritório corporativo em preto e branco"
@@ -404,48 +404,17 @@ function SplitBand() {
             Ver mais
           </span>
         </div>
-        <div
-          className={`absolute bottom-10 left-[74%] flex flex-col items-center gap-3 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:bottom-14 ${
-            hovered === "solucoes"
-              ? "-translate-x-1/2 opacity-0"
-              : hovered === "atuacao"
-                ? "translate-x-[-75%] opacity-100"
-                : "-translate-x-1/2 opacity-100"
-          }`}
-        >
-          <h2 className="text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
-            Áreas de Atuação
-          </h2>
-          <span
-            className={`rounded-[6px] border border-lbs-magenta font-medium transition-all duration-500 ${
-              hovered === "atuacao"
-                ? "scale-105 bg-lbs-magenta px-7 py-2.5 text-[13px] text-white opacity-100"
-                : "px-5 py-2 text-[11px] text-lbs-magenta opacity-70"
-            }`}
-          >
-            Ver mais
-          </span>
-        </div>
-
       </div>
+
+
 
       {/* hit areas — each visible panel is fully clickable */}
       <a
         href="/solucoes"
         aria-label="Conheça nossas soluções"
-        className={`absolute inset-0 ${clipTransition}`}
-        style={{ clipPath: leftClip }}
+        className="absolute inset-0"
         onMouseEnter={() => setHovered("solucoes")}
         onFocus={() => setHovered("solucoes")}
-        onBlur={() => setHovered(null)}
-      />
-      <a
-        href="/atuacao"
-        aria-label="Conheça nossas áreas de atuação"
-        className={`absolute inset-0 ${clipTransition}`}
-        style={{ clipPath: rightClip }}
-        onMouseEnter={() => setHovered("atuacao")}
-        onFocus={() => setHovered("atuacao")}
         onBlur={() => setHovered(null)}
       />
     </section>
