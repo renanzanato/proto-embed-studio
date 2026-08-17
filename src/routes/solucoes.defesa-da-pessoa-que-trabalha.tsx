@@ -425,7 +425,7 @@ function DefesaPage() {
             Análises, pareceres, pedidos administrativos e ações judiciais referentes aos
             seguintes temas:
           </p>
-          <ServiceGroups groups={servicosPessoas} />
+          <ServiceGroups groups={servicosPessoas} idPrefix="pessoas" />
         </div>
       </section>
 
@@ -472,7 +472,7 @@ function DefesaPage() {
             Análises, pareceres, pedidos administrativos e ações judiciais referentes aos
             seguintes temas:
           </p>
-          <ServiceGroups groups={bancariosServicos} />
+          <ServiceGroups groups={bancariosServicos} idPrefix="bancarios" />
         </div>
       </section>
 
