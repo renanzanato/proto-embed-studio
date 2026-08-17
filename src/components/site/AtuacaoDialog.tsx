@@ -6,10 +6,11 @@ type Tab = "areas" | "solucoes";
 
 const solucoes: { title: string; to: string }[] = [
   { title: "Defesa da pessoa que trabalha", to: "/solucoes" },
-  { title: "Litígios coletivos estruturados", to: "/solucoes" },
-  { title: "Parcerias jurídicas estratégicas", to: "/solucoes" },
-  { title: "Litígios estratégicos em temas emergentes", to: "/solucoes" },
-  { title: "Atuação em Tribunais Superiores e execuções complexas", to: "/solucoes" },
+  { title: "Execuções complexas", to: "/solucoes" },
+  { title: "Litígios coletivos", to: "/solucoes" },
+  { title: "Parceiros estratégicos", to: "/solucoes" },
+  { title: "Temas emergentes", to: "/solucoes" },
+  { title: "Tribunais Superiores", to: "/solucoes" },
 ];
 
 const areas: { title: string; to: string }[] = [
