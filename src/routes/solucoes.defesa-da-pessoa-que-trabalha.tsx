@@ -436,9 +436,45 @@ function DefesaPage() {
           <p className="mt-6 max-w-[620px] text-[13.5px] leading-[1.9] text-lbs-ink/65">
             Indicação na lista Excel.
           </p>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {socios.map((member, i) => (
+              <Link
+                key={member.slug}
+                to="/equipe/$slug"
+                params={{ slug: member.slug }}
+                className="group block"
+              >
+                <div className="overflow-hidden bg-lbs-ink/5">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    loading="lazy"
+                    width={640}
+                    height={800}
+                    className="h-[280px] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                    style={{
+                      clipPath:
+                        i % 2 === 0
+                          ? "polygon(0 0, 100% 0, 100% calc(100% - 56px), calc(100% - 56px) 100%, 0 100%)"
+                          : "polygon(0 0, 100% 0, 100% 100%, 56px 100%, 0 calc(100% - 56px))",
+                    }}
+                  />
+                </div>
+                <div className="mt-4 border-t-2 border-lbs-magenta pt-3">
+                  <h4 className="text-[14px] font-normal text-lbs-ink transition-colors group-hover:text-lbs-magenta">
+                    {member.name}
+                  </h4>
+                  <p className="mt-1 text-[11.5px] text-lbs-ink/55">{member.role}</p>
+                  <p className="mt-0.5 text-[11.5px] text-lbs-ink/45">{member.city}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
           <Link
             to="/equipe"
-            className="mt-8 inline-block bg-lbs-ink px-6 py-3 text-[11px] uppercase tracking-[0.16em] text-white transition-opacity hover:opacity-85"
+            className="mt-10 inline-block bg-lbs-ink px-6 py-3 text-[11px] uppercase tracking-[0.16em] text-white transition-opacity hover:opacity-85"
           >
             Ver a equipe
           </Link>
