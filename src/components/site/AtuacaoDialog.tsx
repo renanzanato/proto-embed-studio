@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { createPortal } from "react-dom";
 
 type Tab = "areas" | "solucoes";
 
@@ -24,11 +25,13 @@ const areas: { title: string; to: string }[] = [
 
 export function AtuacaoDialog({
   open,
+  top,
   onClose,
   onMouseEnter,
   onMouseLeave,
 }: {
   open: boolean;
+  top: number;
   onClose: () => void;
   onMouseEnter: () => void;
   onMouseLeave: () => void;
@@ -36,15 +39,16 @@ export function AtuacaoDialog({
   const [tab, setTab] = useState<Tab>("solucoes");
   const items = tab === "solucoes" ? solucoes : areas;
 
-  return (
+  if (!open || typeof document === "undefined") return null;
+
+  return createPortal(
     <div
-      className={`absolute left-1/2 top-full z-50 w-[min(980px,95vw)] -translate-x-1/2 pt-5 transition-all duration-200 ${
-        open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"
-      }`}
+      className="fixed inset-x-0 z-50 mx-auto w-[min(980px,95vw)] pt-[14px]"
+      style={{ top }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="gap-0 rounded-[6px] border border-lbs-ink/10 bg-white p-7 shadow-xl sm:p-10">
+      <div className="relative isolate gap-0 rounded-[6px] border border-lbs-ink/10 bg-white p-7 shadow-xl sm:p-10">
         <h2 className="sr-only">Soluções e Áreas de Atuação</h2>
 
         {/* abas */}
@@ -74,13 +78,13 @@ export function AtuacaoDialog({
           {tab === "solucoes" ? "Encontre a solução ideal" : "Encontre a área de atuação"}
         </h3>
 
-        <ul className="mt-8 grid gap-x-10 gap-y-7 sm:grid-cols-2">
+        <ul className="mt-8 grid gap-x-16 gap-y-6 sm:grid-cols-2">
           {items.map((item) => (
-            <li key={item.title} className="min-w-0">
+            <li key={item.title} className="min-w-0 border-b-2 border-lbs-magenta">
               <Link
                 to={item.to}
                 onClick={onClose}
-                className="group relative block min-h-[44px] w-full overflow-visible pb-3 pt-2 text-[13px] leading-5 text-lbs-ink transition-colors after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:bg-lbs-magenta after:content-[''] hover:text-lbs-magenta"
+                className="block w-full py-3 text-[13px] leading-5 text-lbs-ink transition-colors hover:text-lbs-magenta"
               >
                 {item.title}
               </Link>
@@ -108,6 +112,7 @@ export function AtuacaoDialog({
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
