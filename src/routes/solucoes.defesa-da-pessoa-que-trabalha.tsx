@@ -373,38 +373,9 @@ function DefesaPage() {
         </div>
       </section>
 
-      {/* PÚBLICO ATENDIDO — faixa clara e compacta */}
-      <section className="w-full border-y border-lbs-ink/10 bg-[#f7f6f5] py-12 sm:py-14">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-            <div>
-              <SectionLabel>Público atendido</SectionLabel>
-              <p className="mt-4 max-w-[300px] text-[16px] font-light leading-[1.45] text-lbs-ink">
-                Advogamos e assessoramos pessoas que trabalham
-              </p>
-            </div>
-            <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2">
-              {[
-                "sob vínculo celetista",
-                "contratadas como pessoa jurídica ou pessoa física",
-                "empregadas de empresas privadas ou de estatais",
-                "e para as entidades que as representam: sindicatos, federações, confederações e associações",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="border-t border-lbs-ink/12 pt-3 text-[12.5px] leading-[1.7] text-lbs-ink/65"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <p className="mt-8 text-[11.5px] leading-[1.7] text-lbs-ink/45">
-            Atendemos também advogadas e advogados que buscam parceria especializada para seus
-            casos.
-          </p>
-        </div>
-      </section>
+      {/* PÚBLICO ATENDIDO — faixa editorial viva */}
+      <PublicoAtendido />
+
 
       {/* DESTAQUES — hierarquia real */}
       <section className="w-full bg-lbs-ink py-24 sm:py-32">
