@@ -56,7 +56,9 @@ export type Insight = {
   title: string;
   excerpt: string;
   image: string;
+  body?: string[];
 };
+
 
 export const insights: Insight[] = [
   {
