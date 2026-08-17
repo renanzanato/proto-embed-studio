@@ -3,6 +3,15 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import solDefesa from "@/assets/sol-defesa.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { teamMembers } from "@/data/equipe";
+
+const socios = teamMembers.filter((m) => m.role === "Sócio" || m.role === "Sócia");
 
 const diferenciais = [
   "A defesa da pessoa que trabalha é a origem e a razão de existir da LBS Advogadas e Advogados.",
