@@ -709,33 +709,9 @@ function DestaquesGaleria() {
 
 
 function DefesaPage() {
-  const [activeChapter, setActiveChapter] = useState<"pessoas" | "bancarios">("pessoas");
+  const [contexto, setContexto] = useState<"pessoas" | "bancarios">("pessoas");
   const [sobreOpen, setSobreOpen] = useState(false);
-  const cap01Ref = useRef<HTMLDivElement | null>(null);
-  const cap02Ref = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    const targets = [cap01Ref.current, cap02Ref.current].filter(Boolean) as HTMLElement[];
-    if (!targets.length) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) {
-          setActiveChapter(visible.target === cap02Ref.current ? "bancarios" : "pessoas");
-        }
-      },
-      { rootMargin: "-25% 0px -55% 0px", threshold: [0, 0.1, 0.4, 1] },
-    );
-    targets.forEach((t) => obs.observe(t));
-    return () => obs.disconnect();
-  }, []);
-
-  const scrollToChapter = (id: "pessoas" | "bancarios") => {
-    const el = id === "pessoas" ? cap01Ref.current : cap02Ref.current;
-    el?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
 
 
 
