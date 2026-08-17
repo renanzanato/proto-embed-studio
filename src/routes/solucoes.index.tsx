@@ -19,28 +19,16 @@ const solucoes = [
     text: "Atuamos de forma contínua na defesa jurídica da pessoa que trabalha, considerando as múltiplas formas contemporâneas de vínculo laboral e proteção social.",
   },
   {
-    img: solAdmPublica,
-    title: "Vínculos com a Administração Pública",
-    to: "/solucoes/vinculos-com-a-administracao-publica",
-    text: "Atuação especializada para servidoras e servidores públicos, empregados de estatais, temporários, terceirizados e bolsistas em suas relações com o poder público.",
+    img: solExecucoes,
+    title: "Execuções complexas",
+    to: "/solucoes/execucoes-complexas",
+    text: "Atuamos em execuções de elevada complexidade jurídica, quando o caso exige leitura sistêmica, cálculos técnicos e segurança institucional.",
   },
   {
     img: solLitigios,
     title: "Litígios coletivos estruturados",
     to: "/solucoes/litigios-coletivos",
     text: "Estruturamos e conduzimos litígios coletivos de grande escala, voltados à correção de violações sistemáticas de direitos e à produção de impacto institucional.",
-  },
-  {
-    img: solTribunais,
-    title: "Tribunais Superiores",
-    to: "/solucoes/tribunais-superiores",
-    text: "Condução dos processos que tramitam no TST, STJ e STF, com sustentações orais, memoriais, diligências em gabinetes e atuação estratégica em repercussão geral.",
-  },
-  {
-    img: solExecucoes,
-    title: "Execuções complexas",
-    to: "/solucoes/execucoes-complexas",
-    text: "Atuamos em execuções de elevada complexidade jurídica, quando o caso exige leitura sistêmica, cálculos técnicos e segurança institucional.",
   },
   {
     img: solParcerias,
@@ -54,7 +42,20 @@ const solucoes = [
     to: "/solucoes/temas-emergentes",
     text: "Atuamos em litígios estratégicos relacionados a conflitos jurídicos emergentes, ainda em processo de consolidação normativa e jurisprudencial.",
   },
+  {
+    img: solTribunais,
+    title: "Tribunais Superiores",
+    to: "/solucoes/tribunais-superiores",
+    text: "Condução dos processos que tramitam no TST, STJ e STF, com sustentações orais, memoriais, diligências em gabinetes e atuação estratégica em repercussão geral.",
+  },
+  {
+    img: solAdmPublica,
+    title: "Vínculos com a Administração Pública",
+    to: "/solucoes/vinculos-com-a-administracao-publica",
+    text: "Atuação especializada para servidoras e servidores públicos, empregados de estatais, temporários, terceirizados e bolsistas em suas relações com o poder público.",
+  },
 ];
+
 
 
 
