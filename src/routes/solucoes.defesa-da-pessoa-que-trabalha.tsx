@@ -710,6 +710,8 @@ function DestaquesGaleria() {
 
 function DefesaPage() {
   const [contexto, setContexto] = useState<"pessoas" | "bancarios">("pessoas");
+  const [sobreOpen, setSobreOpen] = useState(false);
+
 
 
 
@@ -835,48 +837,56 @@ function DefesaPage() {
             ) : (
               <div role="tabpanel">
                 <div className="mt-10">
-                  <span className="text-[11px] uppercase tracking-[0.2em] text-lbs-ink/40">
-                    Módulo especializado
-                  </span>
-                  <h3 className="mt-4 max-w-[520px] text-[24px] font-light leading-[1.2] text-lbs-ink sm:text-[30px]">
+                  <h3 className="max-w-[520px] text-[24px] font-light leading-[1.2] text-lbs-ink sm:text-[30px]">
                     Bancárias, bancários e ramo financeiro
                   </h3>
-                  <div className="mt-6 h-[2px] w-12 bg-lbs-magenta" />
-                  <div className="mt-8 max-w-[640px] space-y-8">
-                    {bancariosDiferenciais.map((p) => (
-                      <p key={p} className="text-[13.5px] leading-[2] text-lbs-ink/65">
-                        {p}
-                      </p>
-                    ))}
-                  </div>
-                </div>
 
-                <div className="mt-16 border-t border-lbs-ink/12 pt-10">
-                  <SectionLabel>Destaques do setor</SectionLabel>
-                  <div className="mt-8 grid gap-x-14 gap-y-9 sm:grid-cols-2">
-                    {bancariosDestaques.map((d, i) => (
-                      <article key={d.title} className="flex gap-5">
-                        <span className="mt-1 text-[11px] tabular-nums tracking-[0.16em] text-lbs-magenta">
-                          {String(i + 1).padStart(2, "0")}
+                  <div className="mt-6 border-t border-lbs-ink/12">
+                    <div
+                      className="border-b transition-colors duration-300"
+                      style={{
+                        borderColor: sobreOpen
+                          ? "color-mix(in oklab, var(--lbs-magenta) 55%, transparent)"
+                          : "color-mix(in oklab, var(--lbs-ink) 12%, transparent)",
+                      }}
+                    >
+                      <button
+                        type="button"
+                        aria-expanded={sobreOpen}
+                        onClick={() => setSobreOpen((p) => !p)}
+                        className="flex w-full items-center justify-between py-5 text-left outline-none transition-colors duration-300 focus-visible:ring-1 focus-visible:ring-lbs-magenta"
+                        style={{ color: sobreOpen ? "var(--lbs-magenta)" : "var(--lbs-ink)" }}
+                      >
+                        <span className="text-[15px] font-light tracking-tight sm:text-[17px]">
+                          Sobre esta atuação
                         </span>
-                        <div>
-                          <h4 className="text-[14.5px] font-normal leading-[1.45] text-lbs-ink">
-                            {d.title}
-                          </h4>
-                          <p className="mt-3 text-[12.5px] leading-[1.85] text-lbs-ink/60">
-                            {d.text}
-                          </p>
+                        <span
+                          aria-hidden="true"
+                          className="relative h-[18px] w-[18px] shrink-0 transition-transform duration-[380ms] ease-out sm:h-[22px] sm:w-[22px]"
+                          style={{ transform: sobreOpen ? "rotate(45deg)" : "rotate(0deg)" }}
+                        >
+                          <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current" />
+                          <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-current" />
+                        </span>
+                      </button>
+
+                      <div
+                        className="overflow-hidden transition-all duration-[400ms] ease-out"
+                        style={{ maxHeight: sobreOpen ? 800 : 0, opacity: sobreOpen ? 1 : 0 }}
+                      >
+                        <div className="pb-8 max-w-[640px] space-y-8">
+                          {bancariosDiferenciais.map((p) => (
+                            <p key={p} className="text-[13.5px] leading-[2] text-lbs-ink/65">
+                              {p}
+                            </p>
+                          ))}
                         </div>
-                      </article>
-                    ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
 
-                <div className="mt-16">
-                  <p className="max-w-[640px] text-[13px] leading-[1.9] text-lbs-ink/60">
-                    Análises, pareceres, pedidos administrativos e ações judiciais referentes aos
-                    seguintes temas:
-                  </p>
+                <div className="mt-8">
                   <ServiceGroups groups={bancariosServicos} idPrefix="bancarios" />
                 </div>
               </div>
