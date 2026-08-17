@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
-
 type Tab = "areas" | "solucoes";
 
 const solucoes: { title: string; to: string }[] = [
@@ -36,9 +34,15 @@ export function AtuacaoDialog({
   const close = () => onOpenChange(false);
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-[980px] gap-0 rounded-[6px] border-lbs-ink/10 bg-white p-7 sm:p-10">
-        <DialogTitle className="sr-only">Soluções e Áreas de Atuação</DialogTitle>
+    <div
+      className={`absolute left-1/2 top-full z-50 mt-3 w-[min(980px,95vw)] -translate-x-1/2 transition-all duration-200 ${
+        open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-2 opacity-0"
+      }`}
+      onMouseEnter={() => onOpenChange(true)}
+      onMouseLeave={() => onOpenChange(false)}
+    >
+      <div className="gap-0 rounded-[6px] border border-lbs-ink/10 bg-white p-7 shadow-xl sm:p-10">
+        <h2 className="sr-only">Soluções e Áreas de Atuação</h2>
 
         {/* abas */}
         <div className="flex flex-wrap gap-3">
@@ -63,9 +67,9 @@ export function AtuacaoDialog({
           ))}
         </div>
 
-        <h2 className="mt-6 text-[22px] font-normal text-lbs-ink sm:text-[26px]">
+        <h3 className="mt-6 text-[22px] font-normal text-lbs-ink sm:text-[26px]">
           {tab === "solucoes" ? "Encontre a solução ideal" : "Encontre a área de atuação"}
-        </h2>
+        </h3>
 
         <ul className="mt-8 grid gap-x-10 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (
@@ -100,7 +104,7 @@ export function AtuacaoDialog({
             </Link>
           </div>
         </div>
-      </DialogContent>
-    </Dialog>
+      </div>
+    </div>
   );
 }
