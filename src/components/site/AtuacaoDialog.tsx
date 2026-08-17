@@ -1,34 +1,17 @@
-import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { createPortal } from "react-dom";
 
-type Tab = "areas" | "solucoes";
-
 const solucoes: { title: string; to: string }[] = [
   { title: "Defesa da pessoa que trabalha", to: "/solucoes/defesa-da-pessoa-que-trabalha" },
-  { title: "Execuções complexas", to: "/solucoes/execucoes-complexas" },
-  { title: "Litígios coletivos", to: "/solucoes/litigios-coletivos" },
-  { title: "Parceiros estratégicos", to: "/solucoes/parceiros-estrategicos" },
-  { title: "Temas emergentes", to: "/solucoes/temas-emergentes" },
-  { title: "Tribunais Superiores", to: "/solucoes/tribunais-superiores" },
   {
     title: "Vínculos com a Administração Pública",
     to: "/solucoes/vinculos-com-a-administracao-publica",
   },
-];
-
-const areas: { title: string; to: string }[] = [
-  { title: "Direito Administrativo", to: "/atuacao" },
-  { title: "Direito Ambiental", to: "/atuacao" },
-  { title: "Direito Coletivo", to: "/atuacao" },
-  { title: "Direito Constitucional", to: "/atuacao" },
-  { title: "Direito Digital e LGPD", to: "/atuacao" },
-  { title: "Direito do Trabalho", to: "/atuacao/direito-trabalhista" },
-  { title: "Direito Econômico e Financeiro", to: "/atuacao" },
-  { title: "Direito Internacional", to: "/atuacao" },
-  { title: "Direito Previdenciário", to: "/atuacao" },
-  { title: "Direito Sindical", to: "/atuacao" },
-  { title: "Direitos Humanos", to: "/atuacao" },
+  { title: "Litígios coletivos", to: "/solucoes/litigios-coletivos" },
+  { title: "Tribunais Superiores", to: "/solucoes/tribunais-superiores" },
+  { title: "Execuções complexas", to: "/solucoes/execucoes-complexas" },
+  { title: "Temas emergentes", to: "/solucoes/temas-emergentes" },
+  { title: "Parceiros estratégicos", to: "/solucoes/parceiros-estrategicos" },
 ];
 
 export function AtuacaoDialog({
@@ -44,9 +27,6 @@ export function AtuacaoDialog({
   onMouseEnter: () => void;
   onMouseLeave: () => void;
 }) {
-  const [tab, setTab] = useState<Tab>("solucoes");
-  const items = tab === "solucoes" ? solucoes : areas;
-
   if (!open || typeof document === "undefined") return null;
 
   return createPortal(
@@ -57,37 +37,14 @@ export function AtuacaoDialog({
       onMouseLeave={onMouseLeave}
     >
       <div className="relative isolate gap-0 rounded-[6px] border border-lbs-ink/10 bg-white p-7 shadow-xl sm:p-10">
-        <h2 className="sr-only">Soluções e Áreas de Atuação</h2>
+        <h2 className="sr-only">Soluções</h2>
 
-        {/* abas */}
-        <div className="flex flex-wrap gap-3">
-          {(
-            [
-              { id: "areas" as Tab, label: "Áreas de atuação" },
-              { id: "solucoes" as Tab, label: "Soluções" },
-            ]
-          ).map((t) => (
-            <button
-              key={t.id}
-              type="button"
-              onClick={() => setTab(t.id)}
-              className={`rounded-[4px] border px-4 py-2 text-[10px] uppercase tracking-[0.16em] transition-colors ${
-                tab === t.id
-                  ? "border-lbs-magenta bg-lbs-magenta text-white"
-                  : "border-lbs-magenta/50 text-lbs-magenta hover:bg-lbs-magenta/10"
-              }`}
-            >
-              {t.label}
-            </button>
-          ))}
-        </div>
-
-        <h3 className="mt-6 text-[22px] font-normal text-lbs-ink sm:text-[26px]">
-          {tab === "solucoes" ? "Encontre a solução ideal" : "Encontre a área de atuação"}
+        <h3 className="text-[22px] font-normal text-lbs-ink sm:text-[26px]">
+          Encontre a solução ideal
         </h3>
 
         <ul className="mt-8 grid gap-x-16 gap-y-6 sm:grid-cols-2">
-          {items.map((item) => (
+          {solucoes.map((item) => (
             <li key={item.title} className="min-w-0 border-b-2 border-lbs-magenta">
               <Link
                 to={item.to}
@@ -109,13 +66,6 @@ export function AtuacaoDialog({
               className="bg-lbs-ink px-5 py-3 text-[12px] text-white transition-opacity hover:opacity-85"
             >
               Ver todas as Soluções
-            </Link>
-            <Link
-              to="/atuacao"
-              onClick={onClose}
-              className="bg-lbs-ink px-5 py-3 text-[12px] text-white transition-opacity hover:opacity-85"
-            >
-              Ver todas as Áreas
             </Link>
           </div>
         </div>
