@@ -816,22 +816,21 @@ function DefesaPage() {
             Análises, pareceres, pedidos administrativos e ações judiciais
           </h2>
 
-          {/* Escolha do contexto */}
-          <div className="mt-12" role="tablist" aria-label="Contexto de atendimento">
+          {/* Índice de contextos — navegação por âncora */}
+          <nav className="mt-12" aria-label="Índice de contextos">
             {(
               [
                 { id: "pessoas", label: "Pessoas que trabalham" },
                 { id: "bancarios", label: "Bancárias, bancários e ramo financeiro" },
               ] as const
             ).map((ctx) => {
-              const active = contexto === ctx.id;
+              const active = activeChapter === ctx.id;
               return (
                 <button
                   key={ctx.id}
                   type="button"
-                  role="tab"
-                  aria-selected={active}
-                  onClick={() => setContexto(ctx.id)}
+                  aria-current={active ? "true" : undefined}
+                  onClick={() => scrollToChapter(ctx.id)}
                   className={`
                     group flex w-full items-center justify-between border-b py-7 text-left outline-none transition-colors duration-300 focus-visible:ring-1 focus-visible:ring-lbs-magenta sm:py-9
                     ${active ? "text-lbs-magenta" : "text-lbs-ink hover:text-lbs-magenta"}
@@ -857,121 +856,88 @@ function DefesaPage() {
                 </button>
               );
             })}
+          </nav>
+
+          {/* CAPÍTULO 01 */}
+          <div ref={cap01Ref} className="mt-16 scroll-mt-24">
+            <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
+              Capítulo 01
+            </p>
+            <p className="mt-6 max-w-[720px] text-[14px] leading-[1.9] text-lbs-ink/65">
+              Pessoas que trabalham – vínculo celetista, contratos como pessoa jurídica e pessoa
+              física. Análises, pareceres, pedidos administrativos e ações judiciais referentes aos
+              seguintes temas:
+            </p>
+
+            <div className="mt-8">
+              <ServiceGroups groups={servicosPessoas} idPrefix="pessoas" />
+            </div>
           </div>
 
-          {/* Conteúdo ativo */}
-          <div className="mt-14">
-            {contexto === "pessoas" ? (
-              <div role="tabpanel">
-                <p className="max-w-[640px] text-[14px] leading-[1.9] text-lbs-ink/65">
-                  Pessoas que trabalham – vínculo celetista, contratos como pessoa jurídica e
-                  pessoa física.
-                </p>
-
-                <div className="mt-6 border-t border-lbs-ink/12">
-                  <div
-                    className="border-b transition-colors duration-300"
-                    style={{
-                      borderColor: pessoasSobreOpen
-                        ? "color-mix(in oklab, var(--lbs-magenta) 55%, transparent)"
-                        : "color-mix(in oklab, var(--lbs-ink) 12%, transparent)",
-                    }}
-                  >
-                    <button
-                      type="button"
-                      aria-expanded={pessoasSobreOpen}
-                      onClick={() => setPessoasSobreOpen((p) => !p)}
-                      className="flex w-full items-center justify-between py-5 text-left outline-none transition-colors duration-300 focus-visible:ring-1 focus-visible:ring-lbs-magenta"
-                      style={{ color: pessoasSobreOpen ? "var(--lbs-magenta)" : "var(--lbs-ink)" }}
-                    >
-                      <span className="text-[15px] font-light tracking-tight sm:text-[17px]">
-                        Sobre esta atuação
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        className="relative h-[18px] w-[18px] shrink-0 transition-transform duration-[380ms] ease-out sm:h-[22px] sm:w-[22px]"
-                        style={{ transform: pessoasSobreOpen ? "rotate(45deg)" : "rotate(0deg)" }}
-                      >
-                        <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current" />
-                        <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-current" />
-                      </span>
-                    </button>
-
-                    <div
-                      className="overflow-hidden transition-all duration-[400ms] ease-out"
-                      style={{ maxHeight: pessoasSobreOpen ? 800 : 0, opacity: pessoasSobreOpen ? 1 : 0 }}
-                    >
-                      <div className="pb-8 max-w-[640px] space-y-8">
-                        {diferenciais.map((p) => (
-                          <p key={p} className="text-[13.5px] leading-[2] text-lbs-ink/65">
-                            {p}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8">
-                  <ServiceGroups groups={servicosPessoas} idPrefix="pessoas" />
-                </div>
-              </div>
-            ) : (
-              <div role="tabpanel">
-                <h3 className="max-w-[520px] text-[24px] font-light leading-[1.2] text-lbs-ink sm:text-[30px]">
-                  Bancárias, bancários e ramo financeiro
-                </h3>
-
-                <div className="mt-6 border-t border-lbs-ink/12">
-                  <div
-                    className="border-b transition-colors duration-300"
-                    style={{
-                      borderColor: sobreOpen
-                        ? "color-mix(in oklab, var(--lbs-magenta) 55%, transparent)"
-                        : "color-mix(in oklab, var(--lbs-ink) 12%, transparent)",
-                    }}
-                  >
-                    <button
-                      type="button"
-                      aria-expanded={sobreOpen}
-                      onClick={() => setSobreOpen((p) => !p)}
-                      className="flex w-full items-center justify-between py-5 text-left outline-none transition-colors duration-300 focus-visible:ring-1 focus-visible:ring-lbs-magenta"
-                      style={{ color: sobreOpen ? "var(--lbs-magenta)" : "var(--lbs-ink)" }}
-                    >
-                      <span className="text-[15px] font-light tracking-tight sm:text-[17px]">
-                        Sobre esta atuação
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        className="relative h-[18px] w-[18px] shrink-0 transition-transform duration-[380ms] ease-out sm:h-[22px] sm:w-[22px]"
-                        style={{ transform: sobreOpen ? "rotate(45deg)" : "rotate(0deg)" }}
-                      >
-                        <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current" />
-                        <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-current" />
-                      </span>
-                    </button>
-
-                    <div
-                      className="overflow-hidden transition-all duration-[400ms] ease-out"
-                      style={{ maxHeight: sobreOpen ? 800 : 0, opacity: sobreOpen ? 1 : 0 }}
-                    >
-                      <div className="pb-8 max-w-[640px] space-y-8">
-                        {bancariosDiferenciais.map((p) => (
-                          <p key={p} className="text-[13.5px] leading-[2] text-lbs-ink/65">
-                            {p}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="mt-8">
-                  <ServiceGroups groups={bancariosServicos} idPrefix="bancarios" />
-                </div>
-              </div>
-            )}
+          {/* QUEBRA VISUAL */}
+          <div className="mt-24 flex items-center gap-6 sm:mt-32">
+            <span className="h-[2px] w-14 bg-lbs-magenta" />
+            <span className="h-px flex-1 bg-lbs-ink/12" />
           </div>
+
+          {/* CAPÍTULO 02 */}
+          <div ref={cap02Ref} className="mt-14 scroll-mt-24">
+            <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
+              Capítulo 02
+            </p>
+            <h3 className="mt-6 max-w-[560px] text-[24px] font-light leading-[1.2] tracking-tight text-lbs-ink sm:text-[30px]">
+              Bancárias, bancários e ramo financeiro
+            </h3>
+
+            <div className="mt-8 border-t border-lbs-ink/12">
+              <div
+                className="border-b transition-colors duration-300"
+                style={{
+                  borderColor: sobreOpen
+                    ? "color-mix(in oklab, var(--lbs-magenta) 55%, transparent)"
+                    : "color-mix(in oklab, var(--lbs-ink) 12%, transparent)",
+                }}
+              >
+                <button
+                  type="button"
+                  aria-expanded={sobreOpen}
+                  onClick={() => setSobreOpen((p) => !p)}
+                  className="flex w-full items-center justify-between py-5 text-left outline-none transition-colors duration-300 focus-visible:ring-1 focus-visible:ring-lbs-magenta"
+                  style={{ color: sobreOpen ? "var(--lbs-magenta)" : "var(--lbs-ink)" }}
+                >
+                  <span className="text-[15px] font-light tracking-tight sm:text-[17px]">
+                    Descrição e diferenciais
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="relative h-[18px] w-[18px] shrink-0 transition-transform duration-[380ms] ease-out sm:h-[22px] sm:w-[22px]"
+                    style={{ transform: sobreOpen ? "rotate(45deg)" : "rotate(0deg)" }}
+                  >
+                    <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current" />
+                    <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-current" />
+                  </span>
+                </button>
+
+                <div
+                  className="overflow-hidden transition-all duration-[400ms] ease-out"
+                  style={{ maxHeight: sobreOpen ? 2000 : 0, opacity: sobreOpen ? 1 : 0 }}
+                >
+                  <div className="pb-8 max-w-[640px] space-y-8">
+                    {bancariosDiferenciais.map((p) => (
+                      <p key={p} className="text-[13.5px] leading-[2] text-lbs-ink/65">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8">
+              <ServiceGroups groups={bancariosServicos} idPrefix="bancarios" />
+            </div>
+          </div>
+
         </div>
       </section>
 
