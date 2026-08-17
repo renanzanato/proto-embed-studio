@@ -9,7 +9,7 @@ const solucoes: { title: string; to: string }[] = [
   { title: "Execuções complexas", to: "/solucoes/execucoes-complexas" },
   { title: "Litígios coletivos", to: "/solucoes/litigios-coletivos" },
   { title: "Parceiros estratégicos", to: "/solucoes/parceiros-estrategicos" },
-  { title: "Temas emergentes", to: "/solucoes" },
+  { title: "Temas emergentes", to: "/solucoes/temas-emergentes" },
   { title: "Tribunais Superiores", to: "/solucoes/tribunais-superiores" },
   {
     title: "Vínculos com a Administração Pública",
