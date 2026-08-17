@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import publicoFoto from "@/assets/publico-atendido-foto.jpg";
+import publicoFoto02 from "@/assets/publico-atendido-02.jpg";
+import publicoFoto03 from "@/assets/publico-atendido-03.jpg";
+import publicoFoto04 from "@/assets/publico-atendido-04.jpg";
 import solDefesa from "@/assets/sol-defesa.jpg";
 
 import { SiteHeader } from "@/components/site/SiteHeader";
