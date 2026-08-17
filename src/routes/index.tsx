@@ -297,72 +297,9 @@ function Index() {
         </div>
       </section>
 
-      {/* INSTITUTO LAVORO */}
-      <section
-        className="w-full py-14"
-        style={{
-          background:
-            "linear-gradient(90deg, oklch(0.72 0.18 55) 0%, oklch(0.62 0.24 348) 45%, oklch(0.55 0.2 300) 70%, oklch(0.6 0.16 250) 100%)",
-        }}
-      >
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-4">
-            <svg viewBox="0 0 100 100" className="h-20 w-20 shrink-0 text-white" aria-hidden="true">
-              <circle
-                cx="50"
-                cy="50"
-                r="38"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="7"
-                strokeLinecap="round"
-                strokeDasharray="215 24"
-                transform="rotate(-25 50 50)"
-              />
-              <g stroke="currentColor" strokeWidth="2.4" strokeLinecap="round">
-                {[0, 60, 120].map((a) => (
-                  <line
-                    key={a}
-                    x1="50"
-                    y1="30"
-                    x2="50"
-                    y2="70"
-                    transform={`rotate(${a} 50 50)`}
-                  />
-                ))}
-                {[0, 60, 120, 180, 240, 300].map((a) => (
-                  <g key={`b-${a}`} transform={`rotate(${a} 50 50)`}>
-                    <line x1="50" y1="34" x2="55" y2="39" />
-                    <line x1="50" y1="34" x2="45" y2="39" />
-                  </g>
-                ))}
-              </g>
-              <circle cx="50" cy="50" r="3.4" fill="currentColor" />
-            </svg>
-            <span className="text-[26px] font-light leading-[1.05] tracking-[0.02em] text-white">
-              INSTITUTO
-              <br />
-              <strong className="font-semibold">LAVORO</strong>
-            </span>
-          </div>
+      {/* PARCERIAS INSTITUCIONAIS (carrossel) */}
+      <PartnerCarousel />
 
-          <div className="max-w-md">
-            <p className="text-[12px] leading-[1.8] text-white/85">
-              O Instituto Lavoro é uma associação destinada a desenvolver e difundir estudos
-              científicos relacionados a temas das relações de trabalho em um contexto
-              transdisciplinar.
-            </p>
-            <a
-              href="/"
-              className="mt-5 inline-block border border-white/70 px-6 py-2.5 text-[11px] text-white transition-colors hover:bg-white/15"
-            >
-              Conheça o Instituto
-            </a>
-          </div>
-        </div>
-
-        <div className="mx-auto mt-10 h-[2px] w-16 bg-white/70" />
-      </section>
 
       <SiteFooter />
 
