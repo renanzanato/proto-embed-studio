@@ -7,7 +7,7 @@ type Tab = "areas" | "solucoes";
 const solucoes: { title: string; to: string }[] = [
   { title: "Defesa da pessoa que trabalha", to: "/solucoes/defesa-da-pessoa-que-trabalha" },
   { title: "Execuções complexas", to: "/solucoes" },
-  { title: "Litígios coletivos", to: "/solucoes" },
+  { title: "Litígios coletivos", to: "/solucoes/litigios-coletivos" },
   { title: "Parceiros estratégicos", to: "/solucoes" },
   { title: "Temas emergentes", to: "/solucoes" },
   { title: "Tribunais Superiores", to: "/solucoes" },
