@@ -15,14 +15,14 @@ const navItems = [
 export function SiteHeader({ active }: { active?: string }) {
   return (
     <header className="relative z-10 flex items-center justify-between gap-4 rounded-[14px] border border-white/25 bg-black/25 px-5 py-3.5 backdrop-blur-md sm:px-7">
-      <Link to="/" className="flex items-end gap-2.5">
-        <span className="text-[28px] font-bold leading-none tracking-tight text-white sm:text-[32px]">
-          LBS
-        </span>
-        <span className="hidden text-[11px] leading-[1.25] text-white/85 sm:block">
-          Advogadas
-          <br />e Advogados
-        </span>
+      <Link to="/" className="flex items-center">
+        <img
+          src={lbsLogo.url}
+          alt="LBS Advogadas e Advogados"
+          width={244}
+          height={53}
+          className="h-[30px] w-auto sm:h-[34px]"
+        />
       </Link>
 
       <nav className="hidden items-center gap-6 lg:flex">
