@@ -13,14 +13,17 @@ const solucoes: { title: string; to: string }[] = [
 ];
 
 const areas: { title: string; to: string }[] = [
-  { title: "Direito Trabalhista", to: "/atuacao/direito-trabalhista" },
-  { title: "Direito Sindical", to: "/atuacao" },
-  { title: "Direito Empresarial", to: "/atuacao" },
-  { title: "Direito Civil", to: "/atuacao" },
-  { title: "Direito Digital", to: "/atuacao" },
-  { title: "Direito do Consumidor", to: "/atuacao" },
-  { title: "Direito Tributário", to: "/atuacao" },
   { title: "Direito Administrativo", to: "/atuacao" },
+  { title: "Direito Ambiental", to: "/atuacao" },
+  { title: "Direito Coletivo", to: "/atuacao" },
+  { title: "Direito Constitucional", to: "/atuacao" },
+  { title: "Direito Digital e LGPD", to: "/atuacao" },
+  { title: "Direito do Trabalho", to: "/atuacao/direito-trabalhista" },
+  { title: "Direito Econômico e Financeiro", to: "/atuacao" },
+  { title: "Direito Internacional", to: "/atuacao" },
+  { title: "Direito Previdenciário", to: "/atuacao" },
+  { title: "Direito Sindical", to: "/atuacao" },
+  { title: "Direitos Humanos", to: "/atuacao" },
 ];
 
 export function AtuacaoDialog({
