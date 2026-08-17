@@ -129,9 +129,9 @@ function Index() {
 
           {/* HEADLINE */}
           <h1 className="relative z-10 mx-auto mt-[130px] max-w-[820px] text-center text-[34px] font-light leading-[1.18] tracking-tight text-white sm:mt-[150px] sm:text-[44px] lg:text-[52px]">
-            Defendemos quem trabalha.
+            Para quem trabalha, direitos;
             <br />
-            Estruturamos causas que transformam
+            para direitos, <span className="text-lbs-magenta">LBS.</span>
           </h1>
 
         </div>
