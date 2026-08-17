@@ -3,6 +3,15 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import solDefesa from "@/assets/sol-defesa.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { teamMembers } from "@/data/equipe";
+
+const socios = teamMembers.filter((m) => m.role === "Sócio" || m.role === "Sócia");
 
 const diferenciais = [
   "A defesa da pessoa que trabalha é a origem e a razão de existir da LBS Advogadas e Advogados.",
@@ -10,8 +19,6 @@ const diferenciais = [
   "As normas, as negociações coletivas e o próprio direito estão em constante transformação; nós nos mantemos firmes na defesa das pessoas que trabalham. Participamos ativamente do debate público sobre os novos modelos de contratação, da construção das teses que percorrem o Poder Judiciário e da interlocução com o Poder Legislativo, na elaboração de normas protetivas e no enfrentamento das propostas de redução de direitos.",
 ];
 
-const publicoAtendido =
-  "Advogamos e assessoramos pessoas que trabalham – sob vínculo celetista, contratadas como pessoa jurídica ou pessoa física, empregadas de empresas privadas ou de estatais – e para as entidades que as representam: sindicatos, federações, confederações e associações. Atendemos também advogadas e advogados que buscam parceria especializada para seus casos.";
 
 const destaques: { title: string; text: string }[] = [
   {
@@ -256,31 +263,40 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function ServiceGroups({ groups }: { groups: { title: string; items: string[] }[] }) {
+function ServiceGroups({
+  groups,
+  idPrefix,
+}: {
+  groups: { title: string; items: string[] }[];
+  idPrefix: string;
+}) {
   return (
-    <div className="mt-10 grid gap-5 sm:grid-cols-2">
-      {groups.map((group) => (
-        <div
+    <Accordion type="multiple" className="mt-10 border-t border-lbs-ink/12">
+      {groups.map((group, i) => (
+        <AccordionItem
           key={group.title}
-          className="rounded-[6px] border border-black/8 bg-white p-6 transition-shadow hover:shadow-md"
+          value={`${idPrefix}-${i}`}
+          className="border-b border-lbs-ink/12"
         >
-          <h4 className="border-b-2 border-lbs-magenta pb-3 text-[15px] font-normal leading-[1.4] text-lbs-ink">
+          <AccordionTrigger className="py-5 text-left text-[15px] font-normal leading-[1.4] text-lbs-ink hover:no-underline data-[state=open]:text-lbs-magenta">
             {group.title}
-          </h4>
-          <ul className="mt-4 space-y-2.5">
-            {group.items.map((item) => (
-              <li
-                key={item}
-                className="relative pl-4 text-[12.5px] leading-[1.75] text-lbs-ink/65"
-              >
-                <span className="absolute left-0 top-[9px] h-[5px] w-[5px] rounded-full bg-lbs-magenta" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+          </AccordionTrigger>
+          <AccordionContent className="pb-7">
+            <ul className="grid gap-x-14 gap-y-3 sm:grid-cols-2">
+              {group.items.map((item) => (
+                <li
+                  key={item}
+                  className="relative pl-4 text-[12.5px] leading-[1.8] text-lbs-ink/65"
+                >
+                  <span className="absolute left-0 top-[9px] h-[5px] w-[5px] rounded-full bg-lbs-magenta" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
       ))}
-    </div>
+    </Accordion>
   );
 }
 
@@ -343,11 +359,33 @@ function DefesaPage() {
       </section>
 
       {/* PÚBLICO ATENDIDO */}
-      <section className="w-full bg-lbs-ink py-16 sm:py-20">
+      <section className="w-full bg-lbs-ink py-14 sm:py-16">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
           <SectionLabel>Público atendido</SectionLabel>
-          <p className="mt-6 max-w-[900px] text-[15px] leading-[1.9] text-white/80 sm:text-[17px]">
-            {publicoAtendido}
+          <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_1.15fr] lg:gap-14">
+            <p className="text-[14.5px] leading-[1.8] text-white/80 sm:text-[16px]">
+              Advogamos e assessoramos pessoas que trabalham
+            </p>
+            <ul className="grid gap-x-8 gap-y-2 sm:grid-cols-2">
+              {[
+                "sob vínculo celetista",
+                "contratadas como pessoa jurídica ou pessoa física",
+                "empregadas de empresas privadas ou de estatais",
+                "e para as entidades que as representam: sindicatos, federações, confederações e associações",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="relative border-b border-white/10 pb-2 pl-4 text-[12.5px] leading-[1.7] text-white/65"
+                >
+                  <span className="absolute left-0 top-[8px] h-[5px] w-[5px] rounded-full bg-lbs-magenta" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <p className="mt-8 text-[12.5px] leading-[1.8] text-white/60">
+            Atendemos também advogadas e advogados que buscam parceria especializada para seus
+            casos.
           </p>
         </div>
       </section>
@@ -356,7 +394,7 @@ function DefesaPage() {
       <section className="w-full bg-[#f5f5f5] py-20 sm:py-24">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
           <SectionLabel>Destaques</SectionLabel>
-          <div className="mt-10 grid gap-5 lg:grid-cols-2">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {destaques.map((d) => (
               <article
                 key={d.title}
@@ -385,17 +423,24 @@ function DefesaPage() {
             Análises, pareceres, pedidos administrativos e ações judiciais referentes aos
             seguintes temas:
           </p>
-          <ServiceGroups groups={servicosPessoas} />
+          <ServiceGroups groups={servicosPessoas} idPrefix="pessoas" />
         </div>
       </section>
 
-      {/* 4.2 BANCÁRIAS, BANCÁRIOS E RAMO FINANCEIRO */}
-      <section className="w-full bg-[#f5f5f5] py-20 sm:py-24">
+      {/* 4.2 BANCÁRIAS, BANCÁRIOS E RAMO FINANCEIRO — NOVO CAPÍTULO */}
+      <section className="w-full bg-[#f5f5f5] pb-20 pt-24 sm:pb-24 sm:pt-32">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <SectionLabel>Bancárias, bancários e ramo financeiro</SectionLabel>
-          <h2 className="mt-5 max-w-[760px] text-[24px] font-light leading-[1.3] text-lbs-ink sm:text-[30px]">
+          <div className="border-t border-lbs-ink/15 pt-12 sm:pt-16">
+            <span className="text-[11px] uppercase tracking-[0.22em] text-lbs-ink/40">
+              Capítulo 02
+            </span>
+            <h2 className="mt-4 max-w-[860px] text-[28px] font-light leading-[1.22] text-lbs-ink sm:text-[38px]">
+              Bancárias, bancários e ramo financeiro
+            </h2>
+          </div>
+          <h3 className="mt-14 text-[20px] font-light text-lbs-ink sm:text-[24px]">
             Descrição e diferenciais
-          </h2>
+          </h3>
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {bancariosDiferenciais.map((p) => (
               <p
@@ -425,7 +470,7 @@ function DefesaPage() {
             Análises, pareceres, pedidos administrativos e ações judiciais referentes aos
             seguintes temas:
           </p>
-          <ServiceGroups groups={bancariosServicos} />
+          <ServiceGroups groups={bancariosServicos} idPrefix="bancarios" />
         </div>
       </section>
 
@@ -436,9 +481,45 @@ function DefesaPage() {
           <p className="mt-6 max-w-[620px] text-[13.5px] leading-[1.9] text-lbs-ink/65">
             Indicação na lista Excel.
           </p>
+
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {socios.map((member, i) => (
+              <Link
+                key={member.slug}
+                to="/equipe/$slug"
+                params={{ slug: member.slug }}
+                className="group block"
+              >
+                <div className="overflow-hidden bg-lbs-ink/5">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    loading="lazy"
+                    width={640}
+                    height={800}
+                    className="h-[280px] w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+                    style={{
+                      clipPath:
+                        i % 2 === 0
+                          ? "polygon(0 0, 100% 0, 100% calc(100% - 56px), calc(100% - 56px) 100%, 0 100%)"
+                          : "polygon(0 0, 100% 0, 100% 100%, 56px 100%, 0 calc(100% - 56px))",
+                    }}
+                  />
+                </div>
+                <div className="mt-4 border-t-2 border-lbs-magenta pt-3">
+                  <h4 className="text-[14px] font-normal text-lbs-ink transition-colors group-hover:text-lbs-magenta">
+                    {member.name}
+                  </h4>
+                  <p className="mt-1 text-[11.5px] text-lbs-ink/55">{member.role}</p>
+                  <p className="mt-0.5 text-[11.5px] text-lbs-ink/45">{member.city}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+
           <Link
             to="/equipe"
-            className="mt-8 inline-block bg-lbs-ink px-6 py-3 text-[11px] uppercase tracking-[0.16em] text-white transition-opacity hover:opacity-85"
+            className="mt-10 inline-block bg-lbs-ink px-6 py-3 text-[11px] uppercase tracking-[0.16em] text-white transition-opacity hover:opacity-85"
           >
             Ver a equipe
           </Link>
