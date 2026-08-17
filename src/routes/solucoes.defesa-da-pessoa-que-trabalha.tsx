@@ -23,12 +23,6 @@ const servImgs = [serv01, serv02, serv03, serv04, serv05, serv06];
 
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { teamMembers } from "@/data/equipe";
 
 const socios = teamMembers.filter((m) => m.role === "Sócio" || m.role === "Sócia");
