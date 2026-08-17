@@ -9,7 +9,7 @@ const navItems = [
   { label: "Início", to: "/" },
   { label: "A LBS", to: "/a-lbs" },
   { label: "Soluções", to: "/solucoes" },
-  { label: "Artigos e Notícias", to: "/" },
+  { label: "Artigos e Notícias", to: "/artigos" },
   { label: "Equipe", to: "/equipe" },
   { label: "Contato", to: "/" },
 ];
