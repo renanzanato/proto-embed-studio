@@ -37,7 +37,10 @@ export function SiteHeader({ active }: { active?: string }) {
     }`;
 
   return (
-    <div className="relative z-10">
+    <div
+      className="relative z-10"
+      onMouseLeave={scheduleAtuacaoClose}
+    >
       <header className="flex items-center justify-between gap-4 rounded-[14px] border border-white/25 bg-black/25 px-5 py-3.5 backdrop-blur-md sm:px-7">
         <Link to="/" className="flex items-center">
           <img
@@ -55,7 +58,6 @@ export function SiteHeader({ active }: { active?: string }) {
               <div
                 key={item.label}
                 onMouseEnter={keepAtuacaoOpen}
-                onMouseLeave={scheduleAtuacaoClose}
               >
                 <button type="button" className={linkClass(item.label)}>
                   {item.label}
@@ -84,7 +86,6 @@ export function SiteHeader({ active }: { active?: string }) {
         open={atuacaoOpen}
         onClose={() => setAtuacaoOpen(false)}
         onMouseEnter={keepAtuacaoOpen}
-        onMouseLeave={scheduleAtuacaoClose}
       />
     </div>
   );
