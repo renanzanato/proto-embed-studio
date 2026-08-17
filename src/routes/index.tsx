@@ -406,7 +406,7 @@ function SplitBand() {
         </div>
       </div>
 
-      </div>
+
 
       {/* hit areas — each visible panel is fully clickable */}
       <a
