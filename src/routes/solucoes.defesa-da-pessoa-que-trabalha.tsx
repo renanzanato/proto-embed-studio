@@ -842,7 +842,54 @@ function DefesaPage() {
                   Pessoas que trabalham – vínculo celetista, contratos como pessoa jurídica e
                   pessoa física.
                 </p>
-                <ServiceGroups groups={servicosPessoas} idPrefix="pessoas" />
+
+                <div className="mt-6 border-t border-lbs-ink/12">
+                  <div
+                    className="border-b transition-colors duration-300"
+                    style={{
+                      borderColor: pessoasSobreOpen
+                        ? "color-mix(in oklab, var(--lbs-magenta) 55%, transparent)"
+                        : "color-mix(in oklab, var(--lbs-ink) 12%, transparent)",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      aria-expanded={pessoasSobreOpen}
+                      onClick={() => setPessoasSobreOpen((p) => !p)}
+                      className="flex w-full items-center justify-between py-5 text-left outline-none transition-colors duration-300 focus-visible:ring-1 focus-visible:ring-lbs-magenta"
+                      style={{ color: pessoasSobreOpen ? "var(--lbs-magenta)" : "var(--lbs-ink)" }}
+                    >
+                      <span className="text-[15px] font-light tracking-tight sm:text-[17px]">
+                        Sobre esta atuação
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="relative h-[18px] w-[18px] shrink-0 transition-transform duration-[380ms] ease-out sm:h-[22px] sm:w-[22px]"
+                        style={{ transform: pessoasSobreOpen ? "rotate(45deg)" : "rotate(0deg)" }}
+                      >
+                        <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current" />
+                        <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-current" />
+                      </span>
+                    </button>
+
+                    <div
+                      className="overflow-hidden transition-all duration-[400ms] ease-out"
+                      style={{ maxHeight: pessoasSobreOpen ? 800 : 0, opacity: pessoasSobreOpen ? 1 : 0 }}
+                    >
+                      <div className="pb-8 max-w-[640px] space-y-8">
+                        {diferenciais.map((p) => (
+                          <p key={p} className="text-[13.5px] leading-[2] text-lbs-ink/65">
+                            {p}
+                          </p>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-8">
+                  <ServiceGroups groups={servicosPessoas} idPrefix="pessoas" />
+                </div>
               </div>
             ) : (
               <div role="tabpanel">
