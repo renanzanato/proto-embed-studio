@@ -6,7 +6,6 @@ import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import {
   DescricaoSection,
   DestaquesGaleria,
-  ListaEditorial,
   PublicoAtendido,
   ServicosSection,
   SociosResponsaveis,
@@ -24,15 +23,6 @@ const descricao = [
   "A partir do diagnóstico, é construída uma estratégia específica para cada caso, que pode combinar medidas judiciais e extrajudiciais, mecanismos nacionais e internacionais, incidência institucional, produção de conhecimento e articulação com entidades e organizações parceiras.",
 ];
 
-const diferenciais = [
-  "atuação especializada e multidisciplinar",
-  "integração entre Direito do Trabalho, Direitos Humanos, Direito Constitucional, Direito Internacional, Direito Ambiental e Direito Econômico e Financeiro",
-  "pesquisa aprofundada e juridicamente orientada",
-  "construção de estratégias sob medida, sem aplicação de soluções padronizadas",
-  "articulação entre atuação jurídica, organização coletiva e incidência institucional",
-  "capacidade de atuação coordenada perante órgãos judiciais, administrativos e internacionais",
-  "acompanhamento do caso desde a identificação da problemática até a implementação da estratégia e o monitoramento de seus desdobramentos",
-];
 
 const atuacoesRepresentativas = [
   "ações coletivas voltadas à proteção de créditos trabalhistas em processos de crise empresarial",
@@ -58,6 +48,26 @@ const destaques: Destaque[] = [
     title: "Presença na OIT",
     text: "Participação nas Conferências da Organização Internacional do Trabalho e acompanhamento permanente da agenda normativa internacional, em contato com os temas de vanguarda.",
   },
+  {
+    title: "Atuação especializada e multidisciplinar",
+    text: "Integração entre Direito do Trabalho, Direitos Humanos, Direito Constitucional, Direito Internacional, Direito Ambiental e Direito Econômico e Financeiro.",
+  },
+  {
+    title: "Pesquisa aprofundada",
+    text: "Pesquisa aprofundada e juridicamente orientada, com construção de estratégias sob medida, sem aplicação de soluções padronizadas.",
+  },
+  {
+    title: "Jurídico, organização e incidência",
+    text: "Articulação entre atuação jurídica, organização coletiva e incidência institucional.",
+  },
+  {
+    title: "Atuação coordenada em várias vias",
+    text: "Capacidade de atuação coordenada perante órgãos judiciais, administrativos e internacionais.",
+  },
+  {
+    title: "Acompanhamento de ponta a ponta",
+    text: "Acompanhamento do caso desde a identificação da problemática até a implementação da estratégia e o monitoramento de seus desdobramentos.",
+  },
 ];
 
 const publicoItems: PublicoItem[] = [
@@ -80,6 +90,10 @@ const publicoItems: PublicoItem[] = [
 ];
 
 const servicos: ServiceGroup[] = [
+  {
+    title: "Atuações representativas",
+    items: atuacoesRepresentativas,
+  },
   {
     title: "Serviços",
     items: [
@@ -137,7 +151,6 @@ function TemasEmergentesPage() {
       <DescricaoSection
         title="Estratégias para problemas complexos e estruturais"
         paragraphs={descricao.slice(1)}
-        bullets={diferenciais}
       />
 
       <PublicoAtendido
@@ -147,12 +160,6 @@ function TemasEmergentesPage() {
       />
 
       <DestaquesGaleria title="Atuação nacional e internacional" items={destaques} />
-
-      <ListaEditorial
-        label="Atuações representativas"
-        title="Casos e frentes já conduzidos pela área"
-        items={atuacoesRepresentativas}
-      />
 
       <ServicosSection
         title="Estratégia, incidência e atuação em organismos internacionais"
