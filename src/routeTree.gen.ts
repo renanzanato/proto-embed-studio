@@ -15,6 +15,7 @@ import { Route as LinhaDoTempoAbRouteImport } from './routes/linha-do-tempo-ab'
 import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
 import { Route as ALbsIndexRouteImport } from './routes/a-lbs.index'
 import { Route as ALbsHistoriaRouteImport } from './routes/a-lbs.historia'
+import { Route as ArtigosSlugRouteImport } from './routes/artigos.$slug'
 import { Route as AtuacaoIndexRouteImport } from './routes/atuacao.index'
 import { Route as AtuacaoSplatRouteImport } from './routes/atuacao.$'
 import { Route as EquipeIndexRouteImport } from './routes/equipe.index'
@@ -57,6 +58,11 @@ const ALbsHistoriaRoute = ALbsHistoriaRouteImport.update({
   id: '/a-lbs/historia',
   path: '/a-lbs/historia',
   getParentRoute: () => rootRouteImport,
+} as any)
+const ArtigosSlugRoute = ArtigosSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => ArtigosRoute,
 } as any)
 const AtuacaoIndexRoute = AtuacaoIndexRouteImport.update({
   id: '/atuacao/',
@@ -127,10 +133,11 @@ const SolucoesVinculosComAAdministracaoPublicaRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/artigos': typeof ArtigosRoute
+  '/artigos': typeof ArtigosRouteWithChildren
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
+  '/artigos/$slug': typeof ArtigosSlugRoute
   '/atuacao/$': typeof AtuacaoSplatRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
@@ -147,10 +154,11 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/artigos': typeof ArtigosRoute
+  '/artigos': typeof ArtigosRouteWithChildren
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
+  '/artigos/$slug': typeof ArtigosSlugRoute
   '/atuacao/$': typeof AtuacaoSplatRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
@@ -168,10 +176,11 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/artigos': typeof ArtigosRoute
+  '/artigos': typeof ArtigosRouteWithChildren
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
+  '/artigos/$slug': typeof ArtigosSlugRoute
   '/atuacao/$': typeof AtuacaoSplatRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
@@ -194,6 +203,7 @@ export interface FileRouteTypes {
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
+    | '/artigos/$slug'
     | '/atuacao/$'
     | '/equipe/$slug'
     | '/solucoes/defesa-da-pessoa-que-trabalha'
@@ -214,6 +224,7 @@ export interface FileRouteTypes {
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
+    | '/artigos/$slug'
     | '/atuacao/$'
     | '/equipe/$slug'
     | '/solucoes/defesa-da-pessoa-que-trabalha'
@@ -234,6 +245,7 @@ export interface FileRouteTypes {
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
+    | '/artigos/$slug'
     | '/atuacao/$'
     | '/equipe/$slug'
     | '/solucoes/defesa-da-pessoa-que-trabalha'
@@ -251,7 +263,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ArtigosRoute: typeof ArtigosRoute
+  ArtigosRoute: typeof ArtigosRouteWithChildren
   LinhaDoTempoAbRoute: typeof LinhaDoTempoAbRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
   ALbsHistoriaRoute: typeof ALbsHistoriaRoute
@@ -313,6 +325,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/a-lbs/historia'
       preLoaderRoute: typeof ALbsHistoriaRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/artigos/$slug': {
+      id: '/artigos/$slug'
+      path: '/$slug'
+      fullPath: '/artigos/$slug'
+      preLoaderRoute: typeof ArtigosSlugRouteImport
+      parentRoute: typeof ArtigosRoute
     }
     '/atuacao/': {
       id: '/atuacao/'
@@ -401,9 +420,20 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface ArtigosRouteChildren {
+  ArtigosSlugRoute: typeof ArtigosSlugRoute
+}
+
+const ArtigosRouteChildren: ArtigosRouteChildren = {
+  ArtigosSlugRoute: ArtigosSlugRoute,
+}
+
+const ArtigosRouteWithChildren =
+  ArtigosRoute._addFileChildren(ArtigosRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ArtigosRoute: ArtigosRoute,
+  ArtigosRoute: ArtigosRouteWithChildren,
   LinhaDoTempoAbRoute: LinhaDoTempoAbRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
   ALbsHistoriaRoute: ALbsHistoriaRoute,

@@ -56,7 +56,9 @@ export type Insight = {
   title: string;
   excerpt: string;
   image: string;
+  body?: string[];
 };
+
 
 export const insights: Insight[] = [
   {
@@ -226,3 +228,23 @@ export const insightLawyers = Array.from(new Set(insights.map((i) => i.lawyer)))
 export const insightAreas = Array.from(new Set(insights.map((i) => i.area))).sort((a, b) =>
   a.localeCompare(b, "pt-BR"),
 );
+
+export function getInsightBySlug(slug: string): Insight | undefined {
+  return insights.find((i) => i.slug === slug);
+}
+
+export function getInsightBody(insight: Insight): string[] {
+  if (insight.body?.length) return insight.body;
+  return [
+    insight.excerpt,
+    `O tema envolve diretamente a frente de ${insight.area.toLowerCase()}, campo em que a atuação da LBS combina contencioso estratégico, negociação coletiva e leitura institucional dos precedentes.`,
+    "A equipe acompanha a evolução do entendimento nos tribunais e nas mesas de negociação, avaliando os impactos concretos para trabalhadoras, trabalhadores e entidades representativas.",
+    "Para aprofundar o assunto ou avaliar um caso específico, a LBS está à disposição por meio dos canais de contato do escritório.",
+  ];
+}
+
+export function getRelatedInsights(insight: Insight, limit = 3): Insight[] {
+  const sameArea = insights.filter((i) => i.slug !== insight.slug && i.area === insight.area);
+  const others = insights.filter((i) => i.slug !== insight.slug && i.area !== insight.area);
+  return [...sameArea, ...others].slice(0, limit);
+}

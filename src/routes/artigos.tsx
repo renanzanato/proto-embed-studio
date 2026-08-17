@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, CalendarDays, ChevronLeft, ChevronRight, PlayCircle } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
@@ -283,12 +283,13 @@ function FiltrosEListagem() {
                   <p className="mt-4 max-w-[460px] text-[12px] leading-[1.75] text-lbs-ink/65">
                     {featured.excerpt}
                   </p>
-                  <a
-                    href="/artigos"
+                  <Link
+                    to="/artigos/$slug"
+                    params={{ slug: featured.slug }}
                     className="mt-7 inline-flex w-fit items-center gap-2 text-[11px] uppercase tracking-[0.16em] text-lbs-magenta transition-opacity hover:opacity-70"
                   >
                     Leia mais <ArrowRight className="h-3.5 w-3.5" />
-                  </a>
+                  </Link>
                 </div>
               </article>
 
@@ -313,12 +314,13 @@ function FiltrosEListagem() {
                         <p className="mt-2.5 text-[11px] leading-[1.7] text-lbs-ink/60">
                           {item.excerpt}
                         </p>
-                        <a
-                          href="/artigos"
+                        <Link
+                          to="/artigos/$slug"
+                          params={{ slug: item.slug }}
                           className="mt-auto inline-flex w-fit items-center gap-2 pt-5 text-[10px] uppercase tracking-[0.16em] text-lbs-magenta transition-opacity hover:opacity-70"
                         >
                           Leia mais <ArrowRight className="h-3 w-3" />
-                        </a>
+                        </Link>
                       </div>
                     </article>
                   </li>
