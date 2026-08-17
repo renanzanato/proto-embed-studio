@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import case01 from "@/assets/case-01.jpg";
+import case02 from "@/assets/case-02.jpg";
+import case03 from "@/assets/case-03.jpg";
+import case04 from "@/assets/case-04.jpg";
+import case05 from "@/assets/case-05.jpg";
+import case06 from "@/assets/case-06.jpg";
 import publicoFoto from "@/assets/publico-atendido-foto.jpg";
 import publicoFoto02 from "@/assets/publico-atendido-02.jpg";
 import publicoFoto03 from "@/assets/publico-atendido-03.jpg";
@@ -54,6 +60,8 @@ const destaques: { title: string; text: string }[] = [
     text: "Vitória que pacificou a jurisprudência em favor de centenas de aposentados, com reconhecimento da incorporação do direito ao contrato de trabalho.",
   },
 ];
+
+const destaqueImgs = [case01, case02, case03, case04, case05, case06];
 
 const servicosPessoas: { title: string; items: string[] }[] = [
   {
@@ -486,10 +494,110 @@ function ServiceGroups({
   );
 }
 
+function DestaquesGaleria() {
+  const [active, setActive] = useState(0);
+  const atual = destaques[active];
+
+  return (
+    <section className="w-full bg-lbs-ink py-24 sm:py-32">
+      <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <SectionLabel>Destaques</SectionLabel>
+            <h2 className="mt-5 max-w-[520px] text-[26px] font-light leading-[1.2] text-white sm:text-[34px]">
+              Casos que mudaram o direito de quem trabalha
+            </h2>
+          </div>
+          <span className="text-[11px] uppercase tracking-[0.18em] text-white/35">
+            {String(destaques.length).padStart(2, "0")} casos
+          </span>
+        </div>
+
+        {/* Painel principal */}
+        <article className="mt-12 grid gap-8 border-t border-white/15 pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          <div className="relative h-[240px] w-full overflow-hidden sm:h-[340px]">
+            {destaques.map((d, i) => (
+              <img
+                key={d.title}
+                src={destaqueImgs[i]}
+                alt={i === active ? d.title : ""}
+                aria-hidden={i === active ? undefined : "true"}
+                loading="lazy"
+                width={1440}
+                height={960}
+                className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+                style={{ opacity: i === active ? 1 : 0, transition: "opacity 360ms ease" }}
+              />
+            ))}
+            <span className="absolute left-0 top-0 bg-lbs-magenta px-4 py-2 text-[10px] uppercase tracking-[0.18em] text-white">
+              Caso emblemático
+            </span>
+          </div>
+          <div key={atual.title} className="flex flex-col justify-center [animation:fadeUp_420ms_ease_both]">
+            <h3 className="text-[22px] font-light leading-[1.25] text-white sm:text-[28px]">
+              {atual.title}
+            </h3>
+            <div className="mt-6 h-[2px] w-12 bg-lbs-magenta" />
+            <p className="mt-6 max-w-[520px] text-[13.5px] leading-[1.95] text-white/60">
+              {atual.text}
+            </p>
+          </div>
+        </article>
+
+        {/* Grade editorial de cases */}
+        <div className="mt-14 grid border-t border-white/12 sm:grid-cols-2 lg:grid-cols-3">
+          {destaques.map((d, i) => (
+            <div
+              key={d.title}
+              role="button"
+              tabIndex={0}
+              aria-pressed={i === active}
+              onMouseEnter={() => setActive(i)}
+              onFocus={() => setActive(i)}
+              onClick={() => setActive(i)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setActive(i);
+                }
+              }}
+              className="relative cursor-default border-b border-white/12 px-0 py-9 outline-none transition-colors duration-300 sm:px-7 sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(3n)]:border-r-0 lg:[&:nth-child(odd)]:border-r lg:[&:nth-child(even)]:border-r"
+              style={{ background: i === active ? "rgba(255,255,255,0.035)" : "transparent" }}
+            >
+              <span
+                aria-hidden="true"
+                className="absolute -top-px left-0 h-[2px] bg-lbs-magenta transition-all duration-500 ease-out"
+                style={{ width: i === active ? "100%" : "0%" }}
+              />
+              <span
+                className="text-[11px] tabular-nums tracking-[0.16em] transition-colors duration-300"
+                style={{
+                  color:
+                    i === active
+                      ? "var(--lbs-magenta)"
+                      : "color-mix(in oklab, var(--lbs-magenta) 45%, transparent)",
+                }}
+              >
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3
+                className="mt-4 text-[14.5px] font-normal leading-[1.45] transition-colors duration-300"
+                style={{ color: i === active ? "#fff" : "rgba(255,255,255,0.62)" }}
+              >
+                {d.title}
+              </h3>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function DefesaPage() {
   const [contexto, setContexto] = useState<"pessoas" | "bancarios">("pessoas");
 
-  const [principal, ...secundarios] = destaques;
+
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
@@ -553,71 +661,9 @@ function DefesaPage() {
       <PublicoAtendido />
 
 
-      {/* DESTAQUES — hierarquia real */}
-      <section className="w-full bg-lbs-ink py-24 sm:py-32">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <SectionLabel>Destaques</SectionLabel>
-              <h2 className="mt-5 max-w-[520px] text-[26px] font-light leading-[1.2] text-white sm:text-[34px]">
-                Casos que mudaram o direito de quem trabalha
-              </h2>
-            </div>
-            <span className="text-[11px] uppercase tracking-[0.18em] text-white/35">
-              {String(destaques.length).padStart(2, "0")} casos
-            </span>
-          </div>
+      {/* DESTAQUES — galeria editorial de cases */}
+      <DestaquesGaleria />
 
-          {/* Case principal */}
-          <article className="group mt-12 grid gap-8 border-t border-white/15 pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-            <div className="relative overflow-hidden">
-              <img
-                src={solDefesa}
-                alt="Contexto de julgamento e atuação nos Tribunais Superiores"
-                loading="lazy"
-                width={960}
-                height={640}
-                className="h-[240px] w-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0 sm:h-[320px]"
-              />
-              <span className="absolute left-0 top-0 bg-lbs-magenta px-4 py-2 text-[10px] uppercase tracking-[0.18em] text-white">
-                Caso emblemático
-              </span>
-            </div>
-            <div className="flex flex-col justify-center">
-              <h3 className="text-[22px] font-light leading-[1.25] text-white sm:text-[28px]">
-                {principal.title}
-              </h3>
-              <div className="mt-6 h-[2px] w-12 bg-lbs-magenta" />
-              <p className="mt-6 max-w-[520px] text-[13.5px] leading-[1.95] text-white/60">
-                {principal.text}
-              </p>
-            </div>
-          </article>
-
-          {/* Cases secundários */}
-          <div className="mt-4 grid border-t border-white/10 sm:grid-cols-2 lg:grid-cols-3">
-            {secundarios.map((d, i) => (
-              <article
-                key={d.title}
-                className="group border-b border-white/10 px-0 py-9 transition-colors hover:bg-white/[0.04] sm:px-7 sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(3n)]:border-r-0 lg:[&:nth-child(odd)]:border-r lg:[&:nth-child(even)]:border-r"
-              >
-                <span className="text-[11px] tabular-nums tracking-[0.16em] text-lbs-magenta">
-                  {String(i + 2).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 text-[14.5px] font-normal leading-[1.45] text-white">
-                  {d.title}
-                </h3>
-                <p className="mt-4 max-h-0 overflow-hidden text-[12.5px] leading-[1.85] text-white/50 transition-all duration-500 group-hover:max-h-[400px] lg:opacity-0 lg:group-hover:opacity-100">
-                  {d.text}
-                </p>
-                <p className="mt-4 text-[12.5px] leading-[1.85] text-white/50 lg:hidden">
-                  {d.text}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* SERVIÇOS — com módulo especializado em abas */}
       <section className="w-full bg-white py-24 sm:py-32">
