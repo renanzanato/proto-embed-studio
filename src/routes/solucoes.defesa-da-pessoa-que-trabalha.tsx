@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
+import publicoImg from "@/assets/publico-atendido.jpg";
 import solDefesa from "@/assets/sol-defesa.jpg";
+
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import {
@@ -264,6 +266,132 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
+const publicoItems = [
+  "sob vínculo celetista",
+  "contratadas como pessoa jurídica ou pessoa física",
+  "empregadas de empresas privadas ou de estatais",
+  "e para as entidades que as representam: sindicatos, federações, confederações e associações",
+];
+
+function PublicoAtendido() {
+  const ref = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setVisible(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.2 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={ref}
+      className="relative isolate w-full overflow-hidden border-y border-lbs-ink/10 bg-[#f7f6f5] py-20 sm:py-24"
+    >
+      {/* imagem editorial fantasma */}
+      <img
+        src={publicoImg}
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        width={1600}
+        height={1000}
+        className="pointer-events-none absolute inset-y-0 right-0 -z-10 h-full w-full object-cover opacity-[0.13] grayscale contrast-125 sm:w-[68%]"
+        style={{
+          maskImage:
+            "linear-gradient(to left, rgba(0,0,0,1) 12%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 96%)",
+          WebkitMaskImage:
+            "linear-gradient(to left, rgba(0,0,0,1) 12%, rgba(0,0,0,0.55) 55%, rgba(0,0,0,0) 96%)",
+          transform: visible ? "scale(1.02)" : "scale(1.08)",
+          transition: "transform 2200ms cubic-bezier(0.16,1,0.3,1)",
+        }}
+      />
+      {/* profundidade: gradiente radial + véu */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          background:
+            "radial-gradient(120% 90% at 8% 12%, rgba(255,255,255,0.96) 0%, rgba(247,246,245,0.86) 42%, rgba(247,246,245,0.42) 78%, rgba(247,246,245,0.1) 100%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-24 top-10 -z-10 h-[280px] w-[280px] rounded-full opacity-40 blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle, color-mix(in oklab, var(--lbs-magenta) 22%, transparent) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+          <div
+            className="lg:sticky lg:top-16 lg:self-start"
+            style={{
+              opacity: visible ? 1 : 0,
+              transform: visible ? "none" : "translateY(14px)",
+              transition: "opacity 700ms ease, transform 700ms cubic-bezier(0.16,1,0.3,1)",
+            }}
+          >
+            <SectionLabel>Público atendido</SectionLabel>
+            <p className="mt-5 max-w-[320px] text-[24px] font-light leading-[1.2] tracking-tight text-lbs-ink sm:text-[30px]">
+              Advogamos e assessoramos pessoas que trabalham
+            </p>
+            <div className="mt-7 h-[2px] w-14 bg-lbs-magenta" />
+            <p className="mt-7 max-w-[300px] text-[12.5px] leading-[1.85] text-lbs-ink/55">
+              Atendemos também advogadas e advogados que buscam parceria especializada para seus
+              casos.
+            </p>
+          </div>
+
+          <ul className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
+            {publicoItems.map((item, i) => (
+              <li
+                key={item}
+                className="group relative rounded-[10px] border border-lbs-ink/8 bg-white/55 px-5 py-6 backdrop-blur-[2px] transition-all duration-500 hover:-translate-y-[3px] hover:border-lbs-ink/12 hover:bg-white/85 hover:shadow-[0_18px_40px_-28px_rgba(0,0,0,0.45)]"
+                style={{
+                  opacity: visible ? 1 : 0,
+                  transform: visible ? "none" : "translateY(18px)",
+                  transition: `opacity 700ms ease ${120 + i * 110}ms, transform 700ms cubic-bezier(0.16,1,0.3,1) ${120 + i * 110}ms`,
+                }}
+              >
+                {/* linha superior que se desenha */}
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-0 h-[2px] bg-lbs-magenta transition-[width] duration-700 group-hover:!w-full"
+                  style={{
+                    width: visible ? "38%" : "0%",
+                    transitionDelay: `${200 + i * 110}ms`,
+                  }}
+                />
+                <div className="flex items-start gap-3">
+                  <span className="mt-[7px] h-[5px] w-[5px] flex-none rounded-full bg-lbs-magenta/70 transition-colors duration-500 group-hover:bg-lbs-magenta" />
+                  <span className="text-[13px] leading-[1.75] text-lbs-ink/70 transition-colors duration-500 group-hover:text-lbs-ink">
+                    {item}
+                  </span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+
 function ServiceGroups({
   groups,
   idPrefix,
@@ -373,38 +501,9 @@ function DefesaPage() {
         </div>
       </section>
 
-      {/* PÚBLICO ATENDIDO — faixa clara e compacta */}
-      <section className="w-full border-y border-lbs-ink/10 bg-[#f7f6f5] py-12 sm:py-14">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
-            <div>
-              <SectionLabel>Público atendido</SectionLabel>
-              <p className="mt-4 max-w-[300px] text-[16px] font-light leading-[1.45] text-lbs-ink">
-                Advogamos e assessoramos pessoas que trabalham
-              </p>
-            </div>
-            <ul className="grid gap-x-10 gap-y-4 sm:grid-cols-2">
-              {[
-                "sob vínculo celetista",
-                "contratadas como pessoa jurídica ou pessoa física",
-                "empregadas de empresas privadas ou de estatais",
-                "e para as entidades que as representam: sindicatos, federações, confederações e associações",
-              ].map((item) => (
-                <li
-                  key={item}
-                  className="border-t border-lbs-ink/12 pt-3 text-[12.5px] leading-[1.7] text-lbs-ink/65"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <p className="mt-8 text-[11.5px] leading-[1.7] text-lbs-ink/45">
-            Atendemos também advogadas e advogados que buscam parceria especializada para seus
-            casos.
-          </p>
-        </div>
-      </section>
+      {/* PÚBLICO ATENDIDO — faixa editorial viva */}
+      <PublicoAtendido />
+
 
       {/* DESTAQUES — hierarquia real */}
       <section className="w-full bg-lbs-ink py-24 sm:py-32">
