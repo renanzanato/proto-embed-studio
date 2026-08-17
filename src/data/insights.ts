@@ -61,7 +61,7 @@ export type Insight = {
 export const insights: Insight[] = [
   {
     slug: "agente-do-sistema-financeiro-agosto",
-    category: "Mercado financeiro",
+    category: "Notícia",
     lawyer: "Nilo Beiro",
     area: "Defesa da pessoa que trabalha",
     date: "15/07/2025",
@@ -72,7 +72,7 @@ export const insights: Insight[] = [
   },
   {
     slug: "acordo-mpt-poupex",
-    category: "Sindical",
+    category: "Notícia",
     lawyer: "José Eymard Loguercio",
     area: "Litígios coletivos estruturados",
     date: "08/10/2025",
@@ -83,7 +83,7 @@ export const insights: Insight[] = [
   },
   {
     slug: "tst-dissidio-sindicatos",
-    category: "Trabalhista",
+    category: "Notícia",
     lawyer: "Eduardo Surian Matias",
     area: "Tribunais Superiores",
     date: "08/11/2025",
@@ -94,7 +94,7 @@ export const insights: Insight[] = [
   },
   {
     slug: "reforma-trabalhista-balanco",
-    category: "Trabalhista",
+    category: "Notícia",
     lawyer: "Eduardo Surian Matias",
     area: "Defesa da pessoa que trabalha",
     date: "22/06/2025",
@@ -105,7 +105,7 @@ export const insights: Insight[] = [
   },
   {
     slug: "teletrabalho-controle-jornada",
-    category: "Trabalhista",
+    category: "Vídeo",
     lawyer: "Daniela Muradas",
     area: "Temas emergentes",
     date: "30/05/2025",
@@ -138,7 +138,7 @@ export const insights: Insight[] = [
   },
   {
     slug: "servidores-e-estatais-vinculos",
-    category: "Administrativo",
+    category: "Artigo",
     lawyer: "Aline Rodrigues",
     area: "Vínculos com a Administração Pública",
     date: "18/04/2025",
@@ -160,7 +160,7 @@ export const insights: Insight[] = [
   },
   {
     slug: "negociacao-coletiva-2025",
-    category: "Sindical",
+    category: "Notícia",
     lawyer: "Nilo Beiro",
     area: "Litígios coletivos estruturados",
     date: "21/03/2025",
@@ -171,7 +171,7 @@ export const insights: Insight[] = [
   },
   {
     slug: "stf-e-terceirizacao",
-    category: "Trabalhista",
+    category: "Notícia",
     lawyer: "José Eymard Loguercio",
     area: "Tribunais Superiores",
     date: "07/03/2025",
@@ -204,7 +204,7 @@ export const insights: Insight[] = [
   },
   {
     slug: "bancarios-saude-mental",
-    category: "Mercado financeiro",
+    category: "Notícia",
     lawyer: "Carlos Alberto",
     area: "Defesa da pessoa que trabalha",
     date: "16/01/2025",
