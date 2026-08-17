@@ -36,12 +36,12 @@ export function AtuacaoDialog({
 
   return (
     <div
-      className={`absolute inset-x-0 top-[calc(100%-14px)] z-50 mx-auto w-[min(980px,95vw)] pt-[14px] transition-opacity duration-200 ${
-        open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+      className={`absolute inset-x-0 top-[calc(100%-14px)] z-50 mx-auto w-[min(980px,95vw)] pt-[14px] ${
+        open ? "visible pointer-events-auto" : "invisible pointer-events-none"
       }`}
       onMouseEnter={onMouseEnter}
     >
-      <div className="gap-0 rounded-[6px] border border-lbs-ink/10 bg-white p-7 shadow-xl sm:p-10">
+      <div className="relative isolate gap-0 rounded-[6px] border border-lbs-ink/10 bg-white p-7 shadow-xl sm:p-10">
         <h2 className="sr-only">Soluções e Áreas de Atuação</h2>
 
         {/* abas */}
