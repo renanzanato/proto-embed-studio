@@ -43,7 +43,7 @@ export function AtuacaoDialog({
           Encontre a solução ideal
         </h3>
 
-        <ul className="mt-8 grid gap-x-16 gap-y-6 sm:grid-cols-2">
+        <ul className="mt-8 grid gap-x-16 gap-y-6 sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-4">
           {solucoes.map((item) => (
             <li key={item.title} className="min-w-0 border-b-2 border-lbs-magenta">
               <Link
