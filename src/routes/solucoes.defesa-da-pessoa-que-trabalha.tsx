@@ -117,9 +117,13 @@ const servicosPessoas: { title: string; items: string[] }[] = [
       "Reintegração quando o desligamento ocorreu com o trabalhador doente",
       "Rescisão indireta",
       "Homologação e análise de acordos extrajudiciais (art. 855-B da CLT) antes da assinatura",
-      "Defesa em processos administrativos",
     ],
   },
+  {
+    title: "Defesa em processos administrativos",
+    items: [],
+  },
+
   {
     title:
       "Pessoas com deficiência e neurodivergentes e aqueles que têm filhos ou dependentes nessas condições",
@@ -220,12 +224,18 @@ const bancariosServicos: { title: string; items: string[] }[] = [
   },
   {
     title: "Demissão e defesa",
-    items: [
-      "Reintegração e nulidade da dispensa por justa causa",
-      "Defesa em processos administrativos",
-      "Defesa em processos de cobrança contra trabalhadores; análise de responsabilidade contratual",
-    ],
+    items: ["Reintegração e nulidade da dispensa por justa causa"],
   },
+  {
+    title: "Defesa em processos administrativos",
+    items: [],
+  },
+  {
+    title:
+      "Defesa em processos de cobrança contra trabalhadores; análise de responsabilidade contratual",
+    items: [],
+  },
+
   {
     title: "Previdência e tributação",
     items: [
@@ -465,6 +475,20 @@ function ServiceGroups({
         const on = open === i;
         const panelId = `${idPrefix}-panel-${i}`;
         const btnId = `${idPrefix}-btn-${i}`;
+
+        if (group.items.length === 0) {
+          return (
+            <div
+              key={group.title}
+              className="border-b border-lbs-ink/12"
+            >
+              <h3 className="py-7 pr-8 text-[20px] font-light leading-[1.25] tracking-tight text-lbs-ink sm:py-9 sm:text-[26px] lg:text-[30px]">
+                {group.title}
+              </h3>
+            </div>
+          );
+        }
+
         return (
           <div
             key={group.title}
@@ -475,6 +499,7 @@ function ServiceGroups({
                 : "color-mix(in oklab, var(--lbs-ink) 12%, transparent)",
             }}
           >
+
             <h3>
               <button
                 id={btnId}
