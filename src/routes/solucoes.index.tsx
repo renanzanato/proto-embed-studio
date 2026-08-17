@@ -146,9 +146,13 @@ function SolucoesPage() {
                   <p className="mt-3 max-w-[440px] text-[12.5px] leading-[1.8] text-lbs-ink/60">
                     {item.text}
                   </p>
-                  <span className="mt-5 inline-block cursor-pointer text-[11.5px] text-lbs-magenta transition-opacity hover:opacity-70">
+                  <Link
+                    to={item.to}
+                    className="mt-5 inline-block text-[11.5px] text-lbs-magenta transition-opacity hover:opacity-70"
+                  >
                     Saiba mais →
-                  </span>
+                  </Link>
+
                 </div>
               </article>
             );
