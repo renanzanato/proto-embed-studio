@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import publicoImg from "@/assets/publico-atendido.jpg";
+import publicoFoto from "@/assets/publico-atendido-foto.jpg";
 import solDefesa from "@/assets/sol-defesa.jpg";
 
 import { SiteHeader } from "@/components/site/SiteHeader";
