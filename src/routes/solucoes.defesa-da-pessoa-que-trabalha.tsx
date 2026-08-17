@@ -55,6 +55,8 @@ const destaques: { title: string; text: string }[] = [
   },
 ];
 
+const destaqueImgs = [case01, case02, case03, case04, case05, case06];
+
 const servicosPessoas: { title: string; items: string[] }[] = [
   {
     title: "Vínculo e contratação",
