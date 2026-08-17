@@ -29,8 +29,7 @@ export const teamMembers: TeamMember[] = [
     oab: "OAB/SP nº 108120 e OAB/DF nº 23405",
     image: teamNilo.url,
     tags: ["Sindical", "Financeiro"],
-    about:
-      "Atua há mais de três décadas na assessoria jurídica de entidades sindicais, com destaque para o setor financeiro. Experiência em negociação coletiva, contencioso estratégico e Direito Sindical.",
+    about: "\n",
     phones: ["(61) 3396-8100", "(61) 99219-0011"],
     email: "nilo@lbs.adv.br",
   },
