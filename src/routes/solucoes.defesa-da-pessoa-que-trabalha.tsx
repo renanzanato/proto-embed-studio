@@ -475,6 +475,20 @@ function ServiceGroups({
         const on = open === i;
         const panelId = `${idPrefix}-panel-${i}`;
         const btnId = `${idPrefix}-btn-${i}`;
+
+        if (group.items.length === 0) {
+          return (
+            <div
+              key={group.title}
+              className="border-b border-lbs-ink/12"
+            >
+              <h3 className="py-7 pr-8 text-[20px] font-light leading-[1.25] tracking-tight text-lbs-ink sm:py-9 sm:text-[26px] lg:text-[30px]">
+                {group.title}
+              </h3>
+            </div>
+          );
+        }
+
         return (
           <div
             key={group.title}
@@ -485,6 +499,7 @@ function ServiceGroups({
                 : "color-mix(in oklab, var(--lbs-ink) 12%, transparent)",
             }}
           >
+
             <h3>
               <button
                 id={btnId}
