@@ -23,6 +23,7 @@ import { Route as SolucoesDefesaDaPessoaQueTrabalhaRouteImport } from './routes/
 import { Route as SolucoesExecucoesComplexasRouteImport } from './routes/solucoes.execucoes-complexas'
 import { Route as SolucoesLitigiosColetivosRouteImport } from './routes/solucoes.litigios-coletivos'
 import { Route as SolucoesParceirosEstrategicosRouteImport } from './routes/solucoes.parceiros-estrategicos'
+import { Route as SolucoesTemasEmergentesRouteImport } from './routes/solucoes.temas-emergentes'
 import { Route as SolucoesTribunaisSuperioresRouteImport } from './routes/solucoes.tribunais-superiores'
 import { Route as SolucoesVinculosComAAdministracaoPublicaRouteImport } from './routes/solucoes.vinculos-com-a-administracao-publica'
 
@@ -101,6 +102,11 @@ const SolucoesParceirosEstrategicosRoute =
     path: '/solucoes/parceiros-estrategicos',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SolucoesTemasEmergentesRoute = SolucoesTemasEmergentesRouteImport.update({
+  id: '/solucoes/temas-emergentes',
+  path: '/solucoes/temas-emergentes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolucoesTribunaisSuperioresRoute =
   SolucoesTribunaisSuperioresRouteImport.update({
     id: '/solucoes/tribunais-superiores',
@@ -125,6 +131,7 @@ export interface FileRoutesByFullPath {
   '/solucoes/execucoes-complexas': typeof SolucoesExecucoesComplexasRoute
   '/solucoes/litigios-coletivos': typeof SolucoesLitigiosColetivosRoute
   '/solucoes/parceiros-estrategicos': typeof SolucoesParceirosEstrategicosRoute
+  '/solucoes/temas-emergentes': typeof SolucoesTemasEmergentesRoute
   '/solucoes/tribunais-superiores': typeof SolucoesTribunaisSuperioresRoute
   '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
   '/a-lbs/': typeof ALbsIndexRoute
@@ -143,6 +150,7 @@ export interface FileRoutesByTo {
   '/solucoes/execucoes-complexas': typeof SolucoesExecucoesComplexasRoute
   '/solucoes/litigios-coletivos': typeof SolucoesLitigiosColetivosRoute
   '/solucoes/parceiros-estrategicos': typeof SolucoesParceirosEstrategicosRoute
+  '/solucoes/temas-emergentes': typeof SolucoesTemasEmergentesRoute
   '/solucoes/tribunais-superiores': typeof SolucoesTribunaisSuperioresRoute
   '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
   '/a-lbs': typeof ALbsIndexRoute
@@ -162,6 +170,7 @@ export interface FileRoutesById {
   '/solucoes/execucoes-complexas': typeof SolucoesExecucoesComplexasRoute
   '/solucoes/litigios-coletivos': typeof SolucoesLitigiosColetivosRoute
   '/solucoes/parceiros-estrategicos': typeof SolucoesParceirosEstrategicosRoute
+  '/solucoes/temas-emergentes': typeof SolucoesTemasEmergentesRoute
   '/solucoes/tribunais-superiores': typeof SolucoesTribunaisSuperioresRoute
   '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
   '/a-lbs/': typeof ALbsIndexRoute
@@ -182,6 +191,7 @@ export interface FileRouteTypes {
     | '/solucoes/execucoes-complexas'
     | '/solucoes/litigios-coletivos'
     | '/solucoes/parceiros-estrategicos'
+    | '/solucoes/temas-emergentes'
     | '/solucoes/tribunais-superiores'
     | '/solucoes/vinculos-com-a-administracao-publica'
     | '/a-lbs/'
@@ -200,6 +210,7 @@ export interface FileRouteTypes {
     | '/solucoes/execucoes-complexas'
     | '/solucoes/litigios-coletivos'
     | '/solucoes/parceiros-estrategicos'
+    | '/solucoes/temas-emergentes'
     | '/solucoes/tribunais-superiores'
     | '/solucoes/vinculos-com-a-administracao-publica'
     | '/a-lbs'
@@ -218,6 +229,7 @@ export interface FileRouteTypes {
     | '/solucoes/execucoes-complexas'
     | '/solucoes/litigios-coletivos'
     | '/solucoes/parceiros-estrategicos'
+    | '/solucoes/temas-emergentes'
     | '/solucoes/tribunais-superiores'
     | '/solucoes/vinculos-com-a-administracao-publica'
     | '/a-lbs/'
@@ -237,6 +249,7 @@ export interface RootRouteChildren {
   SolucoesExecucoesComplexasRoute: typeof SolucoesExecucoesComplexasRoute
   SolucoesLitigiosColetivosRoute: typeof SolucoesLitigiosColetivosRoute
   SolucoesParceirosEstrategicosRoute: typeof SolucoesParceirosEstrategicosRoute
+  SolucoesTemasEmergentesRoute: typeof SolucoesTemasEmergentesRoute
   SolucoesTribunaisSuperioresRoute: typeof SolucoesTribunaisSuperioresRoute
   SolucoesVinculosComAAdministracaoPublicaRoute: typeof SolucoesVinculosComAAdministracaoPublicaRoute
   ALbsIndexRoute: typeof ALbsIndexRoute
@@ -345,6 +358,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolucoesParceirosEstrategicosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solucoes/temas-emergentes': {
+      id: '/solucoes/temas-emergentes'
+      path: '/solucoes/temas-emergentes'
+      fullPath: '/solucoes/temas-emergentes'
+      preLoaderRoute: typeof SolucoesTemasEmergentesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solucoes/tribunais-superiores': {
       id: '/solucoes/tribunais-superiores'
       path: '/solucoes/tribunais-superiores'
@@ -374,6 +394,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolucoesExecucoesComplexasRoute: SolucoesExecucoesComplexasRoute,
   SolucoesLitigiosColetivosRoute: SolucoesLitigiosColetivosRoute,
   SolucoesParceirosEstrategicosRoute: SolucoesParceirosEstrategicosRoute,
+  SolucoesTemasEmergentesRoute: SolucoesTemasEmergentesRoute,
   SolucoesTribunaisSuperioresRoute: SolucoesTribunaisSuperioresRoute,
   SolucoesVinculosComAAdministracaoPublicaRoute:
     SolucoesVinculosComAAdministracaoPublicaRoute,
