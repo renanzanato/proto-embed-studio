@@ -14,7 +14,7 @@ import {
 
 const PER_PAGE = 10;
 
-export const Route = createFileRoute("/artigos")({
+export const Route = createFileRoute("/artigos/")({
   head: () => ({
     meta: [
       { title: "Insights | Artigos e Notícias — LBS Advogadas e Advogados" },
