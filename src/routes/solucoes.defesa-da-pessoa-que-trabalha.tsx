@@ -265,31 +265,40 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function ServiceGroups({ groups }: { groups: { title: string; items: string[] }[] }) {
+function ServiceGroups({
+  groups,
+  idPrefix,
+}: {
+  groups: { title: string; items: string[] }[];
+  idPrefix: string;
+}) {
   return (
-    <div className="mt-10 grid gap-5 sm:grid-cols-2">
-      {groups.map((group) => (
-        <div
+    <Accordion type="multiple" className="mt-10 border-t border-lbs-ink/12">
+      {groups.map((group, i) => (
+        <AccordionItem
           key={group.title}
-          className="rounded-[6px] border border-black/8 bg-white p-6 transition-shadow hover:shadow-md"
+          value={`${idPrefix}-${i}`}
+          className="border-b border-lbs-ink/12"
         >
-          <h4 className="border-b-2 border-lbs-magenta pb-3 text-[15px] font-normal leading-[1.4] text-lbs-ink">
+          <AccordionTrigger className="py-5 text-left text-[15px] font-normal leading-[1.4] text-lbs-ink hover:no-underline data-[state=open]:text-lbs-magenta">
             {group.title}
-          </h4>
-          <ul className="mt-4 space-y-2.5">
-            {group.items.map((item) => (
-              <li
-                key={item}
-                className="relative pl-4 text-[12.5px] leading-[1.75] text-lbs-ink/65"
-              >
-                <span className="absolute left-0 top-[9px] h-[5px] w-[5px] rounded-full bg-lbs-magenta" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
+          </AccordionTrigger>
+          <AccordionContent className="pb-7">
+            <ul className="grid gap-x-14 gap-y-3 sm:grid-cols-2">
+              {group.items.map((item) => (
+                <li
+                  key={item}
+                  className="relative pl-4 text-[12.5px] leading-[1.8] text-lbs-ink/65"
+                >
+                  <span className="absolute left-0 top-[9px] h-[5px] w-[5px] rounded-full bg-lbs-magenta" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
       ))}
-    </div>
+    </Accordion>
   );
 }
 
