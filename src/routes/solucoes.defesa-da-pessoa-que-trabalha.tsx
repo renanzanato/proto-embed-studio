@@ -781,54 +781,63 @@ function DefesaPage() {
       <DestaquesGaleria />
 
 
-      {/* SERVIÇOS — com módulo especializado em abas */}
+      {/* SERVIÇOS — escolha editorial por contexto */}
       <section className="w-full bg-white py-24 sm:py-32">
-        <div className="mx-auto grid w-full max-w-[1200px] gap-12 px-4 sm:px-6 lg:grid-cols-[30%_70%] lg:gap-20 lg:px-8">
-          {/* COLUNA ESQUERDA — introdução editorial */}
-          <div className="lg:sticky lg:top-20 lg:self-start">
-            <SectionLabel>Serviços</SectionLabel>
-            <h2 className="mt-6 max-w-[320px] text-[28px] font-light leading-[1.18] tracking-tight text-lbs-ink sm:text-[34px]">
-              Análises, pareceres, pedidos administrativos e ações judiciais
-            </h2>
-            <div className="mt-8 h-[2px] w-12 bg-lbs-magenta" />
-            <p className="mt-8 max-w-[300px] text-[13px] leading-[1.95] text-lbs-ink/55">
-              Escolha o contexto de atendimento para ver os temas correspondentes.
-            </p>
-          </div>
+        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
+          {/* Topo */}
+          <SectionLabel>Serviços</SectionLabel>
+          <h2 className="mt-5 max-w-[520px] text-[24px] font-light leading-[1.22] tracking-tight text-lbs-ink sm:text-[30px]">
+            Análises, pareceres, pedidos administrativos e ações judiciais
+          </h2>
 
-          {/* COLUNA DIREITA — contextos + accordion */}
-          <div>
-            <div
-              role="tablist"
-              aria-label="Contexto de atendimento"
-              className="flex flex-wrap gap-0 border-b border-lbs-ink/12"
-            >
-              {(
-                [
-                  { id: "pessoas", label: "Pessoas que trabalham" },
-                  { id: "bancarios", label: "Bancárias, bancários e ramo financeiro" },
-                ] as const
-              ).map((tab) => (
+          {/* Escolha do contexto */}
+          <div className="mt-12" role="tablist" aria-label="Contexto de atendimento">
+            {(
+              [
+                { id: "pessoas", label: "Pessoas que trabalham" },
+                { id: "bancarios", label: "Bancárias, bancários e ramo financeiro" },
+              ] as const
+            ).map((ctx) => {
+              const active = contexto === ctx.id;
+              return (
                 <button
-                  key={tab.id}
+                  key={ctx.id}
                   type="button"
                   role="tab"
-                  aria-selected={contexto === tab.id}
-                  onClick={() => setContexto(tab.id)}
-                  className={`-mb-px border-b-2 px-1 pb-4 pr-8 text-left text-[13px] transition-colors ${
-                    contexto === tab.id
-                      ? "border-lbs-magenta text-lbs-magenta"
-                      : "border-transparent text-lbs-ink/40 hover:text-lbs-ink/70"
-                  }`}
+                  aria-selected={active}
+                  onClick={() => setContexto(ctx.id)}
+                  className={`
+                    group flex w-full items-center justify-between border-b py-7 text-left outline-none transition-colors duration-300 focus-visible:ring-1 focus-visible:ring-lbs-magenta sm:py-9
+                    ${active ? "text-lbs-magenta" : "text-lbs-ink hover:text-lbs-magenta"}
+                  `}
+                  style={{
+                    borderColor: active
+                      ? "var(--lbs-magenta)"
+                      : "color-mix(in oklab, var(--lbs-ink) 12%, transparent)",
+                  }}
                 >
-                  {tab.label}
+                  <span className="pr-6 text-[18px] font-light leading-[1.25] tracking-tight transition-colors duration-300 sm:text-[24px] lg:text-[26px]">
+                    {ctx.label}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className={`
+                      text-[20px] font-light transition-all duration-300 group-hover:translate-x-1
+                      ${active ? "text-lbs-magenta" : "text-lbs-ink/30 group-hover:text-lbs-magenta"}
+                    `}
+                  >
+                    →
+                  </span>
                 </button>
-              ))}
-            </div>
+              );
+            })}
+          </div>
 
+          {/* Conteúdo ativo */}
+          <div className="mt-14">
             {contexto === "pessoas" ? (
               <div role="tabpanel">
-                <p className="mt-10 max-w-[640px] text-[14px] leading-[1.9] text-lbs-ink/65">
+                <p className="max-w-[640px] text-[14px] leading-[1.9] text-lbs-ink/65">
                   Pessoas que trabalham – vínculo celetista, contratos como pessoa jurídica e
                   pessoa física.
                 </p>
@@ -836,51 +845,49 @@ function DefesaPage() {
               </div>
             ) : (
               <div role="tabpanel">
-                <div className="mt-10">
-                  <h3 className="max-w-[520px] text-[24px] font-light leading-[1.2] text-lbs-ink sm:text-[30px]">
-                    Bancárias, bancários e ramo financeiro
-                  </h3>
+                <h3 className="max-w-[520px] text-[24px] font-light leading-[1.2] text-lbs-ink sm:text-[30px]">
+                  Bancárias, bancários e ramo financeiro
+                </h3>
 
-                  <div className="mt-6 border-t border-lbs-ink/12">
-                    <div
-                      className="border-b transition-colors duration-300"
-                      style={{
-                        borderColor: sobreOpen
-                          ? "color-mix(in oklab, var(--lbs-magenta) 55%, transparent)"
-                          : "color-mix(in oklab, var(--lbs-ink) 12%, transparent)",
-                      }}
+                <div className="mt-6 border-t border-lbs-ink/12">
+                  <div
+                    className="border-b transition-colors duration-300"
+                    style={{
+                      borderColor: sobreOpen
+                        ? "color-mix(in oklab, var(--lbs-magenta) 55%, transparent)"
+                        : "color-mix(in oklab, var(--lbs-ink) 12%, transparent)",
+                    }}
+                  >
+                    <button
+                      type="button"
+                      aria-expanded={sobreOpen}
+                      onClick={() => setSobreOpen((p) => !p)}
+                      className="flex w-full items-center justify-between py-5 text-left outline-none transition-colors duration-300 focus-visible:ring-1 focus-visible:ring-lbs-magenta"
+                      style={{ color: sobreOpen ? "var(--lbs-magenta)" : "var(--lbs-ink)" }}
                     >
-                      <button
-                        type="button"
-                        aria-expanded={sobreOpen}
-                        onClick={() => setSobreOpen((p) => !p)}
-                        className="flex w-full items-center justify-between py-5 text-left outline-none transition-colors duration-300 focus-visible:ring-1 focus-visible:ring-lbs-magenta"
-                        style={{ color: sobreOpen ? "var(--lbs-magenta)" : "var(--lbs-ink)" }}
+                      <span className="text-[15px] font-light tracking-tight sm:text-[17px]">
+                        Sobre esta atuação
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="relative h-[18px] w-[18px] shrink-0 transition-transform duration-[380ms] ease-out sm:h-[22px] sm:w-[22px]"
+                        style={{ transform: sobreOpen ? "rotate(45deg)" : "rotate(0deg)" }}
                       >
-                        <span className="text-[15px] font-light tracking-tight sm:text-[17px]">
-                          Sobre esta atuação
-                        </span>
-                        <span
-                          aria-hidden="true"
-                          className="relative h-[18px] w-[18px] shrink-0 transition-transform duration-[380ms] ease-out sm:h-[22px] sm:w-[22px]"
-                          style={{ transform: sobreOpen ? "rotate(45deg)" : "rotate(0deg)" }}
-                        >
-                          <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current" />
-                          <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-current" />
-                        </span>
-                      </button>
+                        <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current" />
+                        <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-current" />
+                      </span>
+                    </button>
 
-                      <div
-                        className="overflow-hidden transition-all duration-[400ms] ease-out"
-                        style={{ maxHeight: sobreOpen ? 800 : 0, opacity: sobreOpen ? 1 : 0 }}
-                      >
-                        <div className="pb-8 max-w-[640px] space-y-8">
-                          {bancariosDiferenciais.map((p) => (
-                            <p key={p} className="text-[13.5px] leading-[2] text-lbs-ink/65">
-                              {p}
-                            </p>
-                          ))}
-                        </div>
+                    <div
+                      className="overflow-hidden transition-all duration-[400ms] ease-out"
+                      style={{ maxHeight: sobreOpen ? 800 : 0, opacity: sobreOpen ? 1 : 0 }}
+                    >
+                      <div className="pb-8 max-w-[640px] space-y-8">
+                        {bancariosDiferenciais.map((p) => (
+                          <p key={p} className="text-[13.5px] leading-[2] text-lbs-ink/65">
+                            {p}
+                          </p>
+                        ))}
                       </div>
                     </div>
                   </div>
