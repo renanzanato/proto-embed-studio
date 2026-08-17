@@ -15,7 +15,7 @@ import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
 import { Route as ALbsIndexRouteImport } from './routes/a-lbs.index'
 import { Route as ALbsHistoriaRouteImport } from './routes/a-lbs.historia'
 import { Route as AtuacaoIndexRouteImport } from './routes/atuacao.index'
-import { Route as AtuacaoDireitoTrabalhistaRouteImport } from './routes/atuacao.direito-trabalhista'
+import { Route as AtuacaoSplatRouteImport } from './routes/atuacao.$'
 import { Route as EquipeIndexRouteImport } from './routes/equipe.index'
 import { Route as EquipeSlugRouteImport } from './routes/equipe.$slug'
 import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
@@ -57,12 +57,11 @@ const AtuacaoIndexRoute = AtuacaoIndexRouteImport.update({
   path: '/atuacao/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AtuacaoDireitoTrabalhistaRoute =
-  AtuacaoDireitoTrabalhistaRouteImport.update({
-    id: '/atuacao/direito-trabalhista',
-    path: '/atuacao/direito-trabalhista',
-    getParentRoute: () => rootRouteImport,
-  } as any)
+const AtuacaoSplatRoute = AtuacaoSplatRouteImport.update({
+  id: '/atuacao/$',
+  path: '/atuacao/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EquipeIndexRoute = EquipeIndexRouteImport.update({
   id: '/equipe/',
   path: '/equipe/',
@@ -125,7 +124,7 @@ export interface FileRoutesByFullPath {
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
-  '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
+  '/atuacao/$': typeof AtuacaoSplatRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
   '/solucoes/execucoes-complexas': typeof SolucoesExecucoesComplexasRoute
@@ -144,7 +143,7 @@ export interface FileRoutesByTo {
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
-  '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
+  '/atuacao/$': typeof AtuacaoSplatRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
   '/solucoes/execucoes-complexas': typeof SolucoesExecucoesComplexasRoute
@@ -164,7 +163,7 @@ export interface FileRoutesById {
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
-  '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
+  '/atuacao/$': typeof AtuacaoSplatRoute
   '/equipe/$slug': typeof EquipeSlugRoute
   '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
   '/solucoes/execucoes-complexas': typeof SolucoesExecucoesComplexasRoute
@@ -185,7 +184,7 @@ export interface FileRouteTypes {
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
-    | '/atuacao/direito-trabalhista'
+    | '/atuacao/$'
     | '/equipe/$slug'
     | '/solucoes/defesa-da-pessoa-que-trabalha'
     | '/solucoes/execucoes-complexas'
@@ -204,7 +203,7 @@ export interface FileRouteTypes {
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
-    | '/atuacao/direito-trabalhista'
+    | '/atuacao/$'
     | '/equipe/$slug'
     | '/solucoes/defesa-da-pessoa-que-trabalha'
     | '/solucoes/execucoes-complexas'
@@ -223,7 +222,7 @@ export interface FileRouteTypes {
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
-    | '/atuacao/direito-trabalhista'
+    | '/atuacao/$'
     | '/equipe/$slug'
     | '/solucoes/defesa-da-pessoa-que-trabalha'
     | '/solucoes/execucoes-complexas'
@@ -243,7 +242,7 @@ export interface RootRouteChildren {
   LinhaDoTempoAbRoute: typeof LinhaDoTempoAbRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
   ALbsHistoriaRoute: typeof ALbsHistoriaRoute
-  AtuacaoDireitoTrabalhistaRoute: typeof AtuacaoDireitoTrabalhistaRoute
+  AtuacaoSplatRoute: typeof AtuacaoSplatRoute
   EquipeSlugRoute: typeof EquipeSlugRoute
   SolucoesDefesaDaPessoaQueTrabalhaRoute: typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
   SolucoesExecucoesComplexasRoute: typeof SolucoesExecucoesComplexasRoute
@@ -302,11 +301,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AtuacaoIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/atuacao/direito-trabalhista': {
-      id: '/atuacao/direito-trabalhista'
-      path: '/atuacao/direito-trabalhista'
-      fullPath: '/atuacao/direito-trabalhista'
-      preLoaderRoute: typeof AtuacaoDireitoTrabalhistaRouteImport
+    '/atuacao/$': {
+      id: '/atuacao/$'
+      path: '/atuacao/$'
+      fullPath: '/atuacao/$'
+      preLoaderRoute: typeof AtuacaoSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/equipe/': {
@@ -387,7 +386,7 @@ const rootRouteChildren: RootRouteChildren = {
   LinhaDoTempoAbRoute: LinhaDoTempoAbRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
   ALbsHistoriaRoute: ALbsHistoriaRoute,
-  AtuacaoDireitoTrabalhistaRoute: AtuacaoDireitoTrabalhistaRoute,
+  AtuacaoSplatRoute: AtuacaoSplatRoute,
   EquipeSlugRoute: EquipeSlugRoute,
   SolucoesDefesaDaPessoaQueTrabalhaRoute:
     SolucoesDefesaDaPessoaQueTrabalhaRoute,

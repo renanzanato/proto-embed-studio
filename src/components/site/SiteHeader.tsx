@@ -58,7 +58,7 @@ export function SiteHeader({ active }: { active?: string }) {
 
         <nav className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) =>
-            item.label === "Atuação" ? (
+            item.label === "Soluções" ? (
               <div
                 key={item.label}
                 onMouseEnter={keepAtuacaoOpen}
