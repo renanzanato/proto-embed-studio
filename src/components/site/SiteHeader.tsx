@@ -1,6 +1,8 @@
 import { CalendarDays } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 
+import lbsLogo from "@/assets/lbs-logo.png.asset.json";
+
 const navItems = [
   { label: "Início", to: "/" },
   { label: "A LBS", to: "/a-lbs" },
