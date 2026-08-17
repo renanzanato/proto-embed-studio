@@ -553,71 +553,9 @@ function DefesaPage() {
       <PublicoAtendido />
 
 
-      {/* DESTAQUES — hierarquia real */}
-      <section className="w-full bg-lbs-ink py-24 sm:py-32">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <SectionLabel>Destaques</SectionLabel>
-              <h2 className="mt-5 max-w-[520px] text-[26px] font-light leading-[1.2] text-white sm:text-[34px]">
-                Casos que mudaram o direito de quem trabalha
-              </h2>
-            </div>
-            <span className="text-[11px] uppercase tracking-[0.18em] text-white/35">
-              {String(destaques.length).padStart(2, "0")} casos
-            </span>
-          </div>
+      {/* DESTAQUES — galeria editorial de cases */}
+      <DestaquesGaleria />
 
-          {/* Case principal */}
-          <article className="group mt-12 grid gap-8 border-t border-white/15 pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-            <div className="relative overflow-hidden">
-              <img
-                src={solDefesa}
-                alt="Contexto de julgamento e atuação nos Tribunais Superiores"
-                loading="lazy"
-                width={960}
-                height={640}
-                className="h-[240px] w-full object-cover grayscale transition-all duration-700 group-hover:scale-[1.03] group-hover:grayscale-0 sm:h-[320px]"
-              />
-              <span className="absolute left-0 top-0 bg-lbs-magenta px-4 py-2 text-[10px] uppercase tracking-[0.18em] text-white">
-                Caso emblemático
-              </span>
-            </div>
-            <div className="flex flex-col justify-center">
-              <h3 className="text-[22px] font-light leading-[1.25] text-white sm:text-[28px]">
-                {principal.title}
-              </h3>
-              <div className="mt-6 h-[2px] w-12 bg-lbs-magenta" />
-              <p className="mt-6 max-w-[520px] text-[13.5px] leading-[1.95] text-white/60">
-                {principal.text}
-              </p>
-            </div>
-          </article>
-
-          {/* Cases secundários */}
-          <div className="mt-4 grid border-t border-white/10 sm:grid-cols-2 lg:grid-cols-3">
-            {secundarios.map((d, i) => (
-              <article
-                key={d.title}
-                className="group border-b border-white/10 px-0 py-9 transition-colors hover:bg-white/[0.04] sm:px-7 sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(3n)]:border-r-0 lg:[&:nth-child(odd)]:border-r lg:[&:nth-child(even)]:border-r"
-              >
-                <span className="text-[11px] tabular-nums tracking-[0.16em] text-lbs-magenta">
-                  {String(i + 2).padStart(2, "0")}
-                </span>
-                <h3 className="mt-4 text-[14.5px] font-normal leading-[1.45] text-white">
-                  {d.title}
-                </h3>
-                <p className="mt-4 max-h-0 overflow-hidden text-[12.5px] leading-[1.85] text-white/50 transition-all duration-500 group-hover:max-h-[400px] lg:opacity-0 lg:group-hover:opacity-100">
-                  {d.text}
-                </p>
-                <p className="mt-4 text-[12.5px] leading-[1.85] text-white/50 lg:hidden">
-                  {d.text}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* SERVIÇOS — com módulo especializado em abas */}
       <section className="w-full bg-white py-24 sm:py-32">
