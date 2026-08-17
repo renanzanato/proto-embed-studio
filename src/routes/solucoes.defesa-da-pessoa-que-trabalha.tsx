@@ -455,42 +455,111 @@ function ServiceGroups({
   groups: { title: string; items: string[] }[];
   idPrefix: string;
 }) {
+  const [active, setActive] = useState(0);
+  const atual = groups[active];
+
   return (
-    <Accordion
-      type="multiple"
-      defaultValue={[`${idPrefix}-0`]}
-      className="mt-10 border-t border-lbs-ink/12"
-    >
-      {groups.map((group, i) => (
-        <AccordionItem
-          key={group.title}
-          value={`${idPrefix}-${i}`}
-          className="border-b border-lbs-ink/12 data-[state=open]:bg-lbs-ink/[0.025]"
-        >
-          <AccordionTrigger className="group gap-6 px-1 py-6 text-left text-[15px] font-normal leading-[1.4] text-lbs-ink hover:no-underline data-[state=open]:text-lbs-magenta sm:px-4 [&>svg]:hidden">
-            <span className="flex items-baseline gap-5">
-              <span className="w-6 shrink-0 text-[11px] tabular-nums tracking-[0.16em] text-lbs-ink/30 group-data-[state=open]:text-lbs-magenta">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-              <span>{group.title}</span>
-            </span>
-            <span className="relative ml-auto h-[13px] w-[13px] shrink-0">
-              <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current" />
-              <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-current transition-transform duration-300 group-data-[state=open]:scale-y-0" />
-            </span>
-          </AccordionTrigger>
-          <AccordionContent className="px-1 pb-9 sm:px-4">
-            <ul className="grid gap-x-14 gap-y-3 border-l border-lbs-magenta/30 pl-6 sm:ml-11 sm:grid-cols-2">
-              {group.items.map((item) => (
-                <li key={item} className="text-[12.5px] leading-[1.85] text-lbs-ink/65">
+    <div className="mt-10">
+      {/* DESKTOP — índice editorial + painel */}
+      <div className="hidden border-t border-lbs-ink/12 lg:grid lg:grid-cols-[34%_66%]">
+        {/* índice */}
+        <div className="lg:pr-12">
+          {groups.map((group, i) => {
+            const on = i === active;
+            return (
+              <button
+                key={group.title}
+                type="button"
+                onClick={() => setActive(i)}
+                onMouseEnter={() => setActive(i)}
+                onFocus={() => setActive(i)}
+                aria-current={on}
+                className="group relative flex w-full items-baseline gap-5 border-b border-lbs-ink/12 py-6 text-left outline-none focus-visible:ring-1 focus-visible:ring-lbs-magenta"
+              >
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-0 h-full w-[2px] bg-lbs-magenta transition-transform duration-200 ease-out"
+                  style={{ transform: on ? "scaleY(1)" : "scaleY(0)", transformOrigin: "top" }}
+                />
+                <span
+                  className="w-6 shrink-0 pl-4 text-[11px] tabular-nums tracking-[0.16em] transition-colors duration-200"
+                  style={{
+                    color: on
+                      ? "var(--lbs-magenta)"
+                      : "color-mix(in oklab, var(--lbs-magenta) 30%, transparent)",
+                  }}
+                >
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span
+                  className="text-[14.5px] font-normal leading-[1.45] transition-colors duration-200"
+                  style={{ color: on ? "var(--lbs-magenta)" : "rgba(26,26,26,0.78)" }}
+                >
+                  {group.title}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* painel de conteúdo */}
+        <div className="min-h-[460px] border-l border-lbs-ink/12 lg:pl-14">
+          <div key={atual.title} className="pt-6 [animation:fadeUp_220ms_ease_both]">
+            <h3 className="text-[11px] uppercase tracking-[0.2em] text-lbs-magenta">
+              {atual.title}
+            </h3>
+            <div className="mt-5 h-px w-full bg-lbs-ink/12" />
+            <ul className="mt-8 grid gap-x-14 gap-y-5 sm:grid-cols-2">
+              {atual.items.map((item) => (
+                <li
+                  key={item}
+                  className="max-w-[46ch] text-[12.5px] leading-[1.9] text-lbs-ink/65"
+                >
                   {item}
                 </li>
               ))}
             </ul>
-          </AccordionContent>
-        </AccordionItem>
-      ))}
-    </Accordion>
+          </div>
+        </div>
+      </div>
+
+      {/* MOBILE — accordion editorial */}
+      <Accordion
+        type="single"
+        collapsible
+        className="border-t border-lbs-ink/12 lg:hidden"
+      >
+        {groups.map((group, i) => (
+          <AccordionItem
+            key={group.title}
+            value={`${idPrefix}-${i}`}
+            className="border-b border-lbs-ink/12"
+          >
+            <AccordionTrigger className="group gap-6 px-1 py-5 text-left text-[14.5px] font-normal leading-[1.4] text-lbs-ink hover:no-underline data-[state=open]:text-lbs-magenta [&>svg]:hidden">
+              <span className="flex items-baseline gap-4">
+                <span className="w-6 shrink-0 text-[11px] tabular-nums tracking-[0.16em] text-lbs-ink/30 group-data-[state=open]:text-lbs-magenta">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <span>{group.title}</span>
+              </span>
+              <span className="relative ml-auto h-[13px] w-[13px] shrink-0">
+                <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current" />
+                <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-current transition-transform duration-300 group-data-[state=open]:scale-y-0" />
+              </span>
+            </AccordionTrigger>
+            <AccordionContent className="px-1 pb-8">
+              <ul className="grid gap-y-4 pl-10">
+                {group.items.map((item) => (
+                  <li key={item} className="text-[12.5px] leading-[1.85] text-lbs-ink/65">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
   );
 }
 
