@@ -787,106 +787,110 @@ function DefesaPage() {
 
       {/* SERVIÇOS — com módulo especializado em abas */}
       <section className="w-full bg-white py-24 sm:py-32">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <SectionLabel>Serviços</SectionLabel>
-          <h2 className="mt-5 max-w-[700px] text-[28px] font-light leading-[1.2] tracking-tight text-lbs-ink sm:text-[36px]">
-            Análises, pareceres, pedidos administrativos e ações judiciais
-          </h2>
-          <p className="mt-6 max-w-[560px] text-[13px] leading-[1.9] text-lbs-ink/55">
-            Escolha o contexto de atendimento para ver os temas correspondentes.
-          </p>
-
-          {/* Segmentação de contexto */}
-          <div
-            role="tablist"
-            aria-label="Contexto de atendimento"
-            className="mt-10 flex flex-wrap gap-0 border-b border-lbs-ink/12"
-          >
-            {(
-              [
-                { id: "pessoas", label: "Pessoas que trabalham" },
-                { id: "bancarios", label: "Bancárias, bancários e ramo financeiro" },
-              ] as const
-            ).map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                role="tab"
-                aria-selected={contexto === tab.id}
-                onClick={() => setContexto(tab.id)}
-                className={`-mb-px border-b-2 px-1 pb-4 pr-8 text-left text-[13px] transition-colors ${
-                  contexto === tab.id
-                    ? "border-lbs-magenta text-lbs-ink"
-                    : "border-transparent text-lbs-ink/40 hover:text-lbs-ink/70"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+        <div className="mx-auto grid w-full max-w-[1200px] gap-12 px-4 sm:px-6 lg:grid-cols-[30%_70%] lg:gap-20 lg:px-8">
+          {/* COLUNA ESQUERDA — introdução editorial */}
+          <div className="lg:sticky lg:top-20 lg:self-start">
+            <SectionLabel>Serviços</SectionLabel>
+            <h2 className="mt-6 max-w-[320px] text-[28px] font-light leading-[1.18] tracking-tight text-lbs-ink sm:text-[34px]">
+              Análises, pareceres, pedidos administrativos e ações judiciais
+            </h2>
+            <div className="mt-8 h-[2px] w-12 bg-lbs-magenta" />
+            <p className="mt-8 max-w-[300px] text-[13px] leading-[1.95] text-lbs-ink/55">
+              Escolha o contexto de atendimento para ver os temas correspondentes.
+            </p>
           </div>
 
-          {contexto === "pessoas" ? (
-            <div role="tabpanel">
-              <p className="mt-10 max-w-[700px] text-[14px] leading-[1.9] text-lbs-ink/65">
-                Pessoas que trabalham – vínculo celetista, contratos como pessoa jurídica e
-                pessoa física.
-              </p>
-              <ServiceGroups groups={servicosPessoas} idPrefix="pessoas" />
+          {/* COLUNA DIREITA — contextos + accordion */}
+          <div>
+            <div
+              role="tablist"
+              aria-label="Contexto de atendimento"
+              className="flex flex-wrap gap-0 border-b border-lbs-ink/12"
+            >
+              {(
+                [
+                  { id: "pessoas", label: "Pessoas que trabalham" },
+                  { id: "bancarios", label: "Bancárias, bancários e ramo financeiro" },
+                ] as const
+              ).map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={contexto === tab.id}
+                  onClick={() => setContexto(tab.id)}
+                  className={`-mb-px border-b-2 px-1 pb-4 pr-8 text-left text-[13px] transition-colors ${
+                    contexto === tab.id
+                      ? "border-lbs-magenta text-lbs-magenta"
+                      : "border-transparent text-lbs-ink/40 hover:text-lbs-ink/70"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
-          ) : (
-            <div role="tabpanel">
-              {/* módulo especializado: diagramação distinta */}
-              <div className="mt-10 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-                <div>
+
+            {contexto === "pessoas" ? (
+              <div role="tabpanel">
+                <p className="mt-10 max-w-[640px] text-[14px] leading-[1.9] text-lbs-ink/65">
+                  Pessoas que trabalham – vínculo celetista, contratos como pessoa jurídica e
+                  pessoa física.
+                </p>
+                <ServiceGroups groups={servicosPessoas} idPrefix="pessoas" />
+              </div>
+            ) : (
+              <div role="tabpanel">
+                <div className="mt-10">
                   <span className="text-[11px] uppercase tracking-[0.2em] text-lbs-ink/40">
                     Módulo especializado
                   </span>
-                  <h3 className="mt-4 text-[24px] font-light leading-[1.2] text-lbs-ink sm:text-[30px]">
+                  <h3 className="mt-4 max-w-[520px] text-[24px] font-light leading-[1.2] text-lbs-ink sm:text-[30px]">
                     Bancárias, bancários e ramo financeiro
                   </h3>
                   <div className="mt-6 h-[2px] w-12 bg-lbs-magenta" />
+                  <div className="mt-8 max-w-[640px] space-y-8">
+                    {bancariosDiferenciais.map((p) => (
+                      <p key={p} className="text-[13.5px] leading-[2] text-lbs-ink/65">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
                 </div>
-                <div className="max-w-[620px] space-y-8">
-                  {bancariosDiferenciais.map((p) => (
-                    <p key={p} className="text-[13.5px] leading-[2] text-lbs-ink/65">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              </div>
 
-              <div className="mt-16 border-t border-lbs-ink/12 pt-10">
-                <SectionLabel>Destaques do setor</SectionLabel>
-                <div className="mt-8 grid gap-x-14 gap-y-9 sm:grid-cols-2">
-                  {bancariosDestaques.map((d, i) => (
-                    <article key={d.title} className="flex gap-5">
-                      <span className="mt-1 text-[11px] tabular-nums tracking-[0.16em] text-lbs-magenta">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div>
-                        <h4 className="text-[14.5px] font-normal leading-[1.45] text-lbs-ink">
-                          {d.title}
-                        </h4>
-                        <p className="mt-3 text-[12.5px] leading-[1.85] text-lbs-ink/60">
-                          {d.text}
-                        </p>
-                      </div>
-                    </article>
-                  ))}
+                <div className="mt-16 border-t border-lbs-ink/12 pt-10">
+                  <SectionLabel>Destaques do setor</SectionLabel>
+                  <div className="mt-8 grid gap-x-14 gap-y-9 sm:grid-cols-2">
+                    {bancariosDestaques.map((d, i) => (
+                      <article key={d.title} className="flex gap-5">
+                        <span className="mt-1 text-[11px] tabular-nums tracking-[0.16em] text-lbs-magenta">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div>
+                          <h4 className="text-[14.5px] font-normal leading-[1.45] text-lbs-ink">
+                            {d.title}
+                          </h4>
+                          <p className="mt-3 text-[12.5px] leading-[1.85] text-lbs-ink/60">
+                            {d.text}
+                          </p>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-16">
+                  <p className="max-w-[640px] text-[13px] leading-[1.9] text-lbs-ink/60">
+                    Análises, pareceres, pedidos administrativos e ações judiciais referentes aos
+                    seguintes temas:
+                  </p>
+                  <ServiceGroups groups={bancariosServicos} idPrefix="bancarios" />
                 </div>
               </div>
-
-              <div className="mt-16">
-                <p className="max-w-[640px] text-[13px] leading-[1.9] text-lbs-ink/60">
-                  Análises, pareceres, pedidos administrativos e ações judiciais referentes aos
-                  seguintes temas:
-                </p>
-                <ServiceGroups groups={bancariosServicos} idPrefix="bancarios" />
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </section>
+
 
       {/* SÓCIAS E SÓCIOS RESPONSÁVEIS */}
       <section className="w-full bg-[#f7f6f5] py-24 sm:py-28">
