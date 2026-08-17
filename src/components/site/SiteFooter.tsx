@@ -1,6 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { CalendarDays, Facebook, Instagram, Linkedin, MapPin, Music2, Phone, Youtube } from "lucide-react";
 
+import lbsLogo from "@/assets/lbs-logo.png.asset.json";
+
+
 const offices = [
   {
     city: "Brasília",
@@ -45,14 +48,15 @@ export function SiteFooter() {
   return (
     <footer className="w-full bg-lbs-ink pt-14 pb-6">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="flex items-end gap-3">
-          <span className="text-[38px] font-semibold leading-none tracking-[-0.02em] text-white">
-            LBS
-          </span>
-          <span className="pb-1 text-[10px] leading-[1.5] text-white/70">
-            Advogadas
-            <br />e Advogados
-          </span>
+        <div className="flex items-center">
+          <img
+            src={lbsLogo.url}
+            alt="LBS Advogadas e Advogados"
+            width={244}
+            height={53}
+            loading="lazy"
+            className="h-[42px] w-auto"
+          />
         </div>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
