@@ -78,7 +78,7 @@ export function AtuacaoDialog({
           {tab === "solucoes" ? "Encontre a solução ideal" : "Encontre a área de atuação"}
         </h3>
 
-        <ul className="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+        <ul className="mt-8 grid gap-x-16 gap-y-6 sm:grid-cols-2">
           {items.map((item) => (
             <li key={item.title} className="min-w-0 border-b-2 border-lbs-magenta">
               <Link
