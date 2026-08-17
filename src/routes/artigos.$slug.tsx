@@ -73,34 +73,41 @@ function ArtigoPage() {
 
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
-      {/* HERO */}
+      {/* HERO — compacto */}
       <section className="relative isolate w-full overflow-hidden bg-lbs-ink">
         <img
           src={insight.image}
           alt={insight.title}
           width={1920}
-          height={900}
-          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-45"
+          height={720}
+          className="absolute inset-0 -z-10 h-full w-full object-cover opacity-25"
         />
         <div
           className="absolute inset-0 -z-10"
           style={{
             background:
-              "linear-gradient(180deg, rgba(20,20,20,0.85) 0%, rgba(20,20,20,0.55) 45%, rgba(20,20,20,0.92) 100%)",
+              "linear-gradient(180deg, rgba(15,15,15,0.92) 0%, rgba(15,15,15,0.78) 60%, rgba(15,15,15,0.96) 100%)",
           }}
         />
         <SiteHeader active="Artigos e Notícias" />
 
-        <div className="mx-auto w-full max-w-[900px] px-4 pb-16 pt-14 sm:px-6 sm:pb-24 sm:pt-20 lg:px-8">
+        <div className="mx-auto w-full max-w-[1200px] px-4 pb-12 pt-10 sm:px-6 sm:pb-16 sm:pt-14 lg:px-8">
           <Link
             to="/artigos"
-            className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-white/70 transition-colors hover:text-lbs-magenta"
+            className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-white/60 transition-colors hover:text-lbs-magenta"
           >
-            <ArrowLeft className="h-3.5 w-3.5" /> Voltar para Insights
+            <ArrowLeft className="h-3.5 w-3.5" /> Insights
           </Link>
 
-          <div className="mt-7 flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.18em] text-white/70">
-            <span className="bg-lbs-magenta px-2.5 py-1 text-white">{insight.category}</span>
+          <p className="mt-8 text-[11px] font-medium uppercase tracking-[0.22em] text-lbs-magenta">
+            {insight.area}
+          </p>
+          <h1 className="mt-4 max-w-[900px] text-[26px] font-normal leading-[1.22] text-white sm:text-[40px]">
+            {insight.title}
+          </h1>
+
+          <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-[10px] uppercase tracking-[0.18em] text-white/55">
+            <span className="border border-white/20 px-2.5 py-1 text-white/80">{insight.category}</span>
             <span className="flex items-center gap-1.5">
               <CalendarDays className="h-3.5 w-3.5" />
               <time dateTime={isoDate(insight.date)}>{insight.date}</time>
@@ -109,96 +116,93 @@ function ArtigoPage() {
               <Clock className="h-3.5 w-3.5" /> {minutes} min de leitura
             </span>
           </div>
-
-          <h1 className="mt-5 text-[26px] font-normal leading-[1.2] text-white sm:text-[42px]">
-            {insight.title}
-          </h1>
-          <p className="mt-5 max-w-[680px] text-[13px] leading-[1.8] text-white/75 sm:text-[15px]">
-            {insight.excerpt}
-          </p>
-
-          <div className="mt-8 flex items-center gap-3">
-            {author ? (
-              <img
-                src={author.image}
-                alt={author.name}
-                width={96}
-                height={96}
-                className="h-11 w-11 rounded-full object-cover"
-              />
-            ) : (
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white">
-                <User className="h-4 w-4" />
-              </span>
-            )}
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.18em] text-white/50">Autor</p>
-              {author ? (
-                <Link
-                  to="/equipe/$slug"
-                  params={{ slug: author.slug }}
-                  className="text-[13px] text-white transition-colors hover:text-lbs-magenta"
-                >
-                  {author.name}
-                </Link>
-              ) : (
-                <p className="text-[13px] text-white">{insight.lawyer}</p>
-              )}
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* CORPO */}
-      <article className="w-full bg-white py-14 sm:py-20">
-        <div className="mx-auto w-full max-w-[760px] px-4 sm:px-6 lg:px-8">
-          <p className="text-[10px] uppercase tracking-[0.2em] text-lbs-magenta">{insight.area}</p>
-          {body.map((paragraph, i) => (
-            <p
-              key={i}
-              className={`text-[14px] leading-[1.9] text-lbs-ink/75 sm:text-[15px] ${
-                i === 0 ? "mt-6 text-[16px] text-lbs-ink sm:text-[18px]" : "mt-6"
-              }`}
-            >
-              {paragraph}
+      {/* CORPO + SIDEBAR */}
+      <div className="w-full bg-white py-12 sm:py-16">
+        <div className="mx-auto grid w-full max-w-[1200px] gap-12 px-4 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-16 lg:px-8">
+          <article className="min-w-0">
+            <p className="border-l-2 border-lbs-magenta pl-5 text-[15px] leading-[1.8] text-lbs-ink sm:text-[17px]">
+              {insight.excerpt}
             </p>
-          ))}
-
-          {/* AUTOR — bloco final */}
-          <div className="mt-14 flex flex-col gap-5 border-t border-lbs-ink/10 pt-8 sm:flex-row sm:items-center">
-            {author && (
-              <img
-                src={author.image}
-                alt={author.name}
-                width={160}
-                height={160}
-                loading="lazy"
-                className="h-16 w-16 rounded-full object-cover"
-              />
-            )}
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-lbs-ink/45">
-                Escrito por
+            {body.map((paragraph, i) => (
+              <p
+                key={i}
+                className="mt-6 text-[14px] leading-[1.9] text-lbs-ink/75 sm:text-[15px]"
+              >
+                {paragraph}
               </p>
-              <p className="mt-1 text-[16px] text-lbs-ink">{insight.lawyer}</p>
-              {author && (
-                <>
-                  <p className="mt-2 max-w-[520px] text-[12px] leading-[1.75] text-lbs-ink/60">
-                    {author.about}
-                  </p>
+            ))}
+
+            <div className="mt-12 border-t border-lbs-ink/10 pt-6">
+              <Link
+                to="/artigos"
+                className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] text-lbs-magenta transition-opacity hover:opacity-70"
+              >
+                <ArrowLeft className="h-3 w-3" /> Voltar para Insights
+              </Link>
+            </div>
+          </article>
+
+          {/* SIDEBAR */}
+          <aside className="lg:sticky lg:top-8 lg:self-start">
+            <h2 className="text-[22px] font-normal uppercase tracking-[0.04em] text-lbs-magenta sm:text-[26px]">
+              Autores
+            </h2>
+
+            <div className="mt-5 flex items-center gap-4 border border-lbs-ink/10 bg-white p-4 shadow-[0_10px_30px_-22px_rgba(0,0,0,0.45)]">
+              {author ? (
+                <img
+                  src={author.image}
+                  alt={author.name}
+                  width={160}
+                  height={160}
+                  loading="lazy"
+                  className="h-16 w-16 shrink-0 object-cover"
+                />
+              ) : (
+                <span className="flex h-16 w-16 shrink-0 items-center justify-center bg-lbs-ink/5 text-lbs-ink/50">
+                  <User className="h-5 w-5" />
+                </span>
+              )}
+              <div className="min-w-0">
+                {author ? (
                   <Link
                     to="/equipe/$slug"
                     params={{ slug: author.slug }}
-                    className="mt-3 inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-lbs-magenta transition-opacity hover:opacity-70"
+                    className="text-[14px] font-medium text-lbs-ink transition-colors hover:text-lbs-magenta"
                   >
-                    Ver perfil <ArrowRight className="h-3 w-3" />
+                    {author.name}
                   </Link>
-                </>
-              )}
+                ) : (
+                  <p className="text-[14px] font-medium text-lbs-ink">{insight.lawyer}</p>
+                )}
+                <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-lbs-ink/50">
+                  {author?.role ?? "Advogado"}
+                </p>
+              </div>
             </div>
-          </div>
+
+            {author?.about && (
+              <p className="mt-4 text-[12px] leading-[1.8] text-lbs-ink/60">{author.about}</p>
+            )}
+
+            <div className="mt-8 border border-lbs-magenta/35 bg-lbs-magenta/5 p-6">
+              <p className="text-[13px] leading-[1.7] text-lbs-ink/75">
+                Inscreva-se para receber nosso boletim informativo
+              </p>
+              <Link
+                to="/artigos"
+                className="mt-4 inline-flex items-baseline gap-2 text-[20px] font-normal leading-[1.25] text-lbs-magenta transition-opacity hover:opacity-70 sm:text-[24px]"
+              >
+                Assine nossa newsletter <ArrowRight className="h-4 w-4 -rotate-45" />
+              </Link>
+            </div>
+          </aside>
         </div>
-      </article>
+      </div>
+
 
       {/* LEIA TAMBÉM */}
       <section className="w-full bg-[#f5f5f5] py-16 sm:py-20">
