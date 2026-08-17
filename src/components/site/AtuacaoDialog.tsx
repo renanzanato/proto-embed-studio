@@ -11,6 +11,10 @@ const solucoes: { title: string; to: string }[] = [
   { title: "Parceiros estratégicos", to: "/solucoes" },
   { title: "Temas emergentes", to: "/solucoes" },
   { title: "Tribunais Superiores", to: "/solucoes" },
+  {
+    title: "Vínculos com a Administração Pública",
+    to: "/solucoes/vinculos-com-a-administracao-publica",
+  },
 ];
 
 const areas: { title: string; to: string }[] = [
