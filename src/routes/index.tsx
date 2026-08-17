@@ -310,19 +310,19 @@ function Index() {
 }
 
 function SplitBand() {
-  const [hovered, setHovered] = useState<"solucoes" | "atuacao" | null>(null);
+  const [hovered, setHovered] = useState<"solucoes" | "albs" | null>(null);
 
   // diagonal boundary between the two panels (top % leans left, bottom % leans right)
   const leftClip =
     hovered === "solucoes"
       ? "polygon(0 0, 62% 0, 72% 100%, 0 100%)"
-      : hovered === "atuacao"
+      : hovered === "albs"
         ? "polygon(0 0, 24% 0, 34% 100%, 0 100%)"
         : "polygon(0 0, 43% 0, 53% 100%, 0 100%)";
   const rightClip =
     hovered === "solucoes"
       ? "polygon(62% 0, 100% 0, 100% 100%, 72% 100%)"
-      : hovered === "atuacao"
+      : hovered === "albs"
         ? "polygon(24% 0, 100% 0, 100% 100%, 34% 100%)"
         : "polygon(43% 0, 100% 0, 100% 100%, 53% 100%)";
 
@@ -332,11 +332,11 @@ function SplitBand() {
 
   return (
     <section
-      aria-label="Soluções"
+      aria-label="Soluções e A LBS"
       className="relative h-[300px] w-full overflow-hidden sm:h-[420px] lg:h-[480px]"
       onMouseLeave={() => setHovered(null)}
     >
-      {/* right side base image */}
+      {/* right side base image (A LBS) */}
       <img
         src={atuacaoOffice}
         alt="Escritório corporativo em preto e branco"
@@ -344,12 +344,12 @@ function SplitBand() {
         width={1024}
         height={1024}
         className={`absolute inset-0 h-full w-full object-cover grayscale transition-transform duration-[1400ms] ease-out ${
-          hovered === "atuacao" ? "scale-[1.06]" : "scale-100"
+          hovered === "albs" ? "scale-[1.06]" : "scale-100"
         }`}
       />
       <div
         className={`absolute inset-0 transition-colors duration-700 ${
-          hovered === "atuacao"
+          hovered === "albs"
             ? "bg-lbs-ink/30"
             : hovered === "solucoes"
               ? "bg-lbs-ink/70"
@@ -373,7 +373,7 @@ function SplitBand() {
           className={`absolute inset-0 transition-colors duration-700 ${
             hovered === "solucoes"
               ? "bg-lbs-ink/10"
-              : hovered === "atuacao"
+              : hovered === "albs"
                 ? "bg-lbs-ink/60"
                 : "bg-lbs-ink/30"
           }`}
@@ -384,7 +384,7 @@ function SplitBand() {
       <div className="pointer-events-none absolute inset-0">
         <div
           className={`absolute bottom-10 left-[24%] flex flex-col items-center gap-3 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:bottom-14 ${
-            hovered === "atuacao"
+            hovered === "albs"
               ? "-translate-x-1/2 opacity-0"
               : hovered === "solucoes"
                 ? "translate-x-[-25%] opacity-100"
@@ -404,17 +404,50 @@ function SplitBand() {
             Ver mais
           </span>
         </div>
+
+        <div
+          className={`absolute bottom-10 right-[24%] flex flex-col items-center gap-3 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:bottom-14 ${
+            hovered === "solucoes"
+              ? "translate-x-1/2 opacity-0"
+              : hovered === "albs"
+                ? "translate-x-[25%] opacity-100"
+                : "translate-x-1/2 opacity-100"
+          }`}
+        >
+          <h2 className="text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
+            A LBS
+          </h2>
+          <span
+            className={`rounded-[6px] border border-lbs-magenta font-medium transition-all duration-500 ${
+              hovered === "albs"
+                ? "scale-105 bg-lbs-magenta px-7 py-2.5 text-[13px] text-white opacity-100"
+                : "px-5 py-2 text-[11px] text-lbs-magenta opacity-70"
+            }`}
+          >
+            Ver mais
+          </span>
+        </div>
       </div>
 
 
 
-      {/* hit areas — each visible panel is fully clickable */}
+      {/* hit areas — clipped to the exact visible panels */}
       <a
         href="/solucoes"
         aria-label="Conheça nossas soluções"
-        className="absolute inset-0"
+        className={`absolute inset-0 ${clipTransition}`}
+        style={{ clipPath: leftClip }}
         onMouseEnter={() => setHovered("solucoes")}
         onFocus={() => setHovered("solucoes")}
+        onBlur={() => setHovered(null)}
+      />
+      <a
+        href="/a-lbs"
+        aria-label="Conheça a LBS"
+        className={`absolute inset-0 ${clipTransition}`}
+        style={{ clipPath: rightClip }}
+        onMouseEnter={() => setHovered("albs")}
+        onFocus={() => setHovered("albs")}
         onBlur={() => setHovered(null)}
       />
     </section>
