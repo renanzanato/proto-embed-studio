@@ -1,7 +1,9 @@
 import { CalendarDays } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import { useState } from "react";
 
 import lbsLogo from "@/assets/lbs-logo.png.asset.json";
+import { AtuacaoDialog } from "@/components/site/AtuacaoDialog";
 
 const navItems = [
   { label: "Início", to: "/" },
@@ -13,6 +15,13 @@ const navItems = [
 ];
 
 export function SiteHeader({ active }: { active?: string }) {
+  const [atuacaoOpen, setAtuacaoOpen] = useState(false);
+
+  const linkClass = (label: string) =>
+    `text-[13px] transition-colors hover:text-white hover:underline hover:decoration-lbs-magenta hover:underline-offset-[6px] ${
+      active === label ? "text-white" : "text-white/85"
+    }`;
+
   return (
     <header className="relative z-10 flex items-center justify-between gap-4 rounded-[14px] border border-white/25 bg-black/25 px-5 py-3.5 backdrop-blur-md sm:px-7">
       <Link to="/" className="flex items-center">
@@ -26,18 +35,26 @@ export function SiteHeader({ active }: { active?: string }) {
       </Link>
 
       <nav className="hidden items-center gap-6 lg:flex">
-        {navItems.map((item) => (
-          <Link
-            key={item.label}
-            to={item.to}
-            className={`text-[13px] transition-colors hover:text-white hover:underline hover:decoration-lbs-magenta hover:underline-offset-[6px] ${
-              active === item.label ? "text-white" : "text-white/85"
-            }`}
-          >
-            {item.label}
-          </Link>
-        ))}
+        {navItems.map((item) =>
+          item.label === "Atuação" ? (
+            <button
+              key={item.label}
+              type="button"
+              onClick={() => setAtuacaoOpen(true)}
+              className={linkClass(item.label)}
+            >
+              {item.label}
+            </button>
+          ) : (
+            <Link key={item.label} to={item.to} className={linkClass(item.label)}>
+              {item.label}
+            </Link>
+          ),
+        )}
       </nav>
+
+      <AtuacaoDialog open={atuacaoOpen} onOpenChange={setAtuacaoOpen} />
+
 
       <a
         href="/"
