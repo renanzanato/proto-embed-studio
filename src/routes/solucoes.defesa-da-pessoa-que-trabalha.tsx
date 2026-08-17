@@ -12,15 +12,17 @@ import publicoFoto02 from "@/assets/publico-atendido-02.jpg";
 import publicoFoto03 from "@/assets/publico-atendido-03.jpg";
 import publicoFoto04 from "@/assets/publico-atendido-04.jpg";
 import solDefesa from "@/assets/sol-defesa.jpg";
+import serv01 from "@/assets/serv-01.jpg";
+import serv02 from "@/assets/serv-02.jpg";
+import serv03 from "@/assets/serv-03.jpg";
+import serv04 from "@/assets/serv-04.jpg";
+import serv05 from "@/assets/serv-05.jpg";
+import serv06 from "@/assets/serv-06.jpg";
+
+const servImgs = [serv01, serv02, serv03, serv04, serv05, serv06];
 
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { teamMembers } from "@/data/equipe";
 
 const socios = teamMembers.filter((m) => m.role === "Sócio" || m.role === "Sócia");
@@ -455,113 +457,91 @@ function ServiceGroups({
   groups: { title: string; items: string[] }[];
   idPrefix: string;
 }) {
-  const [active, setActive] = useState(0);
-  const atual = groups[active];
+  const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <div className="mt-10">
-      {/* DESKTOP — índice editorial + painel */}
-      <div className="hidden border-t border-lbs-ink/12 lg:grid lg:grid-cols-[34%_66%]">
-        {/* índice */}
-        <div className="lg:pr-12">
-          {groups.map((group, i) => {
-            const on = i === active;
-            return (
+    <div className="mt-10 border-t border-lbs-ink/12">
+      {groups.map((group, i) => {
+        const on = open === i;
+        const panelId = `${idPrefix}-panel-${i}`;
+        const btnId = `${idPrefix}-btn-${i}`;
+        return (
+          <div
+            key={group.title}
+            className="border-b transition-colors duration-300"
+            style={{
+              borderColor: on
+                ? "color-mix(in oklab, var(--lbs-magenta) 55%, transparent)"
+                : "color-mix(in oklab, var(--lbs-ink) 12%, transparent)",
+            }}
+          >
+            <h3>
               <button
-                key={group.title}
+                id={btnId}
                 type="button"
-                onClick={() => setActive(i)}
-                onMouseEnter={() => setActive(i)}
-                onFocus={() => setActive(i)}
-                aria-current={on}
-                className="group relative flex w-full items-baseline gap-5 border-b border-lbs-ink/12 py-6 text-left outline-none focus-visible:ring-1 focus-visible:ring-lbs-magenta"
+                aria-expanded={on}
+                aria-controls={panelId}
+                onClick={() => setOpen((p) => (p === i ? null : i))}
+                className="flex w-full items-start gap-6 py-7 text-left outline-none transition-colors duration-300 focus-visible:ring-1 focus-visible:ring-lbs-magenta sm:py-9"
+                style={{ color: on ? "var(--lbs-magenta)" : "var(--lbs-ink)" }}
               >
-                <span
-                  aria-hidden="true"
-                  className="absolute left-0 top-0 h-full w-[2px] bg-lbs-magenta transition-transform duration-200 ease-out"
-                  style={{ transform: on ? "scaleY(1)" : "scaleY(0)", transformOrigin: "top" }}
-                />
-                <span
-                  className="w-6 shrink-0 pl-4 text-[11px] tabular-nums tracking-[0.16em] transition-colors duration-200"
-                  style={{
-                    color: on
-                      ? "var(--lbs-magenta)"
-                      : "color-mix(in oklab, var(--lbs-magenta) 30%, transparent)",
-                  }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span
-                  className="text-[14.5px] font-normal leading-[1.45] transition-colors duration-200"
-                  style={{ color: on ? "var(--lbs-magenta)" : "rgba(26,26,26,0.78)" }}
-                >
+                <span className="flex-1 pr-4 text-[20px] font-light leading-[1.25] tracking-tight sm:text-[26px] lg:text-[30px]">
                   {group.title}
                 </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* painel de conteúdo */}
-        <div className="min-h-[460px] border-l border-lbs-ink/12 lg:pl-14">
-          <div key={atual.title} className="pt-6 [animation:fadeUp_220ms_ease_both]">
-            <h3 className="text-[11px] uppercase tracking-[0.2em] text-lbs-magenta">
-              {atual.title}
-            </h3>
-            <div className="mt-5 h-px w-full bg-lbs-ink/12" />
-            <ul className="mt-8 grid gap-x-14 gap-y-5 sm:grid-cols-2">
-              {atual.items.map((item) => (
-                <li
-                  key={item}
-                  className="max-w-[46ch] text-[12.5px] leading-[1.9] text-lbs-ink/65"
+                <span
+                  aria-hidden="true"
+                  className="relative mt-2 h-[22px] w-[22px] shrink-0 transition-transform duration-[380ms] ease-out sm:h-[26px] sm:w-[26px]"
+                  style={{ transform: on ? "rotate(45deg)" : "rotate(0deg)" }}
                 >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* MOBILE — accordion editorial */}
-      <Accordion
-        type="single"
-        collapsible
-        className="border-t border-lbs-ink/12 lg:hidden"
-      >
-        {groups.map((group, i) => (
-          <AccordionItem
-            key={group.title}
-            value={`${idPrefix}-${i}`}
-            className="border-b border-lbs-ink/12"
-          >
-            <AccordionTrigger className="group gap-6 px-1 py-5 text-left text-[14.5px] font-normal leading-[1.4] text-lbs-ink hover:no-underline data-[state=open]:text-lbs-magenta [&>svg]:hidden">
-              <span className="flex items-baseline gap-4">
-                <span className="w-6 shrink-0 text-[11px] tabular-nums tracking-[0.16em] text-lbs-ink/30 group-data-[state=open]:text-lbs-magenta">
-                  {String(i + 1).padStart(2, "0")}
+                  <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current" />
+                  <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-current" />
                 </span>
-                <span>{group.title}</span>
-              </span>
-              <span className="relative ml-auto h-[13px] w-[13px] shrink-0">
-                <span className="absolute left-0 top-1/2 h-px w-full -translate-y-1/2 bg-current" />
-                <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-current transition-transform duration-300 group-data-[state=open]:scale-y-0" />
-              </span>
-            </AccordionTrigger>
-            <AccordionContent className="px-1 pb-8">
-              <ul className="grid gap-y-4 pl-10">
-                {group.items.map((item) => (
-                  <li key={item} className="text-[12.5px] leading-[1.85] text-lbs-ink/65">
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </AccordionContent>
-          </AccordionItem>
-        ))}
-      </Accordion>
+              </button>
+            </h3>
+
+            <div
+              id={panelId}
+              role="region"
+              aria-labelledby={btnId}
+              hidden={!on}
+              className="pb-10"
+            >
+              {on && (
+                <div className="[animation:fadeUp_360ms_ease_both]">
+                  <ul className="grid gap-x-16 gap-y-5 sm:grid-cols-2">
+                    {group.items.map((item) => (
+                      <li
+                        key={item}
+                        className="max-w-[46ch] text-[13px] leading-[1.9] text-lbs-ink/65"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <figure className="mt-10 overflow-hidden bg-lbs-ink/5">
+                    <img
+                      src={servImgs[i % servImgs.length]}
+                      alt=""
+                      loading="lazy"
+                      width={1280}
+                      height={860}
+                      className="h-[180px] w-full object-cover grayscale contrast-[1.05] sm:h-[240px]"
+                      style={{
+                        clipPath:
+                          "polygon(0 0, 100% 0, 100% 100%, 72px 100%, 0 calc(100% - 72px))",
+                      }}
+                    />
+                  </figure>
+                </div>
+              )}
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
+
 
 function CaseTile({
   index,
@@ -801,106 +781,110 @@ function DefesaPage() {
 
       {/* SERVIÇOS — com módulo especializado em abas */}
       <section className="w-full bg-white py-24 sm:py-32">
-        <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <SectionLabel>Serviços</SectionLabel>
-          <h2 className="mt-5 max-w-[700px] text-[28px] font-light leading-[1.2] tracking-tight text-lbs-ink sm:text-[36px]">
-            Análises, pareceres, pedidos administrativos e ações judiciais
-          </h2>
-          <p className="mt-6 max-w-[560px] text-[13px] leading-[1.9] text-lbs-ink/55">
-            Escolha o contexto de atendimento para ver os temas correspondentes.
-          </p>
-
-          {/* Segmentação de contexto */}
-          <div
-            role="tablist"
-            aria-label="Contexto de atendimento"
-            className="mt-10 flex flex-wrap gap-0 border-b border-lbs-ink/12"
-          >
-            {(
-              [
-                { id: "pessoas", label: "Pessoas que trabalham" },
-                { id: "bancarios", label: "Bancárias, bancários e ramo financeiro" },
-              ] as const
-            ).map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                role="tab"
-                aria-selected={contexto === tab.id}
-                onClick={() => setContexto(tab.id)}
-                className={`-mb-px border-b-2 px-1 pb-4 pr-8 text-left text-[13px] transition-colors ${
-                  contexto === tab.id
-                    ? "border-lbs-magenta text-lbs-ink"
-                    : "border-transparent text-lbs-ink/40 hover:text-lbs-ink/70"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+        <div className="mx-auto grid w-full max-w-[1200px] gap-12 px-4 sm:px-6 lg:grid-cols-[30%_70%] lg:gap-20 lg:px-8">
+          {/* COLUNA ESQUERDA — introdução editorial */}
+          <div className="lg:sticky lg:top-20 lg:self-start">
+            <SectionLabel>Serviços</SectionLabel>
+            <h2 className="mt-6 max-w-[320px] text-[28px] font-light leading-[1.18] tracking-tight text-lbs-ink sm:text-[34px]">
+              Análises, pareceres, pedidos administrativos e ações judiciais
+            </h2>
+            <div className="mt-8 h-[2px] w-12 bg-lbs-magenta" />
+            <p className="mt-8 max-w-[300px] text-[13px] leading-[1.95] text-lbs-ink/55">
+              Escolha o contexto de atendimento para ver os temas correspondentes.
+            </p>
           </div>
 
-          {contexto === "pessoas" ? (
-            <div role="tabpanel">
-              <p className="mt-10 max-w-[700px] text-[14px] leading-[1.9] text-lbs-ink/65">
-                Pessoas que trabalham – vínculo celetista, contratos como pessoa jurídica e
-                pessoa física.
-              </p>
-              <ServiceGroups groups={servicosPessoas} idPrefix="pessoas" />
+          {/* COLUNA DIREITA — contextos + accordion */}
+          <div>
+            <div
+              role="tablist"
+              aria-label="Contexto de atendimento"
+              className="flex flex-wrap gap-0 border-b border-lbs-ink/12"
+            >
+              {(
+                [
+                  { id: "pessoas", label: "Pessoas que trabalham" },
+                  { id: "bancarios", label: "Bancárias, bancários e ramo financeiro" },
+                ] as const
+              ).map((tab) => (
+                <button
+                  key={tab.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={contexto === tab.id}
+                  onClick={() => setContexto(tab.id)}
+                  className={`-mb-px border-b-2 px-1 pb-4 pr-8 text-left text-[13px] transition-colors ${
+                    contexto === tab.id
+                      ? "border-lbs-magenta text-lbs-magenta"
+                      : "border-transparent text-lbs-ink/40 hover:text-lbs-ink/70"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
             </div>
-          ) : (
-            <div role="tabpanel">
-              {/* módulo especializado: diagramação distinta */}
-              <div className="mt-10 grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-                <div>
+
+            {contexto === "pessoas" ? (
+              <div role="tabpanel">
+                <p className="mt-10 max-w-[640px] text-[14px] leading-[1.9] text-lbs-ink/65">
+                  Pessoas que trabalham – vínculo celetista, contratos como pessoa jurídica e
+                  pessoa física.
+                </p>
+                <ServiceGroups groups={servicosPessoas} idPrefix="pessoas" />
+              </div>
+            ) : (
+              <div role="tabpanel">
+                <div className="mt-10">
                   <span className="text-[11px] uppercase tracking-[0.2em] text-lbs-ink/40">
                     Módulo especializado
                   </span>
-                  <h3 className="mt-4 text-[24px] font-light leading-[1.2] text-lbs-ink sm:text-[30px]">
+                  <h3 className="mt-4 max-w-[520px] text-[24px] font-light leading-[1.2] text-lbs-ink sm:text-[30px]">
                     Bancárias, bancários e ramo financeiro
                   </h3>
                   <div className="mt-6 h-[2px] w-12 bg-lbs-magenta" />
+                  <div className="mt-8 max-w-[640px] space-y-8">
+                    {bancariosDiferenciais.map((p) => (
+                      <p key={p} className="text-[13.5px] leading-[2] text-lbs-ink/65">
+                        {p}
+                      </p>
+                    ))}
+                  </div>
                 </div>
-                <div className="max-w-[620px] space-y-8">
-                  {bancariosDiferenciais.map((p) => (
-                    <p key={p} className="text-[13.5px] leading-[2] text-lbs-ink/65">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              </div>
 
-              <div className="mt-16 border-t border-lbs-ink/12 pt-10">
-                <SectionLabel>Destaques do setor</SectionLabel>
-                <div className="mt-8 grid gap-x-14 gap-y-9 sm:grid-cols-2">
-                  {bancariosDestaques.map((d, i) => (
-                    <article key={d.title} className="flex gap-5">
-                      <span className="mt-1 text-[11px] tabular-nums tracking-[0.16em] text-lbs-magenta">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div>
-                        <h4 className="text-[14.5px] font-normal leading-[1.45] text-lbs-ink">
-                          {d.title}
-                        </h4>
-                        <p className="mt-3 text-[12.5px] leading-[1.85] text-lbs-ink/60">
-                          {d.text}
-                        </p>
-                      </div>
-                    </article>
-                  ))}
+                <div className="mt-16 border-t border-lbs-ink/12 pt-10">
+                  <SectionLabel>Destaques do setor</SectionLabel>
+                  <div className="mt-8 grid gap-x-14 gap-y-9 sm:grid-cols-2">
+                    {bancariosDestaques.map((d, i) => (
+                      <article key={d.title} className="flex gap-5">
+                        <span className="mt-1 text-[11px] tabular-nums tracking-[0.16em] text-lbs-magenta">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                        <div>
+                          <h4 className="text-[14.5px] font-normal leading-[1.45] text-lbs-ink">
+                            {d.title}
+                          </h4>
+                          <p className="mt-3 text-[12.5px] leading-[1.85] text-lbs-ink/60">
+                            {d.text}
+                          </p>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-16">
+                  <p className="max-w-[640px] text-[13px] leading-[1.9] text-lbs-ink/60">
+                    Análises, pareceres, pedidos administrativos e ações judiciais referentes aos
+                    seguintes temas:
+                  </p>
+                  <ServiceGroups groups={bancariosServicos} idPrefix="bancarios" />
                 </div>
               </div>
-
-              <div className="mt-16">
-                <p className="max-w-[640px] text-[13px] leading-[1.9] text-lbs-ink/60">
-                  Análises, pareceres, pedidos administrativos e ações judiciais referentes aos
-                  seguintes temas:
-                </p>
-                <ServiceGroups groups={bancariosServicos} idPrefix="bancarios" />
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </section>
+
 
       {/* SÓCIAS E SÓCIOS RESPONSÁVEIS */}
       <section className="w-full bg-[#f7f6f5] py-24 sm:py-28">
