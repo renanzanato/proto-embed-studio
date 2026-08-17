@@ -445,51 +445,60 @@ function SplitBand() {
       {/* labels */}
       <div className="pointer-events-none absolute inset-0">
         <div
-          className={`absolute bottom-10 left-[24%] flex -translate-x-1/2 flex-col items-center gap-3 transition-all duration-500 sm:bottom-14 ${
-            hovered === "atuacao" ? "opacity-0" : "opacity-100"
+          className={`absolute bottom-10 left-[24%] flex flex-col items-center gap-3 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:bottom-14 ${
+            hovered === "atuacao"
+              ? "-translate-x-1/2 opacity-0"
+              : hovered === "solucoes"
+                ? "translate-x-[-25%] opacity-100"
+                : "-translate-x-1/2 opacity-100"
           }`}
         >
           <h2 className="flex items-center gap-3 text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
             Soluções
             <ArrowRight
               className={`h-5 w-5 text-lbs-magenta transition-all duration-500 ${
-                hovered === "solucoes" ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0"
+                hovered === "solucoes" ? "translate-x-2 opacity-0" : "translate-x-0 opacity-100"
               }`}
             />
           </h2>
           <span
-            className={`rounded-[6px] border border-lbs-magenta px-5 py-2 text-[11px] font-medium text-lbs-magenta transition-all duration-500 ${
+            className={`rounded-[6px] border border-lbs-magenta font-medium transition-all duration-500 ${
               hovered === "solucoes"
-                ? "translate-y-0 opacity-100"
-                : "translate-y-2 opacity-0"
+                ? "scale-105 bg-lbs-magenta px-7 py-2.5 text-[13px] text-white opacity-100"
+                : "px-5 py-2 text-[11px] text-lbs-magenta opacity-70"
             }`}
           >
             Ver mais
           </span>
         </div>
         <div
-          className={`absolute bottom-10 left-[74%] flex -translate-x-1/2 flex-col items-center gap-3 transition-all duration-500 sm:bottom-14 ${
-            hovered === "solucoes" ? "opacity-0" : "opacity-100"
+          className={`absolute bottom-10 left-[74%] flex flex-col items-center gap-3 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:bottom-14 ${
+            hovered === "solucoes"
+              ? "-translate-x-1/2 opacity-0"
+              : hovered === "atuacao"
+                ? "translate-x-[-75%] opacity-100"
+                : "-translate-x-1/2 opacity-100"
           }`}
         >
           <h2 className="flex items-center gap-3 text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
             Áreas de Atuação
             <ArrowRight
               className={`h-5 w-5 text-lbs-magenta transition-all duration-500 ${
-                hovered === "atuacao" ? "translate-x-0 opacity-100" : "-translate-x-2 opacity-0"
+                hovered === "atuacao" ? "translate-x-2 opacity-0" : "translate-x-0 opacity-100"
               }`}
             />
           </h2>
           <span
-            className={`rounded-[6px] border border-lbs-magenta px-5 py-2 text-[11px] font-medium text-lbs-magenta transition-all duration-500 ${
+            className={`rounded-[6px] border border-lbs-magenta font-medium transition-all duration-500 ${
               hovered === "atuacao"
-                ? "translate-y-0 opacity-100"
-                : "translate-y-2 opacity-0"
+                ? "scale-105 bg-lbs-magenta px-7 py-2.5 text-[13px] text-white opacity-100"
+                : "px-5 py-2 text-[11px] text-lbs-magenta opacity-70"
             }`}
           >
             Ver mais
           </span>
         </div>
+
       </div>
 
       {/* hit areas — each visible panel is fully clickable */}
