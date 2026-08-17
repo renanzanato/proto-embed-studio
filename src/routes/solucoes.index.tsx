@@ -99,7 +99,7 @@ function SolucoesPage() {
 
         <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 pt-5 sm:px-6 sm:pb-20 lg:px-8">
           <div className="rounded-[14px] bg-black/45">
-            <SiteHeader active="Atuação" />
+            <SiteHeader active="Soluções" />
           </div>
 
           <div className="relative z-10 mt-16 max-w-[760px] sm:mt-20">

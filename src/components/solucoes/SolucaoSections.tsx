@@ -66,7 +66,7 @@ export function SolucaoHero({
       </div>
 
       <div className="mx-auto w-full max-w-[1200px] px-4 pb-20 pt-5 sm:px-6 sm:pb-24 lg:px-8">
-        <SiteHeader active="Atuação" />
+        <SiteHeader active="Soluções" />
 
         <div className="relative z-10 mt-16 max-w-[780px] sm:mt-20">
           <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta-soft">Soluções</p>
