@@ -147,38 +147,24 @@ const estataisDiferenciais = [
 
 const estataisServicos: Group[] = [
   {
-    title: "Vínculo, concurso e carreira",
+    title: "Serviços",
     items: [
       "Nulidade da dispensa sem motivação e reintegração de empregados concursados de estatais (tese do RE 688.267)",
       "Concurso público para emprego público: nomeação, preterição e defesa da contratação",
       "Isonomia, equiparação salarial, desvio de função e enquadramento em plano de cargos e salários (PCS)",
       "Promoções e progressões previstas em norma interna; defesa da manutenção de direitos após revogação de norma interna",
       "Incorporação de gratificações por descomissionamento e de anuênios",
-    ],
-  },
-  {
-    title: "Reestruturações e desligamento",
-    items: [
       "Análise de planos de demissão voluntária (PDV) e de reestruturações antes da adesão",
       "Estabilidades e reintegração: desligamento com o trabalhador doente, pré-aposentadoria e demais hipóteses",
-      "Defesa em processos administrativos e de apuração disciplinar internos",
-    ],
-  },
-  {
-    title: "Saúde, dignidade e benefícios",
-    items: [
       "Danos morais por metas abusivas, assédio moral, sexual e eleitoral; adoecimento decorrente do trabalho e limbo previdenciário",
       "Planos de saúde de autogestão das estatais: cobertura, negativas indevidas e alterações de custeio",
-    ],
-  },
-  {
-    title: "Previdência complementar e verbas do contrato",
-    items: [
       "Previdência complementar dos fundos de estatais (FUNCEF, PREVI, PETROS, POSTALIS, FUNPRESP, entre outros): revisões, verbas não incluídas no cálculo e questionamento de contribuições extraordinárias de equacionamento",
+      "Defesa em processos administrativos e de apuração disciplinar internos",
       "Horas extras, substituição eventual e demais verbas do contrato",
     ],
   },
 ];
+
 
 const intermediariosDiferenciais = [
   "Entre o servidor estatutário e o empregado celetista, existe zona intermediária onde trabalham milhões de pessoas: contratados temporários, bolsistas de instituições públicas de pesquisa e ensino, terceirizados que prestam serviço à administração. É a zona em que a proteção ao trabalho é mais frágil, os enquadramentos jurídicos são menos evidentes e o conhecimento técnico faz mais diferença.",
