@@ -453,13 +453,8 @@ function SplitBand() {
                 : "-translate-x-1/2 opacity-100"
           }`}
         >
-          <h2 className="flex items-center gap-3 text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
+          <h2 className="text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
             Soluções
-            <ArrowRight
-              className={`h-5 w-5 text-lbs-magenta transition-all duration-500 ${
-                hovered === "solucoes" ? "translate-x-2 opacity-0" : "translate-x-0 opacity-100"
-              }`}
-            />
           </h2>
           <span
             className={`rounded-[6px] border border-lbs-magenta font-medium transition-all duration-500 ${
@@ -480,13 +475,8 @@ function SplitBand() {
                 : "-translate-x-1/2 opacity-100"
           }`}
         >
-          <h2 className="flex items-center gap-3 text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
+          <h2 className="text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
             Áreas de Atuação
-            <ArrowRight
-              className={`h-5 w-5 text-lbs-magenta transition-all duration-500 ${
-                hovered === "atuacao" ? "translate-x-2 opacity-0" : "translate-x-0 opacity-100"
-              }`}
-            />
           </h2>
           <span
             className={`rounded-[6px] border border-lbs-magenta font-medium transition-all duration-500 ${
