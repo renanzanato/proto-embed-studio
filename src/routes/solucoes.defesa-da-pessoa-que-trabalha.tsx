@@ -224,12 +224,18 @@ const bancariosServicos: { title: string; items: string[] }[] = [
   },
   {
     title: "Demissão e defesa",
-    items: [
-      "Reintegração e nulidade da dispensa por justa causa",
-      "Defesa em processos administrativos",
-      "Defesa em processos de cobrança contra trabalhadores; análise de responsabilidade contratual",
-    ],
+    items: ["Reintegração e nulidade da dispensa por justa causa"],
   },
+  {
+    title: "Defesa em processos administrativos",
+    items: [],
+  },
+  {
+    title:
+      "Defesa em processos de cobrança contra trabalhadores; análise de responsabilidade contratual",
+    items: [],
+  },
+
   {
     title: "Previdência e tributação",
     items: [
