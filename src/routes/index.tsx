@@ -10,7 +10,7 @@ const atuacaoOffice = splitRightAsset.url;
 import teamLoguercio from "@/assets/team-loguercio.jpg.asset.json";
 import teamNilo from "@/assets/team-nilo.jpg.asset.json";
 import teamEduardo from "@/assets/team-eduardo.jpg.asset.json";
-import newsHeroAsset from "@/assets/news-hero-cit.png.asset.json";
+import newsHeroAsset from "@/assets/news-hero-cit.jpg.asset.json";
 const newsHero = newsHeroAsset.url;
 import news1Asset from "@/assets/imagem-homepage-artigos-noticias-2-lbs-3.png.asset.json";
 const news1 = news1Asset.url;
