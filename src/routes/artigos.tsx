@@ -292,30 +292,30 @@ function FiltrosEListagem() {
                 </div>
               </article>
 
-              {/* CARDS MENORES EM LISTA */}
-              <ul className="mt-5 flex flex-col gap-4">
+              {/* CARDS EM BLOCOS DE TRÊS COLUNAS */}
+              <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {rest.map((item) => (
-                  <li key={item.slug}>
-                    <article className="grid gap-5 border border-lbs-ink/10 bg-white p-4 sm:grid-cols-[220px_1fr] sm:gap-7 sm:p-5">
+                  <li key={item.slug} className="flex">
+                    <article className="flex flex-1 flex-col border border-lbs-ink/10 bg-white">
                       <img
                         src={item.image}
                         alt={item.title}
                         loading="lazy"
                         width={440}
                         height={280}
-                        className="h-[150px] w-full object-cover sm:h-full"
+                        className="aspect-[16/10] w-full object-cover"
                       />
-                      <div className="flex flex-col justify-center">
+                      <div className="flex flex-1 flex-col p-5">
                         <Meta category={item.category} date={item.date} />
-                        <h4 className="mt-4 text-[15px] font-medium leading-[1.4] text-lbs-ink sm:text-[17px]">
+                        <h4 className="mt-4 text-[15px] font-medium leading-[1.4] text-lbs-ink sm:text-[16px]">
                           {item.title}
                         </h4>
-                        <p className="mt-2.5 max-w-[640px] text-[11px] leading-[1.7] text-lbs-ink/60">
+                        <p className="mt-2.5 text-[11px] leading-[1.7] text-lbs-ink/60">
                           {item.excerpt}
                         </p>
                         <a
                           href="/artigos"
-                          className="mt-4 inline-flex w-fit items-center gap-2 text-[10px] uppercase tracking-[0.16em] text-lbs-magenta transition-opacity hover:opacity-70"
+                          className="mt-auto inline-flex w-fit items-center gap-2 pt-5 text-[10px] uppercase tracking-[0.16em] text-lbs-magenta transition-opacity hover:opacity-70"
                         >
                           Leia mais <ArrowRight className="h-3 w-3" />
                         </a>
@@ -324,6 +324,7 @@ function FiltrosEListagem() {
                   </li>
                 ))}
               </ul>
+
 
               {totalPages > 1 && (
                 <div className="mt-10 flex items-center justify-center gap-2">
