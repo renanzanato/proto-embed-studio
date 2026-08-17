@@ -10,11 +10,11 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ArtigosRouteImport } from './routes/artigos'
 import { Route as LinhaDoTempoAbRouteImport } from './routes/linha-do-tempo-ab'
 import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
 import { Route as ALbsIndexRouteImport } from './routes/a-lbs.index'
 import { Route as ALbsHistoriaRouteImport } from './routes/a-lbs.historia'
+import { Route as ArtigosIndexRouteImport } from './routes/artigos.index'
 import { Route as ArtigosSlugRouteImport } from './routes/artigos.$slug'
 import { Route as AtuacaoIndexRouteImport } from './routes/atuacao.index'
 import { Route as AtuacaoSplatRouteImport } from './routes/atuacao.$'
@@ -32,11 +32,6 @@ import { Route as SolucoesVinculosComAAdministracaoPublicaRouteImport } from './
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ArtigosRoute = ArtigosRouteImport.update({
-  id: '/artigos',
-  path: '/artigos',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LinhaDoTempoAbRoute = LinhaDoTempoAbRouteImport.update({
@@ -59,10 +54,15 @@ const ALbsHistoriaRoute = ALbsHistoriaRouteImport.update({
   path: '/a-lbs/historia',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ArtigosIndexRoute = ArtigosIndexRouteImport.update({
+  id: '/artigos/',
+  path: '/artigos/',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ArtigosSlugRoute = ArtigosSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => ArtigosRoute,
+  id: '/artigos/$slug',
+  path: '/artigos/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const AtuacaoIndexRoute = AtuacaoIndexRouteImport.update({
   id: '/atuacao/',
@@ -133,7 +133,6 @@ const SolucoesVinculosComAAdministracaoPublicaRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/artigos': typeof ArtigosRouteWithChildren
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
@@ -148,13 +147,13 @@ export interface FileRoutesByFullPath {
   '/solucoes/tribunais-superiores': typeof SolucoesTribunaisSuperioresRoute
   '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
   '/a-lbs/': typeof ALbsIndexRoute
+  '/artigos/': typeof ArtigosIndexRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/artigos': typeof ArtigosRouteWithChildren
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
@@ -169,6 +168,7 @@ export interface FileRoutesByTo {
   '/solucoes/tribunais-superiores': typeof SolucoesTribunaisSuperioresRoute
   '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
   '/a-lbs': typeof ALbsIndexRoute
+  '/artigos': typeof ArtigosIndexRoute
   '/atuacao': typeof AtuacaoIndexRoute
   '/equipe': typeof EquipeIndexRoute
   '/solucoes': typeof SolucoesIndexRoute
@@ -176,7 +176,6 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/artigos': typeof ArtigosRouteWithChildren
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
@@ -191,6 +190,7 @@ export interface FileRoutesById {
   '/solucoes/tribunais-superiores': typeof SolucoesTribunaisSuperioresRoute
   '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
   '/a-lbs/': typeof ALbsIndexRoute
+  '/artigos/': typeof ArtigosIndexRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
@@ -199,7 +199,6 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/artigos'
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
@@ -214,13 +213,13 @@ export interface FileRouteTypes {
     | '/solucoes/tribunais-superiores'
     | '/solucoes/vinculos-com-a-administracao-publica'
     | '/a-lbs/'
+    | '/artigos/'
     | '/atuacao/'
     | '/equipe/'
     | '/solucoes/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/artigos'
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
@@ -235,13 +234,13 @@ export interface FileRouteTypes {
     | '/solucoes/tribunais-superiores'
     | '/solucoes/vinculos-com-a-administracao-publica'
     | '/a-lbs'
+    | '/artigos'
     | '/atuacao'
     | '/equipe'
     | '/solucoes'
   id:
     | '__root__'
     | '/'
-    | '/artigos'
     | '/linha-do-tempo-ab'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
@@ -256,6 +255,7 @@ export interface FileRouteTypes {
     | '/solucoes/tribunais-superiores'
     | '/solucoes/vinculos-com-a-administracao-publica'
     | '/a-lbs/'
+    | '/artigos/'
     | '/atuacao/'
     | '/equipe/'
     | '/solucoes/'
@@ -263,10 +263,10 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ArtigosRoute: typeof ArtigosRouteWithChildren
   LinhaDoTempoAbRoute: typeof LinhaDoTempoAbRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
   ALbsHistoriaRoute: typeof ALbsHistoriaRoute
+  ArtigosSlugRoute: typeof ArtigosSlugRoute
   AtuacaoSplatRoute: typeof AtuacaoSplatRoute
   EquipeSlugRoute: typeof EquipeSlugRoute
   SolucoesDefesaDaPessoaQueTrabalhaRoute: typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
@@ -277,6 +277,7 @@ export interface RootRouteChildren {
   SolucoesTribunaisSuperioresRoute: typeof SolucoesTribunaisSuperioresRoute
   SolucoesVinculosComAAdministracaoPublicaRoute: typeof SolucoesVinculosComAAdministracaoPublicaRoute
   ALbsIndexRoute: typeof ALbsIndexRoute
+  ArtigosIndexRoute: typeof ArtigosIndexRoute
   AtuacaoIndexRoute: typeof AtuacaoIndexRoute
   EquipeIndexRoute: typeof EquipeIndexRoute
   SolucoesIndexRoute: typeof SolucoesIndexRoute
@@ -289,13 +290,6 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/artigos': {
-      id: '/artigos'
-      path: '/artigos'
-      fullPath: '/artigos'
-      preLoaderRoute: typeof ArtigosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/linha-do-tempo-ab': {
@@ -326,12 +320,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ALbsHistoriaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/artigos/': {
+      id: '/artigos/'
+      path: '/artigos'
+      fullPath: '/artigos/'
+      preLoaderRoute: typeof ArtigosIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/artigos/$slug': {
       id: '/artigos/$slug'
-      path: '/$slug'
+      path: '/artigos/$slug'
       fullPath: '/artigos/$slug'
       preLoaderRoute: typeof ArtigosSlugRouteImport
-      parentRoute: typeof ArtigosRoute
+      parentRoute: typeof rootRouteImport
     }
     '/atuacao/': {
       id: '/atuacao/'
@@ -420,23 +421,12 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface ArtigosRouteChildren {
-  ArtigosSlugRoute: typeof ArtigosSlugRoute
-}
-
-const ArtigosRouteChildren: ArtigosRouteChildren = {
-  ArtigosSlugRoute: ArtigosSlugRoute,
-}
-
-const ArtigosRouteWithChildren =
-  ArtigosRoute._addFileChildren(ArtigosRouteChildren)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ArtigosRoute: ArtigosRouteWithChildren,
   LinhaDoTempoAbRoute: LinhaDoTempoAbRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
   ALbsHistoriaRoute: ALbsHistoriaRoute,
+  ArtigosSlugRoute: ArtigosSlugRoute,
   AtuacaoSplatRoute: AtuacaoSplatRoute,
   EquipeSlugRoute: EquipeSlugRoute,
   SolucoesDefesaDaPessoaQueTrabalhaRoute:
@@ -449,6 +439,7 @@ const rootRouteChildren: RootRouteChildren = {
   SolucoesVinculosComAAdministracaoPublicaRoute:
     SolucoesVinculosComAAdministracaoPublicaRoute,
   ALbsIndexRoute: ALbsIndexRoute,
+  ArtigosIndexRoute: ArtigosIndexRoute,
   AtuacaoIndexRoute: AtuacaoIndexRoute,
   EquipeIndexRoute: EquipeIndexRoute,
   SolucoesIndexRoute: SolucoesIndexRoute,
