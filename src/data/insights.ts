@@ -105,7 +105,7 @@ export const insights: Insight[] = [
   },
   {
     slug: "teletrabalho-controle-jornada",
-    category: "Notícia",
+    category: "Vídeo",
     lawyer: "Daniela Muradas",
     area: "Temas emergentes",
     date: "30/05/2025",
