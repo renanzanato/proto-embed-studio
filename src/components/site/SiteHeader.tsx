@@ -31,9 +31,7 @@ export function SiteHeader({ active }: { active?: string }) {
             key={item.label}
             to={item.to}
             className={`text-[13px] transition-colors hover:text-white hover:underline hover:decoration-lbs-magenta hover:underline-offset-[6px] ${
-              active === item.label
-                ? "text-white underline underline-offset-[6px]"
-                : "text-white/85"
+              active === item.label ? "text-white" : "text-white/85"
             }`}
           >
             {item.label}
