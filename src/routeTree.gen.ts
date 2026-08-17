@@ -19,6 +19,7 @@ import { Route as AtuacaoDireitoTrabalhistaRouteImport } from './routes/atuacao.
 import { Route as EquipeIndexRouteImport } from './routes/equipe.index'
 import { Route as EquipeSlugRouteImport } from './routes/equipe.$slug'
 import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
+import { Route as SolucoesDefesaDaPessoaQueTrabalhaRouteImport } from './routes/solucoes.defesa-da-pessoa-que-trabalha'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -71,6 +72,12 @@ const SolucoesIndexRoute = SolucoesIndexRouteImport.update({
   path: '/solucoes/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolucoesDefesaDaPessoaQueTrabalhaRoute =
+  SolucoesDefesaDaPessoaQueTrabalhaRouteImport.update({
+    id: '/solucoes/defesa-da-pessoa-que-trabalha',
+    path: '/solucoes/defesa-da-pessoa-que-trabalha',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/equipe/$slug': typeof EquipeSlugRoute
+  '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
   '/a-lbs/': typeof ALbsIndexRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
@@ -91,6 +99,7 @@ export interface FileRoutesByTo {
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/equipe/$slug': typeof EquipeSlugRoute
+  '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
   '/a-lbs': typeof ALbsIndexRoute
   '/atuacao': typeof AtuacaoIndexRoute
   '/equipe': typeof EquipeIndexRoute
@@ -104,6 +113,7 @@ export interface FileRoutesById {
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/atuacao/direito-trabalhista': typeof AtuacaoDireitoTrabalhistaRoute
   '/equipe/$slug': typeof EquipeSlugRoute
+  '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
   '/a-lbs/': typeof ALbsIndexRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/a-lbs/historia'
     | '/atuacao/direito-trabalhista'
     | '/equipe/$slug'
+    | '/solucoes/defesa-da-pessoa-que-trabalha'
     | '/a-lbs/'
     | '/atuacao/'
     | '/equipe/'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/a-lbs/historia'
     | '/atuacao/direito-trabalhista'
     | '/equipe/$slug'
+    | '/solucoes/defesa-da-pessoa-que-trabalha'
     | '/a-lbs'
     | '/atuacao'
     | '/equipe'
@@ -142,6 +154,7 @@ export interface FileRouteTypes {
     | '/a-lbs/historia'
     | '/atuacao/direito-trabalhista'
     | '/equipe/$slug'
+    | '/solucoes/defesa-da-pessoa-que-trabalha'
     | '/a-lbs/'
     | '/atuacao/'
     | '/equipe/'
@@ -155,6 +168,7 @@ export interface RootRouteChildren {
   ALbsHistoriaRoute: typeof ALbsHistoriaRoute
   AtuacaoDireitoTrabalhistaRoute: typeof AtuacaoDireitoTrabalhistaRoute
   EquipeSlugRoute: typeof EquipeSlugRoute
+  SolucoesDefesaDaPessoaQueTrabalhaRoute: typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
   ALbsIndexRoute: typeof ALbsIndexRoute
   AtuacaoIndexRoute: typeof AtuacaoIndexRoute
   EquipeIndexRoute: typeof EquipeIndexRoute
@@ -233,6 +247,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolucoesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solucoes/defesa-da-pessoa-que-trabalha': {
+      id: '/solucoes/defesa-da-pessoa-que-trabalha'
+      path: '/solucoes/defesa-da-pessoa-que-trabalha'
+      fullPath: '/solucoes/defesa-da-pessoa-que-trabalha'
+      preLoaderRoute: typeof SolucoesDefesaDaPessoaQueTrabalhaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -243,6 +264,8 @@ const rootRouteChildren: RootRouteChildren = {
   ALbsHistoriaRoute: ALbsHistoriaRoute,
   AtuacaoDireitoTrabalhistaRoute: AtuacaoDireitoTrabalhistaRoute,
   EquipeSlugRoute: EquipeSlugRoute,
+  SolucoesDefesaDaPessoaQueTrabalhaRoute:
+    SolucoesDefesaDaPessoaQueTrabalhaRoute,
   ALbsIndexRoute: ALbsIndexRoute,
   AtuacaoIndexRoute: AtuacaoIndexRoute,
   EquipeIndexRoute: EquipeIndexRoute,

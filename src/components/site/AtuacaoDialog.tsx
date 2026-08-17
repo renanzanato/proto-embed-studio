@@ -5,7 +5,7 @@ import { createPortal } from "react-dom";
 type Tab = "areas" | "solucoes";
 
 const solucoes: { title: string; to: string }[] = [
-  { title: "Defesa da pessoa que trabalha", to: "/solucoes" },
+  { title: "Defesa da pessoa que trabalha", to: "/solucoes/defesa-da-pessoa-que-trabalha" },
   { title: "Execuções complexas", to: "/solucoes" },
   { title: "Litígios coletivos", to: "/solucoes" },
   { title: "Parceiros estratégicos", to: "/solucoes" },
