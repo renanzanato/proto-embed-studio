@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import solExecucoes from "@/assets/sol-execucoes.jpg";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+import { equipeExecucoes } from "@/data/solucao-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
@@ -156,7 +157,7 @@ function ExecucoesPage() {
         idPrefix="execucoes"
       />
 
-      <SociosResponsaveis />
+      <SociosResponsaveis people={equipeExecucoes} />
 
       <SiteFooter />
       <WhatsAppButton />

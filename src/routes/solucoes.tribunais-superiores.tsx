@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import solTribunais from "@/assets/sol-tribunais.jpg";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+import { equipeTribunaisSuperiores } from "@/data/solucao-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
@@ -132,7 +133,7 @@ function TribunaisPage() {
         idPrefix="tribunais"
       />
 
-      <SociosResponsaveis />
+      <SociosResponsaveis people={equipeTribunaisSuperiores} />
 
       <SiteFooter />
       <WhatsAppButton />

@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import solAdm from "@/assets/sol-adm-publica.jpg";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+import { equipeVinculosAdministracaoPublica } from "@/data/solucao-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
@@ -286,7 +287,7 @@ function VinculosPage() {
         ]}
       />
 
-      <SociosResponsaveis />
+      <SociosResponsaveis people={equipeVinculosAdministracaoPublica} />
 
       <SiteFooter />
       <WhatsAppButton />
