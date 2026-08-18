@@ -4,7 +4,7 @@ import solucoesHero from "@/assets/solucoes-hero.jpg";
 import solDefesa from "@/assets/pessoas-que-trabalham-subway.jpg.asset.json";
 import solLitigios from "@/assets/sol-litigios.jpg";
 import solTribunais from "@/assets/sol-tribunais.jpg";
-import solExecucoes from "@/assets/sol-execucoes.jpg";
+import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 import solParcerias from "@/assets/sol-parcerias.jpg";
 import solEmergentes from "@/assets/sol-emergentes.jpg";
 import solAdmPublica from "@/assets/sol-adm-publica.jpg";

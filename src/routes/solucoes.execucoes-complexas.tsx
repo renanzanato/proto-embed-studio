@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import solExecucoes from "@/assets/sol-execucoes.jpg";
+import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeExecucoes } from "@/data/solucao-equipe";
