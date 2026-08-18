@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import solDefesa from "@/assets/sol-defesa.jpg";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+import { equipeDefesaPessoaQueTrabalha } from "@/data/solucao-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
@@ -332,7 +333,7 @@ function DefesaPage() {
         ]}
       />
 
-      <SociosResponsaveis />
+      <SociosResponsaveis people={equipeDefesaPessoaQueTrabalha} />
 
       <SiteFooter />
       <WhatsAppButton />

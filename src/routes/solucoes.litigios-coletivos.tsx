@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import solLitigios from "@/assets/sol-litigios.jpg";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+import { equipeLitigiosColetivos } from "@/data/solucao-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
@@ -168,7 +169,7 @@ function LitigiosPage() {
         idPrefix="litigios"
       />
 
-      <SociosResponsaveis />
+      <SociosResponsaveis people={equipeLitigiosColetivos} />
 
       <SiteFooter />
       <WhatsAppButton />

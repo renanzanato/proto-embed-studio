@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import solEmergentes from "@/assets/sol-emergentes.jpg";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+import { equipeTemasEmergentes } from "@/data/solucao-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
@@ -168,7 +169,7 @@ function TemasEmergentesPage() {
         idPrefix="emergentes"
       />
 
-      <SociosResponsaveis />
+      <SociosResponsaveis people={equipeTemasEmergentes} />
 
       <SiteFooter />
       <WhatsAppButton />

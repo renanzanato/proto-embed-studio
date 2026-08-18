@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import solParceiros from "@/assets/sol-parceiros.jpg";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+import { equipeParceirosEstrategicos } from "@/data/solucao-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
@@ -144,7 +145,7 @@ function ParceirosPage() {
         idPrefix="parceiros"
       />
 
-      <SociosResponsaveis />
+      <SociosResponsaveis people={equipeParceirosEstrategicos} />
 
       <SiteFooter />
       <WhatsAppButton />
