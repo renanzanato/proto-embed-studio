@@ -139,55 +139,47 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
           </div>
 
           {/* desktop */}
-          <div className="relative hidden sm:block">
-            <div
-              ref={scrollerRef}
-              className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-            >
-              <ul className="flex min-w-max items-stretch gap-8 lg:gap-10">
-                {phases.map((item) => {
-                  const isActive = item.label === active;
-                  return (
-                    <li key={item.label}>
-                      <button
-                        type="button"
-                        onClick={() => setActive(item.label)}
-                        className="group flex flex-col items-start pb-3 text-left outline-none"
+          <div className="hidden sm:block">
+            <ul className="grid grid-cols-3 items-stretch gap-x-4 gap-y-4 lg:grid-cols-6">
+              {phases.map((item) => {
+                const isActive = item.label === active;
+                return (
+                  <li key={item.label} className="flex">
+                    <button
+                      type="button"
+                      onClick={() => setActive(item.label)}
+                      className="group flex w-full flex-col items-start pb-3 text-left outline-none"
+                    >
+                      <span
+                        className={`whitespace-nowrap text-[15px] font-medium tracking-[0.01em] transition-colors lg:text-[17px] ${
+                          isActive
+                            ? "text-lbs-magenta"
+                            : "text-lbs-ink/70 group-hover:text-lbs-magenta"
+                        }`}
                       >
-                        <span
-                          className={`whitespace-nowrap text-[15px] font-medium tracking-[0.01em] transition-colors sm:text-[16px] ${
-                            isActive
-                              ? "text-lbs-magenta"
-                              : "text-lbs-ink/70 group-hover:text-lbs-magenta"
-                          }`}
-                        >
-                          {item.label}
-                        </span>
-                        <span
-                          className={`mt-1 whitespace-nowrap text-[12px] transition-colors ${
-                            isActive ? "text-lbs-magenta/70" : "text-lbs-ink/45"
-                          }`}
-                        >
-                          {counts.get(item.label)} marcos
-                        </span>
-                        <span
-                          className={`mt-3 block h-px w-full transition-colors ${
-                            isActive ? "bg-lbs-magenta" : "bg-transparent"
-                          }`}
-                        />
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
-            {/* indicador de mais abas à direita */}
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex w-16 items-center justify-end bg-gradient-to-l from-white via-white/80 to-transparent pr-1 text-lbs-magenta">
-              <span aria-hidden className="text-[16px]">
-                ›
-              </span>
-            </div>
+                        {item.label}
+                      </span>
+                      <span
+                        className={`mt-1 whitespace-nowrap text-[12px] transition-colors ${
+                          isActive ? "text-lbs-magenta/70" : "text-lbs-ink/45"
+                        }`}
+                      >
+                        {counts.get(item.label)} marcos
+                      </span>
+                      <span
+                        className={`mt-auto block h-px w-full transition-colors ${
+                          isActive
+                            ? "bg-lbs-magenta"
+                            : "bg-lbs-ink/10 group-hover:bg-lbs-magenta/40"
+                        }`}
+                      />
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
+
 
           <div className="mt-4 h-px w-full bg-lbs-ink/10" />
 
