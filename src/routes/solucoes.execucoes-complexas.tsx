@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import solExecucoes from "@/assets/sol-execucoes.jpg";
+import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeExecucoes } from "@/data/solucao-equipe";
@@ -126,7 +126,7 @@ function ExecucoesPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       <SolucaoHero
-        image={solExecucoes}
+        image={solExecucoes.url}
         alt="Corredor de fórum trabalhista em luz e sombra"
         title="Execuções complexas"
         intro={descricao[0]}

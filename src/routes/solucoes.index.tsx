@@ -4,7 +4,7 @@ import solucoesHero from "@/assets/solucoes-hero.jpg";
 import solDefesa from "@/assets/pessoas-que-trabalham-subway.jpg.asset.json";
 import solLitigios from "@/assets/sol-litigios.jpg";
 import solTribunais from "@/assets/sol-tribunais.jpg";
-import solExecucoes from "@/assets/sol-execucoes.jpg";
+import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 import solParcerias from "@/assets/sol-parcerias.jpg";
 import solEmergentes from "@/assets/sol-emergentes.jpg";
 import solAdmPublica from "@/assets/sol-adm-publica.jpg";
@@ -19,7 +19,7 @@ const solucoes = [
     text: "Atuamos de forma contínua na defesa jurídica da pessoa que trabalha, considerando as múltiplas formas contemporâneas de vínculo laboral e proteção social.",
   },
   {
-    img: solExecucoes,
+    img: solExecucoes.url,
     title: "Execuções complexas",
     to: "/solucoes/execucoes-complexas",
     text: "Atuamos em execuções de elevada complexidade jurídica, quando o caso exige leitura sistêmica, cálculos técnicos e segurança institucional.",
