@@ -1,6 +1,6 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
-import { timelineEvents } from "@/data/lbs-timeline";
+import { timelineEvents, type TimelineCategory } from "@/data/lbs-timeline";
 
 type Phase = { label: string; min: number; max: number };
 
@@ -13,22 +13,72 @@ const phases: Phase[] = [
   { label: "2024 – 2026", min: 2024, max: 2026 },
 ];
 
-function countFor(phase: Phase) {
+const categoryStyles: Record<
+  TimelineCategory,
+  { label: string; tag: string; text: string; dot: string }
+> = {
+  Institucional: {
+    label: "Institucional",
+    tag: "text-lbs-magenta",
+    text: "text-lbs-ink text-[16px] sm:text-[18px] font-normal",
+    dot: "bg-lbs-magenta",
+  },
+  Publicações: {
+    label: "Publicações",
+    tag: "text-lbs-ink/70",
+    text: "text-lbs-ink/85 text-[14px] sm:text-[15px]",
+    dot: "bg-white ring-1 ring-lbs-ink/40",
+  },
+  Eventos: {
+    label: "Eventos",
+    tag: "text-lbs-ink/50",
+    text: "text-lbs-ink/80 text-[14px] sm:text-[15px]",
+    dot: "bg-white ring-1 ring-lbs-ink/25",
+  },
+  Internacional: {
+    label: "Internacional",
+    tag: "text-lbs-ink/50",
+    text: "text-lbs-ink/80 text-[14px] sm:text-[15px]",
+    dot: "bg-white ring-1 ring-lbs-ink/25",
+  },
+};
+
+const filterOrder: TimelineCategory[] = [
+  "Institucional",
+  "Publicações",
+  "Eventos",
+  "Internacional",
+];
+
+function eventsFor(phase: Phase) {
   return timelineEvents.filter(
     (event) => event.year >= phase.min && event.year <= phase.max,
-  ).length;
+  );
 }
 
 export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
   const [active, setActive] = useState<string>(phases[0].label);
+  const [filter, setFilter] = useState<TimelineCategory | "Todos">("Todos");
   const scrollerRef = useRef<HTMLDivElement>(null);
 
   const phase = phases.find((item) => item.label === active) ?? phases[0];
 
+  useEffect(() => {
+    setFilter("Todos");
+  }, [active]);
+
+  const phaseEvents = useMemo(() => eventsFor(phase), [phase]);
+  const showFilters = phaseEvents.length > 20;
+
+  const filtered = useMemo(
+    () =>
+      filter === "Todos"
+        ? phaseEvents
+        : phaseEvents.filter((event) => event.category === filter),
+    [phaseEvents, filter],
+  );
+
   const years = useMemo(() => {
-    const filtered = timelineEvents.filter(
-      (event) => event.year >= phase.min && event.year <= phase.max,
-    );
     const map = new Map<number, typeof filtered>();
     for (const event of filtered) {
       const list = map.get(event.year) ?? [];
@@ -36,10 +86,10 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
       map.set(event.year, list);
     }
     return Array.from(map.entries()).sort((a, b) => a[0] - b[0]);
-  }, [phase]);
+  }, [filtered]);
 
   const counts = useMemo(
-    () => new Map(phases.map((item) => [item.label, countFor(item)])),
+    () => new Map(phases.map((item) => [item.label, eventsFor(item).length])),
     [],
   );
 
@@ -140,6 +190,32 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
           </div>
 
           <div className="mt-4 h-px w-full bg-lbs-ink/10" />
+
+          {/* filtros por categoria — fases longas */}
+          {showFilters && (
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3">
+              {(["Todos", ...filterOrder] as const).map((item) => {
+                const isActive = filter === item;
+                return (
+                  <button
+                    key={item}
+                    type="button"
+                    onClick={() => setFilter(item)}
+                    className={`text-[11px] uppercase tracking-[0.14em] transition-colors ${
+                      isActive
+                        ? "text-lbs-magenta"
+                        : "text-lbs-ink/45 hover:text-lbs-ink"
+                    }`}
+                  >
+                    {item}
+                  </button>
+                );
+              })}
+              <span className="ml-auto text-[11px] tabular-nums tracking-[0.08em] text-lbs-ink/40">
+                {filtered.length} de {phaseEvents.length} marcos
+              </span>
+            </div>
+          )}
         </div>
 
         {/* conteúdo da fase */}
@@ -149,37 +225,58 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
               Nenhum marco registrado para este período.
             </p>
           ) : (
-            <div className="relative max-w-[860px]">
-              <div className="pointer-events-none absolute inset-y-0 left-[7px] z-0 w-px bg-lbs-magenta/25" />
-
-              <div className="space-y-7">
-                {years.map(([year, events]) => (
-                  <article key={year} className="relative z-10 pl-8">
-                    <div className="absolute left-[1px] top-[24px] h-3.5 w-3.5 rounded-full border-2 border-white bg-lbs-magenta" />
-                    <div className="rounded-lg bg-white px-5 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_10px_28px_-20px_rgba(0,0,0,0.25)]">
-                      <h3 className="text-[13px] font-semibold uppercase tracking-[0.1em] text-lbs-magenta sm:text-[14px]">
-                        {year}
-                      </h3>
-                      <div className="mt-3 space-y-4 text-[14px] leading-[1.8] text-lbs-ink/85 sm:text-[15px]">
-                        {events.map((event, index) => (
-                          <p key={`${event.label}-${index}`}>{event.text}</p>
-                        ))}
-                      </div>
-                    </div>
-                  </article>
-                ))}
-
-                {phase.label === phases[0].label && (
-                  <div className="relative z-10 pl-8">
-                    <p
-                      aria-hidden
-                      className="text-[18px] leading-none tracking-[0.3em] text-lbs-ink/30"
-                    >
-                      …
-                    </p>
+            <div className="relative max-w-[920px]">
+              {years.map(([year, events]) => (
+                <section key={year} className="relative">
+                  {/* cabeçalho de ano sticky */}
+                  <div className="sticky top-[104px] z-20 bg-white/95 py-3 backdrop-blur-sm sm:top-[124px]">
+                    <h3 className="text-[40px] font-light leading-none tracking-[-0.02em] text-lbs-magenta tabular-nums sm:text-[52px] lg:text-[60px]">
+                      {year}
+                    </h3>
                   </div>
-                )}
-              </div>
+
+                  <ul className="relative mt-2 pb-10">
+                    {/* linha vertical */}
+                    <div
+                      aria-hidden
+                      className="pointer-events-none absolute inset-y-0 left-[86px] w-px bg-lbs-magenta/20 sm:left-[110px]"
+                    />
+                    {events.map((event, index) => {
+                      const style = categoryStyles[event.category];
+                      return (
+                        <li
+                          key={`${event.label}-${index}`}
+                          className="relative flex flex-col gap-1 border-t border-lbs-ink/8 py-7 pl-8 sm:flex-row sm:gap-0 sm:pl-0"
+                        >
+                          {/* data */}
+                          <span className="text-[12px] tabular-nums tracking-[0.06em] text-lbs-ink/45 sm:w-[86px] sm:shrink-0 sm:pt-[3px] sm:text-right sm:text-[13px] lg:w-[110px]">
+                            {event.label}
+                          </span>
+
+                          {/* marcador */}
+                          <span
+                            aria-hidden
+                            className={`absolute left-[82px] top-[34px] hidden h-2 w-2 rounded-full sm:block lg:left-[106px] ${style.dot}`}
+                          />
+
+                          <div className="sm:pl-8 lg:pl-10">
+                            <p
+                              className={`text-[10px] uppercase tracking-[0.18em] ${style.tag}`}
+                            >
+                              {style.label}
+                            </p>
+                            <p
+                              className={`mt-2 max-w-[68ch] leading-[1.7] ${style.text}`}
+                            >
+                              {event.text}
+                            </p>
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </section>
+              ))}
             </div>
           )}
         </div>
