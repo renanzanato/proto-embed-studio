@@ -4,12 +4,14 @@ export type TimelineCategory =
   | "Evento"
   | "Publicações"
   | "Livro"
+  | "Cartilha"
   | "Internacional";
 
 export type TimelineEvent = {
   year: number;
   label: string;
   text: string;
+  url?: string;
   category: TimelineCategory;
 };
 
@@ -139,92 +141,94 @@ export const timelineEvents: TimelineEvent[] = [
   {
     year: 2020,
     label: "03/2020",
-    text: "Em resposta à pandemia, a LBS suspende atividades presenciais e adota regime de trabalho remoto.",
+    text: "Em resposta à pandemia, a LBS suspendeu atividades presenciais e adotou regime de trabalho remoto.",
     category: "Institucional",
   },
   {
     year: 2020,
     label: "07/2020",
-    text: "Ciclo de Debates “Escola é muito mais que Escola”.",
-    category: "Eventos",
+    text: "Ciclo de Debates “Escola é muito mais que Escola”",
+    category: "Evento",
   },
   {
     year: 2020,
     label: "09/2020",
-    text: "Oficina LGPD: “O que fazer? Proteção de dados, vigilância e responsabilidade das entidades sindicais e associações”.",
-    category: "Eventos",
+    text: "Oficina LGPD: “O que fazer? Proteção de dados, vigilância e responsabilidade das entidades sindicais e associações”",
+    category: "Evento",
   },
   {
     year: 2020,
     label: "09/2020",
-    text: "Ciclo de Debates “Estatais: ameaças, pandemia e negociação coletiva”.",
-    category: "Eventos",
+    text: "Ciclo de Debates “Estatais: ameaças, pandemia e negociação coletiva”",
+    category: "Evento",
   },
   {
     year: 2020,
     label: "10/2020",
-    text: "Ciclo de Debates “Reforma Tributária: o que está em jogo?”.",
-    category: "Eventos",
+    text: "Ciclo de Debates “Reforma Tributária: o que está em jogo?”",
+    category: "Evento",
   },
   {
     year: 2020,
     label: "10/2020",
-    text: "Ciclo de Debates “O que será que será? O trabalho em aplicativos”.",
-    category: "Eventos",
+    text: "Ciclo de Debates “O que será que será? O trabalho em aplicativos”",
+    category: "Evento",
   },
   {
     year: 2020,
     label: "11/2020",
-    text: "Debate “Teletrabalho: o futuro que chegou e mexe com a casa, a cabeça e a negociação coletiva de quem trabalha”.",
-    category: "Eventos",
+    text: "Debate “Teletrabalho: o futuro que chegou e mexe com a casa, a cabeça e a negociação coletiva de quem trabalha”",
+    category: "Evento",
   },
   {
     year: 2020,
     label: "12/2020",
-    text: "Anuário LBS Advogados e Instituto Lavoro.",
-    category: "Publicações",
+    text: "Anuário LBS Advogados e Instituto Lavoro",
+    url: "https://www.lbs.adv.br/artigo/anuario-lbs-advogados-instituto-lavoro",
+    category: "Livro",
   },
   {
     year: 2021,
     label: "01/2021",
-    text: "Ciclo de Debates “Brasil em transe: a onda de demissões e o futuro da indústria automobilística”.",
-    category: "Eventos",
+    text: "Ciclo de Debates “Brasil em transe: a onda de demissões e o futuro da indústria automobilística”",
+    category: "Evento",
   },
   {
     year: 2021,
     label: "05/2021",
-    text: "Debate “Os norte-americanos voltaram a falar de sindicatos. O que isso importa para o Brasil?”.",
-    category: "Eventos",
+    text: "Debate “Os norte-americanos voltaram a falar de sindicatos. O que isso importa para o Brasil?”",
+    category: "Evento",
   },
   {
     year: 2021,
     label: "08/2021",
-    text: "Debate “O Supremo e a Reforma Trabalhista”.",
-    category: "Eventos",
+    text: "Debate “O Supremo e a Reforma Trabalhista”",
+    category: "Evento",
   },
   {
     year: 2021,
     label: "08/2021",
-    text: "Ciclo de Debates “Sindicato: entre a permanência e a mudança — Regulações e desafios para o futuro”, com posterior lançamento de livro com o mesmo nome.",
-    category: "Eventos",
+    text: "Ciclo de Debates “Sindicato: entre a permanência e a mudança – Regulações e desafios para o futuro”, com posterior lançamento de livro com o mesmo nome",
+    category: "Evento",
   },
   {
     year: 2021,
     label: "11/2021",
-    text: "Lançamento da “Cartilha Esperança Garcia e Luís Gama — Cartilha antirracista para carreiras jurídicas”.",
-    category: "Publicações",
+    text: "Lançamento da \"Cartilha Esperança Garcia e Luís Gama – Cartilha antirracista para carreiras jurídicas\"",
+    category: "Cartilha",
   },
   {
     year: 2021,
     label: "11/2021",
-    text: "Lançamento do livro “Um Direito do Trabalho Todo Seu”.",
-    category: "Publicações",
+    text: "Lançamento do livro \"Um Direito do Trabalho Todo Seu\"",
+    category: "Livro",
   },
   {
     year: 2021,
     label: "12/2021",
-    text: "Lançamento do livro “Cuidadania: Construir coletivamente o igual no diferente”.",
-    category: "Publicações",
+    text: "Lançamento do livro “Cuidadania: Construir coletivamente o igual no diferente”",
+    url: "https://lbs.adv.br/wp-content/uploads/2022/03/cuidadania.pdf",
+    category: "Livro",
   },
   {
     year: 2022,
