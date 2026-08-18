@@ -139,18 +139,18 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
 
           {/* desktop */}
           <div className="hidden sm:block">
-            <ul className="grid grid-cols-3 items-stretch gap-x-4 gap-y-4 lg:grid-cols-6">
+            <ul className="flex w-full flex-nowrap items-stretch justify-between gap-x-6 overflow-x-auto">
               {phases.map((item) => {
                 const isActive = item.label === active;
                 return (
-                  <li key={item.label} className="flex">
+                  <li key={item.label} className="flex shrink-0">
                     <button
                       type="button"
                       onClick={() => setActive(item.label)}
                       className="group flex w-full flex-col items-start pb-3 text-left outline-none"
                     >
                       <span
-                        className={`whitespace-nowrap text-[15px] font-medium tracking-[0.01em] transition-colors lg:text-[17px] ${
+                        className={`whitespace-nowrap text-[13px] font-medium tracking-[0.01em] transition-colors md:text-[14px] lg:text-[15px] ${
                           isActive
                             ? "text-lbs-magenta"
                             : "text-lbs-ink/70 group-hover:text-lbs-magenta"
