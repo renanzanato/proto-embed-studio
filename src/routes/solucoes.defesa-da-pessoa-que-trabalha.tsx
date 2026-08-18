@@ -293,8 +293,8 @@ function DefesaPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       <SolucaoHero
-        image={solDefesa}
-        alt="Pessoas em ambiente de trabalho"
+        image={solDefesa.url}
+        alt="Pessoas em movimento no cotidiano urbano"
         title="Defesa da pessoa que trabalha"
         intro={diferenciais[0]}
       />
