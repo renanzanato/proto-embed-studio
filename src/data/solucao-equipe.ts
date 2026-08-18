@@ -3,6 +3,10 @@ import photoAndrey from "@/assets/team-andrey-soares.jpg.asset.json";
 import photoAntonio from "@/assets/team-antonio-megale.jpg.asset.json";
 import photoEduardoSoares from "@/assets/team-eduardo-soares.jpg.asset.json";
 import photoFernandoRoriz from "@/assets/team-fernando-roriz.jpg.asset.json";
+import photoFernandoHirsch from "@/assets/team-fernando-hirsch.jpg.asset.json";
+import photoFranciele from "@/assets/team-franciele-zaterka.jpg.asset.json";
+import photoLouise from "@/assets/team-louise-teixeira.jpg.asset.json";
+import photoLuciana from "@/assets/team-luciana-barretto.jpg.asset.json";
 import photoGlaucia from "@/assets/team-glaucia-costa.jpg.asset.json";
 import photoMadila from "@/assets/team-madila-lima.jpg.asset.json";
 import photoMeilliane from "@/assets/team-meilliane-lima.jpg.asset.json";
@@ -35,6 +39,10 @@ const photoByName: Record<string, string> = {
   "Antonio Fernando Megale Lopes": photoAntonio.url,
   "Eduardo Henrique Marques Soares": photoEduardoSoares.url,
   "Fernando Henrique Machado Roriz": photoFernandoRoriz.url,
+  "Fernando José Hirsch": photoFernandoHirsch.url,
+  "Franciele Carvalho Zaterka": photoFranciele.url,
+  "Louise Helene de Azevedo Teixeira": photoLouise.url,
+  "Luciana Lucena Baptista Barretto": photoLuciana.url,
   "Glaucia Alves da Costa": photoGlaucia.url,
   "Mádila Barros Severino de Lima": photoMadila.url,
   "Meilliane Pinheiro Vilar Lima": photoMeilliane.url,
