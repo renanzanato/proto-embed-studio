@@ -26,11 +26,12 @@ const solucoes = [
     text: "Atuamos em execuções de elevada complexidade jurídica, quando o caso exige leitura sistêmica, cálculos técnicos e segurança institucional.",
   },
   {
-    img: solLitigios,
+    img: solLitigios.url,
     title: "Litígios coletivos estruturados",
     to: "/solucoes/litigios-coletivos",
     text: "Estruturamos e conduzimos litígios coletivos de grande escala, voltados à correção de violações sistemáticas de direitos e à produção de impacto institucional.",
   },
+
   {
     img: solParcerias,
     title: "Parceiros estratégicos",
