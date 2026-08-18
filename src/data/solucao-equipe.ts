@@ -53,6 +53,8 @@ const photoByName: Record<string, string> = {
   "Renata Silveira Veiga Cabral": photoRenata.url,
   "Ricardo Quintas Carneiro": photoRicardo.url,
   "Samantha Braga Guedes": photoSamantha.url,
+  "Felipe Gomes da Silva Vasconcellos": photoFelipe.url,
+  "Rafaela Diana Xavier": photoRafaela.url,
 };
 
 function p(name: string, city: string): SolucaoPessoa {
