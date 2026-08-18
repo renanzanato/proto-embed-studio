@@ -4,7 +4,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroImage from "@/assets/a-lbs-hero.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
-import { LbsTimeline } from "@/components/site/LbsTimeline";
+import { HistoriaTrajetoria } from "@/components/site/HistoriaTrajetoria";
+import { HistoriaAcervo } from "@/components/site/HistoriaAcervo";
 
 export const Route = createFileRoute("/a-lbs/historia")({
   head: () => ({
