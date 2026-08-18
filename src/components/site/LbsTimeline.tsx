@@ -166,10 +166,10 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
                         {counts.get(item.label)} marcos
                       </span>
                       <span
-                        className={`mt-auto block h-px w-full transition-colors ${
+                        className={`mt-auto block h-px w-full transition-all duration-300 ${
                           isActive
-                            ? "bg-lbs-magenta"
-                            : "bg-lbs-ink/10 group-hover:bg-lbs-magenta/40"
+                            ? "bg-lbs-magenta opacity-100"
+                            : "bg-transparent opacity-0 group-hover:bg-lbs-magenta/30 group-hover:opacity-100"
                         }`}
                       />
                     </button>
