@@ -7,7 +7,7 @@ import solTribunais from "@/assets/tribunais-superiores.jpg.asset.json";
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 import solParcerias from "@/assets/parceiros-estrategicos-handshake.jpg.asset.json";
 import solEmergentes from "@/assets/temas-emergentes.jpg.asset.json";
-import solAdmPublica from "@/assets/sol-adm-publica.jpg";
+import solAdmPublica from "@/assets/vinculos-administracao-publica.jpg.asset.json";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
