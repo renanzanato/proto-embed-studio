@@ -117,21 +117,26 @@ function ALbsPage() {
       </section>
 
       {/* QUEM SOMOS */}
-      <section className="w-full bg-lbs-ink/[0.03] py-16 sm:py-20 lg:py-24">
+      <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-[65ch] lg:ml-0 lg:mr-auto lg:pl-[5%]">
-            <h2 className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
-              {c.quemSomos.label}
-            </h2>
-            <div className="mt-8 space-y-6">
-              {c.quemSomos.paragraphs.map((p, index) => (
+          <div className="grid items-start gap-10 lg:grid-cols-[40%_1fr] lg:gap-16">
+            {/* Coluna esquerda */}
+            <div className="flex flex-col items-start">
+              <h2 className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
+                {c.quemSomos.label}
+              </h2>
+              <p className="mt-6 text-[17px] font-light leading-[1.7] text-lbs-ink sm:text-[20px] lg:text-[22px]">
+                {c.quemSomos.paragraphs[0]}
+              </p>
+              <div className="mt-8 h-px w-full bg-lbs-magenta" />
+            </div>
+
+            {/* Coluna direita */}
+            <div className="space-y-6">
+              {c.quemSomos.paragraphs.slice(1).map((p) => (
                 <p
                   key={p}
-                  className={`text-lbs-ink ${
-                    index === 0
-                      ? "text-[17px] leading-[1.7] sm:text-[18px]"
-                      : "text-[15px] leading-[1.8] sm:text-[16px]"
-                  }`}
+                  className="text-[15px] leading-[1.8] text-lbs-ink sm:text-[16px]"
                 >
                   {p}
                 </p>
