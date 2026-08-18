@@ -20,6 +20,7 @@ import serv06 from "@/assets/serv-06.jpg";
 
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { teamMembers } from "@/data/equipe";
+import type { SolucaoPessoa } from "@/data/solucao-equipe";
 
 /* ------------------------------------------------------------------ *
  * DNA visual compartilhado das páginas de Soluções.
