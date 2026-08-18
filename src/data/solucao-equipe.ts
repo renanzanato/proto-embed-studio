@@ -1,9 +1,22 @@
 import { teamMembers } from "./equipe";
+import photoAndrey from "@/assets/team-andrey-soares.jpg.asset.json";
+import photoAntonio from "@/assets/team-antonio-megale.jpg.asset.json";
+import photoEduardoSoares from "@/assets/team-eduardo-soares.jpg.asset.json";
+import photoFernandoRoriz from "@/assets/team-fernando-roriz.jpg.asset.json";
+import photoGlaucia from "@/assets/team-glaucia-costa.jpg.asset.json";
+import photoMadila from "@/assets/team-madila-lima.jpg.asset.json";
+import photoMeilliane from "@/assets/team-meilliane-lima.jpg.asset.json";
+import photoNatalia from "@/assets/team-natalia-castilheiro.jpg.asset.json";
+import photoPaulo from "@/assets/team-paulo-silva.jpg.asset.json";
+import photoRenata from "@/assets/team-renata-cabral.jpg.asset.json";
+import photoRicardo from "@/assets/team-ricardo-carneiro.jpg.asset.json";
+import photoSamantha from "@/assets/team-samantha-guedes.jpg.asset.json";
 
 export type SolucaoPessoa = {
   name: string;
   city: string;
   slug?: string;
+  photo?: string;
 };
 
 const slugByName: Record<string, string> = {
@@ -17,12 +30,28 @@ const slugByName: Record<string, string> = {
   "Nilo da Cunha Jamardo Beiro": "nilo-beiro",
 };
 
+const photoByName: Record<string, string> = {
+  "Andrey Rondon Soares": photoAndrey.url,
+  "Antonio Fernando Megale Lopes": photoAntonio.url,
+  "Eduardo Henrique Marques Soares": photoEduardoSoares.url,
+  "Fernando Henrique Machado Roriz": photoFernandoRoriz.url,
+  "Glaucia Alves da Costa": photoGlaucia.url,
+  "Mádila Barros Severino de Lima": photoMadila.url,
+  "Meilliane Pinheiro Vilar Lima": photoMeilliane.url,
+  "Natalia Agrello Castilheiro": photoNatalia.url,
+  "Paulo Roberto Alves da Silva": photoPaulo.url,
+  "Renata Silveira Veiga Cabral": photoRenata.url,
+  "Ricardo Quintas Carneiro": photoRicardo.url,
+  "Samantha Braga Guedes": photoSamantha.url,
+};
+
 function p(name: string, city: string): SolucaoPessoa {
   const slug = slugByName[name];
   return {
     name,
     city,
     slug: slug && teamMembers.some((m) => m.slug === slug) ? slug : undefined,
+    photo: photoByName[name],
   };
 }
 
