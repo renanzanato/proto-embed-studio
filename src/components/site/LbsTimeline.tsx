@@ -225,61 +225,58 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
               Nenhum marco registrado para este período.
             </p>
           ) : (
-            <div className="relative max-w-[920px]">
+            <div className="max-w-[920px]">
               {years.map(([year, events]) => (
-                <section key={year} className="relative">
-                  {/* cabeçalho de ano sticky */}
-                  <div className="sticky top-[104px] z-20 bg-white/95 py-3 backdrop-blur-sm sm:top-[124px]">
-                    <h3 className="text-[40px] font-light leading-none tracking-[-0.02em] text-lbs-magenta tabular-nums sm:text-[52px] lg:text-[60px]">
+                <section key={year} className="border-t border-lbs-ink/10 py-8">
+                  <div className="flex flex-col gap-6 sm:flex-row sm:gap-10">
+                    <h3 className="shrink-0 text-[28px] font-light leading-none tracking-[-0.02em] text-lbs-magenta tabular-nums sm:w-[120px] sm:text-[34px]">
                       {year}
                     </h3>
-                  </div>
 
-                  <ul className="relative mt-2 pb-10">
-                    {/* linha vertical */}
-                    <div
-                      aria-hidden
-                      className="pointer-events-none absolute inset-y-0 left-[86px] hidden w-px sm:block bg-lbs-magenta/20 sm:left-[110px]"
-                    />
-                    {events.map((event, index) => {
-                      const style = categoryStyles[event.category];
-                      return (
-                        <li
-                          key={`${event.label}-${index}`}
-                          className="relative flex flex-col gap-1 border-t border-lbs-ink/8 py-7 pl-8 sm:flex-row sm:gap-0 sm:pl-0"
-                        >
-                          {/* data */}
-                          <span className="text-[12px] tabular-nums tracking-[0.06em] text-lbs-ink/45 sm:w-[86px] sm:shrink-0 sm:pt-[3px] sm:text-right sm:text-[13px] lg:w-[110px]">
-                            {event.label}
-                          </span>
+                    <ul className="relative flex-1 space-y-6 sm:border-l sm:border-lbs-magenta/20 sm:pl-8">
+                      {events.map((event, index) => {
+                        const style = categoryStyles[event.category];
+                        return (
+                          <li key={`${event.label}-${index}`} className="relative">
+                            <span
+                              aria-hidden
+                              className={`absolute -left-8 top-[7px] hidden h-2 w-2 -translate-x-[4.5px] rounded-full sm:block ${style.dot}`}
+                            />
+                            <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                              {event.label !== String(event.year) && (
+                                <>
+                                  <span className="text-[12px] tabular-nums tracking-[0.06em] text-lbs-ink/45">
+                                    {event.label}
+                                  </span>
+                                  <span
+                                    aria-hidden
+                                    className="h-px w-4 bg-lbs-ink/15"
+                                  />
+                                </>
+                              )}
 
-                          {/* marcador */}
-                          <span
-                            aria-hidden
-                            className={`absolute left-[82px] top-[34px] hidden h-2 w-2 rounded-full sm:block lg:left-[106px] ${style.dot}`}
-                          />
-
-                          <div className="sm:pl-8 lg:pl-10">
-                            <p
-                              className={`text-[10px] uppercase tracking-[0.18em] ${style.tag}`}
-                            >
-                              {style.label}
-                            </p>
+                              <span
+                                className={`text-[10px] uppercase tracking-[0.18em] ${style.tag}`}
+                              >
+                                {style.label}
+                              </span>
+                            </div>
                             <p
                               className={`mt-2 max-w-[68ch] leading-[1.7] ${style.text}`}
                             >
                               {event.text}
                             </p>
-                          </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
                 </section>
               ))}
             </div>
           )}
         </div>
+
       </div>
     </section>
   );
