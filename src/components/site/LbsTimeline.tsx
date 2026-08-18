@@ -64,80 +64,83 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
           </p>
         </div>
 
-        {/* navegação por fases — mobile */}
-        <div className="mt-12 sm:hidden">
-          <label
-            htmlFor="lbs-fase"
-            className="text-[11px] font-semibold uppercase tracking-[0.14em] text-lbs-ink/50"
-          >
-            Fase
-          </label>
-          <select
-            id="lbs-fase"
-            value={active}
-            onChange={(event) => setActive(event.target.value)}
-            className="mt-2 w-full rounded-md border border-lbs-ink/15 bg-white px-3 py-3 text-[15px] font-medium text-lbs-magenta outline-none focus:border-lbs-magenta"
-          >
-            {phases.map((item) => (
-              <option key={item.label} value={item.label}>
-                {item.label} — {counts.get(item.label)} marcos
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* navegação por fases — desktop */}
-        <div className="relative mt-12 hidden sm:block">
-          <div
-            ref={scrollerRef}
-            className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          >
-            <ul className="flex min-w-max items-stretch gap-8 lg:gap-10">
-              {phases.map((item) => {
-                const isActive = item.label === active;
-                return (
-                  <li key={item.label}>
-                    <button
-                      type="button"
-                      onClick={() => setActive(item.label)}
-                      className="group flex flex-col items-start pb-3 text-left outline-none"
-                    >
-                      <span
-                        className={`whitespace-nowrap text-[15px] font-medium tracking-[0.01em] transition-colors sm:text-[16px] ${
-                          isActive
-                            ? "text-lbs-magenta"
-                            : "text-lbs-ink/70 group-hover:text-lbs-magenta"
-                        }`}
-                      >
-                        {item.label}
-                      </span>
-                      <span
-                        className={`mt-1 whitespace-nowrap text-[12px] transition-colors ${
-                          isActive ? "text-lbs-magenta/70" : "text-lbs-ink/45"
-                        }`}
-                      >
-                        {counts.get(item.label)} marcos
-                      </span>
-                      <span
-                        className={`mt-3 block h-px w-full transition-colors ${
-                          isActive ? "bg-lbs-magenta" : "bg-transparent"
-                        }`}
-                      />
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
+        {/* navegação por fases — sticky */}
+        <div className="sticky top-0 z-30 mt-16 border-t border-lbs-ink/10 bg-white pt-8 sm:mt-20 lg:mt-24">
+          {/* mobile */}
+          <div className="sm:hidden">
+            <label
+              htmlFor="lbs-fase"
+              className="text-[11px] font-semibold uppercase tracking-[0.14em] text-lbs-ink/50"
+            >
+              Período
+            </label>
+            <select
+              id="lbs-fase"
+              value={active}
+              onChange={(event) => setActive(event.target.value)}
+              className="mt-2 w-full rounded-md border border-lbs-ink/15 bg-white px-3 py-3 text-[15px] font-medium text-lbs-magenta outline-none focus:border-lbs-magenta"
+            >
+              {phases.map((item) => (
+                <option key={item.label} value={item.label}>
+                  {item.label} — {counts.get(item.label)} marcos
+                </option>
+              ))}
+            </select>
           </div>
-          {/* indicador de mais abas à direita */}
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex w-16 items-center justify-end bg-gradient-to-l from-white via-white/80 to-transparent pr-1 text-lbs-magenta">
-            <span aria-hidden className="text-[16px]">
-              ›
-            </span>
-          </div>
-        </div>
 
-        <div className="mt-2 h-px w-full bg-lbs-ink/10" />
+          {/* desktop */}
+          <div className="relative hidden sm:block">
+            <div
+              ref={scrollerRef}
+              className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              <ul className="flex min-w-max items-stretch gap-8 lg:gap-10">
+                {phases.map((item) => {
+                  const isActive = item.label === active;
+                  return (
+                    <li key={item.label}>
+                      <button
+                        type="button"
+                        onClick={() => setActive(item.label)}
+                        className="group flex flex-col items-start pb-3 text-left outline-none"
+                      >
+                        <span
+                          className={`whitespace-nowrap text-[15px] font-medium tracking-[0.01em] transition-colors sm:text-[16px] ${
+                            isActive
+                              ? "text-lbs-magenta"
+                              : "text-lbs-ink/70 group-hover:text-lbs-magenta"
+                          }`}
+                        >
+                          {item.label}
+                        </span>
+                        <span
+                          className={`mt-1 whitespace-nowrap text-[12px] transition-colors ${
+                            isActive ? "text-lbs-magenta/70" : "text-lbs-ink/45"
+                          }`}
+                        >
+                          {counts.get(item.label)} marcos
+                        </span>
+                        <span
+                          className={`mt-3 block h-px w-full transition-colors ${
+                            isActive ? "bg-lbs-magenta" : "bg-transparent"
+                          }`}
+                        />
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            {/* indicador de mais abas à direita */}
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex w-16 items-center justify-end bg-gradient-to-l from-white via-white/80 to-transparent pr-1 text-lbs-magenta">
+              <span aria-hidden className="text-[16px]">
+                ›
+              </span>
+            </div>
+          </div>
+
+          <div className="mt-4 h-px w-full bg-lbs-ink/10" />
+        </div>
 
         {/* conteúdo da fase */}
         <div className="mt-10 sm:mt-14">
