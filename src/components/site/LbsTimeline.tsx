@@ -239,7 +239,7 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
                     {/* linha vertical */}
                     <div
                       aria-hidden
-                      className="pointer-events-none absolute inset-y-0 left-[86px] w-px bg-lbs-magenta/20 sm:left-[110px]"
+                      className="pointer-events-none absolute inset-y-0 left-[86px] hidden w-px sm:block bg-lbs-magenta/20 sm:left-[110px]"
                     />
                     {events.map((event, index) => {
                       const style = categoryStyles[event.category];
