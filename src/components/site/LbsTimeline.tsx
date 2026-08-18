@@ -5,12 +5,12 @@ import { timelineEvents } from "@/data/lbs-timeline";
 type Phase = { label: string; min: number; max: number };
 
 const phases: Phase[] = [
-  { label: "Fundação · 1981 – 1995", min: 1981, max: 1995 },
-  { label: "A criação da LBS · 2013 – 2016", min: 2013, max: 2016 },
-  { label: "Resistência e consolidação · 2017 – 2019", min: 2017, max: 2019 },
-  { label: "Pandemia e debate público · 2020 – 2021", min: 2020, max: 2021 },
-  { label: "Produção e internacionalização · 2022 – 2023", min: 2022, max: 2023 },
-  { label: "Agenda internacional · 2024 – 2026", min: 2024, max: 2100 },
+  { label: "1981 – 1995", min: 1981, max: 1995 },
+  { label: "2013 – 2016", min: 2013, max: 2016 },
+  { label: "2017 – 2019", min: 2017, max: 2019 },
+  { label: "2020 – 2021", min: 2020, max: 2021 },
+  { label: "2022 – 2023", min: 2022, max: 2023 },
+  { label: "2024 – 2026", min: 2024, max: 2026 },
 ];
 
 function countFor(phase: Phase) {
@@ -55,130 +55,92 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
         {/* introdução fixa */}
         <div className={showHeading ? "mt-8 sm:mt-10" : ""}>
           <p className="max-w-[860px] text-[17px] leading-[1.7] text-lbs-ink sm:text-[19px]">
-            Com uma história feita de parcerias improváveis, escolhas corajosas e
-            crescimento estratégico, somos, desde o início, uma advocacia fora do
-            comum.
+            Com trajetória vinculada ao movimento sindical e ao Direito do
+            Trabalho, a LBS Advogadas e Advogados traz em sua sigla a história
+            e o compromisso de seus sócios fundadores: Loguercio, Beiro e
+            Surian. São quatro décadas dedicadas à construção de soluções
+            jurídicas de alto impacto na defesa de quem trabalha e dos direitos
+            humanos.
           </p>
+        </div>
 
-          <div className="mt-10 grid gap-10 lg:grid-cols-2">
-            <div>
-              <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
-                Parcerias fora do comum
-              </h3>
-              <div className="mt-4 space-y-6 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
-                <p>
-                  A história da LBS é a história de encontros improváveis, fundada
-                  em um respeito profundo pelas pessoas. Em 1981, José Eymard
-                  Loguercio e Eduardo Surian Matias se conheceram no colégio; anos
-                  depois, ainda estudantes de Direito na PUC Campinas, começaram a
-                  atuar ao lado de sindicatos de trabalhadores e nunca mais
-                  pararam.
-                </p>
-                <p>
-                  A chegada de Nilo Beiro, vindo do Rio Grande do Sul, completou o
-                  trio que daria origem ao escritório. Do TRT de Campinas recém
-                  criado às tribunas dos tribunais superiores em Brasília, a LBS
-                  cresceu junto com o movimento sindical brasileiro, sempre no
-                  mesmo lado da mesa: o de quem trabalha.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
-                Uma advocacia que transforma
-              </h3>
-              <div className="mt-4 space-y-6 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
-                <p>
-                  Ao longo de mais de quatro décadas, a LBS estruturou teses,
-                  formou gerações de advogadas e advogados, produziu livros e
-                  seminários e levou a defesa do trabalho digno a fóruns nacionais
-                  e internacionais, incluindo a Organização Internacional do
-                  Trabalho.
-                </p>
-                <p>
-                  Navegue pelas fases abaixo para conhecer os marcos que
-                  construíram essa trajetória.
-                </p>
-              </div>
-            </div>
+        {/* navegação por fases — sticky */}
+        <div className="sticky top-0 z-30 mt-16 border-t border-lbs-ink/10 bg-white pt-8 sm:mt-20 lg:mt-24">
+          {/* mobile */}
+          <div className="sm:hidden">
+            <label
+              htmlFor="lbs-fase"
+              className="text-[11px] font-semibold uppercase tracking-[0.14em] text-lbs-ink/50"
+            >
+              Período
+            </label>
+            <select
+              id="lbs-fase"
+              value={active}
+              onChange={(event) => setActive(event.target.value)}
+              className="mt-2 w-full rounded-md border border-lbs-ink/15 bg-white px-3 py-3 text-[15px] font-medium text-lbs-magenta outline-none focus:border-lbs-magenta"
+            >
+              {phases.map((item) => (
+                <option key={item.label} value={item.label}>
+                  {item.label} — {counts.get(item.label)} marcos
+                </option>
+              ))}
+            </select>
           </div>
-        </div>
 
-        {/* navegação por fases — mobile */}
-        <div className="mt-12 sm:hidden">
-          <label
-            htmlFor="lbs-fase"
-            className="text-[11px] font-semibold uppercase tracking-[0.14em] text-lbs-ink/50"
-          >
-            Fase
-          </label>
-          <select
-            id="lbs-fase"
-            value={active}
-            onChange={(event) => setActive(event.target.value)}
-            className="mt-2 w-full rounded-md border border-lbs-ink/15 bg-white px-3 py-3 text-[15px] font-medium text-lbs-magenta outline-none focus:border-lbs-magenta"
-          >
-            {phases.map((item) => (
-              <option key={item.label} value={item.label}>
-                {item.label} — {counts.get(item.label)} marcos
-              </option>
-            ))}
-          </select>
-        </div>
-
-        {/* navegação por fases — desktop */}
-        <div className="relative mt-12 hidden sm:block">
-          <div
-            ref={scrollerRef}
-            className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          >
-            <ul className="flex min-w-max items-stretch gap-8 lg:gap-10">
-              {phases.map((item) => {
-                const isActive = item.label === active;
-                return (
-                  <li key={item.label}>
-                    <button
-                      type="button"
-                      onClick={() => setActive(item.label)}
-                      className="group flex flex-col items-start pb-3 text-left outline-none"
-                    >
-                      <span
-                        className={`whitespace-nowrap text-[15px] font-medium tracking-[0.01em] transition-colors sm:text-[16px] ${
-                          isActive
-                            ? "text-lbs-magenta"
-                            : "text-lbs-ink/70 group-hover:text-lbs-magenta"
-                        }`}
+          {/* desktop */}
+          <div className="relative hidden sm:block">
+            <div
+              ref={scrollerRef}
+              className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              <ul className="flex min-w-max items-stretch gap-8 lg:gap-10">
+                {phases.map((item) => {
+                  const isActive = item.label === active;
+                  return (
+                    <li key={item.label}>
+                      <button
+                        type="button"
+                        onClick={() => setActive(item.label)}
+                        className="group flex flex-col items-start pb-3 text-left outline-none"
                       >
-                        {item.label}
-                      </span>
-                      <span
-                        className={`mt-1 whitespace-nowrap text-[12px] transition-colors ${
-                          isActive ? "text-lbs-magenta/70" : "text-lbs-ink/45"
-                        }`}
-                      >
-                        {counts.get(item.label)} marcos
-                      </span>
-                      <span
-                        className={`mt-3 block h-px w-full transition-colors ${
-                          isActive ? "bg-lbs-magenta" : "bg-transparent"
-                        }`}
-                      />
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
+                        <span
+                          className={`whitespace-nowrap text-[15px] font-medium tracking-[0.01em] transition-colors sm:text-[16px] ${
+                            isActive
+                              ? "text-lbs-magenta"
+                              : "text-lbs-ink/70 group-hover:text-lbs-magenta"
+                          }`}
+                        >
+                          {item.label}
+                        </span>
+                        <span
+                          className={`mt-1 whitespace-nowrap text-[12px] transition-colors ${
+                            isActive ? "text-lbs-magenta/70" : "text-lbs-ink/45"
+                          }`}
+                        >
+                          {counts.get(item.label)} marcos
+                        </span>
+                        <span
+                          className={`mt-3 block h-px w-full transition-colors ${
+                            isActive ? "bg-lbs-magenta" : "bg-transparent"
+                          }`}
+                        />
+                      </button>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            {/* indicador de mais abas à direita */}
+            <div className="pointer-events-none absolute inset-y-0 right-0 flex w-16 items-center justify-end bg-gradient-to-l from-white via-white/80 to-transparent pr-1 text-lbs-magenta">
+              <span aria-hidden className="text-[16px]">
+                ›
+              </span>
+            </div>
           </div>
-          {/* indicador de mais abas à direita */}
-          <div className="pointer-events-none absolute inset-y-0 right-0 flex w-16 items-center justify-end bg-gradient-to-l from-white via-white/80 to-transparent pr-1 text-lbs-magenta">
-            <span aria-hidden className="text-[16px]">
-              ›
-            </span>
-          </div>
-        </div>
 
-        <div className="mt-2 h-px w-full bg-lbs-ink/10" />
+          <div className="mt-4 h-px w-full bg-lbs-ink/10" />
+        </div>
 
         {/* conteúdo da fase */}
         <div className="mt-10 sm:mt-14">
