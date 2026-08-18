@@ -6,7 +6,7 @@ import solLitigios from "@/assets/litigios-coletivos.jpg.asset.json";
 import solTribunais from "@/assets/sol-tribunais.jpg";
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 import solParcerias from "@/assets/parceiros-estrategicos-high-five.jpg.asset.json";
-import solEmergentes from "@/assets/sol-emergentes.jpg";
+import solEmergentes from "@/assets/temas-emergentes.jpg.asset.json";
 import solAdmPublica from "@/assets/sol-adm-publica.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
@@ -39,7 +39,7 @@ const solucoes = [
     text: "Atuamos em colaboração com outros escritórios quando a complexidade do caso exige estrutura, densidade técnica e capacidade operacional superiores.",
   },
   {
-    img: solEmergentes,
+    img: solEmergentes.url,
     title: "Temas emergentes",
     to: "/solucoes/temas-emergentes",
     text: "Atuamos em litígios estratégicos relacionados a conflitos jurídicos emergentes, ainda em processo de consolidação normativa e jurisprudencial.",
