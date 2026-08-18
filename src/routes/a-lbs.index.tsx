@@ -119,31 +119,25 @@ function ALbsPage() {
       {/* QUEM SOMOS */}
       <section className="w-full bg-lbs-ink/[0.03] py-16 sm:py-20 lg:py-24">
         <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-[780px] text-center">
+          <div className="mx-auto max-w-[65ch] lg:ml-0 lg:mr-auto lg:pl-[5%]">
             <h2 className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
               {c.quemSomos.label}
             </h2>
+            <div className="mt-8 space-y-6">
+              {c.quemSomos.paragraphs.map((p, index) => (
+                <p
+                  key={p}
+                  className={`text-lbs-ink ${
+                    index === 0
+                      ? "text-[17px] leading-[1.7] sm:text-[18px]"
+                      : "text-[15px] leading-[1.8] sm:text-[16px]"
+                  }`}
+                >
+                  {p}
+                </p>
+              ))}
+            </div>
           </div>
-
-          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {c.quemSomos.cards.map((card) => (
-              <li
-                key={card.title}
-                className="group flex flex-col justify-between bg-white p-7 transition-shadow duration-300 hover:shadow-[0_18px_40px_rgba(26,26,26,0.10)]"
-                style={chamferSmall}
-              >
-                <div>
-                  <h3 className="text-[13px] font-semibold uppercase tracking-[0.12em] text-lbs-magenta">
-                    {card.title}
-                  </h3>
-                  <p className="mt-4 text-[14px] leading-[1.75] text-lbs-ink/90">
-                    {card.text}
-                  </p>
-                </div>
-                <div className="mt-6 h-px w-12 bg-lbs-ink/15 transition-all duration-300 group-hover:w-20 group-hover:bg-lbs-magenta" />
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
