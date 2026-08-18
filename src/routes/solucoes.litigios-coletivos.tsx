@@ -141,7 +141,7 @@ function LitigiosPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       <SolucaoHero
-        image={solLitigios}
+        image={solLitigios.url}
         alt="Assembleia de trabalhadores em ambiente sindical"
         title="Litígios Coletivos"
         intro={diferenciais[0]}
