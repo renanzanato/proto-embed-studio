@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import solucoesHero from "@/assets/solucoes-hero.jpg";
 import solDefesa from "@/assets/pessoas-que-trabalham-subway.jpg.asset.json";
-import solLitigios from "@/assets/sol-litigios.jpg";
+import solLitigios from "@/assets/litigios-coletivos.jpg.asset.json";
 import solTribunais from "@/assets/sol-tribunais.jpg";
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 import solParcerias from "@/assets/sol-parcerias.jpg";
@@ -10,6 +10,7 @@ import solEmergentes from "@/assets/sol-emergentes.jpg";
 import solAdmPublica from "@/assets/sol-adm-publica.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+
 
 const solucoes = [
   {
