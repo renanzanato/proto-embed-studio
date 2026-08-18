@@ -204,7 +204,7 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
 
                   <MilestoneLoop
                     key={era.label}
-                    className="h-[560px]"
+                    
                     speed={38}
                     gap={isSingleYear ? 14 : 28}
                     fadeOut
