@@ -39,7 +39,7 @@ const solucoes = [
     text: "Atuamos em colaboração com outros escritórios quando a complexidade do caso exige estrutura, densidade técnica e capacidade operacional superiores.",
   },
   {
-    img: solEmergentes,
+    img: solEmergentes.url,
     title: "Temas emergentes",
     to: "/solucoes/temas-emergentes",
     text: "Atuamos em litígios estratégicos relacionados a conflitos jurídicos emergentes, ainda em processo de consolidação normativa e jurisprudencial.",
