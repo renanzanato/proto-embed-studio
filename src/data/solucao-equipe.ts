@@ -15,6 +15,8 @@ import photoPaulo from "@/assets/team-paulo-silva.jpg.asset.json";
 import photoRenata from "@/assets/team-renata-cabral.jpg.asset.json";
 import photoRicardo from "@/assets/team-ricardo-carneiro.jpg.asset.json";
 import photoSamantha from "@/assets/team-samantha-guedes.jpg.asset.json";
+import photoFelipe from "@/assets/team-felipe-vasconcellos.jpg.asset.json";
+import photoRafaela from "@/assets/team-rafaela-xavier.jpg.asset.json";
 
 export type SolucaoPessoa = {
   name: string;
