@@ -81,7 +81,8 @@ function HistoriaPage() {
         </div>
       </section>
 
-      <LbsTimeline showHeading={false} />
+      <HistoriaTrajetoria />
+      <HistoriaAcervo />
 
       <SiteFooter />
       <WhatsAppButton />
