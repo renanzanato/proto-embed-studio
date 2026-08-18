@@ -703,12 +703,14 @@ export function SociosResponsaveis({
               ? teamMembers.find((m) => m.slug === person.slug)
               : undefined;
 
+            const image = member?.image ?? person.photo;
+
             const inner = (
               <div className="flex items-center gap-4 border-b border-lbs-ink/10 py-4">
-                {member ? (
+                {image ? (
                   <img
-                    src={member.image}
-                    alt={member.name}
+                    src={image}
+                    alt={person.name}
                     loading="lazy"
                     width={96}
                     height={96}
