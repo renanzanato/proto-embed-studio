@@ -53,22 +53,6 @@ export function SiteFooter() {
               <CalendarDays className="h-3.5 w-3.5" />
               Agende um horário
             </a>
-
-            <ul className="mt-10 grid gap-8 sm:grid-cols-3">
-              {offices.map((office) => (
-                <li key={office.city}>
-                  <h3 className="text-[12px] font-medium text-white">{office.city}</h3>
-                  <p className="mt-3 flex gap-2 text-[10px] leading-[1.7] text-white/60">
-                    <MapPin className="mt-0.5 h-3 w-3 shrink-0 text-lbs-magenta" />
-                    {office.address}
-                  </p>
-                  <p className="mt-3 flex items-center gap-2 text-[10px] text-lbs-magenta">
-                    <Phone className="h-3 w-3" />
-                    {office.phone}
-                  </p>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div>
@@ -83,7 +67,16 @@ export function SiteFooter() {
                   {item.label}
                 </Link>
               ))}
+              <a
+                href={manifestoUrl}
+                target="_blank"
+                rel="noopener"
+                className="text-[10px] text-white/65 transition-colors hover:text-white"
+              >
+                Manifesto
+              </a>
             </div>
+
 
             <h3 className="mt-10 text-[11px] uppercase tracking-[0.16em] text-lbs-magenta">
               Redes Sociais
