@@ -108,25 +108,32 @@ export const timelineEvents: TimelineEvent[] = [
   {
     year: 2017,
     label: "2017",
-    text: "Série de livros sobre resistência ao golpe de 2016.",
-    category: "Publicações",
+    text: "Série de livros sobre resistência ao golpe de 2016",
+    category: "Livro",
   },
   {
     year: 2018,
     label: "2018",
-    text: "Seminário Internacional “Democracia, Direito e Trabalho”.",
-    category: "Internacional",
+    text: "Seminário Internacional \"Democracia, Direito e Trabalho\"",
+    category: "Evento",
   },
   {
     year: 2019,
     label: "2019",
-    text: "Seminários sobre serviço público e futuro do trabalho.",
-    category: "Eventos",
+    text: "Seminários sobre serviço público e futuro do trabalho",
+    category: "Evento",
   },
+  // DUPLICATA: Fundação da Rede Lado aparece em 03/2016 e 04/2019 — CONFIRMAR COM O ESCRITÓRIO qual é a correta e remover a outra
+  // {
+  //   year: 2019,
+  //   label: "04/2019",
+  //   text: "Fundação da Rede Lado",
+  //   category: "Institucional",
+  // },
   {
     year: 2019,
     label: "05/2019",
-    text: "Fernanda Giorgi se torna sócia patrimonial do escritório.",
+    text: "Fernanda Giorgi se torna sócia patrimonial do escritório",
     category: "Institucional",
   },
   {
