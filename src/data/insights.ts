@@ -147,7 +147,7 @@ export const insights: Insight[] = [
     title: "Servidores e estatais: a fronteira móvel dos vínculos públicos",
     excerpt:
       "Regimes distintos convivem no mesmo ambiente de trabalho e exigem estratégias jurídicas próprias.",
-    image: solAdmPublica,
+    image: solAdmPublica.url,
   },
   {
     slug: "parcerias-estrategicas-entre-escritorios",

@@ -241,7 +241,7 @@ function VinculosPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       <SolucaoHero
-        image={solAdm}
+        image={solAdm.url}
         alt="Edifício da administração pública"
         title="Vínculos com a Administração Pública"
         intro={diferenciais[0]}
