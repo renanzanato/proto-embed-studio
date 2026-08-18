@@ -33,13 +33,32 @@ export const aLbsContent = {
   },
   quemSomos: {
     label: "Quem Somos",
-    paragraphs: [
-      "Nossa atuação é pautada pela prática e pelo rigor técnico na defesa de quem trabalha e dos direitos humanos.",
-      "Trabalhamos ao lado de bancários, servidores públicos, professores, enfermeiros, comerciários, papeleiros, dentre outros trabalhadores. Entendemos que, independentemente da natureza do vínculo, seja CLT, contratação autônoma, pejotização ou trabalho por plataformas, o direito a uma representação jurídica qualificada permanece inegociável.",
-      "A defesa do trabalho decente, da dignidade humana e da democracia integra a missão do escritório e orienta nossa prática. São mais de 40 anos de experiência, defendendo um só lado.",
-      "As normas, as negociações e o próprio direito estão em constante transformação; nós nos mantemos firmes na defesa das pessoas que trabalham. Participamos ativamente do debate público sobre os novos modelos de contratação, da construção das teses que percorrem o Poder Judiciário e da interlocução com o Poder Legislativo e com o Poder Executivo, na elaboração de normas protetivas e no enfrentamento das propostas de redução de direitos.",
-      "Com três sedes e presença permanente em todas as instâncias do Judiciário, a LBS se consolida também como ambiente formador, comprometido com o desenvolvimento de carreiras de longo prazo.",
-      "Mantemos atuação internacional, em contato com a formação doutrinária de vanguarda de universidades da Espanha e participamos das discussões em organismos internacionais, como a Organização Internacional do Trabalho.",
+    intro: "Uma trajetória construída na prática, na defesa de quem trabalha e na construção de causas que transformam.",
+    cards: [
+      {
+        title: "Rigor técnico",
+        text: "Nossa atuação é pautada pela prática e pelo rigor técnico na defesa de quem trabalha e dos direitos humanos.",
+      },
+      {
+        title: "Quem defendemos",
+        text: "Trabalhamos ao lado de bancários, servidores públicos, professores, enfermeiros, comerciários, papeleiros e demais trabalhadores — seja CLT, autônomo, pejotizado ou por plataformas.",
+      },
+      {
+        title: "Nossa missão",
+        text: "A defesa do trabalho decente, da dignidade humana e da democracia orienta nossa prática. São mais de 40 anos de experiência, defendendo um só lado.",
+      },
+      {
+        title: "Atuação transformadora",
+        text: "Participamos ativamente do debate público sobre novos modelos de contratação, da construção de teses no Judiciário e da interlocução com Legislativo e Executivo.",
+      },
+      {
+        title: "Presença nacional",
+        text: "Com três sedes e atuação permanente em todas as instâncias do Judiciário, a LBS se consolida também como ambiente formador de carreiras de longo prazo.",
+      },
+      {
+        title: "Atuação internacional",
+        text: "Mantemos contato com a formação doutrinária de vanguarda de universidades da Espanha e participamos das discussões em organismos como a Organização Internacional do Trabalho.",
+      },
     ],
   },
   missao: {
