@@ -5,6 +5,7 @@ export type TimelineCategory =
   | "Publicações"
   | "Livro"
   | "Cartilha"
+  | "Agenda"
   | "Internacional";
 
 export type TimelineEvent = {

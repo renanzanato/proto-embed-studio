@@ -53,6 +53,12 @@ const categoryStyles: Record<
     text: "text-lbs-ink/80 text-[14px] sm:text-[15px]",
     dot: "bg-white ring-1 ring-lbs-ink/25",
   },
+  Agenda: {
+    label: "Agenda",
+    tag: "text-lbs-ink/70",
+    text: "text-lbs-ink/85 text-[14px] sm:text-[15px]",
+    dot: "bg-white ring-1 ring-lbs-ink/40",
+  },
   Internacional: {
     label: "Internacional",
     tag: "text-lbs-ink/50",
@@ -67,6 +73,7 @@ const filterOrder: TimelineCategory[] = [
   "Evento",
   "Livro",
   "Cartilha",
+  "Agenda",
   "Publicações",
   "Internacional",
 ];
