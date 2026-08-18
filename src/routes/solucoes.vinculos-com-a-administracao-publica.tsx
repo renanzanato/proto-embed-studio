@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import solAdm from "@/assets/sol-adm-publica.jpg";
+import solAdm from "@/assets/vinculos-administracao-publica.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeVinculosAdministracaoPublica } from "@/data/solucao-equipe";
@@ -241,7 +241,7 @@ function VinculosPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       <SolucaoHero
-        image={solAdm}
+        image={solAdm.url}
         alt="Edifício da administração pública"
         title="Vínculos com a Administração Pública"
         intro={diferenciais[0]}

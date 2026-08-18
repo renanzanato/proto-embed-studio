@@ -9,7 +9,7 @@ import solLitigios from "@/assets/sol-litigios.jpg";
 import solTribunais from "@/assets/sol-tribunais.jpg";
 import solExecucoes from "@/assets/sol-execucoes.jpg";
 import solEmergentes from "@/assets/sol-emergentes.jpg";
-import solAdmPublica from "@/assets/sol-adm-publica.jpg";
+import solAdmPublica from "@/assets/vinculos-administracao-publica.jpg.asset.json";
 import solParcerias from "@/assets/sol-parcerias.jpg";
 import solDefesa from "@/assets/sol-defesa.jpg";
 
@@ -147,7 +147,7 @@ export const insights: Insight[] = [
     title: "Servidores e estatais: a fronteira móvel dos vínculos públicos",
     excerpt:
       "Regimes distintos convivem no mesmo ambiente de trabalho e exigem estratégias jurídicas próprias.",
-    image: solAdmPublica,
+    image: solAdmPublica.url,
   },
   {
     slug: "parcerias-estrategicas-entre-escritorios",

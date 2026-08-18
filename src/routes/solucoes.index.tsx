@@ -7,7 +7,7 @@ import solTribunais from "@/assets/tribunais-superiores.jpg.asset.json";
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 import solParcerias from "@/assets/parceiros-estrategicos-handshake.jpg.asset.json";
 import solEmergentes from "@/assets/temas-emergentes.jpg.asset.json";
-import solAdmPublica from "@/assets/sol-adm-publica.jpg";
+import solAdmPublica from "@/assets/vinculos-administracao-publica.jpg.asset.json";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
@@ -51,7 +51,7 @@ const solucoes = [
     text: "Condução dos processos que tramitam no TST, STJ e STF, com sustentações orais, memoriais, diligências em gabinetes e atuação estratégica em repercussão geral.",
   },
   {
-    img: solAdmPublica,
+    img: solAdmPublica.url,
     title: "Vínculos com a Administração Pública",
     to: "/solucoes/vinculos-com-a-administracao-publica",
     text: "Atuação especializada para servidoras e servidores públicos, empregados de estatais, temporários, terceirizados e bolsistas em suas relações com o poder público.",
