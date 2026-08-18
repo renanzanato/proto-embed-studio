@@ -668,17 +668,24 @@ export function ListaEditorial({
 
 export function SociosResponsaveis({
   members = socios,
+  people,
+  title = "Quem conduz essa frente",
 }: {
   members?: typeof teamMembers;
+  people?: SolucaoPessoa[];
+  title?: string;
 }) {
+  const entries: SolucaoPessoa[] =
+    people ?? members.map((m) => ({ name: m.name, city: m.city, slug: m.slug }));
+
   return (
     <section className="w-full bg-[#f7f6f5] py-24 sm:py-28">
       <div className="mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <SectionLabel>Sócias e sócios responsáveis</SectionLabel>
+            <SectionLabel>Advogadas e advogados responsáveis</SectionLabel>
             <h2 className="mt-5 max-w-[420px] text-[26px] font-light leading-[1.2] text-lbs-ink sm:text-[32px]">
-              Quem conduz essa frente
+              {title}
             </h2>
           </div>
           <Link
@@ -689,44 +696,74 @@ export function SociosResponsaveis({
           </Link>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {members.map((member, i) => (
-            <Link
-              key={member.slug}
-              to="/equipe/$slug"
-              params={{ slug: member.slug }}
-              className="group block"
-            >
-              <div className="overflow-hidden bg-lbs-ink/5">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  loading="lazy"
-                  width={640}
-                  height={800}
-                  className="h-[280px] w-full object-cover object-top grayscale transition-all duration-500 group-hover:scale-[1.03] group-hover:grayscale-0"
-                  style={{
-                    clipPath:
-                      i % 2 === 0
-                        ? "polygon(0 0, 100% 0, 100% calc(100% - 56px), calc(100% - 56px) 100%, 0 100%)"
-                        : "polygon(0 0, 100% 0, 100% 100%, 56px 100%, 0 calc(100% - 56px))",
-                  }}
-                />
+        <ul className="mt-12 grid gap-x-10 gap-y-0 sm:grid-cols-2 lg:grid-cols-3">
+          {entries.map((person) => {
+            const member = person.slug
+              ? teamMembers.find((m) => m.slug === person.slug)
+              : undefined;
+
+            const inner = (
+              <div className="flex items-center gap-4 border-b border-lbs-ink/10 py-4">
+                {member ? (
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    loading="lazy"
+                    width={96}
+                    height={96}
+                    className="h-12 w-12 flex-none object-cover object-top grayscale transition-all duration-500 group-hover:grayscale-0"
+                    style={{
+                      clipPath:
+                        "polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%)",
+                    }}
+                  />
+                ) : (
+                  <span
+                    className="flex h-12 w-12 flex-none items-center justify-center bg-lbs-ink/[0.06] text-[12px] tracking-[0.08em] text-lbs-ink/45"
+                    style={{
+                      clipPath:
+                        "polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%)",
+                    }}
+                  >
+                    {person.name
+                      .split(" ")
+                      .filter((w) => w.length > 2)
+                      .slice(0, 2)
+                      .map((w) => w[0])
+                      .join("")}
+                  </span>
+                )}
+                <span className="min-w-0">
+                  <span className="block text-[13.5px] font-normal leading-tight text-lbs-ink transition-colors group-hover:text-lbs-magenta">
+                    {person.name}
+                  </span>
+                  <span className="mt-1 block text-[11.5px] text-lbs-ink/45">{person.city}</span>
+                </span>
               </div>
-              <div className="mt-4 border-t-2 border-lbs-magenta pt-3">
-                <h4 className="text-[14px] font-normal text-lbs-ink transition-colors group-hover:text-lbs-magenta">
-                  {member.name}
-                </h4>
-                <p className="mt-1 text-[11.5px] text-lbs-ink/55">{member.role}</p>
-                <p className="mt-0.5 text-[11.5px] text-lbs-ink/45">{member.city}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+            );
+
+            return (
+              <li key={person.name}>
+                {member ? (
+                  <Link
+                    to="/equipe/$slug"
+                    params={{ slug: member.slug }}
+                    className="group block"
+                  >
+                    {inner}
+                  </Link>
+                ) : (
+                  <div className="group block">{inner}</div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </section>
   );
 }
+
 
 /* --------------- SERVIÇOS COM SELEÇÃO DE CONTEXTO (PÚBLICOS) ----------- */
 
