@@ -1,82 +1,33 @@
-import { useMemo, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { useMemo, useRef, useState } from "react";
 
 import { timelineEvents } from "@/data/lbs-timeline";
-import { MilestoneLoop } from "@/components/site/MilestoneLoop";
 
-type Era = { label: string; min: number; max: number; intro: string };
+type Phase = { label: string; min: number; max: number };
 
-const OVERVIEW = "Visão geral";
-
-const eras: Era[] = [
-  {
-    label: "Origens · 1981 – 2012",
-    min: 1981,
-    max: 2012,
-    intro:
-      "Os anos de formação e consolidação: da amizade nos bancos escolares à advocacia sindical em Campinas e no ABC, ao lado do novo sindicalismo brasileiro.",
-  },
-  {
-    label: "2013 – 2019",
-    min: 2013,
-    max: 2019,
-    intro:
-      "Expansão e produção intelectual: novas unidades, publicações, seminários e a defesa dos direitos trabalhistas diante da reforma de 2017.",
-  },
-  {
-    label: "2020 – 2021",
-    min: 2020,
-    max: 2021,
-    intro:
-      "Pandemia e reinvenção: atuação intensa na defesa do emprego e da saúde dos trabalhadores, com forte presença digital e institucional.",
-  },
-  {
-    label: "2022",
-    min: 2022,
-    max: 2022,
-    intro:
-      "Um ano de afirmação: crescimento da equipe, novas frentes de atuação e presença ampliada nos debates públicos sobre o mundo do trabalho.",
-  },
-  {
-    label: "2023",
-    min: 2023,
-    max: 2023,
-    intro:
-      "Consolidação nacional: teses estratégicas nos tribunais superiores, publicações e articulação com o movimento sindical.",
-  },
-  {
-    label: "2024",
-    min: 2024,
-    max: 2024,
-    intro:
-      "Novos horizontes: internacionalização da atuação, eventos próprios e fortalecimento das áreas de negócios e sindical.",
-  },
-  {
-    label: "2025",
-    min: 2025,
-    max: 2025,
-    intro:
-      "O ano mais intenso da nossa história: agenda internacional, Instituto Lavoro e produção jurídica em ritmo recorde.",
-  },
-  {
-    label: "2026 · Presente",
-    min: 2026,
-    max: 2100,
-    intro:
-      "O presente: uma advocacia contemporânea, plural e comprometida com a defesa permanente do trabalho digno.",
-  },
+const phases: Phase[] = [
+  { label: "Fundação · 1981 – 1995", min: 1981, max: 1995 },
+  { label: "A criação da LBS · 2013 – 2016", min: 2013, max: 2016 },
+  { label: "Resistência e consolidação · 2017 – 2019", min: 2017, max: 2019 },
+  { label: "Pandemia e debate público · 2020 – 2021", min: 2020, max: 2021 },
+  { label: "Produção e internacionalização · 2022 – 2023", min: 2022, max: 2023 },
+  { label: "Agenda internacional · 2024 – 2026", min: 2024, max: 2100 },
 ];
 
+function countFor(phase: Phase) {
+  return timelineEvents.filter(
+    (event) => event.year >= phase.min && event.year <= phase.max,
+  ).length;
+}
 
 export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
-  const [active, setActive] = useState<string>(OVERVIEW);
+  const [active, setActive] = useState<string>(phases[0].label);
+  const scrollerRef = useRef<HTMLDivElement>(null);
 
-  const era = eras.find((item) => item.label === active) ?? null;
+  const phase = phases.find((item) => item.label === active) ?? phases[0];
 
   const years = useMemo(() => {
-    if (!era) return [];
     const filtered = timelineEvents.filter(
-      (event) => event.year >= era.min && event.year <= era.max,
+      (event) => event.year >= phase.min && event.year <= phase.max,
     );
     const map = new Map<number, typeof filtered>();
     for (const event of filtered) {
@@ -85,14 +36,12 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
       map.set(event.year, list);
     }
     return Array.from(map.entries()).sort((a, b) => a[0] - b[0]);
-  }, [era]);
+  }, [phase]);
 
-  const isSingleYear = years.length === 1;
-
-
-
-  const tabs = [OVERVIEW, ...eras.map((item) => item.label)];
-
+  const counts = useMemo(
+    () => new Map(phases.map((item) => [item.label, countFor(item)])),
+    [],
+  );
 
   return (
     <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
@@ -103,53 +52,17 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
           </h2>
         )}
 
-        {/* era navigation */}
-        <nav
-          className={`overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
-            showHeading ? "mt-10 sm:mt-14" : ""
-          }`}
-        >
-          <ul className="flex min-w-max items-end gap-7 sm:gap-10 lg:gap-12">
-            {tabs.map((label) => {
-              const isActive = label === active;
-              return (
-                <li key={label} className="flex flex-col items-center">
-                  <ChevronDown
-                    className={`mb-1 h-5 w-5 transition-opacity ${
-                      isActive ? "text-lbs-magenta opacity-100" : "opacity-0"
-                    }`}
-                    strokeWidth={3}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setActive(label)}
-                    className={`whitespace-nowrap text-[15px] font-medium tracking-[0.01em] transition-colors sm:text-[16px] ${
-                      isActive
-                        ? "text-lbs-magenta"
-                        : "text-lbs-ink/60 hover:text-lbs-ink"
-                    }`}
-                  >
-                    {label}
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
+        {/* introdução fixa */}
+        <div className={showHeading ? "mt-8 sm:mt-10" : ""}>
+          <p className="max-w-[860px] text-[17px] leading-[1.7] text-lbs-ink sm:text-[19px]">
+            Com uma história feita de parcerias improváveis, escolhas corajosas e
+            crescimento estratégico, somos, desde o início, uma advocacia fora do
+            comum.
+          </p>
 
-        <div className="mt-10 h-px w-full bg-lbs-ink/10 sm:mt-12" />
-
-        {/* content */}
-        <div className={`mt-10 sm:mt-14 ${isSingleYear ? "" : "max-w-[860px]"}`}>
-          {!era ? (
+          <div className="mt-10 grid gap-10 lg:grid-cols-2">
             <div>
-              <p className="text-[17px] leading-[1.7] text-lbs-ink sm:text-[19px]">
-                Com uma história feita de parcerias improváveis, escolhas corajosas
-                e crescimento estratégico, somos, desde o início, uma advocacia
-                fora do comum.
-              </p>
-
-              <h3 className="mt-12 text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
+              <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
                 Parcerias fora do comum
               </h3>
               <div className="mt-4 space-y-6 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
@@ -169,8 +82,10 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
                   mesmo lado da mesa: o de quem trabalha.
                 </p>
               </div>
+            </div>
 
-              <h3 className="mt-12 text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
+            <div>
+              <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
                 Uma advocacia que transforma
               </h3>
               <div className="mt-4 space-y-6 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
@@ -182,79 +97,127 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
                   Trabalho.
                 </p>
                 <p>
-                  Navegue pelos períodos acima para conhecer os marcos que
+                  Navegue pelas fases abaixo para conhecer os marcos que
                   construíram essa trajetória.
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* navegação por fases — mobile */}
+        <div className="mt-12 sm:hidden">
+          <label
+            htmlFor="lbs-fase"
+            className="text-[11px] font-semibold uppercase tracking-[0.14em] text-lbs-ink/50"
+          >
+            Fase
+          </label>
+          <select
+            id="lbs-fase"
+            value={active}
+            onChange={(event) => setActive(event.target.value)}
+            className="mt-2 w-full rounded-md border border-lbs-ink/15 bg-white px-3 py-3 text-[15px] font-medium text-lbs-magenta outline-none focus:border-lbs-magenta"
+          >
+            {phases.map((item) => (
+              <option key={item.label} value={item.label}>
+                {item.label} — {counts.get(item.label)} marcos
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* navegação por fases — desktop */}
+        <div className="relative mt-12 hidden sm:block">
+          <div
+            ref={scrollerRef}
+            className="overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+          >
+            <ul className="flex min-w-max items-stretch gap-8 lg:gap-10">
+              {phases.map((item) => {
+                const isActive = item.label === active;
+                return (
+                  <li key={item.label}>
+                    <button
+                      type="button"
+                      onClick={() => setActive(item.label)}
+                      className="group flex flex-col items-start pb-3 text-left outline-none"
+                    >
+                      <span
+                        className={`whitespace-nowrap text-[15px] font-medium tracking-[0.01em] transition-colors sm:text-[16px] ${
+                          isActive
+                            ? "text-lbs-magenta"
+                            : "text-lbs-ink/70 group-hover:text-lbs-magenta"
+                        }`}
+                      >
+                        {item.label}
+                      </span>
+                      <span
+                        className={`mt-1 whitespace-nowrap text-[12px] transition-colors ${
+                          isActive ? "text-lbs-magenta/70" : "text-lbs-ink/45"
+                        }`}
+                      >
+                        {counts.get(item.label)} marcos
+                      </span>
+                      <span
+                        className={`mt-3 block h-px w-full transition-colors ${
+                          isActive ? "bg-lbs-magenta" : "bg-transparent"
+                        }`}
+                      />
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+          {/* indicador de mais abas à direita */}
+          <div className="pointer-events-none absolute inset-y-0 right-0 flex w-16 items-center justify-end bg-gradient-to-l from-white via-white/80 to-transparent pr-1 text-lbs-magenta">
+            <span aria-hidden className="text-[16px]">
+              ›
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-2 h-px w-full bg-lbs-ink/10" />
+
+        {/* conteúdo da fase */}
+        <div className="mt-10 sm:mt-14">
+          {years.length === 0 ? (
+            <p className="text-[15px] text-lbs-ink/60">
+              Nenhum marco registrado para este período.
+            </p>
           ) : (
-            <div>
-              <p className={`text-[17px] leading-[1.7] text-lbs-ink sm:text-[19px] ${isSingleYear ? "max-w-[860px]" : ""}`}>
-                {era.intro}
-              </p>
+            <div className="relative max-w-[860px]">
+              <div className="pointer-events-none absolute inset-y-0 left-[7px] z-0 w-px bg-lbs-magenta/25" />
 
-              {years.length === 0 ? (
-                <p className="mt-12 text-[15px] text-lbs-ink/60">
-                  Nenhum marco registrado para este período.
-                </p>
-              ) : (
-                <div className="relative mt-10">
-                  {/* linha vertical central contínua */}
-                  <div className="pointer-events-none absolute inset-y-0 left-[7px] z-0 w-px bg-lbs-magenta/25" />
+              <div className="space-y-7">
+                {years.map(([year, events]) => (
+                  <article key={year} className="relative z-10 pl-8">
+                    <div className="absolute left-[1px] top-[24px] h-3.5 w-3.5 rounded-full border-2 border-white bg-lbs-magenta" />
+                    <div className="rounded-lg bg-white px-5 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_10px_28px_-20px_rgba(0,0,0,0.25)]">
+                      <h3 className="text-[13px] font-semibold uppercase tracking-[0.1em] text-lbs-magenta sm:text-[14px]">
+                        {year}
+                      </h3>
+                      <div className="mt-3 space-y-4 text-[14px] leading-[1.8] text-lbs-ink/85 sm:text-[15px]">
+                        {events.map((event, index) => (
+                          <p key={`${event.label}-${index}`}>{event.text}</p>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                ))}
 
-                  <MilestoneLoop
-                    key={era.label}
-                    className="h-[560px]"
-                    speed={38}
-                    gap={isSingleYear ? 14 : 28}
-                    fadeOut
-                    fadeOutColor="#ffffff"
-                    ariaLabel={`Marcos ${era.label}`}
-                    items={
-                      isSingleYear
-                        ? years[0][1].map((event, index) => ({
-                            key: `${event.label}-${index}`,
-                            node: (
-                              <article className="relative z-10 pl-8">
-                                <div className="absolute left-[1px] top-[20px] h-3.5 w-3.5 rounded-full border-2 border-white bg-lbs-magenta" />
-                                <div className="rounded-lg bg-white px-5 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_10px_28px_-20px_rgba(0,0,0,0.25)]">
-                                  <h3 className="text-[12px] font-semibold uppercase tracking-[0.1em] text-lbs-magenta">
-                                    {event.label}
-                                  </h3>
-                                  <p className="mt-2 text-[14px] leading-[1.8] text-lbs-ink/85 sm:text-[15px]">
-                                    {event.text}
-                                  </p>
-                                </div>
-                              </article>
-                            ),
-                          }))
-                        : years.map(([year, events]) => ({
-                            key: String(year),
-                            node: (
-                              <article className="relative z-10 pl-8">
-                                {/* ponto sobre a linha */}
-                                <div className="absolute left-[1px] top-[24px] h-3.5 w-3.5 rounded-full border-2 border-white bg-lbs-magenta" />
-
-                                <div className="rounded-lg bg-white px-5 py-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_10px_28px_-20px_rgba(0,0,0,0.25)]">
-                                  <h3 className="text-[13px] font-semibold uppercase tracking-[0.1em] text-lbs-magenta sm:text-[14px]">
-                                    {year}
-                                  </h3>
-                                  <div className="mt-3 space-y-4 text-[14px] leading-[1.8] text-lbs-ink/85 sm:text-[15px]">
-                                    {events.map((event, index) => (
-                                      <p key={`${event.label}-${index}`}>{event.text}</p>
-                                    ))}
-                                  </div>
-                                </div>
-                              </article>
-                            ),
-                          }))
-                    }
-                  />
-                </div>
-              )}
-
-
-
+                {phase.label === phases[0].label && (
+                  <div className="relative z-10 pl-8">
+                    <p
+                      aria-hidden
+                      className="text-[18px] leading-none tracking-[0.3em] text-lbs-ink/30"
+                    >
+                      …
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
           )}
         </div>
