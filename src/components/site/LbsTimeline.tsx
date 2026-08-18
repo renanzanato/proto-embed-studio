@@ -35,6 +35,12 @@ const categoryStyles: Record<
     text: "text-lbs-ink/85 text-[14px] sm:text-[15px]",
     dot: "bg-white ring-1 ring-lbs-ink/40",
   },
+  Cartilha: {
+    label: "Cartilha",
+    tag: "text-lbs-ink/70",
+    text: "text-lbs-ink/85 text-[14px] sm:text-[15px]",
+    dot: "bg-white ring-1 ring-lbs-ink/40",
+  },
   Eventos: {
     label: "Eventos",
     tag: "text-lbs-ink/50",
@@ -60,6 +66,7 @@ const filterOrder: TimelineCategory[] = [
   "Eventos",
   "Evento",
   "Livro",
+  "Cartilha",
   "Publicações",
   "Internacional",
 ];
@@ -269,7 +276,18 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
                             <p
                               className={`mt-2 max-w-[68ch] leading-[1.7] ${style.text}`}
                             >
-                              {event.text}
+                              {event.url ? (
+                                <a
+                                  href={event.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="underline decoration-lbs-magenta/40 underline-offset-4 transition-colors hover:text-lbs-magenta hover:decoration-lbs-magenta"
+                                >
+                                  {event.text}
+                                </a>
+                              ) : (
+                                event.text
+                              )}
                             </p>
                           </li>
                         );
