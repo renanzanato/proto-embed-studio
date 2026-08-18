@@ -5,7 +5,14 @@ import heroImage from "@/assets/a-lbs-hero.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { HistoryTeaser } from "@/components/site/HistoryTeaser";
+import { TypewriterHeadline } from "@/components/site/TypewriterHeadline";
 import { aLbsContent as c } from "@/content/aLbs";
+
+const heroSegments = [
+  { text: "Defendemos quem trabalha." },
+  { isBreak: true },
+  { text: "Estruturamos causas que transformam.", className: "text-white/85" },
+];
 
 const chamfer = {
   clipPath:
@@ -71,12 +78,16 @@ function ALbsPage() {
         </div>
 
         <div className="relative z-10 mx-auto mt-auto w-full max-w-[1200px] px-4 pb-14 sm:px-6 sm:pb-18 lg:px-8 lg:pb-20">
-          <h1 className="text-[30px] font-light leading-[1.1] tracking-tight text-white sm:text-[40px]">
-            {c.hero.title}
+          <h1 className="max-w-[820px] text-[26px] font-light leading-[1.25] tracking-tight text-white sm:text-[38px] lg:text-[44px]">
+            <TypewriterHeadline
+              segments={heroSegments}
+              speed={38}
+              startDelay={250}
+              segmentPause={220}
+              cursorClassName="ml-[2px] inline-block h-[0.9em] w-[2px] translate-y-[0.06em] bg-lbs-magenta align-middle"
+            />
+            <span className="sr-only">{c.hero.statement}</span>
           </h1>
-          <p className="mt-6 max-w-[720px] text-[18px] font-light leading-[1.5] text-white sm:text-[24px]">
-            {c.hero.statement}
-          </p>
         </div>
       </section>
 
