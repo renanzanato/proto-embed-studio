@@ -29,8 +29,20 @@ const categoryStyles: Record<
     text: "text-lbs-ink/85 text-[14px] sm:text-[15px]",
     dot: "bg-white ring-1 ring-lbs-ink/40",
   },
+  Livro: {
+    label: "Livro",
+    tag: "text-lbs-ink/70",
+    text: "text-lbs-ink/85 text-[14px] sm:text-[15px]",
+    dot: "bg-white ring-1 ring-lbs-ink/40",
+  },
   Eventos: {
     label: "Eventos",
+    tag: "text-lbs-ink/50",
+    text: "text-lbs-ink/80 text-[14px] sm:text-[15px]",
+    dot: "bg-white ring-1 ring-lbs-ink/25",
+  },
+  Evento: {
+    label: "Evento",
     tag: "text-lbs-ink/50",
     text: "text-lbs-ink/80 text-[14px] sm:text-[15px]",
     dot: "bg-white ring-1 ring-lbs-ink/25",
@@ -45,8 +57,10 @@ const categoryStyles: Record<
 
 const filterOrder: TimelineCategory[] = [
   "Institucional",
-  "Publicações",
   "Eventos",
+  "Evento",
+  "Livro",
+  "Publicações",
   "Internacional",
 ];
 

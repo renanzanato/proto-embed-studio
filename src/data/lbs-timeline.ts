@@ -1,7 +1,9 @@
 export type TimelineCategory =
   | "Institucional"
   | "Eventos"
+  | "Evento"
   | "Publicações"
+  | "Livro"
   | "Internacional";
 
 export type TimelineEvent = {
@@ -63,37 +65,44 @@ export const timelineEvents: TimelineEvent[] = [
   {
     year: 2013,
     label: "2013",
-    text: "Primeiro seminário “De olho no Futuro”, em Brasília.",
-    category: "Eventos",
+    text: "Após cisão com o antigo escritório, foi criada a Loguercio, Beiro e Surian Sociedade de Advogados, a LBS Advogadas e Advogados. As unidades em Campinas, São Paulo e Brasília foram mantidas e o escritório reteve importantes parcerias nacionais (mais de 80 escritórios). Tornaram-se sócios patrimoniais Paulo Roberto, Gláucia, Fernando e Luciana Barretto",
+    category: "Institucional",
+  },
+  {
+    year: 2013,
+    label: "2013",
+    text: "Primeiro seminário \"De olho no Futuro\" em Brasília",
+    category: "Evento",
   },
   {
     year: 2014,
     label: "2014",
-    text: "Oficinas sobre a nova sistemática de recursos trabalhistas.",
-    category: "Eventos",
+    text: "Oficinas sobre a nova sistemática de recursos trabalhistas",
+    category: "Evento",
   },
   {
     year: 2014,
     label: "09/2014",
-    text: "Formação de grupo de parceiros advogados trabalhistas, que daria origem, mais tarde, à Rede Lado.",
+    text: "Formação de grupo de parceiros advogados trabalhistas, que dará origem, mais tarde, à Rede Lado",
     category: "Institucional",
   },
   {
     year: 2015,
     label: "2015",
-    text: "Lançamento do livro “Terceirização no STF”.",
-    category: "Publicações",
+    text: "Lançamento do livro \"Terceirização no STF\"",
+    category: "Livro",
   },
   {
     year: 2016,
     label: "2016",
-    text: "Seminário Internacional “Negociação Coletiva em Tempos de Crise”.",
-    category: "Internacional",
+    text: "Seminário Internacional \"Negociação Coletiva em Tempos de Crise\"",
+    category: "Evento",
   },
+  // CONFIRMAR COM O ESCRITÓRIO: data correta da fundação da Rede Lado (03/2016 ou 04/2019)
   {
     year: 2016,
     label: "03/2016",
-    text: "Fundação da Rede Lado.",
+    text: "Fundação da Rede Lado",
     category: "Institucional",
   },
   {
