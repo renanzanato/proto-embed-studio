@@ -5,7 +5,14 @@ import heroImage from "@/assets/a-lbs-hero.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { HistoryTeaser } from "@/components/site/HistoryTeaser";
+import { TypewriterHeadline } from "@/components/site/TypewriterHeadline";
 import { aLbsContent as c } from "@/content/aLbs";
+
+const heroSegments = [
+  { text: "Defendemos quem trabalha." },
+  { isBreak: true },
+  { text: "Estruturamos causas que transformam.", className: "text-white/85" },
+];
 
 const chamfer = {
   clipPath:
