@@ -3,7 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import solucoesHero from "@/assets/solucoes-hero.jpg";
 import solDefesa from "@/assets/pessoas-que-trabalham-subway.jpg.asset.json";
 import solLitigios from "@/assets/litigios-coletivos.jpg.asset.json";
-import solTribunais from "@/assets/sol-tribunais.jpg";
+import solTribunais from "@/assets/tribunais-superiores.jpg.asset.json";
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 import solParcerias from "@/assets/parceiros-estrategicos-high-five.jpg.asset.json";
 import solEmergentes from "@/assets/temas-emergentes.jpg.asset.json";
@@ -45,7 +45,7 @@ const solucoes = [
     text: "Atuamos em litígios estratégicos relacionados a conflitos jurídicos emergentes, ainda em processo de consolidação normativa e jurisprudencial.",
   },
   {
-    img: solTribunais,
+    img: solTribunais.url,
     title: "Tribunais Superiores",
     to: "/solucoes/tribunais-superiores",
     text: "Condução dos processos que tramitam no TST, STJ e STF, com sustentações orais, memoriais, diligências em gabinetes e atuação estratégica em repercussão geral.",
