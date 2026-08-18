@@ -5,12 +5,12 @@ import { timelineEvents } from "@/data/lbs-timeline";
 type Phase = { label: string; min: number; max: number };
 
 const phases: Phase[] = [
-  { label: "Fundação · 1981 – 1995", min: 1981, max: 1995 },
-  { label: "A criação da LBS · 2013 – 2016", min: 2013, max: 2016 },
-  { label: "Resistência e consolidação · 2017 – 2019", min: 2017, max: 2019 },
-  { label: "Pandemia e debate público · 2020 – 2021", min: 2020, max: 2021 },
-  { label: "Produção e internacionalização · 2022 – 2023", min: 2022, max: 2023 },
-  { label: "Agenda internacional · 2024 – 2026", min: 2024, max: 2100 },
+  { label: "1981 – 1995", min: 1981, max: 1995 },
+  { label: "2013 – 2016", min: 2013, max: 2016 },
+  { label: "2017 – 2019", min: 2017, max: 2019 },
+  { label: "2020 – 2021", min: 2020, max: 2021 },
+  { label: "2022 – 2023", min: 2022, max: 2023 },
+  { label: "2024 – 2026", min: 2024, max: 2026 },
 ];
 
 function countFor(phase: Phase) {
