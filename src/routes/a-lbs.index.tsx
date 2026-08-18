@@ -123,12 +123,9 @@ function ALbsPage() {
             <h2 className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
               {c.quemSomos.label}
             </h2>
-            <p className="mt-5 text-[22px] font-light leading-[1.35] text-lbs-ink sm:text-[28px]">
-              {c.quemSomos.intro}
-            </p>
           </div>
 
-          <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {c.quemSomos.cards.map((card) => (
               <li
                 key={card.title}
