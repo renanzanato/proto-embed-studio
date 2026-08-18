@@ -5,7 +5,7 @@ import solDefesa from "@/assets/pessoas-que-trabalham-fabrica.jpg.asset.json";
 import solLitigios from "@/assets/litigios-coletivos.jpg.asset.json";
 import solTribunais from "@/assets/tribunais-superiores.jpg.asset.json";
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
-import solParcerias from "@/assets/parceiros-estrategicos-high-five.jpg.asset.json";
+import solParcerias from "@/assets/parceiros-estrategicos-handshake.jpg.asset.json";
 import solEmergentes from "@/assets/temas-emergentes.jpg.asset.json";
 import solAdmPublica from "@/assets/sol-adm-publica.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
