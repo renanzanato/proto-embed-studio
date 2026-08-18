@@ -55,54 +55,13 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
         {/* introdução fixa */}
         <div className={showHeading ? "mt-8 sm:mt-10" : ""}>
           <p className="max-w-[860px] text-[17px] leading-[1.7] text-lbs-ink sm:text-[19px]">
-            Com uma história feita de parcerias improváveis, escolhas corajosas e
-            crescimento estratégico, somos, desde o início, uma advocacia fora do
-            comum.
+            Com trajetória vinculada ao movimento sindical e ao Direito do
+            Trabalho, a LBS Advogadas e Advogados traz em sua sigla a história
+            e o compromisso de seus sócios fundadores: Loguercio, Beiro e
+            Surian. São quatro décadas dedicadas à construção de soluções
+            jurídicas de alto impacto na defesa de quem trabalha e dos direitos
+            humanos.
           </p>
-
-          <div className="mt-10 grid gap-10 lg:grid-cols-2">
-            <div>
-              <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
-                Parcerias fora do comum
-              </h3>
-              <div className="mt-4 space-y-6 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
-                <p>
-                  A história da LBS é a história de encontros improváveis, fundada
-                  em um respeito profundo pelas pessoas. Em 1981, José Eymard
-                  Loguercio e Eduardo Surian Matias se conheceram no colégio; anos
-                  depois, ainda estudantes de Direito na PUC Campinas, começaram a
-                  atuar ao lado de sindicatos de trabalhadores e nunca mais
-                  pararam.
-                </p>
-                <p>
-                  A chegada de Nilo Beiro, vindo do Rio Grande do Sul, completou o
-                  trio que daria origem ao escritório. Do TRT de Campinas recém
-                  criado às tribunas dos tribunais superiores em Brasília, a LBS
-                  cresceu junto com o movimento sindical brasileiro, sempre no
-                  mesmo lado da mesa: o de quem trabalha.
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-[15px] font-semibold uppercase tracking-[0.06em] text-lbs-magenta sm:text-[17px]">
-                Uma advocacia que transforma
-              </h3>
-              <div className="mt-4 space-y-6 text-[15px] leading-[1.85] text-lbs-ink/85 sm:text-[16px]">
-                <p>
-                  Ao longo de mais de quatro décadas, a LBS estruturou teses,
-                  formou gerações de advogadas e advogados, produziu livros e
-                  seminários e levou a defesa do trabalho digno a fóruns nacionais
-                  e internacionais, incluindo a Organização Internacional do
-                  Trabalho.
-                </p>
-                <p>
-                  Navegue pelas fases abaixo para conhecer os marcos que
-                  construíram essa trajetória.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* navegação por fases — mobile */}
