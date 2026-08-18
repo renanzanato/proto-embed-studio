@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 
 type MilestoneLoopProps = {
   items: { key: string; node: ReactNode }[];
-  /** mantido por compatibilidade — o auto-scroll foi removido */
+  /** pixels per second */
   speed?: number;
   gap?: number;
   fadeOut?: boolean;
@@ -11,25 +11,51 @@ type MilestoneLoopProps = {
   className?: string;
 };
 
-/**
- * Lista vertical estática de marcos. O scroll é controlado apenas pelo usuário
- * (rolagem do documento ou do container), sem animação automática.
- */
 export function MilestoneLoop({
   items,
+  speed = 40,
   gap = 44,
+  fadeOut = true,
+  fadeOutColor = "#ffffff",
   ariaLabel = "Marcos históricos",
   className = "",
 }: MilestoneLoopProps) {
-  const style = { gap: `${gap}px` } as CSSProperties;
+  const duration = Math.max(14, (items.length * 220) / speed);
+  const loopStyle = {
+    "--milestone-loop-duration": `${duration}s`,
+    "--milestone-loop-gap": `${gap}px`,
+    "--milestone-fade-color": fadeOutColor,
+  } as CSSProperties;
 
   return (
-    <div className={`relative ${className}`} aria-label={ariaLabel} role="region">
-      <div className="flex flex-col" style={style}>
-        {items.map((item) => (
-          <div key={item.key}>{item.node}</div>
+    <div
+      className={`relative overflow-hidden ${className}`}
+      aria-label={ariaLabel}
+      role="region"
+      style={loopStyle}
+    >
+      <div className="milestone-loop-track">
+        {[0, 1].map((copy) => (
+          <div
+            key={copy}
+            aria-hidden={copy === 1}
+            className="milestone-loop-copy"
+          >
+            <div className="milestone-loop-list">
+              {items.map((item) => (
+                <div key={`${copy}-${item.key}`}>{item.node}</div>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
+
+      {fadeOut && (
+        <>
+          <div className="milestone-loop-fade milestone-loop-fade-top" />
+          <div className="milestone-loop-fade milestone-loop-fade-bottom" />
+        </>
+      )}
     </div>
   );
 }

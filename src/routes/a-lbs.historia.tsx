@@ -4,8 +4,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import heroImage from "@/assets/a-lbs-hero.jpg";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
-import { HistoriaTrajetoria } from "@/components/site/HistoriaTrajetoria";
-import { HistoriaAcervo } from "@/components/site/HistoriaAcervo";
+import { LbsTimeline } from "@/components/site/LbsTimeline";
 
 export const Route = createFileRoute("/a-lbs/historia")({
   head: () => ({
@@ -81,8 +80,7 @@ function HistoriaPage() {
         </div>
       </section>
 
-      <HistoriaTrajetoria />
-      <HistoriaAcervo />
+      <LbsTimeline showHeading={false} />
 
       <SiteFooter />
       <WhatsAppButton />
