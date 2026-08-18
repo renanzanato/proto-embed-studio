@@ -13,7 +13,7 @@ import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
 const solucoes = [
   {
-    img: solDefesa,
+    img: solDefesa.url,
     title: "Defesa da pessoa que trabalha",
     to: "/solucoes/defesa-da-pessoa-que-trabalha",
     text: "Atuamos de forma contínua na defesa jurídica da pessoa que trabalha, considerando as múltiplas formas contemporâneas de vínculo laboral e proteção social.",
