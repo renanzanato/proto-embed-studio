@@ -67,15 +67,20 @@ const categoryStyles: Record<
   },
 };
 
-const filterOrder: TimelineCategory[] = [
-  "Institucional",
-  "Eventos",
-  "Evento",
-  "Livro",
-  "Cartilha",
-  "Agenda",
-  "Publicações",
-  "Internacional",
+type FilterItem = {
+  key: string;
+  label: string;
+  categories?: TimelineCategory[];
+};
+
+const categoryFilters: FilterItem[] = [
+  { key: "Todos", label: "Todos" },
+  { key: "Institucional", label: "Institucional", categories: ["Institucional"] },
+  { key: "Livros", label: "Livros", categories: ["Livro"] },
+  { key: "Cartilhas", label: "Cartilhas", categories: ["Cartilha"] },
+  { key: "Eventos", label: "Seminários e eventos", categories: ["Eventos", "Evento"] },
+  { key: "Internacional", label: "Internacional", categories: ["Internacional"] },
+  { key: "Agendas", label: "Agendas", categories: ["Agenda"] },
 ];
 
 function eventsFor(phase: Phase) {
