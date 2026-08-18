@@ -51,7 +51,7 @@ const solucoes = [
     text: "Condução dos processos que tramitam no TST, STJ e STF, com sustentações orais, memoriais, diligências em gabinetes e atuação estratégica em repercussão geral.",
   },
   {
-    img: solAdmPublica,
+    img: solAdmPublica.url,
     title: "Vínculos com a Administração Pública",
     to: "/solucoes/vinculos-com-a-administracao-publica",
     text: "Atuação especializada para servidoras e servidores públicos, empregados de estatais, temporários, terceirizados e bolsistas em suas relações com o poder público.",
