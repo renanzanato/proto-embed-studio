@@ -4,12 +4,14 @@ export type TimelineCategory =
   | "Evento"
   | "Publicações"
   | "Livro"
+  | "Cartilha"
   | "Internacional";
 
 export type TimelineEvent = {
   year: number;
   label: string;
   text: string;
+  url?: string;
   category: TimelineCategory;
 };
 
