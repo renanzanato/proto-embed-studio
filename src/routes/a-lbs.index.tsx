@@ -77,14 +77,15 @@ function ALbsPage() {
           </div>
         </div>
 
-        <div className="relative z-10 mx-auto mt-auto w-full max-w-[1200px] px-4 pb-14 sm:px-6 sm:pb-18 lg:px-8 lg:pb-20">
+        <div className="relative z-10 mx-auto my-auto w-full max-w-[1200px] px-4 pb-10 pt-8 sm:px-6 lg:px-8">
           <h1 className="max-w-[820px] text-[26px] font-light leading-[1.25] tracking-tight text-white sm:text-[38px] lg:text-[44px]">
             <TypewriterHeadline
               segments={heroSegments}
               speed={38}
               startDelay={250}
               segmentPause={220}
-              cursorClassName="ml-[2px] inline-block h-[0.9em] w-[2px] translate-y-[0.06em] bg-lbs-magenta align-middle"
+              cursor={false}
+              restartOnEnter
             />
             <span className="sr-only">{c.hero.statement}</span>
           </h1>
