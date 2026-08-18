@@ -21,7 +21,13 @@ export const timelineEvents: TimelineEvent[] = [
   {
     year: 1982,
     label: "1982",
-    text: "Loguercio e Eduardo Surian passam a estudar Direito na PUC Campinas. Ainda estudantes, iniciam estágio no Sindicato dos Metalúrgicos de Campinas (1984) e participam da primeira oposição a vencer um grande sindicato na região.",
+    text: "Loguercio e Eduardo Surian passam a estudar Direito na PUC Campinas.",
+    category: "Institucional",
+  },
+  {
+    year: 1984,
+    label: "1984",
+    text: "Ainda estudantes, iniciam estágio no Sindicato dos Metalúrgicos de Campinas e participam da primeira oposição a vencer um grande sindicato na região.",
     category: "Institucional",
   },
   {
@@ -113,12 +119,6 @@ export const timelineEvents: TimelineEvent[] = [
     label: "2019",
     text: "Seminários sobre serviço público e futuro do trabalho.",
     category: "Eventos",
-  },
-  {
-    year: 2019,
-    label: "04/2019",
-    text: "Fundação da Rede Lado.",
-    category: "Institucional",
   },
   {
     year: 2019,
