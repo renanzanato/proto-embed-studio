@@ -139,11 +139,11 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
 
           {/* desktop */}
           <div className="hidden sm:block">
-            <ul className="grid grid-cols-3 items-stretch gap-x-4 gap-y-4 lg:grid-cols-6">
+            <ul className="flex w-full flex-nowrap items-stretch justify-between gap-x-6 overflow-x-auto">
               {phases.map((item) => {
                 const isActive = item.label === active;
                 return (
-                  <li key={item.label} className="flex">
+                  <li key={item.label} className="flex shrink-0">
                     <button
                       type="button"
                       onClick={() => setActive(item.label)}
