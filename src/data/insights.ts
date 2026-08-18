@@ -9,7 +9,7 @@ import solLitigios from "@/assets/sol-litigios.jpg";
 import solTribunais from "@/assets/sol-tribunais.jpg";
 import solExecucoes from "@/assets/sol-execucoes.jpg";
 import solEmergentes from "@/assets/sol-emergentes.jpg";
-import solAdmPublica from "@/assets/sol-adm-publica.jpg";
+import solAdmPublica from "@/assets/vinculos-administracao-publica.jpg.asset.json";
 import solParcerias from "@/assets/sol-parcerias.jpg";
 import solDefesa from "@/assets/sol-defesa.jpg";
 

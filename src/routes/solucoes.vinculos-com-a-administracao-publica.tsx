@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import solAdm from "@/assets/sol-adm-publica.jpg";
+import solAdm from "@/assets/vinculos-administracao-publica.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeVinculosAdministracaoPublica } from "@/data/solucao-equipe";
