@@ -33,7 +33,7 @@ const solucoes = [
   },
 
   {
-    img: solParcerias,
+    img: solParcerias.url,
     title: "Parceiros estratégicos",
     to: "/solucoes/parceiros-estrategicos",
     text: "Atuamos em colaboração com outros escritórios quando a complexidade do caso exige estrutura, densidade técnica e capacidade operacional superiores.",
