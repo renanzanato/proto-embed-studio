@@ -1,40 +1,21 @@
 import { Link } from "@tanstack/react-router";
-import { CalendarDays, Facebook, Instagram, Linkedin, MapPin, Music2, Phone, Youtube } from "lucide-react";
+import { CalendarDays, Facebook, Instagram, Linkedin, Music2, Youtube } from "lucide-react";
 
 import lbsLogo from "@/assets/lbs-logo.png.asset.json";
-
-
-const offices = [
-  {
-    city: "Brasília",
-    address:
-      "Edifício Ion – SGAN 601 Lote H, Salas 79 a 86, Piso Alta 1 – Térreo – Asa Norte, CEP: 70830-010",
-    phone: "(61) 3396-8100",
-  },
-  {
-    city: "São Paulo",
-    address:
-      "Edifício Philadelphia – Avenida Angélica, 1996, Cj 201 – Higienópolis, CEP: 01228-200",
-    phone: "(11) 3583-8030",
-  },
-  {
-    city: "Campinas",
-    address:
-      "Espaço Toulouse – Rua Doutor Emílio Ribas, 188, 3º andar – Cambuí, CEP: 13025-140",
-    phone: "(19) 3395-7700",
-  },
-];
 
 const footerMenu = [
   { label: "Início", to: "/" },
   { label: "Equipe", to: "/equipe" },
   { label: "A LBS", to: "/a-lbs" },
   { label: "Trabalhe Conosco", to: "/" },
-  { label: "Soluções", to: "/solucoes" },
+  { label: "Áreas de atuação", to: "/solucoes" },
   { label: "Política de Privacidade", to: "/" },
-  { label: "Artigos e Notícias", to: "/" },
+  { label: "Artigos e Notícias", to: "/artigos" },
   { label: "Contato", to: "/" },
 ];
+
+const manifestoUrl =
+  "https://lbs.adv.br/wp-content/uploads/2022/05/Manifeso-LBS.pdf";
 
 const socials = [
   { label: "LinkedIn", Icon: Linkedin },

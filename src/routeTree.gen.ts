@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LinhaDoTempoAbRouteImport } from './routes/linha-do-tempo-ab'
+import { Route as NossaHistoriaRouteImport } from './routes/nossa-historia'
 import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
 import { Route as ALbsIndexRouteImport } from './routes/a-lbs.index'
 import { Route as ALbsHistoriaRouteImport } from './routes/a-lbs.historia'
@@ -37,6 +38,11 @@ const IndexRoute = IndexRouteImport.update({
 const LinhaDoTempoAbRoute = LinhaDoTempoAbRouteImport.update({
   id: '/linha-do-tempo-ab',
   path: '/linha-do-tempo-ab',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NossaHistoriaRoute = NossaHistoriaRouteImport.update({
+  id: '/nossa-historia',
+  path: '/nossa-historia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrototipoLbsRoute = PrototipoLbsRouteImport.update({
@@ -134,6 +140,7 @@ const SolucoesVinculosComAAdministracaoPublicaRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
+  '/nossa-historia': typeof NossaHistoriaRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/artigos/$slug': typeof ArtigosSlugRoute
@@ -155,6 +162,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
+  '/nossa-historia': typeof NossaHistoriaRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/artigos/$slug': typeof ArtigosSlugRoute
@@ -177,6 +185,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
+  '/nossa-historia': typeof NossaHistoriaRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/artigos/$slug': typeof ArtigosSlugRoute
@@ -200,6 +209,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/linha-do-tempo-ab'
+    | '/nossa-historia'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
     | '/artigos/$slug'
@@ -221,6 +231,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/linha-do-tempo-ab'
+    | '/nossa-historia'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
     | '/artigos/$slug'
@@ -242,6 +253,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/linha-do-tempo-ab'
+    | '/nossa-historia'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
     | '/artigos/$slug'
@@ -264,6 +276,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LinhaDoTempoAbRoute: typeof LinhaDoTempoAbRoute
+  NossaHistoriaRoute: typeof NossaHistoriaRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
   ALbsHistoriaRoute: typeof ALbsHistoriaRoute
   ArtigosSlugRoute: typeof ArtigosSlugRoute
@@ -297,6 +310,13 @@ declare module '@tanstack/react-router' {
       path: '/linha-do-tempo-ab'
       fullPath: '/linha-do-tempo-ab'
       preLoaderRoute: typeof LinhaDoTempoAbRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nossa-historia': {
+      id: '/nossa-historia'
+      path: '/nossa-historia'
+      fullPath: '/nossa-historia'
+      preLoaderRoute: typeof NossaHistoriaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/prototipo-lbs': {
@@ -424,6 +444,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LinhaDoTempoAbRoute: LinhaDoTempoAbRoute,
+  NossaHistoriaRoute: NossaHistoriaRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
   ALbsHistoriaRoute: ALbsHistoriaRoute,
   ArtigosSlugRoute: ArtigosSlugRoute,

@@ -8,7 +8,7 @@ import { AtuacaoDialog } from "@/components/site/AtuacaoDialog";
 const navItems = [
   { label: "Início", to: "/" },
   { label: "A LBS", to: "/a-lbs" },
-  { label: "Soluções", to: "/solucoes" },
+  { label: "Áreas de atuação", to: "/solucoes" },
   { label: "Artigos e Notícias", to: "/artigos" },
   { label: "Equipe", to: "/equipe" },
   { label: "Contato", to: "/" },
@@ -58,7 +58,7 @@ export function SiteHeader({ active }: { active?: string }) {
 
         <nav className="hidden items-center gap-6 lg:flex">
           {navItems.map((item) =>
-            item.label === "Soluções" ? (
+            item.label === "Áreas de atuação" ? (
               <div
                 key={item.label}
                 onMouseEnter={keepAtuacaoOpen}
