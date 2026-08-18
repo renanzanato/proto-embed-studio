@@ -53,6 +53,12 @@ const categoryStyles: Record<
     text: "text-lbs-ink/80 text-[14px] sm:text-[15px]",
     dot: "bg-white ring-1 ring-lbs-ink/25",
   },
+  Agenda: {
+    label: "Agenda",
+    tag: "text-lbs-ink/70",
+    text: "text-lbs-ink/85 text-[14px] sm:text-[15px]",
+    dot: "bg-white ring-1 ring-lbs-ink/40",
+  },
   Internacional: {
     label: "Internacional",
     tag: "text-lbs-ink/50",
@@ -61,14 +67,20 @@ const categoryStyles: Record<
   },
 };
 
-const filterOrder: TimelineCategory[] = [
-  "Institucional",
-  "Eventos",
-  "Evento",
-  "Livro",
-  "Cartilha",
-  "Publicações",
-  "Internacional",
+type FilterItem = {
+  key: string;
+  label: string;
+  categories?: TimelineCategory[];
+};
+
+const categoryFilters: FilterItem[] = [
+  { key: "Todos", label: "Todos" },
+  { key: "Institucional", label: "Institucional", categories: ["Institucional"] },
+  { key: "Livros", label: "Livros", categories: ["Livro"] },
+  { key: "Cartilhas", label: "Cartilhas", categories: ["Cartilha"] },
+  { key: "Eventos", label: "Seminários e eventos", categories: ["Eventos", "Evento"] },
+  { key: "Internacional", label: "Internacional", categories: ["Internacional"] },
+  { key: "Agendas", label: "Agendas", categories: ["Agenda"] },
 ];
 
 function eventsFor(phase: Phase) {
@@ -79,9 +91,11 @@ function eventsFor(phase: Phase) {
 
 export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
   const [active, setActive] = useState<string>(phases[0].label);
-  const [filter, setFilter] = useState<TimelineCategory | "Todos">("Todos");
+  const [filter, setFilter] = useState<string>("Todos");
 
   const phase = phases.find((item) => item.label === active) ?? phases[0];
+
+  const activeFilter = categoryFilters.find((item) => item.key === filter) ?? categoryFilters[0];
 
   useEffect(() => {
     setFilter("Todos");
@@ -92,10 +106,12 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
 
   const filtered = useMemo(
     () =>
-      filter === "Todos"
+      activeFilter.key === "Todos"
         ? phaseEvents
-        : phaseEvents.filter((event) => event.category === filter),
-    [phaseEvents, filter],
+        : phaseEvents.filter((event) =>
+            activeFilter.categories?.includes(event.category),
+          ),
+    [phaseEvents, activeFilter],
   );
 
   const years = useMemo(() => {
@@ -206,20 +222,20 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
           {/* filtros por categoria — fases longas */}
           {showFilters && (
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3">
-              {(["Todos", ...filterOrder] as const).map((item) => {
-                const isActive = filter === item;
+              {categoryFilters.map((item) => {
+                const isActive = filter === item.key;
                 return (
                   <button
-                    key={item}
+                    key={item.key}
                     type="button"
-                    onClick={() => setFilter(item)}
+                    onClick={() => setFilter(item.key)}
                     className={`text-[11px] uppercase tracking-[0.14em] transition-colors ${
                       isActive
                         ? "text-lbs-magenta"
                         : "text-lbs-ink/45 hover:text-lbs-ink"
                     }`}
                   >
-                    {item}
+                    {item.label}
                   </button>
                 );
               })}
