@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import { timelineEvents, type TimelineCategory } from "@/data/lbs-timeline";
 
@@ -59,7 +59,6 @@ function eventsFor(phase: Phase) {
 export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
   const [active, setActive] = useState<string>(phases[0].label);
   const [filter, setFilter] = useState<TimelineCategory | "Todos">("Todos");
-  const scrollerRef = useRef<HTMLDivElement>(null);
 
   const phase = phases.find((item) => item.label === active) ?? phases[0];
 
