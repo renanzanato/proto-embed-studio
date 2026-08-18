@@ -243,13 +243,18 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
                               className={`absolute -left-8 top-[7px] hidden h-2 w-2 -translate-x-[4.5px] rounded-full sm:block ${style.dot}`}
                             />
                             <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                              <span className="text-[12px] tabular-nums tracking-[0.06em] text-lbs-ink/45">
-                                {event.label}
-                              </span>
-                              <span
-                                aria-hidden
-                                className="h-px w-4 bg-lbs-ink/15"
-                              />
+                              {event.label !== String(event.year) && (
+                                <>
+                                  <span className="text-[12px] tabular-nums tracking-[0.06em] text-lbs-ink/45">
+                                    {event.label}
+                                  </span>
+                                  <span
+                                    aria-hidden
+                                    className="h-px w-4 bg-lbs-ink/15"
+                                  />
+                                </>
+                              )}
+
                               <span
                                 className={`text-[10px] uppercase tracking-[0.18em] ${style.tag}`}
                               >
