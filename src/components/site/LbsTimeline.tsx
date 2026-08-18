@@ -91,9 +91,11 @@ function eventsFor(phase: Phase) {
 
 export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
   const [active, setActive] = useState<string>(phases[0].label);
-  const [filter, setFilter] = useState<TimelineCategory | "Todos">("Todos");
+  const [filter, setFilter] = useState<string>("Todos");
 
   const phase = phases.find((item) => item.label === active) ?? phases[0];
+
+  const activeFilter = categoryFilters.find((item) => item.key === filter) ?? categoryFilters[0];
 
   useEffect(() => {
     setFilter("Todos");
@@ -104,10 +106,12 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
 
   const filtered = useMemo(
     () =>
-      filter === "Todos"
+      activeFilter.key === "Todos"
         ? phaseEvents
-        : phaseEvents.filter((event) => event.category === filter),
-    [phaseEvents, filter],
+        : phaseEvents.filter((event) =>
+            activeFilter.categories?.includes(event.category),
+          ),
+    [phaseEvents, activeFilter],
   );
 
   const years = useMemo(() => {
