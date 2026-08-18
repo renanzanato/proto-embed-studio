@@ -150,7 +150,7 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
                       className="group flex w-full flex-col items-start pb-3 text-left outline-none"
                     >
                       <span
-                        className={`whitespace-nowrap text-[15px] font-medium tracking-[0.01em] transition-colors lg:text-[17px] ${
+                        className={`whitespace-nowrap text-[13px] font-medium tracking-[0.01em] transition-colors md:text-[14px] lg:text-[15px] ${
                           isActive
                             ? "text-lbs-magenta"
                             : "text-lbs-ink/70 group-hover:text-lbs-magenta"
