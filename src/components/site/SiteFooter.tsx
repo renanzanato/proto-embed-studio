@@ -1,40 +1,21 @@
 import { Link } from "@tanstack/react-router";
-import { CalendarDays, Facebook, Instagram, Linkedin, MapPin, Music2, Phone, Youtube } from "lucide-react";
+import { CalendarDays, Facebook, Instagram, Linkedin, Music2, Youtube } from "lucide-react";
 
 import lbsLogo from "@/assets/lbs-logo.png.asset.json";
-
-
-const offices = [
-  {
-    city: "Brasília",
-    address:
-      "Edifício Ion – SGAN 601 Lote H, Salas 79 a 86, Piso Alta 1 – Térreo – Asa Norte, CEP: 70830-010",
-    phone: "(61) 3396-8100",
-  },
-  {
-    city: "São Paulo",
-    address:
-      "Edifício Philadelphia – Avenida Angélica, 1996, Cj 201 – Higienópolis, CEP: 01228-200",
-    phone: "(11) 3583-8030",
-  },
-  {
-    city: "Campinas",
-    address:
-      "Espaço Toulouse – Rua Doutor Emílio Ribas, 188, 3º andar – Cambuí, CEP: 13025-140",
-    phone: "(19) 3395-7700",
-  },
-];
 
 const footerMenu = [
   { label: "Início", to: "/" },
   { label: "Equipe", to: "/equipe" },
   { label: "A LBS", to: "/a-lbs" },
   { label: "Trabalhe Conosco", to: "/" },
-  { label: "Soluções", to: "/solucoes" },
+  { label: "Áreas de atuação", to: "/solucoes" },
   { label: "Política de Privacidade", to: "/" },
-  { label: "Artigos e Notícias", to: "/" },
+  { label: "Artigos e Notícias", to: "/artigos" },
   { label: "Contato", to: "/" },
 ];
+
+const manifestoUrl =
+  "https://lbs.adv.br/wp-content/uploads/2022/05/Manifeso-LBS.pdf";
 
 const socials = [
   { label: "LinkedIn", Icon: Linkedin },
@@ -72,22 +53,6 @@ export function SiteFooter() {
               <CalendarDays className="h-3.5 w-3.5" />
               Agende um horário
             </a>
-
-            <ul className="mt-10 grid gap-8 sm:grid-cols-3">
-              {offices.map((office) => (
-                <li key={office.city}>
-                  <h3 className="text-[12px] font-medium text-white">{office.city}</h3>
-                  <p className="mt-3 flex gap-2 text-[10px] leading-[1.7] text-white/60">
-                    <MapPin className="mt-0.5 h-3 w-3 shrink-0 text-lbs-magenta" />
-                    {office.address}
-                  </p>
-                  <p className="mt-3 flex items-center gap-2 text-[10px] text-lbs-magenta">
-                    <Phone className="h-3 w-3" />
-                    {office.phone}
-                  </p>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <div>
@@ -102,7 +67,16 @@ export function SiteFooter() {
                   {item.label}
                 </Link>
               ))}
+              <a
+                href={manifestoUrl}
+                target="_blank"
+                rel="noopener"
+                className="text-[10px] text-white/65 transition-colors hover:text-white"
+              >
+                Manifesto
+              </a>
             </div>
+
 
             <h3 className="mt-10 text-[11px] uppercase tracking-[0.16em] text-lbs-magenta">
               Redes Sociais
