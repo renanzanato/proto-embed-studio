@@ -126,7 +126,7 @@ function ExecucoesPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       <SolucaoHero
-        image={solExecucoes}
+        image={solExecucoes.url}
         alt="Corredor de fórum trabalhista em luz e sombra"
         title="Execuções complexas"
         intro={descricao[0]}

@@ -19,7 +19,7 @@ const solucoes = [
     text: "Atuamos de forma contínua na defesa jurídica da pessoa que trabalha, considerando as múltiplas formas contemporâneas de vínculo laboral e proteção social.",
   },
   {
-    img: solExecucoes,
+    img: solExecucoes.url,
     title: "Execuções complexas",
     to: "/solucoes/execucoes-complexas",
     text: "Atuamos em execuções de elevada complexidade jurídica, quando o caso exige leitura sistêmica, cálculos técnicos e segurança institucional.",
