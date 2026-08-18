@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import solucoesHero from "@/assets/solucoes-hero.jpg";
-import solDefesa from "@/assets/sol-defesa.jpg";
+import solDefesa from "@/assets/pessoas-que-trabalham-subway.jpg.asset.json";
 import solLitigios from "@/assets/sol-litigios.jpg";
 import solTribunais from "@/assets/sol-tribunais.jpg";
 import solExecucoes from "@/assets/sol-execucoes.jpg";
@@ -13,7 +13,7 @@ import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
 const solucoes = [
   {
-    img: solDefesa,
+    img: solDefesa.url,
     title: "Defesa da pessoa que trabalha",
     to: "/solucoes/defesa-da-pessoa-que-trabalha",
     text: "Atuamos de forma contínua na defesa jurídica da pessoa que trabalha, considerando as múltiplas formas contemporâneas de vínculo laboral e proteção social.",
