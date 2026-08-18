@@ -222,20 +222,20 @@ export function LbsTimeline({ showHeading = true }: { showHeading?: boolean }) {
           {/* filtros por categoria — fases longas */}
           {showFilters && (
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3">
-              {(["Todos", ...filterOrder] as const).map((item) => {
-                const isActive = filter === item;
+              {categoryFilters.map((item) => {
+                const isActive = filter === item.key;
                 return (
                   <button
-                    key={item}
+                    key={item.key}
                     type="button"
-                    onClick={() => setFilter(item)}
+                    onClick={() => setFilter(item.key)}
                     className={`text-[11px] uppercase tracking-[0.14em] transition-colors ${
                       isActive
                         ? "text-lbs-magenta"
                         : "text-lbs-ink/45 hover:text-lbs-ink"
                     }`}
                   >
-                    {item}
+                    {item.label}
                   </button>
                 );
               })}
