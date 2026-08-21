@@ -37,7 +37,7 @@ export function AtuacaoDialog({
       onMouseLeave={onMouseLeave}
     >
       <div className="relative isolate gap-0 rounded-[6px] border border-lbs-ink/10 bg-white p-7 shadow-xl sm:p-10">
-        <h2 className="sr-only">Soluções</h2>
+        <h2 className="sr-only">Áreas de atuação</h2>
 
         <h3 className="text-[22px] font-normal text-lbs-ink sm:text-[26px]">
           Encontre a solução ideal
@@ -65,7 +65,7 @@ export function AtuacaoDialog({
               onClick={onClose}
               className="bg-lbs-ink px-5 py-3 text-[12px] text-white transition-opacity hover:opacity-85"
             >
-              Ver todas as Soluções
+              Ver todas as áreas de atuações
             </Link>
           </div>
         </div>
