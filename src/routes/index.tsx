@@ -332,7 +332,7 @@ function SplitBand() {
 
   return (
     <section
-      aria-label="Soluções e A LBS"
+      aria-label="Áreas de atuação e A LBS"
       className="relative h-[300px] w-full overflow-hidden sm:h-[420px] lg:h-[480px]"
       onMouseLeave={() => setHovered(null)}
     >
@@ -392,7 +392,7 @@ function SplitBand() {
           }`}
         >
           <h2 className="text-[18px] font-light tracking-wide text-white sm:text-[22px] lg:text-[24px]">
-            Soluções
+            Áreas de atuação
           </h2>
           <span
             className={`rounded-[6px] border border-lbs-magenta font-medium transition-all duration-500 ${
@@ -434,7 +434,7 @@ function SplitBand() {
       {/* hit areas — clipped to the exact visible panels */}
       <a
         href="/solucoes"
-        aria-label="Conheça nossas soluções"
+        aria-label="Conheça nossas áreas de atuação"
         className={`absolute inset-0 ${clipTransition}`}
         style={{ clipPath: leftClip }}
         onMouseEnter={() => setHovered("solucoes")}
