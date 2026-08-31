@@ -3,6 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import solParceiros from "@/assets/sol-parceiros.jpg";
 import escritorioAdvocaciaParceiros from "@/assets/escritorio-advocacia-parceiros.jpg.asset.json";
 import parceirosEntidades from "@/assets/parceiros-estrategicos-entidades.jpg.asset.json";
+import advogadosParceria from "@/assets/advogados-parceria.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeParceirosEstrategicos } from "@/data/servico-equipe";
@@ -53,7 +54,9 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "Advogados em busca de parceria especializada",
-    alt: "Advogados em reunião de alinhamento estratégico",
+    alt: "Advogado analisando documentos em busca de parceria estratégica",
+    img: advogadosParceria.url,
+    focus: "50% 50%",
   },
   {
     text: "Entidades que demandam atuação em Brasília e instâncias superiores",
