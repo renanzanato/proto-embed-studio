@@ -3,10 +3,10 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import servicosHero from "@/assets/solucoes-hero.jpg";
 import solDefesa from "@/assets/defesa-pessoa-que-trabalha-oficina.jpg.asset.json";
 import solLitigios from "@/assets/litigios-coletivos-grupo.jpg.asset.json";
-import solTribunais from "@/assets/tribunais-superiores.jpg.asset.json";
+import solTribunais from "@/assets/sol-tribunais.jpg";
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
-import solParcerias from "@/assets/parceiros-estrategicos-handshake.jpg.asset.json";
-import solEmergentes from "@/assets/temas-emergentes.jpg.asset.json";
+import solParcerias from "@/assets/sol-parceiros.jpg";
+import solEmergentes from "@/assets/sol-emergentes.jpg";
 import solAdmPublica from "@/assets/vinculos-administracao-publica.jpg.asset.json";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
@@ -33,19 +33,19 @@ const servicos = [
   },
 
   {
-    img: solParcerias.url,
+    img: solParcerias,
     title: "Parceiros estratégicos",
     to: "/servicos/parceiros-estrategicos",
     text: "Atuamos em colaboração com outros escritórios quando a complexidade do caso exige estrutura, densidade técnica e capacidade operacional superiores.",
   },
   {
-    img: solEmergentes.url,
+    img: solEmergentes,
     title: "Temas emergentes",
     to: "/servicos/temas-emergentes",
     text: "Atuamos em litígios estratégicos relacionados a conflitos jurídicos emergentes, ainda em processo de consolidação normativa e jurisprudencial.",
   },
   {
-    img: solTribunais.url,
+    img: solTribunais,
     title: "Tribunais Superiores",
     to: "/servicos/tribunais-superiores",
     text: "Condução dos processos que tramitam no TST, STJ e STF, com sustentações orais, memoriais, diligências em gabinetes e atuação estratégica em repercussão geral.",
