@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 import publicoExecucoes from "@/assets/holding-table-hand-legal-working.jpg.asset.json";
+import publicoIndividuais from "@/assets/young-brunette-woman-sitting-waiting-room.jpg.asset.json";
 import publicoSindicatos from "@/assets/publico-sindicatos-fabrica.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
@@ -76,8 +77,9 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "Trabalhadores em ações individuais",
+    img: publicoIndividuais.url,
     focus: "50% 50%",
-    alt: "Atendimento individual em escritório de advocacia",
+    alt: "Profissional em sala de espera, representando atendimento individual",
   },
   {
     text: "Entidades representativas, escritórios e advogados que necessitam de acompanhamento especializado na fase de execução",
