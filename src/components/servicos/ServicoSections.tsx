@@ -479,11 +479,32 @@ export function DestaquesGaleria({
 export function ServiceGroups({
   groups,
   idPrefix,
+  servicoSlug,
 }: {
   groups: ServiceGroup[];
   idPrefix: string;
+  /** quando informado, cada frente ganha link "Ver mais" para sua página */
+  servicoSlug?: string;
 }) {
   const [open, setOpen] = useState<number | null>(0);
+
+  const ramoPara = (title: string) =>
+    servicoSlug
+      ? servicoRamos.find((r) => r.servicoSlug === servicoSlug && r.title === title)
+      : undefined;
+
+  const verMais = (title: string) => {
+    const ramo = ramoPara(title);
+    if (!ramo) return null;
+    return (
+      <Link
+        to={`/servicos/${ramo.servicoSlug}/${ramo.slug}` as "/servicos"}
+        className="mt-6 inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.14em] text-lbs-magenta transition-opacity hover:opacity-70"
+      >
+        Ver mais <span aria-hidden="true">→</span>
+      </Link>
+    );
+  };
 
   return (
     <div className="mt-10 border-t border-lbs-ink/12">
@@ -495,13 +516,15 @@ export function ServiceGroups({
 
         if (!hasItems) {
           return (
-            <div key={group.title} className="border-b border-lbs-ink/12">
+            <div key={group.title} className="border-b border-lbs-ink/12 pb-6">
               <h3 className="py-7 pr-4 text-[20px] font-light leading-[1.25] tracking-tight text-lbs-ink sm:py-9 sm:text-[26px] lg:text-[30px]">
                 {group.title}
               </h3>
+              {verMais(group.title)}
             </div>
           );
         }
+
 
         return (
           <div
