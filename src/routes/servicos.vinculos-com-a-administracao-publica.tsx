@@ -3,18 +3,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import solAdm from "@/assets/vinculos-administracao-publica.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
-import { equipeVinculosAdministracaoPublica } from "@/data/solucao-equipe";
+import { equipeVinculosAdministracaoPublica } from "@/data/servico-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
   PublicoAtendido,
   ServicosPorContexto,
   SociosResponsaveis,
-  SolucaoHero,
+  ServicoHero,
   type Destaque,
   type PublicoItem,
   type ServiceGroup,
-} from "@/components/solucoes/SolucaoSections";
+} from "@/components/servicos/ServicoSections";
 
 const diferenciais = [
   "Servidoras e servidores públicos são parte fundamental que merece respeito e proteção aos seus direitos.",
@@ -211,7 +211,7 @@ const intermediariosServicos: Group[] = [
   },
 ];
 
-export const Route = createFileRoute("/solucoes/vinculos-com-a-administracao-publica")({
+export const Route = createFileRoute("/servicos/vinculos-com-a-administracao-publica")({
   head: () => ({
     meta: [
       { title: "Vínculos com a Administração Pública | LBS Advogadas e Advogados" },
@@ -232,7 +232,7 @@ export const Route = createFileRoute("/solucoes/vinculos-com-a-administracao-pub
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/solucoes/vinculos-com-a-administracao-publica" }],
+    links: [{ rel: "canonical", href: "/servicos/vinculos-com-a-administracao-publica" }],
   }),
   component: VinculosPage,
 });
@@ -240,7 +240,7 @@ export const Route = createFileRoute("/solucoes/vinculos-com-a-administracao-pub
 function VinculosPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
-      <SolucaoHero
+      <ServicoHero
         image={solAdm.url}
         alt="Edifício da administração pública"
         title="Vínculos com a Administração Pública"

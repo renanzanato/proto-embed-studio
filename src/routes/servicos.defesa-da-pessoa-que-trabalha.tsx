@@ -3,18 +3,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import solDefesa from "@/assets/pessoas-que-trabalham-subway.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
-import { equipeDefesaPessoaQueTrabalha } from "@/data/solucao-equipe";
+import { equipeDefesaPessoaQueTrabalha } from "@/data/servico-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
   PublicoAtendido,
   ServicosPorContexto,
   SociosResponsaveis,
-  SolucaoHero,
+  ServicoHero,
   type Destaque,
   type PublicoItem,
   type ServiceGroup,
-} from "@/components/solucoes/SolucaoSections";
+} from "@/components/servicos/ServicoSections";
 
 const diferenciais = [
   "A defesa da pessoa que trabalha é a origem e a razão de existir da LBS Advogadas e Advogados.",
@@ -263,7 +263,7 @@ const publicoItems: PublicoItem[] = [
   },
 ];
 
-export const Route = createFileRoute("/solucoes/defesa-da-pessoa-que-trabalha")({
+export const Route = createFileRoute("/servicos/defesa-da-pessoa-que-trabalha")({
   head: () => ({
     meta: [
       { title: "Defesa da pessoa que trabalha | LBS Advogadas e Advogados" },
@@ -284,7 +284,7 @@ export const Route = createFileRoute("/solucoes/defesa-da-pessoa-que-trabalha")(
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/solucoes/defesa-da-pessoa-que-trabalha" }],
+    links: [{ rel: "canonical", href: "/servicos/defesa-da-pessoa-que-trabalha" }],
   }),
   component: DefesaPage,
 });
@@ -292,7 +292,7 @@ export const Route = createFileRoute("/solucoes/defesa-da-pessoa-que-trabalha")(
 function DefesaPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
-      <SolucaoHero
+      <ServicoHero
         image={solDefesa.url}
         alt="Pessoas em movimento no cotidiano urbano"
         title="Defesa da pessoa que trabalha"

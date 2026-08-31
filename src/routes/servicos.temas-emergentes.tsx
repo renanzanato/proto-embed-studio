@@ -3,18 +3,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import solEmergentes from "@/assets/sol-emergentes.jpg";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
-import { equipeTemasEmergentes } from "@/data/solucao-equipe";
+import { equipeTemasEmergentes } from "@/data/servico-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
   PublicoAtendido,
   ServicosSection,
   SociosResponsaveis,
-  SolucaoHero,
+  ServicoHero,
   type Destaque,
   type PublicoItem,
   type ServiceGroup,
-} from "@/components/solucoes/SolucaoSections";
+} from "@/components/servicos/ServicoSections";
 
 const descricao = [
   "A LBS Advogadas e Advogados atua na identificação, estruturação e condução de casos de elevada relevância social, política e institucional. A área de Temas Emergentes parte de situações concretas de violação ou risco de violação de direitos, mas não se limita à solução individual do conflito: busca desenvolver precedentes, ampliar a efetividade dos direitos, prevenir novas violações e fortalecer a capacidade de atuação das entidades sindicais, organizações sociais e comunidades afetadas.",
@@ -113,7 +113,7 @@ const servicos: ServiceGroup[] = [
   },
 ];
 
-export const Route = createFileRoute("/solucoes/temas-emergentes")({
+export const Route = createFileRoute("/servicos/temas-emergentes")({
   head: () => ({
     meta: [
       { title: "Temas Emergentes | LBS Advogadas e Advogados" },
@@ -134,7 +134,7 @@ export const Route = createFileRoute("/solucoes/temas-emergentes")({
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/solucoes/temas-emergentes" }],
+    links: [{ rel: "canonical", href: "/servicos/temas-emergentes" }],
   }),
   component: TemasEmergentesPage,
 });
@@ -142,7 +142,7 @@ export const Route = createFileRoute("/solucoes/temas-emergentes")({
 function TemasEmergentesPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
-      <SolucaoHero
+      <ServicoHero
         image={solEmergentes}
         alt="Paisagem com comunidade e energia renovável"
         title="Temas Emergentes"

@@ -18,7 +18,7 @@ import photoSamantha from "@/assets/team-samantha-guedes.jpg.asset.json";
 import photoFelipe from "@/assets/team-felipe-vasconcellos.jpg.asset.json";
 import photoRafaela from "@/assets/team-rafaela-xavier.jpg.asset.json";
 
-export type SolucaoPessoa = {
+export type ServicoPessoa = {
   name: string;
   city: string;
   slug?: string;
@@ -57,7 +57,7 @@ const photoByName: Record<string, string> = {
   "Rafaela Diana Xavier": photoRafaela.url,
 };
 
-function p(name: string, city: string): SolucaoPessoa {
+function p(name: string, city: string): ServicoPessoa {
   const slug = slugByName[name];
   return {
     name,
@@ -73,7 +73,7 @@ const SP = "São Paulo";
 const SP_BSB = "São Paulo e Brasília";
 const SP_CPS = "São Paulo e Campinas";
 
-export const equipeDefesaPessoaQueTrabalha: SolucaoPessoa[] = [
+export const equipeDefesaPessoaQueTrabalha: ServicoPessoa[] = [
   p("Aline Carla Lopes Belloti", CPS),
   p("Andrey Rondon Soares", BSB),
   p("Carlos Fernandes Coninck Jr", BSB),
@@ -96,7 +96,7 @@ export const equipeDefesaPessoaQueTrabalha: SolucaoPessoa[] = [
   p("Samantha Braga Guedes", BSB),
 ];
 
-export const equipeVinculosAdministracaoPublica: SolucaoPessoa[] = [
+export const equipeVinculosAdministracaoPublica: ServicoPessoa[] = [
   p("Antonio Fernando Megale Lopes", BSB),
   p("Camilla Louise Galdino Cândido", BSB),
   p("Fernando Henrique Machado Roriz", BSB),
@@ -108,7 +108,7 @@ export const equipeVinculosAdministracaoPublica: SolucaoPessoa[] = [
   p("Paulo Roberto Alves da Silva", BSB),
 ];
 
-export const equipeLitigiosColetivos: SolucaoPessoa[] = [
+export const equipeLitigiosColetivos: ServicoPessoa[] = [
   p("Aline Carla Lopes Belloti", CPS),
   p("Andrey Rondon Soares", BSB),
   p("Antonio Fernando Megale Lopes", BSB),
@@ -130,7 +130,7 @@ export const equipeLitigiosColetivos: SolucaoPessoa[] = [
   p("Samantha Braga Guedes", BSB),
 ];
 
-export const equipeTribunaisSuperiores: SolucaoPessoa[] = [
+export const equipeTribunaisSuperiores: ServicoPessoa[] = [
   p("Antonio Fernando Megale Lopes", BSB),
   p("Camilla Louise Galdino Cândido", BSB),
   p("Carlos Fernandes Coninck Jr", BSB),
@@ -145,14 +145,14 @@ export const equipeTribunaisSuperiores: SolucaoPessoa[] = [
   p("Ricardo Quintas Carneiro", BSB),
 ];
 
-export const equipeExecucoes: SolucaoPessoa[] = [
+export const equipeExecucoes: ServicoPessoa[] = [
   p("Aline Carla Lopes Belloti", CPS),
   p("Carlos Fernandes Coninck Jr", BSB),
   p("Fernando José Hirsch", CPS),
   p("Paulo Roberto Alves da Silva", BSB),
 ];
 
-export const equipeParceirosEstrategicos: SolucaoPessoa[] = [
+export const equipeParceirosEstrategicos: ServicoPessoa[] = [
   p("Aline Carla Lopes Belloti", CPS),
   p("Antonio Fernando Megale Lopes", BSB),
   p("Camilla Louise Galdino Cândido", BSB),
@@ -170,7 +170,7 @@ export const equipeParceirosEstrategicos: SolucaoPessoa[] = [
   p("Ricardo Quintas Carneiro", BSB),
 ];
 
-export const equipeTemasEmergentes: SolucaoPessoa[] = [
+export const equipeTemasEmergentes: ServicoPessoa[] = [
   p("Andrey Rondon Soares", BSB),
   p("Antonio Fernando Megale Lopes", BSB),
   p("Camilla Louise Galdino Cândido", BSB),

@@ -20,11 +20,11 @@ import serv06 from "@/assets/serv-06.jpg";
 
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { teamMembers } from "@/data/equipe";
-import type { SolucaoPessoa } from "@/data/solucao-equipe";
+import type { ServicoPessoa } from "@/data/servico-equipe";
 
 /* ------------------------------------------------------------------ *
- * DNA visual compartilhado das páginas de Soluções.
- * Toda solução usa as mesmas seções, na mesma ordem e com a mesma
+ * DNA visual compartilhado das páginas de Serviços.
+ * Todo serviço usa as mesmas seções, na mesma ordem e com a mesma
  * tipografia/espaçamento. O que varia é apenas o conteúdo.
  * ------------------------------------------------------------------ */
 
@@ -44,7 +44,7 @@ export function SectionLabel({ children }: { children: React.ReactNode }) {
 
 /* ---------------------------------- HERO --------------------------------- */
 
-export function SolucaoHero({
+export function ServicoHero({
   image,
   alt,
   title,
@@ -67,20 +67,20 @@ export function SolucaoHero({
       </div>
 
       <div className="mx-auto w-full max-w-[1200px] px-4 pb-20 pt-5 sm:px-6 sm:pb-24 lg:px-8">
-        <SiteHeader active="Soluções" />
+        <SiteHeader active="Áreas de atuação" />
 
         <div className="relative z-10 mt-16 max-w-[780px] sm:mt-20">
-          <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta-soft">Soluções</p>
+          <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta-soft">Serviços</p>
           <h1 className="mt-5 text-[32px] font-light leading-[1.18] tracking-tight text-white sm:text-[42px] lg:text-[48px]">
             {title}
           </h1>
           <p className="mt-7 max-w-[560px] text-[13.5px] leading-[1.9] text-white/70">{intro}</p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
-              to="/solucoes"
+              to="/servicos"
               className="inline-block border border-lbs-magenta px-6 py-3 text-[11px] uppercase tracking-[0.16em] text-white transition-colors hover:bg-lbs-magenta"
             >
-              Todas as soluções
+              Todos os serviços
             </Link>
             {secondaryTo && secondaryLabel && (
               <Link
@@ -673,10 +673,10 @@ export function SociosResponsaveis({
   title = "Quem conduz essa frente",
 }: {
   members?: typeof teamMembers;
-  people?: SolucaoPessoa[];
+  people?: ServicoPessoa[];
   title?: string;
 }) {
-  const entries: SolucaoPessoa[] =
+  const entries: ServicoPessoa[] =
     people ?? members.map((m) => ({ name: m.name, city: m.city, slug: m.slug }));
 
   return (

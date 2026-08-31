@@ -8,7 +8,7 @@ import { AtuacaoDialog } from "@/components/site/AtuacaoDialog";
 const navItems = [
   { label: "Início", to: "/" },
   { label: "A LBS", to: "/a-lbs" },
-  { label: "Áreas de atuação", to: "/solucoes" },
+  { label: "Áreas de atuação", to: "/servicos" },
   { label: "Artigos e Notícias", to: "/artigos" },
   { label: "Equipe", to: "/equipe" },
   { label: "Contato", to: "/" },
