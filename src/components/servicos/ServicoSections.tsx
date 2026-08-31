@@ -20,7 +20,7 @@ import serv06 from "@/assets/serv-06.jpg";
 
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { teamMembers } from "@/data/equipe";
-import type { SolucaoPessoa } from "@/data/solucao-equipe";
+import type { ServicoPessoa } from "@/data/servico-equipe";
 
 /* ------------------------------------------------------------------ *
  * DNA visual compartilhado das páginas de Soluções.
@@ -44,7 +44,7 @@ export function SectionLabel({ children }: { children: React.ReactNode }) {
 
 /* ---------------------------------- HERO --------------------------------- */
 
-export function SolucaoHero({
+export function ServicoHero({
   image,
   alt,
   title,
@@ -77,7 +77,7 @@ export function SolucaoHero({
           <p className="mt-7 max-w-[560px] text-[13.5px] leading-[1.9] text-white/70">{intro}</p>
           <div className="mt-9 flex flex-wrap gap-3">
             <Link
-              to="/solucoes"
+              to="/servicos"
               className="inline-block border border-lbs-magenta px-6 py-3 text-[11px] uppercase tracking-[0.16em] text-white transition-colors hover:bg-lbs-magenta"
             >
               Todas as soluções
@@ -673,10 +673,10 @@ export function SociosResponsaveis({
   title = "Quem conduz essa frente",
 }: {
   members?: typeof teamMembers;
-  people?: SolucaoPessoa[];
+  people?: ServicoPessoa[];
   title?: string;
 }) {
-  const entries: SolucaoPessoa[] =
+  const entries: ServicoPessoa[] =
     people ?? members.map((m) => ({ name: m.name, city: m.city, slug: m.slug }));
 
   return (

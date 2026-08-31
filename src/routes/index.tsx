@@ -433,7 +433,7 @@ function SplitBand() {
 
       {/* hit areas — clipped to the exact visible panels */}
       <a
-        href="/solucoes"
+        href="/servicos"
         aria-label="Conheça nossas áreas de atuação"
         className={`absolute inset-0 ${clipTransition}`}
         style={{ clipPath: leftClip }}

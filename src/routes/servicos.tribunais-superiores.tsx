@@ -3,18 +3,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import solTribunais from "@/assets/sol-tribunais.jpg";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
-import { equipeTribunaisSuperiores } from "@/data/solucao-equipe";
+import { equipeTribunaisSuperiores } from "@/data/servico-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
   PublicoAtendido,
   ServicosSection,
   SociosResponsaveis,
-  SolucaoHero,
+  ServicoHero,
   type Destaque,
   type PublicoItem,
   type ServiceGroup,
-} from "@/components/solucoes/SolucaoSections";
+} from "@/components/servicos/ServicoSections";
 
 const diferenciais = [
   "A área é responsável pela condução dos processos que tramitam nos Tribunais Superiores em Brasília – TST, STJ e STF. A atuação especializada da equipe amplia a viabilidade de conhecimento e de análise dos casos nesses tribunais, contemplando não apenas o rigoroso cumprimento de prazos, mas a atuação que faz diferença no resultado: sustentações orais, diligências em gabinetes, audiências com desembargadores e ministros e entrega de memoriais.",
@@ -78,7 +78,7 @@ const servicos: ServiceGroup[] = [
   },
 ];
 
-export const Route = createFileRoute("/solucoes/tribunais-superiores")({
+export const Route = createFileRoute("/servicos/tribunais-superiores")({
   head: () => ({
     meta: [
       { title: "Tribunais Superiores | LBS Advogadas e Advogados" },
@@ -96,7 +96,7 @@ export const Route = createFileRoute("/solucoes/tribunais-superiores")({
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/solucoes/tribunais-superiores" }],
+    links: [{ rel: "canonical", href: "/servicos/tribunais-superiores" }],
   }),
   component: TribunaisPage,
 });
@@ -104,12 +104,12 @@ export const Route = createFileRoute("/solucoes/tribunais-superiores")({
 function TribunaisPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
-      <SolucaoHero
+      <ServicoHero
         image={solTribunais}
         alt="Praça dos Três Poderes em Brasília"
         title="Tribunais Superiores"
         intro={diferenciais[0]}
-        secondaryTo="/solucoes/execucoes-complexas"
+        secondaryTo="/servicos/execucoes-complexas"
         secondaryLabel="Execuções complexas"
       />
 

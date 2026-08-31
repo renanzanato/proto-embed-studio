@@ -4,18 +4,18 @@ import solLitigios from "@/assets/litigios-coletivos.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
-import { equipeLitigiosColetivos } from "@/data/solucao-equipe";
+import { equipeLitigiosColetivos } from "@/data/servico-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
   PublicoAtendido,
   ServicosSection,
   SociosResponsaveis,
-  SolucaoHero,
+  ServicoHero,
   type Destaque,
   type PublicoItem,
   type ServiceGroup,
-} from "@/components/solucoes/SolucaoSections";
+} from "@/components/servicos/ServicoSections";
 
 const diferenciais = [
   "A LBS Advogadas e Advogados atua na defesa dos direitos coletivos, difusos e individuais homogêneos de trabalhadores, servidores e empregados públicos, assessorando sindicatos, federações, confederações, centrais sindicais, associações e demais entidades representativas na esfera judicial, com o ajuizamento de ações coletivas, na negociação coletiva e na consultoria estratégica.",
@@ -111,7 +111,7 @@ const servicos: ServiceGroup[] = [
   },
 ];
 
-export const Route = createFileRoute("/solucoes/litigios-coletivos")({
+export const Route = createFileRoute("/servicos/litigios-coletivos")({
   head: () => ({
     meta: [
       { title: "Litígios Coletivos | LBS Advogadas e Advogados" },
@@ -132,7 +132,7 @@ export const Route = createFileRoute("/solucoes/litigios-coletivos")({
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/solucoes/litigios-coletivos" }],
+    links: [{ rel: "canonical", href: "/servicos/litigios-coletivos" }],
   }),
   component: LitigiosPage,
 });
@@ -140,7 +140,7 @@ export const Route = createFileRoute("/solucoes/litigios-coletivos")({
 function LitigiosPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
-      <SolucaoHero
+      <ServicoHero
         image={solLitigios.url}
         alt="Assembleia de trabalhadores em ambiente sindical"
         title="Litígios Coletivos"

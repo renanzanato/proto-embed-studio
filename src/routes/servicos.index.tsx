@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import solucoesHero from "@/assets/solucoes-hero.jpg";
+import solucoesHero from "@/assets/servicos-hero.jpg";
 import solDefesa from "@/assets/pessoas-que-trabalham-fabrica.jpg.asset.json";
 import solLitigios from "@/assets/litigios-coletivos.jpg.asset.json";
 import solTribunais from "@/assets/tribunais-superiores.jpg.asset.json";
@@ -16,44 +16,44 @@ const solucoes = [
   {
     img: solDefesa.url,
     title: "Defesa da pessoa que trabalha",
-    to: "/solucoes/defesa-da-pessoa-que-trabalha",
+    to: "/servicos/defesa-da-pessoa-que-trabalha",
     text: "Atuamos de forma contínua na defesa jurídica da pessoa que trabalha, considerando as múltiplas formas contemporâneas de vínculo laboral e proteção social.",
   },
   {
     img: solExecucoes.url,
     title: "Execuções complexas",
-    to: "/solucoes/execucoes-complexas",
+    to: "/servicos/execucoes-complexas",
     text: "Atuamos em execuções de elevada complexidade jurídica, quando o caso exige leitura sistêmica, cálculos técnicos e segurança institucional.",
   },
   {
     img: solLitigios.url,
     title: "Litígios coletivos estruturados",
-    to: "/solucoes/litigios-coletivos",
+    to: "/servicos/litigios-coletivos",
     text: "Estruturamos e conduzimos litígios coletivos de grande escala, voltados à correção de violações sistemáticas de direitos e à produção de impacto institucional.",
   },
 
   {
     img: solParcerias.url,
     title: "Parceiros estratégicos",
-    to: "/solucoes/parceiros-estrategicos",
+    to: "/servicos/parceiros-estrategicos",
     text: "Atuamos em colaboração com outros escritórios quando a complexidade do caso exige estrutura, densidade técnica e capacidade operacional superiores.",
   },
   {
     img: solEmergentes.url,
     title: "Temas emergentes",
-    to: "/solucoes/temas-emergentes",
+    to: "/servicos/temas-emergentes",
     text: "Atuamos em litígios estratégicos relacionados a conflitos jurídicos emergentes, ainda em processo de consolidação normativa e jurisprudencial.",
   },
   {
     img: solTribunais.url,
     title: "Tribunais Superiores",
-    to: "/solucoes/tribunais-superiores",
+    to: "/servicos/tribunais-superiores",
     text: "Condução dos processos que tramitam no TST, STJ e STF, com sustentações orais, memoriais, diligências em gabinetes e atuação estratégica em repercussão geral.",
   },
   {
     img: solAdmPublica.url,
     title: "Vínculos com a Administração Pública",
-    to: "/solucoes/vinculos-com-a-administracao-publica",
+    to: "/servicos/vinculos-com-a-administracao-publica",
     text: "Atuação especializada para servidoras e servidores públicos, empregados de estatais, temporários, terceirizados e bolsistas em suas relações com o poder público.",
   },
 ];
@@ -61,7 +61,7 @@ const solucoes = [
 
 
 
-export const Route = createFileRoute("/solucoes/")({
+export const Route = createFileRoute("/servicos/")({
   head: () => ({
     meta: [
       { title: "Soluções | LBS Advogadas e Advogados" },
@@ -79,12 +79,12 @@ export const Route = createFileRoute("/solucoes/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/solucoes" }],
+    links: [{ rel: "canonical", href: "/servicos" }],
   }),
-  component: SolucoesPage,
+  component: ServicosPage,
 });
 
-function SolucoesPage() {
+function ServicosPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       {/* HERO */}

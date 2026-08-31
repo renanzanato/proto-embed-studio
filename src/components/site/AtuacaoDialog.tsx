@@ -2,16 +2,16 @@ import { Link } from "@tanstack/react-router";
 import { createPortal } from "react-dom";
 
 const solucoes: { title: string; to: string }[] = [
-  { title: "Defesa da pessoa que trabalha", to: "/solucoes/defesa-da-pessoa-que-trabalha" },
+  { title: "Defesa da pessoa que trabalha", to: "/servicos/defesa-da-pessoa-que-trabalha" },
   {
     title: "Vínculos com a Administração Pública",
-    to: "/solucoes/vinculos-com-a-administracao-publica",
+    to: "/servicos/vinculos-com-a-administracao-publica",
   },
-  { title: "Litígios coletivos", to: "/solucoes/litigios-coletivos" },
-  { title: "Tribunais Superiores", to: "/solucoes/tribunais-superiores" },
-  { title: "Execuções complexas", to: "/solucoes/execucoes-complexas" },
-  { title: "Temas emergentes", to: "/solucoes/temas-emergentes" },
-  { title: "Parceiros estratégicos", to: "/solucoes/parceiros-estrategicos" },
+  { title: "Litígios coletivos", to: "/servicos/litigios-coletivos" },
+  { title: "Tribunais Superiores", to: "/servicos/tribunais-superiores" },
+  { title: "Execuções complexas", to: "/servicos/execucoes-complexas" },
+  { title: "Temas emergentes", to: "/servicos/temas-emergentes" },
+  { title: "Parceiros estratégicos", to: "/servicos/parceiros-estrategicos" },
 ];
 
 export function AtuacaoDialog({
@@ -61,7 +61,7 @@ export function AtuacaoDialog({
           <p className="text-[12px] text-lbs-ink/45">Não encontrou o que procura?</p>
           <div className="flex flex-wrap gap-3">
             <Link
-              to="/solucoes"
+              to="/servicos"
               onClick={onClose}
               className="bg-lbs-ink px-5 py-3 text-[12px] text-white transition-opacity hover:opacity-85"
             >

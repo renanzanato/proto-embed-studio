@@ -3,7 +3,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
-import { equipeExecucoes } from "@/data/solucao-equipe";
+import { equipeExecucoes } from "@/data/servico-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
@@ -11,10 +11,10 @@ import {
   PublicoAtendido,
   ServicosSection,
   SociosResponsaveis,
-  SolucaoHero,
+  ServicoHero,
   type PublicoItem,
   type ServiceGroup,
-} from "@/components/solucoes/SolucaoSections";
+} from "@/components/servicos/ServicoSections";
 
 const descricao = [
   "A área de Execução Trabalhista da LBS é especializada na condução da fase de cumprimento das decisões judiciais, transformando o direito reconhecido em juízo na efetiva satisfação do crédito do trabalhador. A atuação contempla desde a liquidação da sentença até a adoção de medidas judiciais voltadas à localização de patrimônio, satisfação da obrigação e encerramento da execução, inclusive em parceria com advogados e outros escritórios.",
@@ -99,7 +99,7 @@ const servicos: ServiceGroup[] = [
   },
 ];
 
-export const Route = createFileRoute("/solucoes/execucoes-complexas")({
+export const Route = createFileRoute("/servicos/execucoes-complexas")({
   head: () => ({
     meta: [
       { title: "Execuções Complexas | LBS Advogadas e Advogados" },
@@ -117,7 +117,7 @@ export const Route = createFileRoute("/solucoes/execucoes-complexas")({
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/solucoes/execucoes-complexas" }],
+    links: [{ rel: "canonical", href: "/servicos/execucoes-complexas" }],
   }),
   component: ExecucoesPage,
 });
@@ -125,12 +125,12 @@ export const Route = createFileRoute("/solucoes/execucoes-complexas")({
 function ExecucoesPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
-      <SolucaoHero
+      <ServicoHero
         image={solExecucoes.url}
         alt="Corredor de fórum trabalhista em luz e sombra"
         title="Execuções complexas"
         intro={descricao[0]}
-        secondaryTo="/solucoes/tribunais-superiores"
+        secondaryTo="/servicos/tribunais-superiores"
         secondaryLabel="Tribunais Superiores"
       />
 

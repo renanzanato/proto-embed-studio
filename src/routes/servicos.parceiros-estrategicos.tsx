@@ -3,18 +3,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import solParceiros from "@/assets/sol-parceiros.jpg";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
-import { equipeParceirosEstrategicos } from "@/data/solucao-equipe";
+import { equipeParceirosEstrategicos } from "@/data/servico-equipe";
 import {
   DescricaoSection,
   DestaquesGaleria,
   PublicoAtendido,
   ServicosSection,
   SociosResponsaveis,
-  SolucaoHero,
+  ServicoHero,
   type Destaque,
   type PublicoItem,
   type ServiceGroup,
-} from "@/components/solucoes/SolucaoSections";
+} from "@/components/servicos/ServicoSections";
 
 const diferenciais = [
   "A área alcança a atuação direta com escritórios e entidades parceiras, em todas as instâncias judiciais, pautada na excelência técnica da LBS e em sua experiência em âmbito nacional.",
@@ -89,7 +89,7 @@ const servicos: ServiceGroup[] = [
   },
 ];
 
-export const Route = createFileRoute("/solucoes/parceiros-estrategicos")({
+export const Route = createFileRoute("/servicos/parceiros-estrategicos")({
   head: () => ({
     meta: [
       { title: "Parceiros Estratégicos | LBS Advogadas e Advogados" },
@@ -110,7 +110,7 @@ export const Route = createFileRoute("/solucoes/parceiros-estrategicos")({
       { property: "og:type", content: "article" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/solucoes/parceiros-estrategicos" }],
+    links: [{ rel: "canonical", href: "/servicos/parceiros-estrategicos" }],
   }),
   component: ParceirosPage,
 });
@@ -118,7 +118,7 @@ export const Route = createFileRoute("/solucoes/parceiros-estrategicos")({
 function ParceirosPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
-      <SolucaoHero
+      <ServicoHero
         image={solParceiros}
         alt="Reunião de parceria entre escritórios de advocacia"
         title="Parceiros Estratégicos"
