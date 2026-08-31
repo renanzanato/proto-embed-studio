@@ -58,8 +58,11 @@ const publicoItems: PublicoItem[] = [
 
   {
     text: "Trabalhadores representados coletivamente",
-    alt: "Grupo de trabalhadores em reunião coletiva",
+    img: publicoTrabalhadores.url,
+    alt: "Grupo diverso de profissionais de várias ocupações",
+    focus: "50% 50%",
   },
+
   {
     text: "Grupos de empregados atingidos por uma mesma prática empresarial",
     alt: "Ambiente corporativo com trabalhadores",
