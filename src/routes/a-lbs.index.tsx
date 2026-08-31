@@ -57,6 +57,24 @@ function PhotoPlaceholder({ label, style }: { label: string; style?: React.CSSPr
   );
 }
 
+const sedePhotos: Record<string, { url: string; alt: string; focus: string }> = {
+  "Brasília": {
+    url: sedeBrasilia.url,
+    alt: "Fachada do Edifício Íon, sede da LBS em Brasília",
+    focus: "50% 55%",
+  },
+  Campinas: {
+    url: sedeCampinas.url,
+    alt: "Fachada do Espaço Toulouse, sede da LBS em Campinas",
+    focus: "50% 45%",
+  },
+  "São Paulo": {
+    url: sedeSaoPaulo.url,
+    alt: "Fachada do Edifício Philadelphia, sede da LBS em São Paulo",
+    focus: "50% 60%",
+  },
+};
+
 function ALbsPage() {
   return (
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
