@@ -17,6 +17,7 @@ import {
 } from "@/components/servicos/ServicoSections";
 import publicoCorredor from "@/assets/publico-corredor.jpg.asset.json";
 import publicoAutonoma from "@/assets/publico-autonoma-noite.jpg.asset.json";
+import publicoIndustria from "@/assets/publico-industria.jpg.asset.json";
 
 const diferenciais = [
   "A defesa da pessoa que trabalha é a origem e a razão de existir da LBS Advogadas e Advogados.",
@@ -259,7 +260,8 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "empregadas de empresas privadas ou de estatais",
-    alt: "Ambiente corporativo e institucional",
+    img: publicoIndustria.url,
+    alt: "Trabalhador industrial com colete refletivo inspecionando máquina em fábrica",
   },
   {
     text: "e para as entidades que as representam: sindicatos, federações, confederações e associações",
