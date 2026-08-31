@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 import publicoExecucoes from "@/assets/holding-table-hand-legal-working.jpg.asset.json";
+import publicoSindicatos from "@/assets/publico-sindicatos-fabrica.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeExecucoes } from "@/data/servico-equipe";
@@ -63,7 +64,9 @@ const diferenciais = [
 const publicoItems: PublicoItem[] = [
   {
     text: "Sindicatos, federações, confederações e associações",
-    alt: "Assembleia de entidade representativa de trabalhadores",
+    img: publicoSindicatos.url,
+    focus: "50% 35%",
+    alt: "Trabalhadores e líderes reunidos em ambiente industrial ao redor de quadro branco",
   },
   {
     text: "Trabalhadores beneficiários de decisões judiciais coletivas",
