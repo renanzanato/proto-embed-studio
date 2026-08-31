@@ -18,7 +18,7 @@ import {
 import publicoCorredor from "@/assets/publico-corredor.jpg.asset.json";
 import publicoAutonoma from "@/assets/publico-autonoma-noite.jpg.asset.json";
 import publicoIndustria from "@/assets/medium-shot-smiley-man-wearing-helmet.jpg.asset.json";
-import publicoEntidades from "@/assets/publico-sindicatos-fabrica.jpg.asset.json";
+import publicoEntidades from "@/assets/people-networking-conference-registration-desk.jpg.asset.json";
 
 const diferenciais = [
   "A defesa da pessoa que trabalha é a origem e a razão de existir da LBS Advogadas e Advogados.",
@@ -271,7 +271,7 @@ const publicoItems: PublicoItem[] = [
     text: "e para as entidades que as representam: sindicatos, federações, confederações e associações",
     img: publicoEntidades.url,
     focus: "50% 35%",
-    alt: "Trabalhadores e líderes reunidos em ambiente industrial ao redor de quadro branco",
+    alt: "Pessoas conversando em balcão de credenciamento de evento",
   },
 ];
 
