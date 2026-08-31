@@ -294,7 +294,7 @@ function DefesaPage() {
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       <ServicoHero
         image={solDefesa.url}
-        alt="Pessoas em movimento no cotidiano urbano"
+        alt="Dois profissionais de oficina mecânica conversando no ambiente de trabalho"
         title="Defesa da pessoa que trabalha"
         intro={diferenciais[0]}
       />
