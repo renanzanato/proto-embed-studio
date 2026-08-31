@@ -62,10 +62,17 @@ export function SiteHeader({ active }: { active?: string }) {
               <div
                 key={item.label}
                 onMouseEnter={keepAtuacaoOpen}
+                onFocus={keepAtuacaoOpen}
               >
-                <button type="button" className={linkClass(item.label)}>
+                <Link
+                  to={item.to}
+                  aria-expanded={atuacaoOpen}
+                  aria-haspopup="true"
+                  onClick={() => setAtuacaoOpen(false)}
+                  className={`${linkClass(item.label)} cursor-pointer`}
+                >
                   {item.label}
-                </button>
+                </Link>
               </div>
             ) : (
               <Link key={item.label} to={item.to} className={linkClass(item.label)}>
