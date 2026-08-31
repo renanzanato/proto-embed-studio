@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import solAdm from "@/assets/vinculos-administracao-publica.jpg.asset.json";
+import servidorasPublicos from "@/assets/servidoras-servidores-publicos.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeVinculosAdministracaoPublica } from "@/data/servico-equipe";
@@ -46,6 +47,8 @@ const publicoItems: PublicoItem[] = [
   {
     text: "Servidoras e servidores públicos federais, estaduais e municipais, ativos e aposentados",
     alt: "Servidores públicos em ambiente de trabalho",
+    image: servidorasPublicos.url,
+    focus: "50% 50%",
   },
   {
     text: "Pessoas que trabalham para o Estado sob outros vínculos: contratados temporários, bolsistas, terceirizados e empregados públicos",
