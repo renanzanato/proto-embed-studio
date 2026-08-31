@@ -76,6 +76,8 @@ const publicoItems: PublicoItem[] = [
   {
     text: "Sindicatos, federações, confederações, centrais sindicais e associações",
     alt: "Representantes de entidades sindicais em reunião",
+    img: entidadesSindicais.url,
+    focus: "50% 50%",
   },
   {
     text: "Trabalhadoras, trabalhadores e grupos atingidos por violações de direitos humanos",
