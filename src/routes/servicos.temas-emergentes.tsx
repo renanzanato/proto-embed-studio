@@ -89,7 +89,9 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "Entidades da sociedade civil e organizações de defesa de direitos",
-    alt: "Organização da sociedade civil em atividade",
+    alt: "Equipe de organização da sociedade civil em reunião",
+    img: entidadesSociedadeCivil.url,
+    focus: "50% 50%",
   },
   {
     text: "Comunidades e populações afetadas por empreendimentos empresariais",
