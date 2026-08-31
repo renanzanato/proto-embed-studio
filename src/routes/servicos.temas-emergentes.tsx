@@ -82,7 +82,9 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "Trabalhadoras, trabalhadores e grupos atingidos por violações de direitos humanos",
-    alt: "Grupo de trabalhadores em assembleia",
+    alt: "Trabalhadora em oficina de costura",
+    img: trabalhadorasViolacoes.url,
+    focus: "50% 50%",
   },
   {
     text: "Entidades da sociedade civil e organizações de defesa de direitos",
