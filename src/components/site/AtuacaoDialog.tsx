@@ -3,6 +3,7 @@ import { useState } from "react";
 import { createPortal } from "react-dom";
 
 import { servicoRamificacoes } from "@/data/servico-ramificacoes";
+import { ramosDoServico } from "@/data/servico-ramos";
 
 type Aba = "areas" | "servicos";
 
@@ -72,14 +73,14 @@ export function AtuacaoDialog({
                   {item.title}
                 </Link>
                 <ul className="mt-3 space-y-1.5">
-                  {item.ramos.map((ramo) => (
-                    <li key={ramo}>
+                  {ramosDoServico(item.to.replace("/servicos/", "")).map((ramo) => (
+                    <li key={ramo.slug}>
                       <Link
-                        to={item.to}
+                        to={`/servicos/${ramo.servicoSlug}/${ramo.slug}` as "/servicos"}
                         onClick={onClose}
                         className="block text-[12px] leading-snug text-lbs-ink/60 transition-colors hover:text-lbs-magenta"
                       >
-                        {ramo}
+                        {ramo.title}
                       </Link>
                     </li>
                   ))}

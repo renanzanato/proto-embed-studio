@@ -154,6 +154,7 @@ function ExecucoesPage() {
         title="Da liquidação da sentença ao encerramento da execução"
         lead="Atuação desenvolvida em conjunto com o cliente nas seguintes frentes:"
         groups={servicos}
+        servicoSlug="execucoes-complexas"
         idPrefix="execucoes"
       />
 

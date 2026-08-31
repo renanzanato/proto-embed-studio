@@ -142,6 +142,7 @@ function ParceirosPage() {
         title="Condução compartilhada, atuação em Brasília e gestão da parceria"
         lead="Atuação desenvolvida em conjunto com o parceiro nas seguintes frentes:"
         groups={servicos}
+        servicoSlug="parceiros-estrategicos"
         idPrefix="parceiros"
       />
 

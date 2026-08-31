@@ -167,6 +167,7 @@ function LitigiosPage() {
         title="Ações coletivas, negociação, vida sindical e assessoria legislativa"
         lead="Atuação desenvolvida em conjunto com o cliente nas seguintes frentes:"
         groups={servicos}
+        servicoSlug="litigios-coletivos"
         idPrefix="litigios"
       />
 
