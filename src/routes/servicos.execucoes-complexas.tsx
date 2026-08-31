@@ -85,9 +85,11 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "Entidades representativas, escritórios e advogados que necessitam de acompanhamento especializado na fase de execução",
+    img: publicoEscritorios.url,
     focus: "50% 50%",
-    alt: "Reunião entre advogados parceiros",
+    alt: "Advogado analisando documentos e processos em escritório",
   },
+
 ];
 
 const servicos: ServiceGroup[] = [
