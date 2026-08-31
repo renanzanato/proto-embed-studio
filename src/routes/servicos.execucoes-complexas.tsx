@@ -6,8 +6,8 @@ import publicoEscritorios from "@/assets/looking-through-papers.jpg.asset.json";
 import publicoIndividuais from "@/assets/young-brunette-woman-sitting-waiting-room.jpg.asset.json";
 import publicoSindicatos from "@/assets/publico-sindicatos-fabrica.jpg.asset.json";
 
-
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+
 import { equipeExecucoes } from "@/data/servico-equipe";
 import {
   DescricaoSection,
