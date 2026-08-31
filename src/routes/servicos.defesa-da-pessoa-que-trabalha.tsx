@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import solDefesa from "@/assets/pessoas-que-trabalham-subway.jpg.asset.json";
+import solDefesa from "@/assets/defesa-pessoa-que-trabalha-oficina.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeDefesaPessoaQueTrabalha } from "@/data/servico-equipe";
@@ -294,7 +294,7 @@ function DefesaPage() {
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       <ServicoHero
         image={solDefesa.url}
-        alt="Pessoas em movimento no cotidiano urbano"
+        alt="Dois profissionais de oficina mecânica conversando no ambiente de trabalho"
         title="Defesa da pessoa que trabalha"
         intro={diferenciais[0]}
       />
