@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import outrosVinculos from "@/assets/front-view-doctor-wearing-lab-coat.jpg.asset.json";
 import solAdm from "@/assets/vinculos-administracao-publica.jpg.asset.json";
 import servidorasPublicos from "@/assets/servidoras-servidores-publicos.jpg.asset.json";
 
@@ -53,6 +54,8 @@ const publicoItems: PublicoItem[] = [
   {
     text: "Pessoas que trabalham para o Estado sob outros vínculos: contratados temporários, bolsistas, terceirizados e empregados públicos",
     alt: "Trabalhadores contratados por vínculos diversos com o poder público",
+    img: outrosVinculos.url,
+    focus: "50% 50%",
   },
   {
     text: "Associações, sindicatos, federações e confederações",
