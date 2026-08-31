@@ -3,6 +3,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import solLitigios from "@/assets/litigios-coletivos-grupo.jpg.asset.json";
 import publicoSindicatos from "@/assets/people-networking-conference-registration-desk-2.jpg.asset.json";
 import publicoTrabalhadores from "@/assets/group-diverse-occupation-people.jpg.asset.json";
+import publicoEmpregados from "@/assets/group-workers-are-working-factory.jpg.asset.json";
+
 
 
 
@@ -65,8 +67,11 @@ const publicoItems: PublicoItem[] = [
 
   {
     text: "Grupos de empregados atingidos por uma mesma prática empresarial",
-    alt: "Ambiente corporativo com trabalhadores",
+    img: publicoEmpregados.url,
+    alt: "Trabalhadores em linha de produção industrial",
+    focus: "50% 50%",
   },
+
   {
     text: "Escritórios parceiros que demandam atuação especializada em Direito Coletivo do Trabalho",
     alt: "Reunião entre advogados parceiros",
