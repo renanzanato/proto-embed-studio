@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
-import solucoesHero from "@/assets/servicos-hero.jpg";
+import servicosHero from "@/assets/solucoes-hero.jpg";
 import solDefesa from "@/assets/pessoas-que-trabalham-fabrica.jpg.asset.json";
 import solLitigios from "@/assets/litigios-coletivos.jpg.asset.json";
 import solTribunais from "@/assets/tribunais-superiores.jpg.asset.json";
@@ -12,7 +12,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
 
-const solucoes = [
+const servicos = [
   {
     img: solDefesa.url,
     title: "Defesa da pessoa que trabalha",
@@ -91,7 +91,7 @@ function ServicosPage() {
       <section className="relative isolate w-full overflow-hidden">
         <div className="absolute inset-0 -z-10">
           <img
-            src={solucoesHero}
+            src={servicosHero}
             alt="Formas abstratas em tons de cinza"
             width={1920}
             height={912}
@@ -124,7 +124,7 @@ function ServicosPage() {
       {/* SOLUÇÕES — LISTA */}
       <section className="w-full bg-[#f5f5f5] pb-20 pt-4 sm:pb-24">
         <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-5 px-4 sm:px-6 lg:px-8">
-          {solucoes.map((item, i) => {
+          {servicos.map((item, i) => {
             const imageFirst = i % 2 === 0;
             return (
               <article

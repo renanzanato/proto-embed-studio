@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { createPortal } from "react-dom";
 
-const solucoes: { title: string; to: string }[] = [
+const servicos: { title: string; to: string }[] = [
   { title: "Defesa da pessoa que trabalha", to: "/servicos/defesa-da-pessoa-que-trabalha" },
   {
     title: "Vínculos com a Administração Pública",
@@ -44,7 +44,7 @@ export function AtuacaoDialog({
         </h3>
 
         <ul className="mt-8 grid gap-x-16 gap-y-6 sm:grid-flow-col sm:grid-cols-2 sm:grid-rows-4">
-          {solucoes.map((item) => (
+          {servicos.map((item) => (
             <li key={item.title} className="min-w-0 border-b-2 border-lbs-magenta">
               <Link
                 to={item.to}

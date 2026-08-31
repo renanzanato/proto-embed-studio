@@ -21,14 +21,14 @@ import { Route as AtuacaoIndexRouteImport } from './routes/atuacao.index'
 import { Route as AtuacaoSplatRouteImport } from './routes/atuacao.$'
 import { Route as EquipeIndexRouteImport } from './routes/equipe.index'
 import { Route as EquipeSlugRouteImport } from './routes/equipe.$slug'
-import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
-import { Route as SolucoesDefesaDaPessoaQueTrabalhaRouteImport } from './routes/solucoes.defesa-da-pessoa-que-trabalha'
-import { Route as SolucoesExecucoesComplexasRouteImport } from './routes/solucoes.execucoes-complexas'
-import { Route as SolucoesLitigiosColetivosRouteImport } from './routes/solucoes.litigios-coletivos'
-import { Route as SolucoesParceirosEstrategicosRouteImport } from './routes/solucoes.parceiros-estrategicos'
-import { Route as SolucoesTemasEmergentesRouteImport } from './routes/solucoes.temas-emergentes'
-import { Route as SolucoesTribunaisSuperioresRouteImport } from './routes/solucoes.tribunais-superiores'
-import { Route as SolucoesVinculosComAAdministracaoPublicaRouteImport } from './routes/solucoes.vinculos-com-a-administracao-publica'
+import { Route as ServicosIndexRouteImport } from './routes/servicos.index'
+import { Route as ServicosDefesaDaPessoaQueTrabalhaRouteImport } from './routes/servicos.defesa-da-pessoa-que-trabalha'
+import { Route as ServicosExecucoesComplexasRouteImport } from './routes/servicos.execucoes-complexas'
+import { Route as ServicosLitigiosColetivosRouteImport } from './routes/servicos.litigios-coletivos'
+import { Route as ServicosParceirosEstrategicosRouteImport } from './routes/servicos.parceiros-estrategicos'
+import { Route as ServicosTemasEmergentesRouteImport } from './routes/servicos.temas-emergentes'
+import { Route as ServicosTribunaisSuperioresRouteImport } from './routes/servicos.tribunais-superiores'
+import { Route as ServicosVinculosComAAdministracaoPublicaRouteImport } from './routes/servicos.vinculos-com-a-administracao-publica'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -90,50 +90,50 @@ const EquipeSlugRoute = EquipeSlugRouteImport.update({
   path: '/equipe/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SolucoesIndexRoute = SolucoesIndexRouteImport.update({
-  id: '/solucoes/',
-  path: '/solucoes/',
+const ServicosIndexRoute = ServicosIndexRouteImport.update({
+  id: '/servicos/',
+  path: '/servicos/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SolucoesDefesaDaPessoaQueTrabalhaRoute =
-  SolucoesDefesaDaPessoaQueTrabalhaRouteImport.update({
-    id: '/solucoes/defesa-da-pessoa-que-trabalha',
-    path: '/solucoes/defesa-da-pessoa-que-trabalha',
+const ServicosDefesaDaPessoaQueTrabalhaRoute =
+  ServicosDefesaDaPessoaQueTrabalhaRouteImport.update({
+    id: '/servicos/defesa-da-pessoa-que-trabalha',
+    path: '/servicos/defesa-da-pessoa-que-trabalha',
     getParentRoute: () => rootRouteImport,
   } as any)
-const SolucoesExecucoesComplexasRoute =
-  SolucoesExecucoesComplexasRouteImport.update({
-    id: '/solucoes/execucoes-complexas',
-    path: '/solucoes/execucoes-complexas',
+const ServicosExecucoesComplexasRoute =
+  ServicosExecucoesComplexasRouteImport.update({
+    id: '/servicos/execucoes-complexas',
+    path: '/servicos/execucoes-complexas',
     getParentRoute: () => rootRouteImport,
   } as any)
-const SolucoesLitigiosColetivosRoute =
-  SolucoesLitigiosColetivosRouteImport.update({
-    id: '/solucoes/litigios-coletivos',
-    path: '/solucoes/litigios-coletivos',
+const ServicosLitigiosColetivosRoute =
+  ServicosLitigiosColetivosRouteImport.update({
+    id: '/servicos/litigios-coletivos',
+    path: '/servicos/litigios-coletivos',
     getParentRoute: () => rootRouteImport,
   } as any)
-const SolucoesParceirosEstrategicosRoute =
-  SolucoesParceirosEstrategicosRouteImport.update({
-    id: '/solucoes/parceiros-estrategicos',
-    path: '/solucoes/parceiros-estrategicos',
+const ServicosParceirosEstrategicosRoute =
+  ServicosParceirosEstrategicosRouteImport.update({
+    id: '/servicos/parceiros-estrategicos',
+    path: '/servicos/parceiros-estrategicos',
     getParentRoute: () => rootRouteImport,
   } as any)
-const SolucoesTemasEmergentesRoute = SolucoesTemasEmergentesRouteImport.update({
-  id: '/solucoes/temas-emergentes',
-  path: '/solucoes/temas-emergentes',
+const ServicosTemasEmergentesRoute = ServicosTemasEmergentesRouteImport.update({
+  id: '/servicos/temas-emergentes',
+  path: '/servicos/temas-emergentes',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SolucoesTribunaisSuperioresRoute =
-  SolucoesTribunaisSuperioresRouteImport.update({
-    id: '/solucoes/tribunais-superiores',
-    path: '/solucoes/tribunais-superiores',
+const ServicosTribunaisSuperioresRoute =
+  ServicosTribunaisSuperioresRouteImport.update({
+    id: '/servicos/tribunais-superiores',
+    path: '/servicos/tribunais-superiores',
     getParentRoute: () => rootRouteImport,
   } as any)
-const SolucoesVinculosComAAdministracaoPublicaRoute =
-  SolucoesVinculosComAAdministracaoPublicaRouteImport.update({
-    id: '/solucoes/vinculos-com-a-administracao-publica',
-    path: '/solucoes/vinculos-com-a-administracao-publica',
+const ServicosVinculosComAAdministracaoPublicaRoute =
+  ServicosVinculosComAAdministracaoPublicaRouteImport.update({
+    id: '/servicos/vinculos-com-a-administracao-publica',
+    path: '/servicos/vinculos-com-a-administracao-publica',
     getParentRoute: () => rootRouteImport,
   } as any)
 
@@ -146,18 +146,18 @@ export interface FileRoutesByFullPath {
   '/artigos/$slug': typeof ArtigosSlugRoute
   '/atuacao/$': typeof AtuacaoSplatRoute
   '/equipe/$slug': typeof EquipeSlugRoute
-  '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
-  '/solucoes/execucoes-complexas': typeof SolucoesExecucoesComplexasRoute
-  '/solucoes/litigios-coletivos': typeof SolucoesLitigiosColetivosRoute
-  '/solucoes/parceiros-estrategicos': typeof SolucoesParceirosEstrategicosRoute
-  '/solucoes/temas-emergentes': typeof SolucoesTemasEmergentesRoute
-  '/solucoes/tribunais-superiores': typeof SolucoesTribunaisSuperioresRoute
-  '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
+  '/servicos/defesa-da-pessoa-que-trabalha': typeof ServicosDefesaDaPessoaQueTrabalhaRoute
+  '/servicos/execucoes-complexas': typeof ServicosExecucoesComplexasRoute
+  '/servicos/litigios-coletivos': typeof ServicosLitigiosColetivosRoute
+  '/servicos/parceiros-estrategicos': typeof ServicosParceirosEstrategicosRoute
+  '/servicos/temas-emergentes': typeof ServicosTemasEmergentesRoute
+  '/servicos/tribunais-superiores': typeof ServicosTribunaisSuperioresRoute
+  '/servicos/vinculos-com-a-administracao-publica': typeof ServicosVinculosComAAdministracaoPublicaRoute
   '/a-lbs/': typeof ALbsIndexRoute
   '/artigos/': typeof ArtigosIndexRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
-  '/solucoes/': typeof SolucoesIndexRoute
+  '/servicos/': typeof ServicosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -168,18 +168,18 @@ export interface FileRoutesByTo {
   '/artigos/$slug': typeof ArtigosSlugRoute
   '/atuacao/$': typeof AtuacaoSplatRoute
   '/equipe/$slug': typeof EquipeSlugRoute
-  '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
-  '/solucoes/execucoes-complexas': typeof SolucoesExecucoesComplexasRoute
-  '/solucoes/litigios-coletivos': typeof SolucoesLitigiosColetivosRoute
-  '/solucoes/parceiros-estrategicos': typeof SolucoesParceirosEstrategicosRoute
-  '/solucoes/temas-emergentes': typeof SolucoesTemasEmergentesRoute
-  '/solucoes/tribunais-superiores': typeof SolucoesTribunaisSuperioresRoute
-  '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
+  '/servicos/defesa-da-pessoa-que-trabalha': typeof ServicosDefesaDaPessoaQueTrabalhaRoute
+  '/servicos/execucoes-complexas': typeof ServicosExecucoesComplexasRoute
+  '/servicos/litigios-coletivos': typeof ServicosLitigiosColetivosRoute
+  '/servicos/parceiros-estrategicos': typeof ServicosParceirosEstrategicosRoute
+  '/servicos/temas-emergentes': typeof ServicosTemasEmergentesRoute
+  '/servicos/tribunais-superiores': typeof ServicosTribunaisSuperioresRoute
+  '/servicos/vinculos-com-a-administracao-publica': typeof ServicosVinculosComAAdministracaoPublicaRoute
   '/a-lbs': typeof ALbsIndexRoute
   '/artigos': typeof ArtigosIndexRoute
   '/atuacao': typeof AtuacaoIndexRoute
   '/equipe': typeof EquipeIndexRoute
-  '/solucoes': typeof SolucoesIndexRoute
+  '/servicos': typeof ServicosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -191,18 +191,18 @@ export interface FileRoutesById {
   '/artigos/$slug': typeof ArtigosSlugRoute
   '/atuacao/$': typeof AtuacaoSplatRoute
   '/equipe/$slug': typeof EquipeSlugRoute
-  '/solucoes/defesa-da-pessoa-que-trabalha': typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
-  '/solucoes/execucoes-complexas': typeof SolucoesExecucoesComplexasRoute
-  '/solucoes/litigios-coletivos': typeof SolucoesLitigiosColetivosRoute
-  '/solucoes/parceiros-estrategicos': typeof SolucoesParceirosEstrategicosRoute
-  '/solucoes/temas-emergentes': typeof SolucoesTemasEmergentesRoute
-  '/solucoes/tribunais-superiores': typeof SolucoesTribunaisSuperioresRoute
-  '/solucoes/vinculos-com-a-administracao-publica': typeof SolucoesVinculosComAAdministracaoPublicaRoute
+  '/servicos/defesa-da-pessoa-que-trabalha': typeof ServicosDefesaDaPessoaQueTrabalhaRoute
+  '/servicos/execucoes-complexas': typeof ServicosExecucoesComplexasRoute
+  '/servicos/litigios-coletivos': typeof ServicosLitigiosColetivosRoute
+  '/servicos/parceiros-estrategicos': typeof ServicosParceirosEstrategicosRoute
+  '/servicos/temas-emergentes': typeof ServicosTemasEmergentesRoute
+  '/servicos/tribunais-superiores': typeof ServicosTribunaisSuperioresRoute
+  '/servicos/vinculos-com-a-administracao-publica': typeof ServicosVinculosComAAdministracaoPublicaRoute
   '/a-lbs/': typeof ALbsIndexRoute
   '/artigos/': typeof ArtigosIndexRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
-  '/solucoes/': typeof SolucoesIndexRoute
+  '/servicos/': typeof ServicosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -215,18 +215,18 @@ export interface FileRouteTypes {
     | '/artigos/$slug'
     | '/atuacao/$'
     | '/equipe/$slug'
-    | '/solucoes/defesa-da-pessoa-que-trabalha'
-    | '/solucoes/execucoes-complexas'
-    | '/solucoes/litigios-coletivos'
-    | '/solucoes/parceiros-estrategicos'
-    | '/solucoes/temas-emergentes'
-    | '/solucoes/tribunais-superiores'
-    | '/solucoes/vinculos-com-a-administracao-publica'
+    | '/servicos/defesa-da-pessoa-que-trabalha'
+    | '/servicos/execucoes-complexas'
+    | '/servicos/litigios-coletivos'
+    | '/servicos/parceiros-estrategicos'
+    | '/servicos/temas-emergentes'
+    | '/servicos/tribunais-superiores'
+    | '/servicos/vinculos-com-a-administracao-publica'
     | '/a-lbs/'
     | '/artigos/'
     | '/atuacao/'
     | '/equipe/'
-    | '/solucoes/'
+    | '/servicos/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -237,18 +237,18 @@ export interface FileRouteTypes {
     | '/artigos/$slug'
     | '/atuacao/$'
     | '/equipe/$slug'
-    | '/solucoes/defesa-da-pessoa-que-trabalha'
-    | '/solucoes/execucoes-complexas'
-    | '/solucoes/litigios-coletivos'
-    | '/solucoes/parceiros-estrategicos'
-    | '/solucoes/temas-emergentes'
-    | '/solucoes/tribunais-superiores'
-    | '/solucoes/vinculos-com-a-administracao-publica'
+    | '/servicos/defesa-da-pessoa-que-trabalha'
+    | '/servicos/execucoes-complexas'
+    | '/servicos/litigios-coletivos'
+    | '/servicos/parceiros-estrategicos'
+    | '/servicos/temas-emergentes'
+    | '/servicos/tribunais-superiores'
+    | '/servicos/vinculos-com-a-administracao-publica'
     | '/a-lbs'
     | '/artigos'
     | '/atuacao'
     | '/equipe'
-    | '/solucoes'
+    | '/servicos'
   id:
     | '__root__'
     | '/'
@@ -259,18 +259,18 @@ export interface FileRouteTypes {
     | '/artigos/$slug'
     | '/atuacao/$'
     | '/equipe/$slug'
-    | '/solucoes/defesa-da-pessoa-que-trabalha'
-    | '/solucoes/execucoes-complexas'
-    | '/solucoes/litigios-coletivos'
-    | '/solucoes/parceiros-estrategicos'
-    | '/solucoes/temas-emergentes'
-    | '/solucoes/tribunais-superiores'
-    | '/solucoes/vinculos-com-a-administracao-publica'
+    | '/servicos/defesa-da-pessoa-que-trabalha'
+    | '/servicos/execucoes-complexas'
+    | '/servicos/litigios-coletivos'
+    | '/servicos/parceiros-estrategicos'
+    | '/servicos/temas-emergentes'
+    | '/servicos/tribunais-superiores'
+    | '/servicos/vinculos-com-a-administracao-publica'
     | '/a-lbs/'
     | '/artigos/'
     | '/atuacao/'
     | '/equipe/'
-    | '/solucoes/'
+    | '/servicos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -282,18 +282,18 @@ export interface RootRouteChildren {
   ArtigosSlugRoute: typeof ArtigosSlugRoute
   AtuacaoSplatRoute: typeof AtuacaoSplatRoute
   EquipeSlugRoute: typeof EquipeSlugRoute
-  SolucoesDefesaDaPessoaQueTrabalhaRoute: typeof SolucoesDefesaDaPessoaQueTrabalhaRoute
-  SolucoesExecucoesComplexasRoute: typeof SolucoesExecucoesComplexasRoute
-  SolucoesLitigiosColetivosRoute: typeof SolucoesLitigiosColetivosRoute
-  SolucoesParceirosEstrategicosRoute: typeof SolucoesParceirosEstrategicosRoute
-  SolucoesTemasEmergentesRoute: typeof SolucoesTemasEmergentesRoute
-  SolucoesTribunaisSuperioresRoute: typeof SolucoesTribunaisSuperioresRoute
-  SolucoesVinculosComAAdministracaoPublicaRoute: typeof SolucoesVinculosComAAdministracaoPublicaRoute
+  ServicosDefesaDaPessoaQueTrabalhaRoute: typeof ServicosDefesaDaPessoaQueTrabalhaRoute
+  ServicosExecucoesComplexasRoute: typeof ServicosExecucoesComplexasRoute
+  ServicosLitigiosColetivosRoute: typeof ServicosLitigiosColetivosRoute
+  ServicosParceirosEstrategicosRoute: typeof ServicosParceirosEstrategicosRoute
+  ServicosTemasEmergentesRoute: typeof ServicosTemasEmergentesRoute
+  ServicosTribunaisSuperioresRoute: typeof ServicosTribunaisSuperioresRoute
+  ServicosVinculosComAAdministracaoPublicaRoute: typeof ServicosVinculosComAAdministracaoPublicaRoute
   ALbsIndexRoute: typeof ALbsIndexRoute
   ArtigosIndexRoute: typeof ArtigosIndexRoute
   AtuacaoIndexRoute: typeof AtuacaoIndexRoute
   EquipeIndexRoute: typeof EquipeIndexRoute
-  SolucoesIndexRoute: typeof SolucoesIndexRoute
+  ServicosIndexRoute: typeof ServicosIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -382,60 +382,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EquipeSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/solucoes/': {
-      id: '/solucoes/'
-      path: '/solucoes'
-      fullPath: '/solucoes/'
-      preLoaderRoute: typeof SolucoesIndexRouteImport
+    '/servicos/': {
+      id: '/servicos/'
+      path: '/servicos'
+      fullPath: '/servicos/'
+      preLoaderRoute: typeof ServicosIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/solucoes/defesa-da-pessoa-que-trabalha': {
-      id: '/solucoes/defesa-da-pessoa-que-trabalha'
-      path: '/solucoes/defesa-da-pessoa-que-trabalha'
-      fullPath: '/solucoes/defesa-da-pessoa-que-trabalha'
-      preLoaderRoute: typeof SolucoesDefesaDaPessoaQueTrabalhaRouteImport
+    '/servicos/defesa-da-pessoa-que-trabalha': {
+      id: '/servicos/defesa-da-pessoa-que-trabalha'
+      path: '/servicos/defesa-da-pessoa-que-trabalha'
+      fullPath: '/servicos/defesa-da-pessoa-que-trabalha'
+      preLoaderRoute: typeof ServicosDefesaDaPessoaQueTrabalhaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/solucoes/execucoes-complexas': {
-      id: '/solucoes/execucoes-complexas'
-      path: '/solucoes/execucoes-complexas'
-      fullPath: '/solucoes/execucoes-complexas'
-      preLoaderRoute: typeof SolucoesExecucoesComplexasRouteImport
+    '/servicos/execucoes-complexas': {
+      id: '/servicos/execucoes-complexas'
+      path: '/servicos/execucoes-complexas'
+      fullPath: '/servicos/execucoes-complexas'
+      preLoaderRoute: typeof ServicosExecucoesComplexasRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/solucoes/litigios-coletivos': {
-      id: '/solucoes/litigios-coletivos'
-      path: '/solucoes/litigios-coletivos'
-      fullPath: '/solucoes/litigios-coletivos'
-      preLoaderRoute: typeof SolucoesLitigiosColetivosRouteImport
+    '/servicos/litigios-coletivos': {
+      id: '/servicos/litigios-coletivos'
+      path: '/servicos/litigios-coletivos'
+      fullPath: '/servicos/litigios-coletivos'
+      preLoaderRoute: typeof ServicosLitigiosColetivosRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/solucoes/parceiros-estrategicos': {
-      id: '/solucoes/parceiros-estrategicos'
-      path: '/solucoes/parceiros-estrategicos'
-      fullPath: '/solucoes/parceiros-estrategicos'
-      preLoaderRoute: typeof SolucoesParceirosEstrategicosRouteImport
+    '/servicos/parceiros-estrategicos': {
+      id: '/servicos/parceiros-estrategicos'
+      path: '/servicos/parceiros-estrategicos'
+      fullPath: '/servicos/parceiros-estrategicos'
+      preLoaderRoute: typeof ServicosParceirosEstrategicosRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/solucoes/temas-emergentes': {
-      id: '/solucoes/temas-emergentes'
-      path: '/solucoes/temas-emergentes'
-      fullPath: '/solucoes/temas-emergentes'
-      preLoaderRoute: typeof SolucoesTemasEmergentesRouteImport
+    '/servicos/temas-emergentes': {
+      id: '/servicos/temas-emergentes'
+      path: '/servicos/temas-emergentes'
+      fullPath: '/servicos/temas-emergentes'
+      preLoaderRoute: typeof ServicosTemasEmergentesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/solucoes/tribunais-superiores': {
-      id: '/solucoes/tribunais-superiores'
-      path: '/solucoes/tribunais-superiores'
-      fullPath: '/solucoes/tribunais-superiores'
-      preLoaderRoute: typeof SolucoesTribunaisSuperioresRouteImport
+    '/servicos/tribunais-superiores': {
+      id: '/servicos/tribunais-superiores'
+      path: '/servicos/tribunais-superiores'
+      fullPath: '/servicos/tribunais-superiores'
+      preLoaderRoute: typeof ServicosTribunaisSuperioresRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/solucoes/vinculos-com-a-administracao-publica': {
-      id: '/solucoes/vinculos-com-a-administracao-publica'
-      path: '/solucoes/vinculos-com-a-administracao-publica'
-      fullPath: '/solucoes/vinculos-com-a-administracao-publica'
-      preLoaderRoute: typeof SolucoesVinculosComAAdministracaoPublicaRouteImport
+    '/servicos/vinculos-com-a-administracao-publica': {
+      id: '/servicos/vinculos-com-a-administracao-publica'
+      path: '/servicos/vinculos-com-a-administracao-publica'
+      fullPath: '/servicos/vinculos-com-a-administracao-publica'
+      preLoaderRoute: typeof ServicosVinculosComAAdministracaoPublicaRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -450,20 +450,20 @@ const rootRouteChildren: RootRouteChildren = {
   ArtigosSlugRoute: ArtigosSlugRoute,
   AtuacaoSplatRoute: AtuacaoSplatRoute,
   EquipeSlugRoute: EquipeSlugRoute,
-  SolucoesDefesaDaPessoaQueTrabalhaRoute:
-    SolucoesDefesaDaPessoaQueTrabalhaRoute,
-  SolucoesExecucoesComplexasRoute: SolucoesExecucoesComplexasRoute,
-  SolucoesLitigiosColetivosRoute: SolucoesLitigiosColetivosRoute,
-  SolucoesParceirosEstrategicosRoute: SolucoesParceirosEstrategicosRoute,
-  SolucoesTemasEmergentesRoute: SolucoesTemasEmergentesRoute,
-  SolucoesTribunaisSuperioresRoute: SolucoesTribunaisSuperioresRoute,
-  SolucoesVinculosComAAdministracaoPublicaRoute:
-    SolucoesVinculosComAAdministracaoPublicaRoute,
+  ServicosDefesaDaPessoaQueTrabalhaRoute:
+    ServicosDefesaDaPessoaQueTrabalhaRoute,
+  ServicosExecucoesComplexasRoute: ServicosExecucoesComplexasRoute,
+  ServicosLitigiosColetivosRoute: ServicosLitigiosColetivosRoute,
+  ServicosParceirosEstrategicosRoute: ServicosParceirosEstrategicosRoute,
+  ServicosTemasEmergentesRoute: ServicosTemasEmergentesRoute,
+  ServicosTribunaisSuperioresRoute: ServicosTribunaisSuperioresRoute,
+  ServicosVinculosComAAdministracaoPublicaRoute:
+    ServicosVinculosComAAdministracaoPublicaRoute,
   ALbsIndexRoute: ALbsIndexRoute,
   ArtigosIndexRoute: ArtigosIndexRoute,
   AtuacaoIndexRoute: AtuacaoIndexRoute,
   EquipeIndexRoute: EquipeIndexRoute,
-  SolucoesIndexRoute: SolucoesIndexRoute,
+  ServicosIndexRoute: ServicosIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

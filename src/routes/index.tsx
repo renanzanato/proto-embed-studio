@@ -5,7 +5,7 @@ import { useState } from "react";
 import heroOffice from "@/assets/hero-office.jpg";
 import splitLeftAsset from "@/assets/banner-homepage-secao-2-imagem-1-lbs.png.asset.json";
 import splitRightAsset from "@/assets/banner-homepage-secao-2-imagem-2-lbs.png.asset.json";
-const solucoesMetal = splitLeftAsset.url;
+const servicosMetal = splitLeftAsset.url;
 const atuacaoOffice = splitRightAsset.url;
 import teamLoguercio from "@/assets/team-loguercio.jpg.asset.json";
 import teamNilo from "@/assets/team-nilo.jpg.asset.json";
@@ -310,17 +310,17 @@ function Index() {
 }
 
 function SplitBand() {
-  const [hovered, setHovered] = useState<"solucoes" | "albs" | null>(null);
+  const [hovered, setHovered] = useState<"servicos" | "albs" | null>(null);
 
   // diagonal boundary between the two panels (top % leans left, bottom % leans right)
   const leftClip =
-    hovered === "solucoes"
+    hovered === "servicos"
       ? "polygon(0 0, 62% 0, 72% 100%, 0 100%)"
       : hovered === "albs"
         ? "polygon(0 0, 24% 0, 34% 100%, 0 100%)"
         : "polygon(0 0, 43% 0, 53% 100%, 0 100%)";
   const rightClip =
-    hovered === "solucoes"
+    hovered === "servicos"
       ? "polygon(62% 0, 100% 0, 100% 100%, 72% 100%)"
       : hovered === "albs"
         ? "polygon(24% 0, 100% 0, 100% 100%, 34% 100%)"
@@ -351,7 +351,7 @@ function SplitBand() {
         className={`absolute inset-0 transition-colors duration-700 ${
           hovered === "albs"
             ? "bg-lbs-ink/30"
-            : hovered === "solucoes"
+            : hovered === "servicos"
               ? "bg-lbs-ink/70"
               : "bg-lbs-ink/55"
         }`}
@@ -360,18 +360,18 @@ function SplitBand() {
       {/* left side image (Soluções) clipped by a sharp diagonal */}
       <div className={`absolute inset-0 ${clipTransition}`} style={{ clipPath: leftClip }}>
         <img
-          src={solucoesMetal}
+          src={servicosMetal}
           alt="Painéis curvos de metal escovado em preto e branco"
           loading="lazy"
           width={1024}
           height={1024}
           className={`absolute inset-0 h-full w-full object-cover grayscale transition-transform duration-[1400ms] ease-out ${
-            hovered === "solucoes" ? "scale-[1.06]" : "scale-100"
+            hovered === "servicos" ? "scale-[1.06]" : "scale-100"
           }`}
         />
         <div
           className={`absolute inset-0 transition-colors duration-700 ${
-            hovered === "solucoes"
+            hovered === "servicos"
               ? "bg-lbs-ink/10"
               : hovered === "albs"
                 ? "bg-lbs-ink/60"
@@ -386,7 +386,7 @@ function SplitBand() {
           className={`absolute bottom-10 left-[24%] flex flex-col items-center gap-3 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:bottom-14 ${
             hovered === "albs"
               ? "-translate-x-1/2 opacity-0"
-              : hovered === "solucoes"
+              : hovered === "servicos"
                 ? "translate-x-[-25%] opacity-100"
                 : "-translate-x-1/2 opacity-100"
           }`}
@@ -396,7 +396,7 @@ function SplitBand() {
           </h2>
           <span
             className={`rounded-[6px] border border-lbs-magenta font-medium transition-all duration-500 ${
-              hovered === "solucoes"
+              hovered === "servicos"
                 ? "scale-105 bg-lbs-magenta px-7 py-2.5 text-[13px] text-white opacity-100"
                 : "px-5 py-2 text-[11px] text-lbs-magenta opacity-70"
             }`}
@@ -407,7 +407,7 @@ function SplitBand() {
 
         <div
           className={`absolute bottom-10 right-[24%] flex flex-col items-center gap-3 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:bottom-14 ${
-            hovered === "solucoes"
+            hovered === "servicos"
               ? "translate-x-1/2 opacity-0"
               : hovered === "albs"
                 ? "translate-x-[25%] opacity-100"
@@ -437,8 +437,8 @@ function SplitBand() {
         aria-label="Conheça nossas áreas de atuação"
         className={`absolute inset-0 ${clipTransition}`}
         style={{ clipPath: leftClip }}
-        onMouseEnter={() => setHovered("solucoes")}
-        onFocus={() => setHovered("solucoes")}
+        onMouseEnter={() => setHovered("servicos")}
+        onFocus={() => setHovered("servicos")}
         onBlur={() => setHovered(null)}
       />
       <a
