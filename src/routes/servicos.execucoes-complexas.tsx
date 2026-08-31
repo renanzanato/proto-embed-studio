@@ -65,20 +65,23 @@ const publicoItems: PublicoItem[] = [
   {
     text: "Sindicatos, federações, confederações e associações",
     img: publicoSindicatos.url,
-    focus: "50% 35%",
+    focus: "50% 50%",
     alt: "Trabalhadores e líderes reunidos em ambiente industrial ao redor de quadro branco",
   },
   {
     text: "Trabalhadores beneficiários de decisões judiciais coletivas",
     img: publicoExecucoes.url,
+    focus: "50% 50%",
     alt: "Mãos analisando documentos e anotações sobre decisões judiciais coletivas",
   },
   {
     text: "Trabalhadores em ações individuais",
+    focus: "50% 50%",
     alt: "Atendimento individual em escritório de advocacia",
   },
   {
     text: "Entidades representativas, escritórios e advogados que necessitam de acompanhamento especializado na fase de execução",
+    focus: "50% 50%",
     alt: "Reunião entre advogados parceiros",
   },
 ];
