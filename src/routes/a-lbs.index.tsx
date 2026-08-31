@@ -233,9 +233,21 @@ function ALbsPage() {
                 style={chamferSmall}
               >
                 <div className="aspect-[4/3] w-full overflow-hidden">
-                  <div className="h-full w-full grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0">
-                    <PhotoPlaceholder label={office.photoPlaceholder} />
-                  </div>
+                  {sedePhotos[office.city] ? (
+                    <img
+                      src={sedePhotos[office.city].url}
+                      alt={sedePhotos[office.city].alt}
+                      loading="lazy"
+                      width={1200}
+                      height={900}
+                      style={{ objectPosition: sedePhotos[office.city].focus }}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="h-full w-full transition-transform duration-500 group-hover:scale-105">
+                      <PhotoPlaceholder label={office.photoPlaceholder} />
+                    </div>
+                  )}
                 </div>
 
                 <div className="p-6">
