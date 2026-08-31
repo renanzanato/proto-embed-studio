@@ -85,7 +85,7 @@ export const servicoRamos: ServicoRamo[] = [
     items: [],
   },
   {
-    slug: "pessoas-com-deficiencia-e-neurodivergentes-e",
+    slug: "pessoas-com-deficiencia-e-neurodivergentes",
     title: "Pessoas com deficiência e neurodivergentes e aqueles que têm filhos ou dependentes nessas condições",
     servicoSlug: "defesa-da-pessoa-que-trabalha",
     servicoTitle: "Defesa da pessoa que trabalha",
