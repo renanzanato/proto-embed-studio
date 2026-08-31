@@ -38,7 +38,7 @@ export const servImgs = [serv01, serv02, serv03, serv04, serv05, serv06];
 export const socios = teamMembers.filter((m) => m.role === "Sócio" || m.role === "Sócia");
 
 export type Destaque = { title: string; text: string };
-export type PublicoItem = { text: string; img?: string; alt?: string };
+export type PublicoItem = { text: string; img?: string; alt?: string; focus?: string };
 export type ServiceGroup = { title: string; items: string[] };
 
 export function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -236,7 +236,11 @@ export function PublicoAtendido({
                   width={912}
                   height={1312}
                   className="absolute inset-0 h-full w-full object-cover"
-                  style={{ opacity: i === active ? 1 : 0, transition: "opacity 380ms ease" }}
+                  style={{
+                    objectPosition: item.focus ?? "50% 35%",
+                    opacity: i === active ? 1 : 0,
+                    transition: "opacity 380ms ease",
+                  }}
                 />
               ))}
               <div
