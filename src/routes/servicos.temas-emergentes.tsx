@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import entidadesSociedadeCivil from "@/assets/entidades-sociedade-civil.jpg.asset.json";
 import entidadesSindicais from "@/assets/temas-emergentes-entidades.jpg.asset.json";
 import trabalhadorasViolacoes from "@/assets/trabalhadoras-violacoes-direitos.jpg.asset.json";
 import solEmergentes from "@/assets/sol-emergentes.jpg";
