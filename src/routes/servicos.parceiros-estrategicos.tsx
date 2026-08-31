@@ -69,7 +69,7 @@ const publicoItems: PublicoItem[] = [
     text: "Parceiros que atuam em qualquer instância no território nacional",
     alt: "Advogado com pasta em aeroporto, representando atuação nacional",
     img: parceirosAtuacaoNacional.url,
-    focus: "50% 50%",
+    focus: "22% 50%",
   },
 ];
 
