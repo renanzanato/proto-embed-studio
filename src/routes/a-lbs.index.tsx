@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 
 import heroImage from "@/assets/a-lbs-hero.jpg";
+import sedeBrasilia from "@/assets/sede-brasilia.jpg.asset.json";
+import sedeCampinas from "@/assets/sede-campinas.webp.asset.json";
+import sedeSaoPaulo from "@/assets/sede-sao-paulo.jpg.asset.json";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { HistoryTeaser } from "@/components/site/HistoryTeaser";
@@ -53,6 +56,24 @@ function PhotoPlaceholder({ label, style }: { label: string; style?: React.CSSPr
     </div>
   );
 }
+
+const sedePhotos: Record<string, { url: string; alt: string; focus: string }> = {
+  "Brasília": {
+    url: sedeBrasilia.url,
+    alt: "Fachada do Edifício Íon, sede da LBS em Brasília",
+    focus: "50% 55%",
+  },
+  Campinas: {
+    url: sedeCampinas.url,
+    alt: "Fachada do Espaço Toulouse, sede da LBS em Campinas",
+    focus: "50% 45%",
+  },
+  "São Paulo": {
+    url: sedeSaoPaulo.url,
+    alt: "Fachada do Edifício Philadelphia, sede da LBS em São Paulo",
+    focus: "50% 60%",
+  },
+};
 
 function ALbsPage() {
   return (
@@ -212,9 +233,21 @@ function ALbsPage() {
                 style={chamferSmall}
               >
                 <div className="aspect-[4/3] w-full overflow-hidden">
-                  <div className="h-full w-full grayscale transition-transform duration-500 group-hover:scale-105 group-hover:grayscale-0">
-                    <PhotoPlaceholder label={office.photoPlaceholder} />
-                  </div>
+                  {sedePhotos[office.city] ? (
+                    <img
+                      src={sedePhotos[office.city].url}
+                      alt={sedePhotos[office.city].alt}
+                      loading="lazy"
+                      width={1200}
+                      height={900}
+                      style={{ objectPosition: sedePhotos[office.city].focus }}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="h-full w-full transition-transform duration-500 group-hover:scale-105">
+                      <PhotoPlaceholder label={office.photoPlaceholder} />
+                    </div>
+                  )}
                 </div>
 
                 <div className="p-6">
