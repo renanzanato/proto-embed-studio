@@ -271,7 +271,7 @@ const publicoItems: PublicoItem[] = [
     text: "e para as entidades que as representam: sindicatos, federações, confederações e associações",
     img: publicoEntidades.url,
     focus: "50% 35%",
-    alt: "Pessoas conversando em balcão de credenciamento de evento",
+    alt: "Trabalhadores e líderes reunidos em ambiente industrial ao redor de quadro branco",
   },
 ];
 
