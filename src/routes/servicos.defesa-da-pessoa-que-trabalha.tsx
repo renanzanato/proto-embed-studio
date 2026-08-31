@@ -16,6 +16,7 @@ import {
   type ServiceGroup,
 } from "@/components/servicos/ServicoSections";
 import publicoCorredor from "@/assets/publico-corredor.jpg.asset.json";
+import publicoAutonoma from "@/assets/publico-autonoma-noite.jpg.asset.json";
 
 const diferenciais = [
   "A defesa da pessoa que trabalha é a origem e a razão de existir da LBS Advogadas e Advogados.",
@@ -253,7 +254,8 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "contratadas como pessoa jurídica ou pessoa física",
-    alt: "Profissional independente trabalhando em seu escritório",
+    img: publicoAutonoma.url,
+    alt: "Profissional sorrindo enquanto trabalha com notebook em escritório à noite",
   },
   {
     text: "empregadas de empresas privadas ou de estatais",
