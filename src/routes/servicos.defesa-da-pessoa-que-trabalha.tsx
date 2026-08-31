@@ -17,7 +17,7 @@ import {
 } from "@/components/servicos/ServicoSections";
 import publicoCorredor from "@/assets/publico-corredor.jpg.asset.json";
 import publicoAutonoma from "@/assets/publico-autonoma-noite.jpg.asset.json";
-import publicoIndustria from "@/assets/publico-industria.jpg.asset.json";
+import publicoIndustria from "@/assets/medium-shot-smiley-man-wearing-helmet.jpg.asset.json";
 import publicoEntidades from "@/assets/people-networking-conference-registration-desk.jpg.asset.json";
 
 const diferenciais = [
@@ -264,8 +264,8 @@ const publicoItems: PublicoItem[] = [
   {
     text: "empregadas de empresas privadas ou de estatais",
     img: publicoIndustria.url,
-    focus: "28% 35%",
-    alt: "Trabalhador industrial com colete refletivo inspecionando máquina em fábrica",
+    focus: "50% 35%",
+    alt: "Trabalhador sorrindo com capacete e colete refletivo em ambiente industrial",
   },
   {
     text: "e para as entidades que as representam: sindicatos, federações, confederações e associações",
