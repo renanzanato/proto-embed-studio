@@ -251,16 +251,19 @@ const publicoItems: PublicoItem[] = [
   {
     text: "sob vínculo celetista",
     img: publicoCorredor.url,
+    focus: "50% 30%",
     alt: "Dois colegas de trabalho conversando e sorrindo em corredor de empresa",
   },
   {
     text: "contratadas como pessoa jurídica ou pessoa física",
     img: publicoAutonoma.url,
+    focus: "62% 30%",
     alt: "Profissional sorrindo enquanto trabalha com notebook em escritório à noite",
   },
   {
     text: "empregadas de empresas privadas ou de estatais",
     img: publicoIndustria.url,
+    focus: "28% 35%",
     alt: "Trabalhador industrial com colete refletivo inspecionando máquina em fábrica",
   },
   {
