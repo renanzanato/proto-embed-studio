@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
+import publicoExecucoes from "@/assets/holding-table-hand-legal-working.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeExecucoes } from "@/data/servico-equipe";
@@ -66,7 +67,8 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "Trabalhadores beneficiários de decisões judiciais coletivas",
-    alt: "Grupo de trabalhadores em reunião coletiva",
+    img: publicoExecucoes.url,
+    alt: "Mãos analisando documentos e anotações sobre decisões judiciais coletivas",
   },
   {
     text: "Trabalhadores em ações individuais",
