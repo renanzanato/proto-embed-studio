@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import associacoes from "@/assets/associacoes-sindicatos-federacoes-confederacoes.jpg.asset.json";
 import outrosVinculos from "@/assets/front-view-doctor-wearing-lab-coat.jpg.asset.json";
 import solAdm from "@/assets/vinculos-administracao-publica.jpg.asset.json";
 import servidorasPublicos from "@/assets/servidoras-servidores-publicos.jpg.asset.json";
@@ -60,6 +61,8 @@ const publicoItems: PublicoItem[] = [
   {
     text: "Associações, sindicatos, federações e confederações",
     alt: "Assembleia de entidade representativa de servidores",
+    img: associacoes.url,
+    focus: "50% 50%",
   },
   {
     text: "Advogadas e advogados que tenham interesse em estabelecer parceria",
