@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import solLitigios from "@/assets/litigios-coletivos-grupo.jpg.asset.json";
 import publicoSindicatos from "@/assets/people-networking-conference-registration-desk-2.jpg.asset.json";
+import publicoTrabalhadores from "@/assets/group-diverse-occupation-people.jpg.asset.json";
+
 
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
@@ -56,8 +58,11 @@ const publicoItems: PublicoItem[] = [
 
   {
     text: "Trabalhadores representados coletivamente",
-    alt: "Grupo de trabalhadores em reunião coletiva",
+    img: publicoTrabalhadores.url,
+    alt: "Grupo diverso de profissionais de várias ocupações",
+    focus: "50% 50%",
   },
+
   {
     text: "Grupos de empregados atingidos por uma mesma prática empresarial",
     alt: "Ambiente corporativo com trabalhadores",
