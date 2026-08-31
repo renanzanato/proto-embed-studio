@@ -1,11 +1,11 @@
-import teamAline from "@/assets/team-aline.jpg.asset.json";
-import teamCamilla from "@/assets/team-camilla.jpg.asset.json";
-import teamCarlos from "@/assets/team-carlos.jpg.asset.json";
-import teamDaniela from "@/assets/team-daniela.jpg.asset.json";
-import teamEduardo from "@/assets/team-eduardo.jpg.asset.json";
-import teamFernanda from "@/assets/team-fernanda.jpg.asset.json";
-import teamLoguercio from "@/assets/team-loguercio.jpg.asset.json";
-import teamNilo from "@/assets/team-nilo.jpg.asset.json";
+import teamAline from "@/assets/team-aline-branco.jpg.asset.json";
+import teamCamilla from "@/assets/team-camilla-branco.jpg.asset.json";
+import teamCarlos from "@/assets/team-carlos-branco.jpg.asset.json";
+import teamDaniela from "@/assets/team-daniela-branco.jpg.asset.json";
+import teamEduardo from "@/assets/team-eduardo-branco.jpg.asset.json";
+import teamFernanda from "@/assets/team-fernanda-branco.jpg.asset.json";
+import teamLoguercio from "@/assets/team-loguercio-branco.jpg.asset.json";
+import teamNilo from "@/assets/team-nilo-branco.jpg.asset.json";
 
 export type TeamMember = {
   slug: string;

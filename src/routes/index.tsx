@@ -7,9 +7,9 @@ import splitLeftAsset from "@/assets/banner-homepage-secao-2-imagem-1-lbs.png.as
 import splitRightAsset from "@/assets/banner-homepage-secao-2-imagem-2-lbs.png.asset.json";
 const servicosMetal = splitLeftAsset.url;
 const atuacaoOffice = splitRightAsset.url;
-import teamLoguercio from "@/assets/team-loguercio.jpg.asset.json";
-import teamNilo from "@/assets/team-nilo.jpg.asset.json";
-import teamEduardo from "@/assets/team-eduardo.jpg.asset.json";
+import teamLoguercio from "@/assets/team-loguercio-branco.jpg.asset.json";
+import teamNilo from "@/assets/team-nilo-branco.jpg.asset.json";
+import teamEduardo from "@/assets/team-eduardo-branco.jpg.asset.json";
 import newsHeroAsset from "@/assets/news-hero-cit.jpg.asset.json";
 const newsHero = newsHeroAsset.url;
 import news1Asset from "@/assets/imagem-homepage-artigos-noticias-2-lbs-3.png.asset.json";
