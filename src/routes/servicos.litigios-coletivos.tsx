@@ -4,9 +4,7 @@ import solLitigios from "@/assets/litigios-coletivos-grupo.jpg.asset.json";
 import publicoSindicatos from "@/assets/people-networking-conference-registration-desk-2.jpg.asset.json";
 import publicoTrabalhadores from "@/assets/group-diverse-occupation-people.jpg.asset.json";
 import publicoEmpregados from "@/assets/group-workers-are-working-factory.jpg.asset.json";
-
-
-
+import publicoEscritorios from "@/assets/looking-through-papers-2.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
@@ -74,7 +72,9 @@ const publicoItems: PublicoItem[] = [
 
   {
     text: "Escritórios parceiros que demandam atuação especializada em Direito Coletivo do Trabalho",
-    alt: "Reunião entre advogados parceiros",
+    img: publicoEscritorios.url,
+    alt: "Advogado revisando documentos em escritório parceiro",
+    focus: "50% 50%",
   },
 ];
 
