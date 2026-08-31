@@ -54,6 +54,8 @@ const publicoItems: PublicoItem[] = [
   {
     text: "Pessoas que trabalham para o Estado sob outros vínculos: contratados temporários, bolsistas, terceirizados e empregados públicos",
     alt: "Trabalhadores contratados por vínculos diversos com o poder público",
+    img: outrosVinculos.url,
+    focus: "50% 50%",
   },
   {
     text: "Associações, sindicatos, federações e confederações",
