@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import solParceiros from "@/assets/sol-parceiros.jpg";
 import escritorioAdvocaciaParceiros from "@/assets/escritorio-advocacia-parceiros.jpg.asset.json";
+import parceirosEntidades from "@/assets/parceiros-estrategicos-entidades.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeParceirosEstrategicos } from "@/data/servico-equipe";
@@ -56,7 +57,9 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "Entidades que demandam atuação em Brasília e instâncias superiores",
-    alt: "Fachada de tribunal superior",
+    alt: "Representante de entidade parceira em ambiente institucional",
+    img: parceirosEntidades.url,
+    focus: "50% 50%",
   },
   {
     text: "Parceiros que atuam em qualquer instância no território nacional",
