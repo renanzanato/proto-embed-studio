@@ -2,6 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 
 import heroImage from "@/assets/a-lbs-hero.jpg";
+import sedeBrasilia from "@/assets/sede-brasilia.jpg.asset.json";
+import sedeCampinas from "@/assets/sede-campinas.webp.asset.json";
+import sedeSaoPaulo from "@/assets/sede-sao-paulo.jpg.asset.json";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { HistoryTeaser } from "@/components/site/HistoryTeaser";
