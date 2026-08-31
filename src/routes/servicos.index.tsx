@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 
 import servicosHero from "@/assets/solucoes-hero.jpg";
 import solDefesa from "@/assets/defesa-pessoa-que-trabalha-oficina.jpg.asset.json";
-import solLitigios from "@/assets/litigios-coletivos.jpg.asset.json";
+import solLitigios from "@/assets/litigios-coletivos-grupo.jpg.asset.json";
 import solTribunais from "@/assets/tribunais-superiores.jpg.asset.json";
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 import solParcerias from "@/assets/parceiros-estrategicos-handshake.jpg.asset.json";
