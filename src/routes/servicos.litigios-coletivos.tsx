@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import solLitigios from "@/assets/litigios-coletivos-grupo.jpg.asset.json";
+import publicoSindicatos from "@/assets/people-networking-conference-registration-desk-2.jpg.asset.json";
+
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
@@ -47,8 +49,11 @@ const destaques: Destaque[] = [
 const publicoItems: PublicoItem[] = [
   {
     text: "Sindicatos, federações, confederações e associações",
-    alt: "Assembleia de entidade representativa de trabalhadores",
+    img: publicoSindicatos.url,
+    alt: "Pessoas em networking durante evento de entidades representativas",
+    focus: "50% 50%",
   },
+
   {
     text: "Trabalhadores representados coletivamente",
     alt: "Grupo de trabalhadores em reunião coletiva",
