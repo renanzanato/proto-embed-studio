@@ -3,7 +3,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import entidadesSociedadeCivil from "@/assets/entidades-sociedade-civil.jpg.asset.json";
 import entidadesSindicais from "@/assets/temas-emergentes-entidades.jpg.asset.json";
 import trabalhadorasViolacoes from "@/assets/trabalhadoras-violacoes-direitos.jpg.asset.json";
+import comunidadesEmpreendimentos from "@/assets/comunidades-empreendimentos.jpg.asset.json";
 import solEmergentes from "@/assets/sol-emergentes.jpg";
+
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeTemasEmergentes } from "@/data/servico-equipe";
@@ -96,7 +98,10 @@ const publicoItems: PublicoItem[] = [
   {
     text: "Comunidades e populações afetadas por empreendimentos empresariais",
     alt: "Comunidade em área de impacto empresarial",
+    img: comunidadesEmpreendimentos.url,
+    focus: "50% 50%",
   },
+
 ];
 
 const servicos: ServiceGroup[] = [
