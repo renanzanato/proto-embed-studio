@@ -67,8 +67,11 @@ const publicoItems: PublicoItem[] = [
 
   {
     text: "Grupos de empregados atingidos por uma mesma prática empresarial",
-    alt: "Ambiente corporativo com trabalhadores",
+    img: publicoEmpregados.url,
+    alt: "Trabalhadores em linha de produção industrial",
+    focus: "50% 50%",
   },
+
   {
     text: "Escritórios parceiros que demandam atuação especializada em Direito Coletivo do Trabalho",
     alt: "Reunião entre advogados parceiros",
