@@ -31,6 +31,7 @@ import { Route as ServicosTribunaisSuperioresRouteImport } from './routes/servic
 import { Route as ServicosVinculosComAAdministracaoPublicaRouteImport } from './routes/servicos.vinculos-com-a-administracao-publica'
 import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
 import { Route as SolucoesSplatRouteImport } from './routes/solucoes.$'
+import { Route as ServicosServicoRamoRouteImport } from './routes/servicos.$servico.$ramo'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -148,6 +149,11 @@ const SolucoesSplatRoute = SolucoesSplatRouteImport.update({
   path: '/solucoes/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicosServicoRamoRoute = ServicosServicoRamoRouteImport.update({
+  id: '/servicos/$servico/$ramo',
+  path: '/servicos/$servico/$ramo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -172,6 +178,7 @@ export interface FileRoutesByFullPath {
   '/equipe/': typeof EquipeIndexRoute
   '/servicos/': typeof ServicosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
+  '/servicos/$servico/$ramo': typeof ServicosServicoRamoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -196,6 +203,7 @@ export interface FileRoutesByTo {
   '/equipe': typeof EquipeIndexRoute
   '/servicos': typeof ServicosIndexRoute
   '/solucoes': typeof SolucoesIndexRoute
+  '/servicos/$servico/$ramo': typeof ServicosServicoRamoRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -221,6 +229,7 @@ export interface FileRoutesById {
   '/equipe/': typeof EquipeIndexRoute
   '/servicos/': typeof ServicosIndexRoute
   '/solucoes/': typeof SolucoesIndexRoute
+  '/servicos/$servico/$ramo': typeof ServicosServicoRamoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -247,6 +256,7 @@ export interface FileRouteTypes {
     | '/equipe/'
     | '/servicos/'
     | '/solucoes/'
+    | '/servicos/$servico/$ramo'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -271,6 +281,7 @@ export interface FileRouteTypes {
     | '/equipe'
     | '/servicos'
     | '/solucoes'
+    | '/servicos/$servico/$ramo'
   id:
     | '__root__'
     | '/'
@@ -295,6 +306,7 @@ export interface FileRouteTypes {
     | '/equipe/'
     | '/servicos/'
     | '/solucoes/'
+    | '/servicos/$servico/$ramo'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -320,6 +332,7 @@ export interface RootRouteChildren {
   EquipeIndexRoute: typeof EquipeIndexRoute
   ServicosIndexRoute: typeof ServicosIndexRoute
   SolucoesIndexRoute: typeof SolucoesIndexRoute
+  ServicosServicoRamoRoute: typeof ServicosServicoRamoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -478,6 +491,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SolucoesSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/servicos/$servico/$ramo': {
+      id: '/servicos/$servico/$ramo'
+      path: '/servicos/$servico/$ramo'
+      fullPath: '/servicos/$servico/$ramo'
+      preLoaderRoute: typeof ServicosServicoRamoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -506,6 +526,7 @@ const rootRouteChildren: RootRouteChildren = {
   EquipeIndexRoute: EquipeIndexRoute,
   ServicosIndexRoute: ServicosIndexRoute,
   SolucoesIndexRoute: SolucoesIndexRoute,
+  ServicosServicoRamoRoute: ServicosServicoRamoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
