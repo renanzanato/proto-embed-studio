@@ -32,11 +32,11 @@ export function AtuacaoDialog({
   return createPortal(
     <div
       className="fixed inset-x-0 z-50 mx-auto w-[min(1140px,96vw)] pt-[14px]"
-      style={{ top }}
+      style={{ top, maxHeight: `calc(100vh - ${top}px - 16px)` }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <div className="relative isolate gap-0 rounded-[6px] border border-lbs-ink/10 bg-white p-7 shadow-xl sm:p-10">
+      <div className="relative isolate max-h-[inherit] gap-0 overflow-y-auto overscroll-contain rounded-[6px] border border-lbs-ink/10 bg-white p-7 shadow-xl sm:p-10">
         <h2 className="sr-only">Áreas de atuação</h2>
 
         <div className="flex flex-wrap gap-2">
