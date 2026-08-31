@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import entidadesSindicais from "@/assets/temas-emergentes-entidades.jpg.asset.json";
 import solEmergentes from "@/assets/sol-emergentes.jpg";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
