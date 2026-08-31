@@ -76,7 +76,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "LBS Advogadas e Advogados: defesa de quem trabalha e estruturação de causas que transformam. Conheça nossas soluções.",
+          "LBS Advogadas e Advogados: defesa de quem trabalha e estruturação de causas que transformam. Conheça nossos serviços.",
       },
       { property: "og:title", content: "LBS Advogadas e Advogados" },
       {
@@ -357,7 +357,7 @@ function SplitBand() {
         }`}
       />
 
-      {/* left side image (Soluções) clipped by a sharp diagonal */}
+      {/* left side image (Serviços) clipped by a sharp diagonal */}
       <div className={`absolute inset-0 ${clipTransition}`} style={{ clipPath: leftClip }}>
         <img
           src={servicosMetal}

@@ -64,13 +64,13 @@ const servicos = [
 export const Route = createFileRoute("/servicos/")({
   head: () => ({
     meta: [
-      { title: "Soluções | LBS Advogadas e Advogados" },
+      { title: "Serviços | LBS Advogadas e Advogados" },
       {
         name: "description",
         content:
-          "Soluções jurídicas completas para empresas e pessoas, com atendimento técnico e humanizado em diversas áreas do direito.",
+          "Serviços jurídicos completos para empresas e pessoas, com atendimento técnico e humanizado em diversas áreas do direito.",
       },
-      { property: "og:title", content: "Soluções | LBS Advogadas e Advogados" },
+      { property: "og:title", content: "Serviços | LBS Advogadas e Advogados" },
       {
         property: "og:description",
         content:
@@ -102,15 +102,15 @@ function ServicosPage() {
 
         <div className="mx-auto w-full max-w-[1200px] px-4 pb-16 pt-5 sm:px-6 sm:pb-20 lg:px-8">
           <div className="rounded-[14px] bg-black/45">
-            <SiteHeader active="Soluções" />
+            <SiteHeader active="Áreas de atuação" />
           </div>
 
           <div className="relative z-10 mt-16 max-w-[760px] sm:mt-20">
             <p className="text-[11px] uppercase tracking-[0.22em] text-lbs-magenta">
-              Soluções
+              Serviços
             </p>
             <h1 className="mt-5 text-[32px] font-light leading-[1.18] tracking-tight text-lbs-ink sm:text-[42px] lg:text-[48px]">
-              Soluções jurídicas completas
+              Serviços jurídicos completos
               <br className="hidden sm:block" /> para empresas e pessoas
             </h1>
             <p className="mt-7 max-w-[430px] text-[13px] leading-[1.85] text-lbs-ink/65">
@@ -121,7 +121,7 @@ function ServicosPage() {
         </div>
       </section>
 
-      {/* SOLUÇÕES — LISTA */}
+      {/* SERVIÇOS — LISTA */}
       <section className="w-full bg-[#f5f5f5] pb-20 pt-4 sm:pb-24">
         <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-5 px-4 sm:px-6 lg:px-8">
           {servicos.map((item, i) => {

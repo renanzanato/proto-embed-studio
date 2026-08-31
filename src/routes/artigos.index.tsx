@@ -235,7 +235,7 @@ function FiltrosEListagem() {
               onChange={setAdvogado}
             />
             <Select
-              label="Soluções"
+              label="Serviços"
               value={area}
               options={insightAreas}
               onChange={setArea}
