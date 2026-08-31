@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { politicaPrivacidade as c } from "@/content/politicaPrivacidade";
 
-export const Route = createFileRoute("/politica-de-privacidade/")({
+export const Route = createFileRoute("/politica-de-privacidade")({
   head: () => ({
     meta: [
       { title: c.meta.title },
