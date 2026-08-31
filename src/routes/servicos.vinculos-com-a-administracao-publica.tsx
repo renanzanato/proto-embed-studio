@@ -47,7 +47,7 @@ const publicoItems: PublicoItem[] = [
   {
     text: "Servidoras e servidores públicos federais, estaduais e municipais, ativos e aposentados",
     alt: "Servidores públicos em ambiente de trabalho",
-    image: servidorasPublicos.url,
+    img: servidorasPublicos.url,
     focus: "50% 50%",
   },
   {
