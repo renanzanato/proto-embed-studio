@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import advogadosParceria from "@/assets/advogados-parceria.jpg.asset.json";
 import associacoes from "@/assets/associacoes-sindicatos-federacoes-confederacoes.jpg.asset.json";
 import outrosVinculos from "@/assets/front-view-doctor-wearing-lab-coat.jpg.asset.json";
 import solAdm from "@/assets/vinculos-administracao-publica.jpg.asset.json";
@@ -67,6 +68,8 @@ const publicoItems: PublicoItem[] = [
   {
     text: "Advogadas e advogados que tenham interesse em estabelecer parceria",
     alt: "Reunião entre advogados parceiros",
+    img: advogadosParceria.url,
+    focus: "50% 50%",
   },
 ];
 
