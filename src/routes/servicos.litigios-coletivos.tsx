@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import solLitigios from "@/assets/litigios-coletivos.jpg.asset.json";
+import solLitigios from "@/assets/litigios-coletivos-grupo.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
@@ -142,7 +142,7 @@ function LitigiosPage() {
     <div className="min-h-screen w-full overflow-x-hidden bg-white">
       <ServicoHero
         image={solLitigios.url}
-        alt="Assembleia de trabalhadores em ambiente sindical"
+        alt="Grupo diverso de profissionais reunidos ao ar livre"
         title="Litígios Coletivos"
         intro={diferenciais[0]}
       />
