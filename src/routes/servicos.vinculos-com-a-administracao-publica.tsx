@@ -68,6 +68,8 @@ const publicoItems: PublicoItem[] = [
   {
     text: "Advogadas e advogados que tenham interesse em estabelecer parceria",
     alt: "Reunião entre advogados parceiros",
+    img: advogadosParceria.url,
+    focus: "50% 50%",
   },
 ];
 
