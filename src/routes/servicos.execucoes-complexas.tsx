@@ -64,7 +64,9 @@ const diferenciais = [
 const publicoItems: PublicoItem[] = [
   {
     text: "Sindicatos, federações, confederações e associações",
-    alt: "Assembleia de entidade representativa de trabalhadores",
+    img: publicoSindicatos.url,
+    focus: "50% 35%",
+    alt: "Trabalhadores e líderes reunidos em ambiente industrial ao redor de quadro branco",
   },
   {
     text: "Trabalhadores beneficiários de decisões judiciais coletivas",
