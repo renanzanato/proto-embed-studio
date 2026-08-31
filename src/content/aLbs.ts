@@ -22,7 +22,7 @@ export const aLbsContent = {
   hero: {
     title: "A LBS",
     statement: "Para quem trabalha, direitos; para direitos, LBS.",
-  }
+  },
   origem: {
     label: "Nossa origem",
     paragraphs: [
