@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import solLitigios from "@/assets/litigios-coletivos.jpg.asset.json";
+import solLitigios from "@/assets/litigios-coletivos-grupo.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 
