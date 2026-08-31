@@ -67,7 +67,8 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "Trabalhadores beneficiários de decisões judiciais coletivas",
-    alt: "Grupo de trabalhadores em reunião coletiva",
+    img: publicoExecucoes.url,
+    alt: "Mãos analisando documentos e anotações sobre decisões judiciais coletivas",
   },
   {
     text: "Trabalhadores em ações individuais",
