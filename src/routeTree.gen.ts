@@ -14,6 +14,7 @@ import { Route as LinhaDoTempoAbRouteImport } from './routes/linha-do-tempo-ab'
 import { Route as NossaHistoriaRouteImport } from './routes/nossa-historia'
 import { Route as PoliticaDePrivacidadeRouteImport } from './routes/politica-de-privacidade'
 import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
+import { Route as TrabalheConoscoRouteImport } from './routes/trabalhe-conosco'
 import { Route as ALbsIndexRouteImport } from './routes/a-lbs.index'
 import { Route as ALbsHistoriaRouteImport } from './routes/a-lbs.historia'
 import { Route as ArtigosIndexRouteImport } from './routes/artigos.index'
@@ -57,6 +58,11 @@ const PoliticaDePrivacidadeRoute = PoliticaDePrivacidadeRouteImport.update({
 const PrototipoLbsRoute = PrototipoLbsRouteImport.update({
   id: '/prototipo-lbs',
   path: '/prototipo-lbs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrabalheConoscoRoute = TrabalheConoscoRouteImport.update({
+  id: '/trabalhe-conosco',
+  path: '/trabalhe-conosco',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ALbsIndexRoute = ALbsIndexRouteImport.update({
@@ -167,6 +173,7 @@ export interface FileRoutesByFullPath {
   '/nossa-historia': typeof NossaHistoriaRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
+  '/trabalhe-conosco': typeof TrabalheConoscoRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/artigos/$slug': typeof ArtigosSlugRoute
   '/atuacao/$': typeof AtuacaoSplatRoute
@@ -193,6 +200,7 @@ export interface FileRoutesByTo {
   '/nossa-historia': typeof NossaHistoriaRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
+  '/trabalhe-conosco': typeof TrabalheConoscoRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/artigos/$slug': typeof ArtigosSlugRoute
   '/atuacao/$': typeof AtuacaoSplatRoute
@@ -220,6 +228,7 @@ export interface FileRoutesById {
   '/nossa-historia': typeof NossaHistoriaRoute
   '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
+  '/trabalhe-conosco': typeof TrabalheConoscoRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/artigos/$slug': typeof ArtigosSlugRoute
   '/atuacao/$': typeof AtuacaoSplatRoute
@@ -248,6 +257,7 @@ export interface FileRouteTypes {
     | '/nossa-historia'
     | '/politica-de-privacidade'
     | '/prototipo-lbs'
+    | '/trabalhe-conosco'
     | '/a-lbs/historia'
     | '/artigos/$slug'
     | '/atuacao/$'
@@ -274,6 +284,7 @@ export interface FileRouteTypes {
     | '/nossa-historia'
     | '/politica-de-privacidade'
     | '/prototipo-lbs'
+    | '/trabalhe-conosco'
     | '/a-lbs/historia'
     | '/artigos/$slug'
     | '/atuacao/$'
@@ -300,6 +311,7 @@ export interface FileRouteTypes {
     | '/nossa-historia'
     | '/politica-de-privacidade'
     | '/prototipo-lbs'
+    | '/trabalhe-conosco'
     | '/a-lbs/historia'
     | '/artigos/$slug'
     | '/atuacao/$'
@@ -327,6 +339,7 @@ export interface RootRouteChildren {
   NossaHistoriaRoute: typeof NossaHistoriaRoute
   PoliticaDePrivacidadeRoute: typeof PoliticaDePrivacidadeRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
+  TrabalheConoscoRoute: typeof TrabalheConoscoRoute
   ALbsHistoriaRoute: typeof ALbsHistoriaRoute
   ArtigosSlugRoute: typeof ArtigosSlugRoute
   AtuacaoSplatRoute: typeof AtuacaoSplatRoute
@@ -383,6 +396,13 @@ declare module '@tanstack/react-router' {
       path: '/prototipo-lbs'
       fullPath: '/prototipo-lbs'
       preLoaderRoute: typeof PrototipoLbsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trabalhe-conosco': {
+      id: '/trabalhe-conosco'
+      path: '/trabalhe-conosco'
+      fullPath: '/trabalhe-conosco'
+      preLoaderRoute: typeof TrabalheConoscoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/a-lbs/': {
@@ -527,6 +547,7 @@ const rootRouteChildren: RootRouteChildren = {
   NossaHistoriaRoute: NossaHistoriaRoute,
   PoliticaDePrivacidadeRoute: PoliticaDePrivacidadeRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
+  TrabalheConoscoRoute: TrabalheConoscoRoute,
   ALbsHistoriaRoute: ALbsHistoriaRoute,
   ArtigosSlugRoute: ArtigosSlugRoute,
   AtuacaoSplatRoute: AtuacaoSplatRoute,

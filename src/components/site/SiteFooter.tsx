@@ -7,7 +7,7 @@ const footerMenu = [
   { label: "Início", to: "/" },
   { label: "Equipe", to: "/equipe" },
   { label: "A LBS", to: "/a-lbs" },
-  { label: "Trabalhe Conosco", to: "/" },
+  { label: "Trabalhe Conosco", to: "/trabalhe-conosco" },
   { label: "Áreas de atuação", to: "/servicos" },
   { label: "Política de Privacidade", to: "/politica-de-privacidade" },
   { label: "Artigos e Notícias", to: "/artigos" },
