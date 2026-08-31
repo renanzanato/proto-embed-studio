@@ -29,6 +29,8 @@ import { Route as ServicosParceirosEstrategicosRouteImport } from './routes/serv
 import { Route as ServicosTemasEmergentesRouteImport } from './routes/servicos.temas-emergentes'
 import { Route as ServicosTribunaisSuperioresRouteImport } from './routes/servicos.tribunais-superiores'
 import { Route as ServicosVinculosComAAdministracaoPublicaRouteImport } from './routes/servicos.vinculos-com-a-administracao-publica'
+import { Route as SolucoesIndexRouteImport } from './routes/solucoes.index'
+import { Route as SolucoesSplatRouteImport } from './routes/solucoes.$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -136,6 +138,16 @@ const ServicosVinculosComAAdministracaoPublicaRoute =
     path: '/servicos/vinculos-com-a-administracao-publica',
     getParentRoute: () => rootRouteImport,
   } as any)
+const SolucoesIndexRoute = SolucoesIndexRouteImport.update({
+  id: '/solucoes/',
+  path: '/solucoes/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolucoesSplatRoute = SolucoesSplatRouteImport.update({
+  id: '/solucoes/$',
+  path: '/solucoes/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -153,11 +165,13 @@ export interface FileRoutesByFullPath {
   '/servicos/temas-emergentes': typeof ServicosTemasEmergentesRoute
   '/servicos/tribunais-superiores': typeof ServicosTribunaisSuperioresRoute
   '/servicos/vinculos-com-a-administracao-publica': typeof ServicosVinculosComAAdministracaoPublicaRoute
+  '/solucoes/$': typeof SolucoesSplatRoute
   '/a-lbs/': typeof ALbsIndexRoute
   '/artigos/': typeof ArtigosIndexRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
   '/servicos/': typeof ServicosIndexRoute
+  '/solucoes/': typeof SolucoesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -175,11 +189,13 @@ export interface FileRoutesByTo {
   '/servicos/temas-emergentes': typeof ServicosTemasEmergentesRoute
   '/servicos/tribunais-superiores': typeof ServicosTribunaisSuperioresRoute
   '/servicos/vinculos-com-a-administracao-publica': typeof ServicosVinculosComAAdministracaoPublicaRoute
+  '/solucoes/$': typeof SolucoesSplatRoute
   '/a-lbs': typeof ALbsIndexRoute
   '/artigos': typeof ArtigosIndexRoute
   '/atuacao': typeof AtuacaoIndexRoute
   '/equipe': typeof EquipeIndexRoute
   '/servicos': typeof ServicosIndexRoute
+  '/solucoes': typeof SolucoesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -198,11 +214,13 @@ export interface FileRoutesById {
   '/servicos/temas-emergentes': typeof ServicosTemasEmergentesRoute
   '/servicos/tribunais-superiores': typeof ServicosTribunaisSuperioresRoute
   '/servicos/vinculos-com-a-administracao-publica': typeof ServicosVinculosComAAdministracaoPublicaRoute
+  '/solucoes/$': typeof SolucoesSplatRoute
   '/a-lbs/': typeof ALbsIndexRoute
   '/artigos/': typeof ArtigosIndexRoute
   '/atuacao/': typeof AtuacaoIndexRoute
   '/equipe/': typeof EquipeIndexRoute
   '/servicos/': typeof ServicosIndexRoute
+  '/solucoes/': typeof SolucoesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -222,11 +240,13 @@ export interface FileRouteTypes {
     | '/servicos/temas-emergentes'
     | '/servicos/tribunais-superiores'
     | '/servicos/vinculos-com-a-administracao-publica'
+    | '/solucoes/$'
     | '/a-lbs/'
     | '/artigos/'
     | '/atuacao/'
     | '/equipe/'
     | '/servicos/'
+    | '/solucoes/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -244,11 +264,13 @@ export interface FileRouteTypes {
     | '/servicos/temas-emergentes'
     | '/servicos/tribunais-superiores'
     | '/servicos/vinculos-com-a-administracao-publica'
+    | '/solucoes/$'
     | '/a-lbs'
     | '/artigos'
     | '/atuacao'
     | '/equipe'
     | '/servicos'
+    | '/solucoes'
   id:
     | '__root__'
     | '/'
@@ -266,11 +288,13 @@ export interface FileRouteTypes {
     | '/servicos/temas-emergentes'
     | '/servicos/tribunais-superiores'
     | '/servicos/vinculos-com-a-administracao-publica'
+    | '/solucoes/$'
     | '/a-lbs/'
     | '/artigos/'
     | '/atuacao/'
     | '/equipe/'
     | '/servicos/'
+    | '/solucoes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -289,11 +313,13 @@ export interface RootRouteChildren {
   ServicosTemasEmergentesRoute: typeof ServicosTemasEmergentesRoute
   ServicosTribunaisSuperioresRoute: typeof ServicosTribunaisSuperioresRoute
   ServicosVinculosComAAdministracaoPublicaRoute: typeof ServicosVinculosComAAdministracaoPublicaRoute
+  SolucoesSplatRoute: typeof SolucoesSplatRoute
   ALbsIndexRoute: typeof ALbsIndexRoute
   ArtigosIndexRoute: typeof ArtigosIndexRoute
   AtuacaoIndexRoute: typeof AtuacaoIndexRoute
   EquipeIndexRoute: typeof EquipeIndexRoute
   ServicosIndexRoute: typeof ServicosIndexRoute
+  SolucoesIndexRoute: typeof SolucoesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -438,6 +464,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicosVinculosComAAdministracaoPublicaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solucoes/': {
+      id: '/solucoes/'
+      path: '/solucoes'
+      fullPath: '/solucoes/'
+      preLoaderRoute: typeof SolucoesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solucoes/$': {
+      id: '/solucoes/$'
+      path: '/solucoes/$'
+      fullPath: '/solucoes/$'
+      preLoaderRoute: typeof SolucoesSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -459,11 +499,13 @@ const rootRouteChildren: RootRouteChildren = {
   ServicosTribunaisSuperioresRoute: ServicosTribunaisSuperioresRoute,
   ServicosVinculosComAAdministracaoPublicaRoute:
     ServicosVinculosComAAdministracaoPublicaRoute,
+  SolucoesSplatRoute: SolucoesSplatRoute,
   ALbsIndexRoute: ALbsIndexRoute,
   ArtigosIndexRoute: ArtigosIndexRoute,
   AtuacaoIndexRoute: AtuacaoIndexRoute,
   EquipeIndexRoute: EquipeIndexRoute,
   ServicosIndexRoute: ServicosIndexRoute,
+  SolucoesIndexRoute: SolucoesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
