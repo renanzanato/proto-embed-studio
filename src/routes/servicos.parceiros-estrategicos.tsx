@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import solParceiros from "@/assets/sol-parceiros.jpg";
+import escritorioAdvocaciaParceiros from "@/assets/escritorio-advocacia-parceiros.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeParceirosEstrategicos } from "@/data/servico-equipe";
@@ -46,6 +47,8 @@ const publicoItems: PublicoItem[] = [
   {
     text: "Escritórios de advocacia",
     alt: "Sala de reunião em escritório de advocacia",
+    img: escritorioAdvocaciaParceiros.url,
+    focus: "50% 50%",
   },
   {
     text: "Advogados em busca de parceria especializada",
