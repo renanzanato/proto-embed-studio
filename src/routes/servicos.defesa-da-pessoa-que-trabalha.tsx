@@ -15,6 +15,7 @@ import {
   type PublicoItem,
   type ServiceGroup,
 } from "@/components/servicos/ServicoSections";
+import publicoCorredor from "@/assets/publico-corredor.jpg.asset.json";
 
 const diferenciais = [
   "A defesa da pessoa que trabalha é a origem e a razão de existir da LBS Advogadas e Advogados.",
@@ -247,7 +248,8 @@ const bancariosServicos: ServiceGroup[] = [
 const publicoItems: PublicoItem[] = [
   {
     text: "sob vínculo celetista",
-    alt: "Reunião de trabalho no escritório da LBS",
+    img: publicoCorredor.url,
+    alt: "Dois colegas de trabalho conversando e sorrindo em corredor de empresa",
   },
   {
     text: "contratadas como pessoa jurídica ou pessoa física",
