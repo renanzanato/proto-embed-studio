@@ -3,6 +3,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import solLitigios from "@/assets/litigios-coletivos-grupo.jpg.asset.json";
 import publicoSindicatos from "@/assets/people-networking-conference-registration-desk-2.jpg.asset.json";
 import publicoTrabalhadores from "@/assets/group-diverse-occupation-people.jpg.asset.json";
+import publicoEmpregados from "@/assets/group-workers-are-working-factory.jpg.asset.json";
+
 
 
 
