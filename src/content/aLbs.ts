@@ -17,12 +17,12 @@ export const aLbsContent = {
   meta: {
     title: "A LBS | LBS Advogadas e Advogados",
     description:
-      "Defendemos quem trabalha. Estruturamos causas que transformam.",
+      "Para quem trabalha, direitos; para direitos, LBS.",
   },
   hero: {
     title: "A LBS",
-    statement: "Defendemos quem trabalha. Estruturamos causas que transformam.",
-  },
+    statement: "Para quem trabalha, direitos; para direitos, LBS.",
+  }
   origem: {
     label: "Nossa origem",
     paragraphs: [

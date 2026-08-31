@@ -9,9 +9,9 @@ import { TypewriterHeadline } from "@/components/site/TypewriterHeadline";
 import { aLbsContent as c } from "@/content/aLbs";
 
 const heroSegments = [
-  { text: "Defendemos quem trabalha." },
+  { text: "Para quem trabalha, direitos;" },
   { isBreak: true },
-  { text: "Estruturamos causas que transformam.", className: "text-white/85" },
+  { text: "para direitos, LBS.", className: "text-white/85" },
 ];
 
 const chamfer = {
