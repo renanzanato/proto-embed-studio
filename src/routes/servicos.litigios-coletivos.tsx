@@ -49,8 +49,11 @@ const destaques: Destaque[] = [
 const publicoItems: PublicoItem[] = [
   {
     text: "Sindicatos, federações, confederações e associações",
-    alt: "Assembleia de entidade representativa de trabalhadores",
+    img: publicoSindicatos.url,
+    alt: "Pessoas em networking durante evento de entidades representativas",
+    focus: "50% 50%",
   },
+
   {
     text: "Trabalhadores representados coletivamente",
     alt: "Grupo de trabalhadores em reunião coletiva",
