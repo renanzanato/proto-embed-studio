@@ -4,6 +4,7 @@ import solParceiros from "@/assets/sol-parceiros.jpg";
 import escritorioAdvocaciaParceiros from "@/assets/escritorio-advocacia-parceiros.jpg.asset.json";
 import parceirosEntidades from "@/assets/parceiros-estrategicos-entidades.jpg.asset.json";
 import advogadosParceria from "@/assets/advogados-parceria.jpg.asset.json";
+import parceirosAtuacaoNacional from "@/assets/parceiros-atuacao-nacional.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
 import { equipeParceirosEstrategicos } from "@/data/servico-equipe";
@@ -66,7 +67,9 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "Parceiros que atuam em qualquer instância no território nacional",
-    alt: "Equipe de advogados em atuação nacional",
+    alt: "Advogado com pasta em aeroporto, representando atuação nacional",
+    img: parceirosAtuacaoNacional.url,
+    focus: "50% 50%",
   },
 ];
 
