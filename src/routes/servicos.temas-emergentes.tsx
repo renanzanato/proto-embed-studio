@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
+import entidadesSociedadeCivil from "@/assets/entidades-sociedade-civil.jpg.asset.json";
 import entidadesSindicais from "@/assets/temas-emergentes-entidades.jpg.asset.json";
 import trabalhadorasViolacoes from "@/assets/trabalhadoras-violacoes-direitos.jpg.asset.json";
 import solEmergentes from "@/assets/sol-emergentes.jpg";
@@ -88,7 +89,9 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "Entidades da sociedade civil e organizações de defesa de direitos",
-    alt: "Organização da sociedade civil em atividade",
+    alt: "Equipe de organização da sociedade civil em reunião",
+    img: entidadesSociedadeCivil.url,
+    focus: "50% 50%",
   },
   {
     text: "Comunidades e populações afetadas por empreendimentos empresariais",
