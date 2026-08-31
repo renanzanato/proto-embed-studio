@@ -61,6 +61,8 @@ const publicoItems: PublicoItem[] = [
   {
     text: "Associações, sindicatos, federações e confederações",
     alt: "Assembleia de entidade representativa de servidores",
+    img: associacoes.url,
+    focus: "50% 50%",
   },
   {
     text: "Advogadas e advogados que tenham interesse em estabelecer parceria",
