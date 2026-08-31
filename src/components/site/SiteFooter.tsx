@@ -9,10 +9,11 @@ const footerMenu = [
   { label: "A LBS", to: "/a-lbs" },
   { label: "Trabalhe Conosco", to: "/" },
   { label: "Áreas de atuação", to: "/servicos" },
-  { label: "Política de Privacidade", to: "/" },
+  { label: "Política de Privacidade", to: "/politica-de-privacidade" },
   { label: "Artigos e Notícias", to: "/artigos" },
   { label: "Contato", to: "/" },
 ];
+
 
 const manifestoUrl =
   "https://lbs.adv.br/wp-content/uploads/2022/05/Manifeso-LBS.pdf";

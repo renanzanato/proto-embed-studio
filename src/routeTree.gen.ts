@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LinhaDoTempoAbRouteImport } from './routes/linha-do-tempo-ab'
 import { Route as NossaHistoriaRouteImport } from './routes/nossa-historia'
+import { Route as PoliticaDePrivacidadeRouteImport } from './routes/politica-de-privacidade'
 import { Route as PrototipoLbsRouteImport } from './routes/prototipo-lbs'
 import { Route as ALbsIndexRouteImport } from './routes/a-lbs.index'
 import { Route as ALbsHistoriaRouteImport } from './routes/a-lbs.historia'
@@ -46,6 +47,11 @@ const LinhaDoTempoAbRoute = LinhaDoTempoAbRouteImport.update({
 const NossaHistoriaRoute = NossaHistoriaRouteImport.update({
   id: '/nossa-historia',
   path: '/nossa-historia',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaDePrivacidadeRoute = PoliticaDePrivacidadeRouteImport.update({
+  id: '/politica-de-privacidade',
+  path: '/politica-de-privacidade',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrototipoLbsRoute = PrototipoLbsRouteImport.update({
@@ -159,6 +165,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/nossa-historia': typeof NossaHistoriaRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/artigos/$slug': typeof ArtigosSlugRoute
@@ -184,6 +191,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/nossa-historia': typeof NossaHistoriaRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/artigos/$slug': typeof ArtigosSlugRoute
@@ -210,6 +218,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/linha-do-tempo-ab': typeof LinhaDoTempoAbRoute
   '/nossa-historia': typeof NossaHistoriaRoute
+  '/politica-de-privacidade': typeof PoliticaDePrivacidadeRoute
   '/prototipo-lbs': typeof PrototipoLbsRoute
   '/a-lbs/historia': typeof ALbsHistoriaRoute
   '/artigos/$slug': typeof ArtigosSlugRoute
@@ -237,6 +246,7 @@ export interface FileRouteTypes {
     | '/'
     | '/linha-do-tempo-ab'
     | '/nossa-historia'
+    | '/politica-de-privacidade'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
     | '/artigos/$slug'
@@ -262,6 +272,7 @@ export interface FileRouteTypes {
     | '/'
     | '/linha-do-tempo-ab'
     | '/nossa-historia'
+    | '/politica-de-privacidade'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
     | '/artigos/$slug'
@@ -287,6 +298,7 @@ export interface FileRouteTypes {
     | '/'
     | '/linha-do-tempo-ab'
     | '/nossa-historia'
+    | '/politica-de-privacidade'
     | '/prototipo-lbs'
     | '/a-lbs/historia'
     | '/artigos/$slug'
@@ -313,6 +325,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   LinhaDoTempoAbRoute: typeof LinhaDoTempoAbRoute
   NossaHistoriaRoute: typeof NossaHistoriaRoute
+  PoliticaDePrivacidadeRoute: typeof PoliticaDePrivacidadeRoute
   PrototipoLbsRoute: typeof PrototipoLbsRoute
   ALbsHistoriaRoute: typeof ALbsHistoriaRoute
   ArtigosSlugRoute: typeof ArtigosSlugRoute
@@ -356,6 +369,13 @@ declare module '@tanstack/react-router' {
       path: '/nossa-historia'
       fullPath: '/nossa-historia'
       preLoaderRoute: typeof NossaHistoriaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-de-privacidade': {
+      id: '/politica-de-privacidade'
+      path: '/politica-de-privacidade'
+      fullPath: '/politica-de-privacidade'
+      preLoaderRoute: typeof PoliticaDePrivacidadeRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/prototipo-lbs': {
@@ -505,6 +525,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   LinhaDoTempoAbRoute: LinhaDoTempoAbRoute,
   NossaHistoriaRoute: NossaHistoriaRoute,
+  PoliticaDePrivacidadeRoute: PoliticaDePrivacidadeRoute,
   PrototipoLbsRoute: PrototipoLbsRoute,
   ALbsHistoriaRoute: ALbsHistoriaRoute,
   ArtigosSlugRoute: ArtigosSlugRoute,
