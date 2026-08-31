@@ -2,10 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import solExecucoes from "@/assets/execucoes-complexas.jpg.asset.json";
 import publicoExecucoes from "@/assets/holding-table-hand-legal-working.jpg.asset.json";
+import publicoEscritorios from "@/assets/looking-through-papers.jpg.asset.json";
 import publicoIndividuais from "@/assets/young-brunette-woman-sitting-waiting-room.jpg.asset.json";
 import publicoSindicatos from "@/assets/publico-sindicatos-fabrica.jpg.asset.json";
 
 import { SiteFooter, WhatsAppButton } from "@/components/site/SiteFooter";
+
 import { equipeExecucoes } from "@/data/servico-equipe";
 import {
   DescricaoSection,
@@ -83,9 +85,11 @@ const publicoItems: PublicoItem[] = [
   },
   {
     text: "Entidades representativas, escritórios e advogados que necessitam de acompanhamento especializado na fase de execução",
+    img: publicoEscritorios.url,
     focus: "50% 50%",
-    alt: "Reunião entre advogados parceiros",
+    alt: "Advogado analisando documentos e processos em escritório",
   },
+
 ];
 
 const servicos: ServiceGroup[] = [
