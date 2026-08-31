@@ -235,7 +235,7 @@ export function PublicoAtendido({
                   loading="lazy"
                   width={912}
                   height={1312}
-                  className="absolute inset-0 h-full w-full object-cover grayscale contrast-[1.05]"
+                  className="absolute inset-0 h-full w-full object-cover"
                   style={{ opacity: i === active ? 1 : 0, transition: "opacity 380ms ease" }}
                 />
               ))}
