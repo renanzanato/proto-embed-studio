@@ -17,6 +17,9 @@ import serv03 from "@/assets/serv-03.jpg";
 import serv04 from "@/assets/serv-04.jpg";
 import serv05 from "@/assets/serv-05.jpg";
 import serv06 from "@/assets/serv-06.jpg";
+import { servicoRamos } from "@/data/servico-ramos";
+
+
 
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { teamMembers } from "@/data/equipe";
