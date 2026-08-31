@@ -42,27 +42,27 @@ export function SiteFooter() {
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <h2 className="text-[22px] font-light leading-[1.35] text-white">
+            <h2 className="text-2xl font-light leading-snug text-white">
               Dialogando com o presente
               <br />e o futuro do trabalho
             </h2>
             <a
               href="/"
-              className="mt-6 inline-flex items-center gap-2 text-[11px] text-lbs-magenta transition-opacity hover:opacity-70"
+              className="mt-6 inline-flex items-center gap-2 text-sm text-lbs-magenta transition-opacity hover:opacity-70"
             >
-              <CalendarDays className="h-3.5 w-3.5" />
+              <CalendarDays className="h-4 w-4" />
               Agende um horário
             </a>
           </div>
 
           <div>
-            <h3 className="text-[11px] uppercase tracking-[0.16em] text-lbs-magenta">Menu</h3>
-            <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3">
+            <h3 className="text-xs uppercase tracking-[0.16em] text-lbs-magenta">Menu</h3>
+            <div className="mt-5 grid grid-cols-2 gap-x-8 gap-y-4">
               {footerMenu.map((item) => (
                 <Link
                   key={item.label}
                   to={item.to}
-                  className="text-[10px] text-white/65 transition-colors hover:text-white"
+                  className="text-sm text-white/65 transition-colors hover:text-white"
                 >
                   {item.label}
                 </Link>
@@ -71,14 +71,13 @@ export function SiteFooter() {
                 href={manifestoUrl}
                 target="_blank"
                 rel="noopener"
-                className="text-[10px] text-white/65 transition-colors hover:text-white"
+                className="text-sm text-white/65 transition-colors hover:text-white"
               >
                 Manifesto
               </a>
             </div>
 
-
-            <h3 className="mt-10 text-[11px] uppercase tracking-[0.16em] text-lbs-magenta">
+            <h3 className="mt-10 text-xs uppercase tracking-[0.16em] text-lbs-magenta">
               Redes Sociais
             </h3>
             <div className="mt-5 flex gap-3">
@@ -87,16 +86,16 @@ export function SiteFooter() {
                   key={label}
                   href="/"
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center bg-white/8 text-white/80 transition-colors hover:bg-white/20 hover:text-white"
+                  className="flex h-10 w-10 items-center justify-center bg-white/8 text-white/80 transition-colors hover:bg-white/20 hover:text-white"
                 >
-                  <Icon className="h-4 w-4" />
+                  <Icon className="h-5 w-5" />
                 </a>
               ))}
             </div>
           </div>
         </div>
 
-        <p className="mt-12 border-t border-white/10 pt-5 text-center text-[9px] text-white/40">
+        <p className="mt-12 border-t border-white/10 pt-5 text-center text-xs text-white/40">
           © 2026 LBS Advogadas e Advogados. Todos os direitos reservados.
         </p>
       </div>
