@@ -576,6 +576,8 @@ export function ServiceGroups({
                       </li>
                     ))}
                   </ul>
+                  <div>{verMais(group.title)}</div>
+
                   <figure className="mt-10 overflow-hidden bg-lbs-ink/5">
                     <img
                       src={servImgs[i % servImgs.length]}
