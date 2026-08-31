@@ -321,6 +321,7 @@ function DefesaPage() {
             label: "Pessoas que trabalham",
             lead: "Pessoas que trabalham – vínculo celetista, contratos como pessoa jurídica e pessoa física. Análises, pareceres, pedidos administrativos e ações judiciais referentes aos seguintes temas:",
             groups: servicosPessoas,
+            servicoSlug: "defesa-da-pessoa-que-trabalha",
           },
           {
             id: "bancarios",

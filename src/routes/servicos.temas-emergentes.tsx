@@ -166,6 +166,7 @@ function TemasEmergentesPage() {
         title="Estratégia, incidência e atuação em organismos internacionais"
         lead="Atuação desenvolvida em conjunto com o cliente nas seguintes frentes:"
         groups={servicos}
+        servicoSlug="temas-emergentes"
         idPrefix="emergentes"
       />
 

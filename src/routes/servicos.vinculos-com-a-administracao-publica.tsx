@@ -269,6 +269,7 @@ function VinculosPage() {
             label: "Servidoras e servidores públicos",
             lead: "Servidoras e servidores públicos. Análises, pareceres, requerimentos administrativos e ações judiciais referentes aos seguintes temas:",
             groups: servidoresServicos,
+            servicoSlug: "vinculos-com-a-administracao-publica",
           },
           {
             id: "estatais",

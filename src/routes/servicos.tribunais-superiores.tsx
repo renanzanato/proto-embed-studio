@@ -130,6 +130,7 @@ function TribunaisPage() {
         title="Condução processual e atuação estratégica em Brasília"
         lead="Atuação desenvolvida em conjunto com o cliente nas seguintes frentes:"
         groups={servicos}
+        servicoSlug="tribunais-superiores"
         idPrefix="tribunais"
       />
 

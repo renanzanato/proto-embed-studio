@@ -607,12 +607,14 @@ export function ServicosSection({
   lead,
   groups,
   idPrefix,
+  servicoSlug,
   children,
 }: {
   title: string;
   lead?: string;
   groups?: ServiceGroup[];
   idPrefix: string;
+  servicoSlug?: string;
   children?: React.ReactNode;
 }) {
   return (
@@ -627,7 +629,7 @@ export function ServicosSection({
           {lead && (
             <p className="max-w-[720px] text-[14px] leading-[1.9] text-lbs-ink/65">{lead}</p>
           )}
-          {groups && <ServiceGroups groups={groups} idPrefix={idPrefix} />}
+          {groups && <ServiceGroups groups={groups} idPrefix={idPrefix} servicoSlug={servicoSlug} />}
           {children}
         </div>
       </div>
@@ -859,6 +861,8 @@ export type ContextoServicos = {
   paragraphs?: string[];
   destaques?: Destaque[];
   groups: ServiceGroup[];
+  /** quando informado, as frentes deste contexto ganham link "Ver mais" */
+  servicoSlug?: string;
 };
 
 export function ServicosPorContexto({
@@ -940,7 +944,11 @@ export function ServicosPorContexto({
             </ul>
           )}
           <div className="mt-8">
-            <ServiceGroups groups={ctxAtual.groups} idPrefix={ctxAtual.id} />
+            <ServiceGroups
+              groups={ctxAtual.groups}
+              idPrefix={ctxAtual.id}
+              servicoSlug={ctxAtual.servicoSlug}
+            />
           </div>
         </div>
       </div>
